@@ -1,12 +1,9 @@
 /* ----------------------------------------
 Code exported from SAS Enterprise Guide
-DATE: Tuesday, 26 March, 2019     TIME: 11:16:07 AM
+DATE: Tuesday, 26 March, 2019     TIME: 11:17:16 AM
 PROJECT: CHIS_Analysis
 PROJECT PATH: C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp
 ---------------------------------------- */
-
-/* Library assignment for Local.CHIS */
-Libname CHIS V9 'C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS' ;
 
 /* ---------------------------------- */
 /* MACRO: enterpriseguide             */
@@ -151,14 +148,7 @@ ODS tagsets.sasreport13(ID=EGSRX) FILE=EGSRX
     options(rolap="on")
 ;
 
-/*   START OF NODE: CHIS_20_AsthmaVars   */
-%LET _CLIENTTASKLABEL='CHIS_20_AsthmaVars';
-%LET _CLIENTPROCESSFLOWNAME='Process Flow';
-%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
-%LET _CLIENTPROJECTPATHHOST='R90T7H56';
-%LET _CLIENTPROJECTNAME='CHIS_Analysis.egp';
-%LET _SASPROGRAMFILE='';
-%LET _SASPROGRAMFILEHOST='';
+/*   START OF NODE: CHIS_30_SubjectChar   */
 
 GOPTIONS ACCESSIBLE;
 /*****************************************************************************************************************************
@@ -169,11 +159,11 @@ GOPTIONS ACCESSIBLE;
 **					  Candidate & NU Scholar, National University															**
 **					  Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine					**
 **	======================================================================================================================= **
-**	Date Created	: 18 February 2019 14:30																				**
+**	Date Created	: 23 March 2019 22:31																					**
 **	Input Files		: CHIS.CHIS_DATA (see CHIS_10_LoadData)																	**
 **	----------------------------------------------------------------------------------------------------------------------- **
-**	Program Name	: CHIS_20_AsthmaVars																					**
-**	Purpose			: Adds Project-Specific Variables to Dataset															**
+**	Program Name	: CHIS_30_SubjectChar																					**
+**	Purpose			: Investigates Characteristics of Sample																**
 **	Reference Note	: Some code may be adapted/used from other sources; see README for "Reference Materials"				**
 **	----------------------------------------------------------------------------------------------------------------------- **
 **	ASTHMA VARIABLES																										**
@@ -190,7 +180,7 @@ GOPTIONS ACCESSIBLE;
 **	----------------------------------------------------------------------------------------------------------------------- **
 **	MODIFICATIONS																											**
 **	=============																											**
-**	Date			: 18 February 2019 14:30																				**
+**	Date			: 23 March 2019 22:31	0																				**
 **	Programmer Name	: Matthew C. Vanderbilt																					**
 **	Description		: Initial development of import protocol																**
 **																															**
@@ -202,178 +192,30 @@ ODS GRAPHICS ON;
 %LET localProjectPath = %SYSFUNC(SUBSTR(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH)), 1, %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH))) - %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTNAME))) ));
 LIBNAME CHIS "&localProjectPath";
 
-/* CUSTOM VARIABLE FORMATS */
-PROC FORMAT LIBRARY=CHIS;
-	VALUE fBoolean		-1	= 'NA'
-						0	= 'False'
-						1	= 'True';
-	VALUE fagegroup		-1	= 'NA'
-						1	= 'Young Adult (18-39)'
-						2	= 'Middle Aged (40-64)'
-						3	= 'Later Adult (65+)';
-	VALUE flanguage		-1	= 'NA'
-						1	= 'English'
-						2	= 'Spanish'
-						3	= 'Other';
-	VALUE fmaritstat	-1	= 'NA'
-						1	= 'Married/Partnered'
-						2	= 'Widowed/Separated'
-						3	= 'Never Married';
-	VALUE fethnicity	-1	= 'NA'
-						1	= 'Latino'
-						2	= 'Other'
-						3	= 'American Indian / Alaska Native'
-						4	= 'Asian'
-						5	= 'African American'
-						6	= 'White'
-						8	= 'Multiracial';
-RUN;
-
 /* APPLY CHIS FORMATS */
 OPTIONS fmtsearch=(CHIS);
 
-/* CLEANUP DATA AND ADD VARIABLES */
-DATA CHIS.CHIS_DATA (WHERE=(year>=2013));
-	SET CHIS.CHIS_DATA_RAW;
-
-	asthmatic = 0;
-	IF ab17		= 1		THEN asthmatic = 1;
-	IF ab40		= 1		THEN asthmatic = 1;
-	IF ab41		= 1		THEN asthmatic = 1;
-	IF ab42_p1	= 1		THEN asthmatic = 1;
-	IF ab43		= 1		THEN asthmatic = 1;
-	IF ab98		= 1		THEN asthmatic = 1;
-	IF astcur	= 1		THEN asthmatic = 1;
-
-	* Recode Variables;
-	rc_ab17		= -1;
-	IF ab17		= 1		THEN rc_ab17 = 1;
-	IF ab17		= 2		THEN rc_ab17 = 0;
-
-	rc_ab40		= -1;
-	IF ab40		= -1	THEN rc_ab40 = -1;
-	IF ab40		= 1		THEN rc_ab40 = 1;
-	IF ab40		= 2		THEN rc_ab40 = 0;
-
-	rc_ab41		= -1;
-	IF ab41		= -1	THEN rc_ab41 = -1;
-	IF ab41		= 1		THEN rc_ab41 = 1;
-	IF ab41		= 2		THEN rc_ab41 = 0;
-
-	rc_ab42_p1	= -1;
-	IF ab42_p1	= -1	THEN rc_ab42_p1 = -1;
-	IF ab42_p1	= 1		THEN rc_ab42_p1 = 1;
-	IF ab42_p1	= 2		THEN rc_ab42_p1 = 0;
-
-	rc_ab43		= -1;
-	IF ab43		= -1	THEN rc_ab43 = -1;
-	IF ab43		= 1		THEN rc_ab43 = 1;
-	IF ab43		= 2		THEN rc_ab43 = 0;
-
-	rc_ab98		= -1;
-	IF ab98		= -1	THEN rc_ab98 = -1;
-	IF ab98		= 1		THEN rc_ab98 = 1;
-	IF ab98		= 2		THEN rc_ab98 = 0;
-
-	rc_astcur	= -1;
-	IF astcur	= 1		THEN rc_astcur = 1;
-	IF astcur	= 2		THEN rc_astcur = 0;
-
-	language	= -1;
-	IF intvlngc_p1 IN(1,2,3) THEN language = intvlngc_p1;
-
-	homeowner	= -1;
-	IF srtenr	= 1		THEN homeowner = 1;
-	IF srtenr	= 2		THEN homeowner = 0;
-
-	agegroup	= -1;
-	IF srage_p1 >= 18 AND srage_p1 < 40	THEN agegroup = 1;
-	IF srage_p1 >= 40 AND srage_p1 < 65	THEN agegroup = 2;
-	IF srage_p1 >= 65					THEN agegroup = 3;
-
-	bnrysex	= -1;
-	IF srsex	<> .	THEN bnrysex = srsex;
-
-	maritstat	= -1;
-	IF marit2	IN(1,2)	THEN maritstat = 1;
-	IF marit2	= 3		THEN maritstat = 2;
-	IF marit2	= 4		THEN maritstat = 3;
-
-	ethnicity	= -1;
-	IF racedf_p1 IN(1,2,3,4,5,6,8) THEN ethnicity = racedf_p1;
-
-	* Field Labels;
-	LABEL rc_ab17		= 'doctor ever told have asthma';
-	LABEL rc_ab40		= 'still has asthma';
-	LABEL rc_ab41		= 'asthma episode/attack in past 12 mos';
-	LABEL rc_ab42_p1	= 'workdays missed due to asthma in past 12 mos (puf 1 yr recode)';
-	LABEL rc_ab43		= 'health professional ever gave asthma management plan';
-	LABEL rc_ab98		= 'have written copy of asthma care plan';
-	LABEL rc_astcur		= 'current asthma status';
-	LABEL asthmatic		= 'ever had asthma';
-	LABEL language		= 'interview language';
-	LABEL homeowner		= 'home owner';
-	LABEL agegroup		= 'age group';
-	LABEL bnrysex		= 'binary sex';
-	LABEL maritstat		= 'marital status';
-	LABEL ethnicity		= 'ethnicity';
-
-	* Field Formats;
-	FORMAT	asthmatic	fBoolean.;
-	FORMAT	rc_ab17		fBoolean.;
-	FORMAT	rc_ab40		fBoolean.;
-	FORMAT	rc_ab41		fBoolean.;
-	FORMAT	rc_ab42_p1	fBoolean.;
-	FORMAT	rc_ab43		fBoolean.;
-	FORMAT	rc_ab98		fBoolean.;
-	FORMAT	rc_astcur	fBoolean.;
-	FORMAT	language	flanguage.;
-	FORMAT	homeowner	fBoolean.;
-	FORMAT	agegroup 	fagegroup.;
-	FORMAT	bnrysex		fbnrysex.;
-	FORMAT	maritstat	fmaritstat.;
-	FORMAT	ethnicity	fethnicity.;
-	
-RUN;
-
-PROC CONTENTS DATA=CHIS.CHIS_DATA VARNUM;
-	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA';
-RUN;
-
+/* SUMMARY STATISTICS */
 PROC FREQ DATA=CHIS.CHIS_DATA;
-	TITLE 'PROC FREQ - CHIS.CHIS_DATA';
-	TABLES	asthmatic
-			asthmatic*ab17
-			asthmatic*rc_ab17 
-			asthmatic*ab40
-			asthmatic*rc_ab40 
-			asthmatic*ab41
-			asthmatic*rc_ab41 
-			asthmatic*ab42_p1
-			asthmatic*rc_ab42_p1 
-			asthmatic*ab43
-			asthmatic*rc_ab43 
-			asthmatic*ab98
-			asthmatic*rc_ab98 
-			asthmatic*astcur
-			asthmatic*rc_astcur
-			ab40*ab41
-			rc_ab40*rc_ab41
+	TABLES	year
 			language
-			language*intvlngc_p1
 			homeowner
-			homeowner*srtenr
 			agegroup
-			agegroup*srage_p1
 			bnrysex
-			bnrysex*srsex
 			maritstat
-			maritstat*marit2
 			ethnicity
-			ethnicity*racedf_p1
-			lnghm_p1*year
+			AB17*AB40
+			AB42_P1*AB41
+			AB43*AB98
+			ASTCUR
+			asthmatic
+			language*asthmatic
+			homeowner*asthmatic
+			agegroup*asthmatic
+			bnrysex*asthmatic
+			maritstat*asthmatic
+			ethnicity*asthmatic
 			;
-
 RUN;
 
 ODS GRAPHICS OFF;

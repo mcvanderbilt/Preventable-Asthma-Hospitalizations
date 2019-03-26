@@ -1,9 +1,12 @@
 /* ----------------------------------------
 Code exported from SAS Enterprise Guide
-DATE: Sunday, 10 March, 2019     TIME: 7:32:47 PM
+DATE: Tuesday, 26 March, 2019     TIME: 11:12:42 AM
 PROJECT: CHIS_Analysis
 PROJECT PATH: C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp
 ---------------------------------------- */
+
+/* Library assignment for Local.CHIS */
+Libname CHIS V9 'C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS' ;
 
 /* ---------------------------------- */
 /* MACRO: enterpriseguide             */
@@ -366,12 +369,7 @@ RUN;
 
 /* COMBINE DATA */
 DATA CHIS.CHIS_DATA_RAW;
-	SET CHIS2001.adult (in=in01)
-		CHIS2003.adult (in=in03)
-		CHIS2005.adult (in=in05)
-		CHIS2007.adult (in=in07)
-		CHIS2009.adult (in=in09)
-		CHIS2011.adult (in=in11)
+	SET CHIS2011.adult (in=in11)
 		CHIS2012.adult (in=in12)
 		CHIS2013.adult (in=in13)
 		CHIS2014.adult (in=in14)
@@ -379,12 +377,7 @@ DATA CHIS.CHIS_DATA_RAW;
 		CHIS2016.adult (in=in16)
 		CHIS2017.adult (in=in17);
 
-	IF		in01 THEN year=2001;
-	ELSE IF in03 THEN year=2003;
-	ELSE IF in05 THEN year=2005;
-	ELSE IF in07 THEN year=2007;
-	ELSE IF in09 THEN year=2009;
-	ELSE IF in11 THEN year=2011;
+	IF		in11 THEN year=2011;
 	ELSE IF in12 THEN year=2012;
 	ELSE IF in13 THEN year=2013;
 	ELSE IF in14 THEN year=2014;
@@ -400,17 +393,14 @@ DATA CHIS.CHIS_DATA_RAW;
 	ARRAY a_newwgts[160] fnwgt1-fnwgt160;
 
 	DO i = 1 to 80;
-			IF year=2001 THEN DO;
-				a_newwgts[i]    = a_origwgts[i]/12;
-				a_newwgts[i+80] = rakedw0/12;
+			IF year=2011 THEN DO;
+				a_newwgts[i]    = a_origwgts[i]/7;
+				a_newwgts[i+80] = rakedw0/7;
     		END;
-		    ELSE IF year=2014 then do;
-
-		      a_newwgts[i]    = rakedw0/2;
-
-		      a_newwgts[i+80] = a_origwgts[i]/2;
-
-		    end;
+		    ELSE IF year>2011 then do;
+		      a_newwgts[i]    = rakedw0/7;
+		      a_newwgts[i+80] = a_origwgts[i]/7;
+		    END;
   	END;
 RUN;
 
@@ -613,6 +603,56 @@ DATA CHIS.CHIS_DATA_RAW;
 	FORMAT	ab52		fCHISBool.;
 	FORMAT	ab118		fCHISBool.;
 RUN;
+
+/* CHIS DEMOGRAPHIC INFORMATION, PART II & CHILD CARE FORMATS */
+PROC FORMAT LIBRARY=CHIS;
+	VALUE fah3nativity	-1	= 'Inapplicable'
+						1	= 'Born in U.S.'
+						2	= 'Born Outside U.S.'
+						;
+	
+	VALUE fcitizen		1	= 'US-Born Citizen'
+						2	= 'Naturalized Citizen'
+						3	= 'Non-Citizen'
+						;
+
+	VALUE fab			1	= 'English'
+						2	= 'Spanish'
+						3	= 'Chinese'
+						4	= 'Vietnamese'
+						5	= 'Korean'
+						6	= 'Other One Language Only'
+						8	= 'English & Spanish'
+						9	= 'English & Chinese'
+						10	= 'English & European Language'
+						11	= 'English & Another Asian Language'
+						12	= 'English & One Other Language'
+						13	= 'Other Languages (2+)'
+						;
+
+	VALUE feducation	1	= 'None / Primary School'
+						2	= 'High School, Partial'
+						3	= 'High School, Graduate'
+						4	= 'College, Partial'
+						5	= 'Vocational School'
+						6	= 'Associates Degree'
+						7	= 'Bachelors Degree'
+						8	= 'Masters Degree'
+						9	= 'Doctorate Degree'
+						;
+
+RUN;
+
+DATA CHIS.CHIS_DATA_RAW;
+	SET CHIS.CHIS_DATA_RAW;
+	FORMAT	ah33new		fah3nativity.;
+	FORMAT	ah34new		fah3nativity.;
+	FORMAT	ah35new		fah3nativity.;
+	FORMAT	lnghm_p1	fab.;
+	FORMAT	citizen2	fcitizen.;
+	FORMAT	ahedc_p1	feducation.;
+RUN;
+
 
 PROC CONTENTS DATA=CHIS.CHIS_DATA_RAW VARNUM;
 	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_RAW';
