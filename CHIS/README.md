@@ -12,11 +12,16 @@ Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medic
 The objective of analysis was to analyze California Health Interview Survey (CHIS) public use data files to identify correlative factors in asthma prevalence.
 
 ## Reference Materials
-- California Health Interview Survey (2012). *CHIS 2009 Data Dictionary: Adult Survey Public Use File*, UCLA Center for Health Policy Research.
+- California Health Interview Survey (2013). *CHIS 2009 Data Dictionary: Adult Survey Public Use File*, UCLA Center for Health Policy Research.
+- California Health Interview Survey (2014). *CHIS 2009 Data Dictionary: Adult Survey Public Use File*, UCLA Center for Health Policy Research.
+- California Health Interview Survey (2015). *CHIS 2009 Data Dictionary: Adult Survey Public Use File*, UCLA Center for Health Policy Research.
+- California Health Interview Survey (2016). *CHIS 2009 Data Dictionary: Adult Survey Public Use File*, UCLA Center for Health Policy Research.
+- California Health Interview Survey (2017). *CHIS 2009 Data Dictionary: Adult Survey Public Use File*, UCLA Center for Health Policy Research.
 - California Health Interview Survey (2019). "Sample Code to Pool Multiple Cycles." *Analyze CHIS Data*. Retrieved Mar 10, 2019, 2019.
 
 ## Built With
 * [SAS Enterprise Guide](https://www.sas.com/en_us/software/enterprise-guide.html) - Statistical analysis
+* [SAS Enterprise Miner](https://www.sas.com/en_us/software/enterprise-miner.html) - Data mining
 
 ## Author(s)
 * **Matthew C. Vanderbilt** - *Initial work* - [mcvanderbilt](https://github.com/mcvanderbilt)
