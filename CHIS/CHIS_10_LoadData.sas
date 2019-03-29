@@ -1,48 +1,39 @@
-/* ----------------------------------------
-Code exported from SAS Enterprise Guide
-DATE: Friday, 29 March, 2019     TIME: 2:13:12 PM
-PROJECT: CHIS_Analysis
-PROJECT PATH: C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp
----------------------------------------- */
-
-
-/*   START OF NODE: CHIS_10_LoadData   */
 
 GOPTIONS ACCESSIBLE;
 /*****************************************************************************************************************************
-**	Project Name	: Secondary Research of Asthma  Hospitalizations														**
-**					  Masters of Science in Business Analytics Cappstone Project											**
-**					  February 2019																							**
-**	Author			: Matthew C. Vanderbilt																					**
-**					  Candidate & NU Scholar, National University															**
-**					  Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine					**
-**	======================================================================================================================= **
-**	Date Created	: 18 February 2019 21:23																				**
-**	Input Files		: CHIS Adult Public Data for 2001, 2003, 2005, 2007, 2009, and 2011 - 2017								**
-**					  Only one-year dat files were utilized; the two-year files were not imported							**
-**	----------------------------------------------------------------------------------------------------------------------- **
-**	Program Name	: CHIS_10_LoadData																						**
-**	Purpose			: Loads CHIS data files and creates combined file with adjusted weightings								**
-**	Reference Note	: Some code may be adapted/used from other sources; see README for "Reference Materials"				**
-**	----------------------------------------------------------------------------------------------------------------------- **
-**	MODIFICATIONS																											**
-**	=============																											**
-**	Date			: 18 February 2019 21:23																				**
-**	Programmer Name	: Matthew C. Vanderbilt																					**
-**	Description		: Initial development of import protocol																**
-**																															**
-**	Date			: 10 March 2019 14:40																					**
-**	Programmer Name	: Matthew C. Vanderbilt																					**
-**	Description		: Updated local path and corrected library references in combine routine.								**
-**																															**
-**	Date			: 10 March 2019 19:32																					**
-**	Programmer Name	: Matthew C. Vanderbilt																					**
-**	Description		: Created and applied formatting per CHIS data dictionary.												**
-**																															**
-**	Date			: 29 March 2019 14:09																					**
-**	Programmer Name	: Matthew C. Vanderbilt																					**
-**	Description		: Completed creation and application of formatting per CHIS data dictionary to common & used variables	**
-**																															**
+**  Project Name    : Secondary Research of Asthma  Hospitalizations                                                        **
+**                    Masters of Science in Business Analytics Capstone Project                                             **
+**                    March / April 2019                                                                                    **
+**  Author          : Matthew C. Vanderbilt                                                                                 **
+**                    Candidate & NU Scholar, National University                                                           **
+**                    Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine                   **
+**  ======================================================================================================================= **
+**  Date Created    : 18 February 2019 21:23                                                                                **
+**  Input Files     : CHIS Adult Public Data for 2001, 2003, 2005, 2007, 2009, and 2011 - 2017                              **
+**                    Only one-year dat files were utilized; the two-year files were not imported                           **
+**  ----------------------------------------------------------------------------------------------------------------------- **
+**  Program Name    : CHIS_10_LoadData                                                                                      **
+**  Purpose         : Loads CHIS data files and creates combined file with adjusted weightings                              **
+**  Reference Note  :  Some code may be adapted/used from other sources; see README for "Reference Materials"                **
+**  ----------------------------------------------------------------------------------------------------------------------- **
+**  MODIFICATIONS                                                                                                           **
+**  =============                                                                                                           **
+**  Date            : 18 February 2019 21:23                                                                                **
+**  Programmer Name : Matthew C. Vanderbilt                                                                                 **
+**  Description     : Initial development of import protocol                                                                **
+**                                                                                                                          **
+**  Date            : 10 March 2019 14:40                                                                                   **
+**  Programmer Name : Matthew C. Vanderbilt                                                                                 **
+**  Description     : Updated local path and corrected library references in combine routine.                               **
+**                                                                                                                          **
+**  Date            : 10 March 2019 19:32                                                                                   **
+**  Programmer Name : Matthew C. Vanderbilt                                                                                 **
+**  Description     : Created and applied formatting per CHIS data dictionary.                                              **
+**                                                                                                                          **
+**  Date            : 29 March 2019 14:09                                                                                   **
+**  Programmer Name : Matthew C. Vanderbilt                                                                                 **
+**  Description     : Completed creation and application of formatting per CHIS data dictionary to common & used variables  **
+**                                                                                                                          **
 *****************************************************************************************************************************/
 
 ODS GRAPHICS ON;
