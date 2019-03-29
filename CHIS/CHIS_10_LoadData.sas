@@ -527,7 +527,7 @@ DATA CHIS.CHIS_DATA_RAW;
 	FORMAT	ad32_p1		fad32_p1z.;
 	FORMAT	ae16_p1		fae16_p1z.;
 	FORMAT	smkcur		fsmkcur.;
-	FORMAT	smoking		fssmoking.;
+	FORMAT	smoking		fsmoking.;
 	FORMAT	numcig		fnumcig.;
 	FORMAT	ac49		fCHISBool.;
 	FORMAT	ac50		fCHISBool.;
