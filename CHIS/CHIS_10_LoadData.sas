@@ -1182,7 +1182,8 @@ RUN;
 
 /* CHIS SECTION N: DEMOGRAPHIC INFORMATION / GEOGRAPHIC INFORMATION */
 PROC FORMAT LIBRARY=CHIS;
-	VALUE fam34z		-8	= 'Dont Know'
+	VALUE fam34z		-9	= 'Not Ascertained'
+						-8	= 'Dont Know'
 						-7	= 'Refused'
 						-1	= 'Inapplicable'
 						1	= 'All or Almost All Calls on Cell Phones'
