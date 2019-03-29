@@ -32,44 +32,77 @@ NOTE: Writing TAGSETS.SASREPORT13(EGSR) Body file: EGSR
 27         GOPTIONS ACCESSIBLE;
 28         /************************************************************************************************************************
 28       ! *****
-29         **	Project Name	: Secondary Research of Asthma  Hospitalizations														**
-30         **					  Masters of Science in Business Analytics Cappstone Project											**
-31         **					  February 2019																							**
-32         **	Author			: Matthew C. Vanderbilt																					**
-33         **					  Candidate & NU Scholar, National University															**
-34         **					  Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine					**
-35         **	======================================================================================================================
-35       ! = **
-36         **	Date Created	: 18 February 2019 21:23																				**
-37         **	Input Files		: CHIS Adult Public Data for 2001, 2003, 2005, 2007, 2009, and 2011 - 2017								**
-38         **					  Only one-year dat files were utilized; the two-year files were not imported							**
-39         **	----------------------------------------------------------------------------------------------------------------------
-39       ! - **
-40         **	Program Name	: CHIS_10_LoadData																						**
-41         **	Purpose			: Loads CHIS data files and creates combined file with adjusted weightings								**
-42         **	Reference Note	: Some code may be adapted/used from other sources; see README for "Reference Materials"				**
-43         **	----------------------------------------------------------------------------------------------------------------------
-43       ! - **
-44         **	MODIFICATIONS																											**
-45         **	=============																											**
-46         **	Date			: 18 February 2019 21:23																				**
-47         **	Programmer Name	: Matthew C. Vanderbilt																					**
-48         **	Description		: Initial development of import protocol																**
-49         **																															**
-50         **	Date			: 10 March 2019 14:40																					**
-51         **	Programmer Name	: Matthew C. Vanderbilt																					**
+29         **  Project Name    : Secondary Research of Asthma  Hospitalizations
+29       !    **
+30         **                    Masters of Science in Business Analytics Capstone Project
+30       !    **
+31         **                    March / April 2019
+31       !    **
+32         **  Author          : Matthew C. Vanderbilt
+32       !    **
+33         **                    Candidate & NU Scholar, National University
+33       !    **
+34         **                    Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine
+34       !    **
+35         **
+35       ! =======================================================================================================================
+35       ! **
+36         **  Date Created    : 18 February 2019 21:23
+36       !    **
+37         **  Input Files     : CHIS Adult Public Data for 2001, 2003, 2005, 2007, 2009, and 2011 - 2017
+37       !    **
+38         **                    Only one-year dat files were utilized; the two-year files were not imported
+38       !    **
+39         **
+39       ! -----------------------------------------------------------------------------------------------------------------------
+39       ! **
+40         **  Program Name    : CHIS_10_LoadData
+40       !    **
 2                                                          The SAS System                               13:26 Friday, March 29, 2019
 
-52         **	Description		: Updated local path and corrected library references in combine routine.								**
-53         **																															**
-54         **	Date			: 10 March 2019 19:32																					**
-55         **	Programmer Name	: Matthew C. Vanderbilt																					**
-56         **	Description		: Created and applied formatting per CHIS data dictionary.												**
-57         **																															**
-58         **	Date			: 29 March 2019 14:09																					**
-59         **	Programmer Name	: Matthew C. Vanderbilt																					**
-60         **	Description		: Completed creation and application of formatting per CHIS data dictionary to common & used variables	**
-61         **																															**
+41         **  Purpose         : Loads CHIS data files and creates combined file with adjusted weightings
+41       !    **
+42         **  Reference Note  :  Some code may be adapted/used from other sources; see README for "Reference Materials"
+42       !     **
+43         **
+43       ! -----------------------------------------------------------------------------------------------------------------------
+43       ! **
+44         **  MODIFICATIONS
+44       !    **
+45         **  =============
+45       !    **
+46         **  Date            : 18 February 2019 21:23
+46       !    **
+47         **  Programmer Name : Matthew C. Vanderbilt
+47       !    **
+48         **  Description     : Initial development of import protocol
+48       !    **
+49         **
+49       !    **
+50         **  Date            : 10 March 2019 14:40
+50       !    **
+51         **  Programmer Name : Matthew C. Vanderbilt
+51       !    **
+52         **  Description     : Updated local path and corrected library references in combine routine.
+52       !    **
+53         **
+53       !    **
+54         **  Date            : 10 March 2019 19:32
+54       !    **
+55         **  Programmer Name : Matthew C. Vanderbilt
+55       !    **
+56         **  Description     : Created and applied formatting per CHIS data dictionary.
+56       !    **
+57         **
+57       !    **
+58         **  Date            : 29 March 2019 14:09
+58       !    **
+59         **  Programmer Name : Matthew C. Vanderbilt
+59       !    **
+60         **  Description     : Completed creation and application of formatting per CHIS data dictionary to common & used
+60       ! variables  **
+61         **
+61       !    **
 62         *************************************************************************************************************************
 62       ! ****/
 63         
@@ -85,6 +118,8 @@ NOTE: Libref CHIS was successfully assigned as follows:
 69         
 70         /* LOAD 2017 DATA */
 71         LIBNAME CHIS2017 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\adult_2017_sas';
+3                                                          The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Libref CHIS2017 was successfully assigned as follows: 
       Engine:        V9 
       Physical Name: C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\adult_2017_sas
@@ -118,8 +153,6 @@ NOTE: Format AB81X is already on the library WORK.FORMATS.
 NOTE: Format AB81X has been output.
 NOTE: Format AC116_P1F is already on the library WORK.FORMATS.
 NOTE: Format AC116_P1F has been output.
-3                                                          The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AC11X is already on the library WORK.FORMATS.
 NOTE: Format AC11X has been output.
 NOTE: Format AC42H is already on the library WORK.FORMATS.
@@ -145,6 +178,8 @@ NOTE: Format AESODAPX has been output.
 NOTE: Format AF40X is already on the library WORK.FORMATS.
 NOTE: Format AF40X has been output.
 NOTE: Format AF69X is already on the library WORK.FORMATS.
+4                                                          The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AF69X has been output.
 NOTE: Format AG10X is already on the library WORK.FORMATS.
 NOTE: Format AG10X has been output.
@@ -178,8 +213,6 @@ NOTE: Format AH134F is already on the library WORK.FORMATS.
 NOTE: Format AH134F has been output.
 NOTE: Format AH135F is already on the library WORK.FORMATS.
 NOTE: Format AH135F has been output.
-4                                                          The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AH1X is already on the library WORK.FORMATS.
 NOTE: Format AH1X has been output.
 NOTE: Format AH33NEWF is already on the library WORK.FORMATS.
@@ -205,6 +238,8 @@ NOTE: Format AH83X has been output.
 NOTE: Format AH95P1F is already on the library WORK.FORMATS.
 NOTE: Format AH95P1F has been output.
 NOTE: Format AH98PX is already on the library WORK.FORMATS.
+5                                                          The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AH98PX has been output.
 NOTE: Format AH98X is already on the library WORK.FORMATS.
 NOTE: Format AH98X has been output.
@@ -238,8 +273,6 @@ NOTE: Format AJ167X is already on the library WORK.FORMATS.
 NOTE: Format AJ167X has been output.
 NOTE: Format AJ168X is already on the library WORK.FORMATS.
 NOTE: Format AJ168X has been output.
-5                                                          The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AJ169F is already on the library WORK.FORMATS.
 NOTE: Format AJ169F has been output.
 NOTE: Format AJ170_P1F is already on the library WORK.FORMATS.
@@ -265,6 +298,8 @@ NOTE: Format AK22P1F has been output.
 NOTE: Format AK23X is already on the library WORK.FORMATS.
 NOTE: Format AK23X has been output.
 NOTE: Format AK25X is already on the library WORK.FORMATS.
+6                                                          The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AK25X has been output.
 NOTE: Format AK28X is already on the library WORK.FORMATS.
 NOTE: Format AK28X has been output.
@@ -298,8 +333,6 @@ NOTE: Format AM34X is already on the library WORK.FORMATS.
 NOTE: Format AM34X has been output.
 NOTE: Format AM35X is already on the library WORK.FORMATS.
 NOTE: Format AM35X has been output.
-6                                                          The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AM38P1X is already on the library WORK.FORMATS.
 NOTE: Format AM38P1X has been output.
 NOTE: Format AM3A is already on the library WORK.FORMATS.
@@ -325,6 +358,8 @@ NOTE: Format DMC9X has been output.
 NOTE: Format DSTRSYR is already on the library WORK.FORMATS.
 NOTE: Format DSTRSYR has been output.
 NOTE: Format ELIG3PF is already on the library WORK.FORMATS.
+7                                                          The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format ELIG3PF has been output.
 NOTE: Format FAMSIZE2P1F is already on the library WORK.FORMATS.
 NOTE: Format FAMSIZE2P1F has been output.
@@ -358,8 +393,6 @@ NOTE: Format INS65F is already on the library WORK.FORMATS.
 NOTE: Format INS65F has been output.
 NOTE: Format INS65SF is already on the library WORK.FORMATS.
 NOTE: Format INS65SF has been output.
-7                                                          The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format INS9TP is already on the library WORK.FORMATS.
 NOTE: Format INS9TP has been output.
 NOTE: Format INSANYF is already on the library WORK.FORMATS.
@@ -385,6 +418,8 @@ NOTE: Format MARIT45X has been output.
 NOTE: Format MARITF is already on the library WORK.FORMATS.
 NOTE: Format MARITF has been output.
 NOTE: Format MCTYPE is already on the library WORK.FORMATS.
+8                                                          The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format MCTYPE has been output.
 NOTE: Format MEASURE is already on the library WORK.FORMATS.
 NOTE: Format MEASURE has been output.
@@ -418,8 +453,6 @@ NOTE: Format RACEHP2P1X is already on the library WORK.FORMATS.
 NOTE: Format RACEHP2P1X has been output.
 NOTE: Format RBMIF is already on the library WORK.FORMATS.
 NOTE: Format RBMIF has been output.
-8                                                          The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format RNFORGO is already on the library WORK.FORMATS.
 NOTE: Format RNFORGO has been output.
 NOTE: Format SERVED is already on the library WORK.FORMATS.
@@ -445,6 +478,8 @@ NOTE: Format UNINSANY has been output.
 NOTE: Format UR_CL2F is already on the library WORK.FORMATS.
 NOTE: Format UR_CL2F has been output.
 NOTE: Format UR_CLRT6F is already on the library WORK.FORMATS.
+9                                                          The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format UR_CLRT6F has been output.
 NOTE: Format UR_IHSF is already on the library WORK.FORMATS.
 NOTE: Format UR_IHSF has been output.
@@ -478,8 +513,6 @@ NOTE: Format WHOBMI is already on the library WORK.FORMATS.
 NOTE: Format WHOBMI has been output.
 NOTE: Format WORK is already on the library WORK.FORMATS.
 NOTE: Format WORK has been output.
-9                                                          The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format WRKSTP1X is already on the library WORK.FORMATS.
 NOTE: Format WRKSTP1X has been output.
 NOTE: Format YESNO is already on the library WORK.FORMATS.
@@ -489,7 +522,7 @@ NOTE: Format YRUSP1F has been output.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.01 seconds
-      cpu time            0.03 seconds
+      cpu time            0.01 seconds
       
 
 1952       
@@ -504,7 +537,9 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 21153 observations read from the data set CHIS2017.ADULT.
 NOTE: The data set WORK.DATA2017 has 21153 observations and 483 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.26 seconds
+      real time           0.25 seconds
+10                                                         The SAS System                               13:26 Friday, March 29, 2019
+
       cpu time            0.26 seconds
       
 
@@ -514,8 +549,8 @@ NOTE: DATA statement used (Total process time):
 2850       RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.21 seconds
-      cpu time            0.21 seconds
+      real time           0.20 seconds
+      cpu time            0.20 seconds
       
 
 2851       
@@ -538,8 +573,6 @@ NOTE: Format AB10X has been output.
 NOTE: Format AB114PX is already on the library WORK.FORMATS.
 NOTE: Format AB114PX has been output.
 NOTE: Format AB116PX is already on the library WORK.FORMATS.
-10                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AB116PX has been output.
 NOTE: Format AB120PX is already on the library WORK.FORMATS.
 NOTE: Format AB120PX has been output.
@@ -565,6 +598,8 @@ NOTE: Format AB51PX is already on the library WORK.FORMATS.
 NOTE: Format AB51PX has been output.
 NOTE: Format AB63X is already on the library WORK.FORMATS.
 NOTE: Format AB63X has been output.
+11                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AB81X is already on the library WORK.FORMATS.
 NOTE: Format AB81X has been output.
 NOTE: Format AC102_P1F is already on the library WORK.FORMATS.
@@ -598,8 +633,6 @@ NOTE: Format AC53BNUM_P1F has been output.
 NOTE: Format AC54BNUM_P1F is already on the library WORK.FORMATS.
 NOTE: Format AC54BNUM_P1F has been output.
 NOTE: Format AC58X is already on the library WORK.FORMATS.
-11                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AC58X has been output.
 NOTE: Format AC82B_P1F is already on the library WORK.FORMATS.
 NOTE: Format AC82B_P1F has been output.
@@ -625,6 +658,8 @@ NOTE: Format AE15A is already on the library WORK.FORMATS.
 NOTE: Format AE15A has been output.
 NOTE: Format AE16PH is already on the library WORK.FORMATS.
 NOTE: Format AE16PH has been output.
+12                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AE95X is already on the library WORK.FORMATS.
 NOTE: Format AE95X has been output.
 NOTE: Format AESODAPX is already on the library WORK.FORMATS.
@@ -658,8 +693,6 @@ NOTE: Format AH114X has been output.
 NOTE: Format AH117X is already on the library WORK.FORMATS.
 NOTE: Format AH117X has been output.
 NOTE: Format AH126_P1F is already on the library WORK.FORMATS.
-12                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AH126_P1F has been output.
 NOTE: Format AH1X is already on the library WORK.FORMATS.
 NOTE: Format AH1X has been output.
@@ -685,6 +718,8 @@ NOTE: Format AH96PX is already on the library WORK.FORMATS.
 NOTE: Format AH96PX has been output.
 NOTE: Format AH97PX is already on the library WORK.FORMATS.
 NOTE: Format AH97PX has been output.
+13                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AH98PX is already on the library WORK.FORMATS.
 NOTE: Format AH98PX has been output.
 NOTE: Format AH98X is already on the library WORK.FORMATS.
@@ -718,8 +753,6 @@ NOTE: Format AJ143PX has been output.
 NOTE: Format AJ146PX is already on the library WORK.FORMATS.
 NOTE: Format AJ146PX has been output.
 NOTE: Format AJ167X is already on the library WORK.FORMATS.
-13                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AJ167X has been output.
 NOTE: Format AJ168X is already on the library WORK.FORMATS.
 NOTE: Format AJ168X has been output.
@@ -745,6 +778,8 @@ NOTE: Format AK2P1X is already on the library WORK.FORMATS.
 NOTE: Format AK2P1X has been output.
 NOTE: Format AK33PX is already on the library WORK.FORMATS.
 NOTE: Format AK33PX has been output.
+14                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AK3_P1F is already on the library WORK.FORMATS.
 NOTE: Format AK3_P1F has been output.
 NOTE: Format AK4X is already on the library WORK.FORMATS.
@@ -778,8 +813,6 @@ NOTE: Format CITZN2F has been output.
 NOTE: Format DISABLE is already on the library WORK.FORMATS.
 NOTE: Format DISABLE has been output.
 NOTE: Format DISTRESS is already on the library WORK.FORMATS.
-14                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format DISTRESS has been output.
 NOTE: Format DISTRESSP is already on the library WORK.FORMATS.
 NOTE: Format DISTRESSP has been output.
@@ -805,6 +838,8 @@ NOTE: Format FAM_TYPE is already on the library WORK.FORMATS.
 NOTE: Format FAM_TYPE has been output.
 NOTE: Format FPG is already on the library WORK.FORMATS.
 NOTE: Format FPG has been output.
+15                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format FSLEVCB is already on the library WORK.FORMATS.
 NOTE: Format FSLEVCB has been output.
 NOTE: Format FSLEVF is already on the library WORK.FORMATS.
@@ -838,8 +873,6 @@ NOTE: Format INSTYPE has been output.
 NOTE: Format INTVLNGC_P1F is already on the library WORK.FORMATS.
 NOTE: Format INTVLNGC_P1F has been output.
 NOTE: Format IOFLAG2F is already on the library WORK.FORMATS.
-15                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format IOFLAG2F has been output.
 NOTE: Format LANGHOMEPX is already on the library WORK.FORMATS.
 NOTE: Format LANGHOMEPX has been output.
@@ -865,6 +898,8 @@ NOTE: Format NUMCIGF is already on the library WORK.FORMATS.
 NOTE: Format NUMCIGF has been output.
 NOTE: Format OCCMN2F is already on the library WORK.FORMATS.
 NOTE: Format OCCMN2F has been output.
+16                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format OFFTKF is already on the library WORK.FORMATS.
 NOTE: Format OFFTKF has been output.
 NOTE: Format OMBSRREOP2X is already on the library WORK.FORMATS.
@@ -898,8 +933,6 @@ NOTE: Format SOME has been output.
 NOTE: Format SPK_ENGF is already on the library WORK.FORMATS.
 NOTE: Format SPK_ENGF has been output.
 NOTE: Format SRSEX is already on the library WORK.FORMATS.
-16                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format SRSEX has been output.
 NOTE: Format SRTENR is already on the library WORK.FORMATS.
 NOTE: Format SRTENR has been output.
@@ -925,6 +958,8 @@ NOTE: Format USUAL5TP is already on the library WORK.FORMATS.
 NOTE: Format USUAL5TP has been output.
 NOTE: Format USUALF is already on the library WORK.FORMATS.
 NOTE: Format USUALF has been output.
+17                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format USUALTPF is already on the library WORK.FORMATS.
 NOTE: Format USUALTPF has been output.
 NOTE: Format WEIGHTKF is already on the library WORK.FORMATS.
@@ -945,8 +980,8 @@ NOTE: Format YRUSP1F is already on the library WORK.FORMATS.
 NOTE: Format YRUSP1F has been output.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.01 seconds
-      cpu time            0.03 seconds
+      real time           0.02 seconds
+      cpu time            0.01 seconds
       
 
 4800       
@@ -958,12 +993,10 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 5215     ! University\ANA699B\CHIS\CHIS16_adult_sas\Data\ADULT_LABEL.SAS';
 5708       RUN;
 
-17                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: There were 21055 observations read from the data set CHIS2016.ADULT.
 NOTE: The data set WORK.DATA2016 has 21055 observations and 490 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.25 seconds
+      real time           0.27 seconds
       cpu time            0.26 seconds
       
 
@@ -974,7 +1007,7 @@ NOTE: DATA statement used (Total process time):
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
       real time           0.17 seconds
-      cpu time            0.17 seconds
+      cpu time            0.15 seconds
       
 
 5713       
@@ -985,6 +1018,8 @@ NOTE: Libref CHIS2015 was successfully assigned as follows:
       Engine:        V9 
       Physical Name: C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS15_adult_sas\Data
 5716       %INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
+18                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 5716     ! University\ANA699B\CHIS\CHIS15_adult_sas\Data\ADULT_PROC_FORMAT.SAS';
 NOTE: Format $MISSNO is already on the library WORK.FORMATS.
 NOTE: Format $MISSNO has been output.
@@ -1018,8 +1053,6 @@ NOTE: Format AB29X is already on the library WORK.FORMATS.
 NOTE: Format AB29X has been output.
 NOTE: Format AB42PX is already on the library WORK.FORMATS.
 NOTE: Format AB42PX has been output.
-18                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AB51PX is already on the library WORK.FORMATS.
 NOTE: Format AB51PX has been output.
 NOTE: Format AB63X is already on the library WORK.FORMATS.
@@ -1045,6 +1078,8 @@ NOTE: Format AD17X has been output.
 NOTE: Format AD32PX is already on the library WORK.FORMATS.
 NOTE: Format AD32PX has been output.
 NOTE: Format AD37X is already on the library WORK.FORMATS.
+19                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AD37X has been output.
 NOTE: Format AD38W is already on the library WORK.FORMATS.
 NOTE: Format AD38W has been output.
@@ -1078,8 +1113,6 @@ NOTE: Format AH101PF is already on the library WORK.FORMATS.
 NOTE: Format AH101PF has been output.
 NOTE: Format AH104X is already on the library WORK.FORMATS.
 NOTE: Format AH104X has been output.
-19                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AH105X is already on the library WORK.FORMATS.
 NOTE: Format AH105X has been output.
 NOTE: Format AH110X is already on the library WORK.FORMATS.
@@ -1105,6 +1138,8 @@ NOTE: Format AH3PX has been output.
 NOTE: Format AH6X is already on the library WORK.FORMATS.
 NOTE: Format AH6X has been output.
 NOTE: Format AH71PX is already on the library WORK.FORMATS.
+20                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AH71PX has been output.
 NOTE: Format AH72PX is already on the library WORK.FORMATS.
 NOTE: Format AH72PX has been output.
@@ -1138,8 +1173,6 @@ NOTE: Format AJ114X is already on the library WORK.FORMATS.
 NOTE: Format AJ114X has been output.
 NOTE: Format AJ11X is already on the library WORK.FORMATS.
 NOTE: Format AJ11X has been output.
-20                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AJ131PX is already on the library WORK.FORMATS.
 NOTE: Format AJ131PX has been output.
 NOTE: Format AJ142P1NEW is already on the library WORK.FORMATS.
@@ -1165,6 +1198,8 @@ NOTE: Format AK25X has been output.
 NOTE: Format AK28X is already on the library WORK.FORMATS.
 NOTE: Format AK28X has been output.
 NOTE: Format AK2P1X is already on the library WORK.FORMATS.
+21                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AK2P1X has been output.
 NOTE: Format AK33PX is already on the library WORK.FORMATS.
 NOTE: Format AK33PX has been output.
@@ -1198,8 +1233,6 @@ NOTE: Format BINGE12F is already on the library WORK.FORMATS.
 NOTE: Format BINGE12F has been output.
 NOTE: Format BMIF is already on the library WORK.FORMATS.
 NOTE: Format BMIF has been output.
-21                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format CITZN2F is already on the library WORK.FORMATS.
 NOTE: Format CITZN2F has been output.
 NOTE: Format DISABLE is already on the library WORK.FORMATS.
@@ -1225,6 +1258,8 @@ NOTE: Format ECIG30X has been output.
 NOTE: Format ELIG3PF is already on the library WORK.FORMATS.
 NOTE: Format ELIG3PF has been output.
 NOTE: Format FAMSIZEPX is already on the library WORK.FORMATS.
+22                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format FAMSIZEPX has been output.
 NOTE: Format FAM_TYPE is already on the library WORK.FORMATS.
 NOTE: Format FAM_TYPE has been output.
@@ -1258,8 +1293,6 @@ NOTE: Format INSANYF is already on the library WORK.FORMATS.
 NOTE: Format INSANYF has been output.
 NOTE: Format INSPSF is already on the library WORK.FORMATS.
 NOTE: Format INSPSF has been output.
-22                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format INSTYPE is already on the library WORK.FORMATS.
 NOTE: Format INSTYPE has been output.
 NOTE: Format INTVLNGC_P1F is already on the library WORK.FORMATS.
@@ -1285,6 +1318,8 @@ NOTE: Format MEASURE has been output.
 NOTE: Format MEASUREP is already on the library WORK.FORMATS.
 NOTE: Format MEASUREP has been output.
 NOTE: Format N9X is already on the library WORK.FORMATS.
+23                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format N9X has been output.
 NOTE: Format NUMCIGF is already on the library WORK.FORMATS.
 NOTE: Format NUMCIGF has been output.
@@ -1318,8 +1353,6 @@ NOTE: Format SMKCURF is already on the library WORK.FORMATS.
 NOTE: Format SMKCURF has been output.
 NOTE: Format SMOKINGF is already on the library WORK.FORMATS.
 NOTE: Format SMOKINGF has been output.
-23                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format SOME is already on the library WORK.FORMATS.
 NOTE: Format SOME has been output.
 NOTE: Format SPK_ENGF is already on the library WORK.FORMATS.
@@ -1345,6 +1378,8 @@ NOTE: Format UR_OMBF has been output.
 NOTE: Format UR_RHPF is already on the library WORK.FORMATS.
 NOTE: Format UR_RHPF has been output.
 NOTE: Format USOCF is already on the library WORK.FORMATS.
+24                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format USOCF has been output.
 NOTE: Format USUAL5TP is already on the library WORK.FORMATS.
 NOTE: Format USUAL5TP has been output.
@@ -1378,8 +1413,6 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 7451       DATA data2015;
 7452       	SET CHIS2015.adult;
 7453       	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
-24                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 7453     ! University\ANA699B\CHIS\CHIS15_adult_sas\Data\ADULT_FORMAT.SAS';
 7831       	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
 7831     ! University\ANA699B\CHIS\CHIS15_adult_sas\Data\ADULT_LABEL.SAS';
@@ -1388,8 +1421,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 21034 observations read from the data set CHIS2015.ADULT.
 NOTE: The data set WORK.DATA2015 has 21034 observations and 456 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.23 seconds
-      cpu time            0.23 seconds
+      real time           0.26 seconds
+      cpu time            0.25 seconds
       
 
 8291       
@@ -1398,13 +1431,15 @@ NOTE: DATA statement used (Total process time):
 8294       RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.15 seconds
-      cpu time            0.14 seconds
+      real time           0.16 seconds
+      cpu time            0.15 seconds
       
 
 8295       
 8296       /* LOAD 2014 DATA */
 8297       LIBNAME CHIS2014 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
+25                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 8297     ! University\ANA699B\CHIS\CHIS14_adult_sas\Data\';
 NOTE: Libref CHIS2014 was successfully assigned as follows: 
       Engine:        V9 
@@ -1438,8 +1473,6 @@ NOTE: Format AB26H has been output.
 NOTE: Format AB27PX is already on the library WORK.FORMATS.
 NOTE: Format AB27PX has been output.
 NOTE: Format AB28PX is already on the library WORK.FORMATS.
-25                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AB28PX has been output.
 NOTE: Format AB29X is already on the library WORK.FORMATS.
 NOTE: Format AB29X has been output.
@@ -1465,6 +1498,8 @@ NOTE: Format AC42X is already on the library WORK.FORMATS.
 NOTE: Format AC42X has been output.
 NOTE: Format AC47H is already on the library WORK.FORMATS.
 NOTE: Format AC47H has been output.
+26                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AC48PX is already on the library WORK.FORMATS.
 NOTE: Format AC48PX has been output.
 NOTE: Format AC52_P1F is already on the library WORK.FORMATS.
@@ -1498,8 +1533,6 @@ NOTE: Format AC90X has been output.
 NOTE: Format AC92X is already on the library WORK.FORMATS.
 NOTE: Format AC92X has been output.
 NOTE: Format AC93X is already on the library WORK.FORMATS.
-26                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AC93X has been output.
 NOTE: Format AC96X is already on the library WORK.FORMATS.
 NOTE: Format AC96X has been output.
@@ -1525,6 +1558,8 @@ NOTE: Format AG10X is already on the library WORK.FORMATS.
 NOTE: Format AG10X has been output.
 NOTE: Format AG11X is already on the library WORK.FORMATS.
 NOTE: Format AG11X has been output.
+27                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AG1X is already on the library WORK.FORMATS.
 NOTE: Format AG1X has been output.
 NOTE: Format AG20X is already on the library WORK.FORMATS.
@@ -1558,8 +1593,6 @@ NOTE: Format AH34NEWF has been output.
 NOTE: Format AH35NEWF is already on the library WORK.FORMATS.
 NOTE: Format AH35NEWF has been output.
 NOTE: Format AH37X is already on the library WORK.FORMATS.
-27                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AH37X has been output.
 NOTE: Format AH3PX is already on the library WORK.FORMATS.
 NOTE: Format AH3PX has been output.
@@ -1585,6 +1618,8 @@ NOTE: Format AH99PX is already on the library WORK.FORMATS.
 NOTE: Format AH99PX has been output.
 NOTE: Format AHCHLDCPF is already on the library WORK.FORMATS.
 NOTE: Format AHCHLDCPF has been output.
+28                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AHEDCP1X is already on the library WORK.FORMATS.
 NOTE: Format AHEDCP1X has been output.
 NOTE: Format AI15A is already on the library WORK.FORMATS.
@@ -1618,8 +1653,6 @@ NOTE: Format AJ143X has been output.
 NOTE: Format AJ1X is already on the library WORK.FORMATS.
 NOTE: Format AJ1X has been output.
 NOTE: Format AJ50P is already on the library WORK.FORMATS.
-28                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AJ50P has been output.
 NOTE: Format AJ79X is already on the library WORK.FORMATS.
 NOTE: Format AJ79X has been output.
@@ -1645,6 +1678,8 @@ NOTE: Format AK7P1X is already on the library WORK.FORMATS.
 NOTE: Format AK7P1X has been output.
 NOTE: Format AK8X is already on the library WORK.FORMATS.
 NOTE: Format AK8X has been output.
+29                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AKWKF is already on the library WORK.FORMATS.
 NOTE: Format AKWKF has been output.
 NOTE: Format AM1X is already on the library WORK.FORMATS.
@@ -1678,8 +1713,6 @@ NOTE: Format DISTRESSP has been output.
 NOTE: Format DOCT_YR is already on the library WORK.FORMATS.
 NOTE: Format DOCT_YR has been output.
 NOTE: Format DSTRSYR is already on the library WORK.FORMATS.
-29                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format DSTRSYR has been output.
 NOTE: Format ELIG3PF is already on the library WORK.FORMATS.
 NOTE: Format ELIG3PF has been output.
@@ -1705,6 +1738,8 @@ NOTE: Format INDMN2F is already on the library WORK.FORMATS.
 NOTE: Format INDMN2F has been output.
 NOTE: Format INS12F is already on the library WORK.FORMATS.
 NOTE: Format INS12F has been output.
+30                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format INS12MF is already on the library WORK.FORMATS.
 NOTE: Format INS12MF has been output.
 NOTE: Format INS64PF is already on the library WORK.FORMATS.
@@ -1738,8 +1773,6 @@ NOTE: Format MEASURE has been output.
 NOTE: Format MEASUREP is already on the library WORK.FORMATS.
 NOTE: Format MEASUREP has been output.
 NOTE: Format NUMCIGF is already on the library WORK.FORMATS.
-30                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format NUMCIGF has been output.
 NOTE: Format OCCMN2F is already on the library WORK.FORMATS.
 NOTE: Format OCCMN2F has been output.
@@ -1765,6 +1798,8 @@ NOTE: Format RACEHP2P1X is already on the library WORK.FORMATS.
 NOTE: Format RACEHP2P1X has been output.
 NOTE: Format RBMIF is already on the library WORK.FORMATS.
 NOTE: Format RBMIF has been output.
+31                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format RNFORGO is already on the library WORK.FORMATS.
 NOTE: Format RNFORGO has been output.
 NOTE: Format SERVED is already on the library WORK.FORMATS.
@@ -1798,8 +1833,6 @@ NOTE: Format USOCF has been output.
 NOTE: Format USUAL5TP is already on the library WORK.FORMATS.
 NOTE: Format USUAL5TP has been output.
 NOTE: Format USUALF is already on the library WORK.FORMATS.
-31                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format USUALF has been output.
 NOTE: Format USUALTPF is already on the library WORK.FORMATS.
 NOTE: Format USUALTPF has been output.
@@ -1819,12 +1852,14 @@ NOTE: Format YRUSP1F is already on the library WORK.FORMATS.
 NOTE: Format YRUSP1F has been output.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.02 seconds
+      real time           0.01 seconds
       cpu time            0.01 seconds
       
 
 10137      
 10138      DATA data2014;
+32                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 10139      	SET CHIS2014.adult;
 10140      	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
 10140    ! University\ANA699B\CHIS\CHIS14_adult_sas\Data\ADULT_FORMAT.SAS';
@@ -1835,7 +1870,7 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 19516 observations read from the data set CHIS2014.ADULT.
 NOTE: The data set WORK.DATA2014 has 19516 observations and 480 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.26 seconds
+      real time           0.28 seconds
       cpu time            0.26 seconds
       
 
@@ -1845,7 +1880,7 @@ NOTE: DATA statement used (Total process time):
 11029      RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.17 seconds
+      real time           0.18 seconds
       cpu time            0.17 seconds
       
 
@@ -1858,8 +1893,6 @@ NOTE: Libref CHIS2013 was successfully assigned as follows:
       Physical Name: C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS13_adult_sas\Data
 11033      %INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
 11033    ! University\ANA699B\CHIS\CHIS13_adult_sas\Data\ADULT_PROC_FORMAT.SAS';
-32                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format $MISSNO is already on the library WORK.FORMATS.
 NOTE: Format $MISSNO has been output.
 NOTE: Format AAGEP is already on the library WORK.FORMATS.
@@ -1885,6 +1918,8 @@ NOTE: Format AB22X has been output.
 NOTE: Format AB23P1X is already on the library WORK.FORMATS.
 NOTE: Format AB23P1X has been output.
 NOTE: Format AB26H is already on the library WORK.FORMATS.
+33                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AB26H has been output.
 NOTE: Format AB27PX is already on the library WORK.FORMATS.
 NOTE: Format AB27PX has been output.
@@ -1918,8 +1953,6 @@ NOTE: Format ACMDNUM is already on the library WORK.FORMATS.
 NOTE: Format ACMDNUM has been output.
 NOTE: Format AD32PX is already on the library WORK.FORMATS.
 NOTE: Format AD32PX has been output.
-33                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AD37X is already on the library WORK.FORMATS.
 NOTE: Format AD37X has been output.
 NOTE: Format AD39X is already on the library WORK.FORMATS.
@@ -1945,6 +1978,8 @@ NOTE: Format AG20X has been output.
 NOTE: Format AG8X is already on the library WORK.FORMATS.
 NOTE: Format AG8X has been output.
 NOTE: Format AG9PX is already on the library WORK.FORMATS.
+34                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AG9PX has been output.
 NOTE: Format AGREE is already on the library WORK.FORMATS.
 NOTE: Format AGREE has been output.
@@ -1978,8 +2013,6 @@ NOTE: Format AH96PX is already on the library WORK.FORMATS.
 NOTE: Format AH96PX has been output.
 NOTE: Format AH97PX is already on the library WORK.FORMATS.
 NOTE: Format AH97PX has been output.
-34                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AH98PX is already on the library WORK.FORMATS.
 NOTE: Format AH98PX has been output.
 NOTE: Format AH99PX is already on the library WORK.FORMATS.
@@ -2005,6 +2038,8 @@ NOTE: Format AI45PX has been output.
 NOTE: Format AJ110X is already on the library WORK.FORMATS.
 NOTE: Format AJ110X has been output.
 NOTE: Format AJ114X is already on the library WORK.FORMATS.
+35                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format AJ114X has been output.
 NOTE: Format AJ11X is already on the library WORK.FORMATS.
 NOTE: Format AJ11X has been output.
@@ -2038,8 +2073,6 @@ NOTE: Format AK2P1X is already on the library WORK.FORMATS.
 NOTE: Format AK2P1X has been output.
 NOTE: Format AK33PX is already on the library WORK.FORMATS.
 NOTE: Format AK33PX has been output.
-35                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format AK4X is already on the library WORK.FORMATS.
 NOTE: Format AK4X has been output.
 NOTE: Format AK7P1X is already on the library WORK.FORMATS.
@@ -2065,6 +2098,8 @@ NOTE: Format ASTCURF has been output.
 NOTE: Format ASTYRF is already on the library WORK.FORMATS.
 NOTE: Format ASTYRF has been output.
 NOTE: Format BINGE12F is already on the library WORK.FORMATS.
+36                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format BINGE12F has been output.
 NOTE: Format BMIF is already on the library WORK.FORMATS.
 NOTE: Format BMIF has been output.
@@ -2098,8 +2133,6 @@ NOTE: Format HGTIF is already on the library WORK.FORMATS.
 NOTE: Format HGTIF has been output.
 NOTE: Format HHSIZEFP is already on the library WORK.FORMATS.
 NOTE: Format HHSIZEFP has been output.
-36                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format HMO is already on the library WORK.FORMATS.
 NOTE: Format HMO has been output.
 NOTE: Format INDMN2F is already on the library WORK.FORMATS.
@@ -2125,6 +2158,8 @@ NOTE: Format INSTYP_P has been output.
 NOTE: Format INTVF is already on the library WORK.FORMATS.
 NOTE: Format INTVF has been output.
 NOTE: Format IOFLAG is already on the library WORK.FORMATS.
+37                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format IOFLAG has been output.
 NOTE: Format LANGHOMEPX is already on the library WORK.FORMATS.
 NOTE: Format LANGHOMEPX has been output.
@@ -2158,8 +2193,6 @@ NOTE: Format POVGWD is already on the library WORK.FORMATS.
 NOTE: Format POVGWD has been output.
 NOTE: Format POVLLACA is already on the library WORK.FORMATS.
 NOTE: Format POVLLACA has been output.
-37                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format POVLLF is already on the library WORK.FORMATS.
 NOTE: Format POVLLF has been output.
 NOTE: Format RACECENP1F is already on the library WORK.FORMATS.
@@ -2185,6 +2218,8 @@ NOTE: Format SPK_ENGF has been output.
 NOTE: Format SRSEX is already on the library WORK.FORMATS.
 NOTE: Format SRSEX has been output.
 NOTE: Format SRTENR is already on the library WORK.FORMATS.
+38                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format SRTENR has been output.
 NOTE: Format UNINSANY is already on the library WORK.FORMATS.
 NOTE: Format UNINSANY has been output.
@@ -2218,8 +2253,6 @@ NOTE: Format WRKSTP1X is already on the library WORK.FORMATS.
 NOTE: Format WRKSTP1X has been output.
 NOTE: Format YESNO is already on the library WORK.FORMATS.
 NOTE: Format YESNO has been output.
-38                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: Format YRUSP1F is already on the library WORK.FORMATS.
 NOTE: Format YRUSP1F has been output.
 
@@ -2240,11 +2273,13 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 20724 observations read from the data set CHIS2013.ADULT.
 NOTE: The data set WORK.DATA2013 has 20724 observations and 421 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.24 seconds
-      cpu time            0.25 seconds
+      real time           0.23 seconds
+      cpu time            0.21 seconds
       
 
 13422      
+39                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 13423      PROC CONTENTS DATA=CHIS2013.adult VARNUM;
 13424      	TITLE 'PROC CONTENTS - CHIS2013.adult';
 13425      RUN;
@@ -2278,8 +2313,6 @@ NOTE: PROCEDURE CONTENTS used (Total process time):
 13447      
 13448      	DO i = 1 to 80;
 13449      			IF year=2011 THEN DO;
-39                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 13450      				a_newwgts[i]    = a_origwgts[i]/5;
 13451      				a_newwgts[i+80] = rakedw0/5;
 13452          		END;
@@ -2305,6 +2338,8 @@ WARNING: Multiple lengths were specified for the variable AB18 by input data set
 WARNING: Multiple lengths were specified for the variable AB19 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AB22 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AB24 by input data set(s). This can cause truncation of data.
+40                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 WARNING: Multiple lengths were specified for the variable AB25 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AB29 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AB30 by input data set(s). This can cause truncation of data.
@@ -2338,8 +2373,6 @@ WARNING: Multiple lengths were specified for the variable AE15 by input data set
 WARNING: Multiple lengths were specified for the variable AE15A by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AF62 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AF63 by input data set(s). This can cause truncation of data.
-40                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 WARNING: Multiple lengths were specified for the variable AF64 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AF65 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AF66 by input data set(s). This can cause truncation of data.
@@ -2365,6 +2398,8 @@ WARNING: Multiple lengths were specified for the variable AH16 by input data set
 WARNING: Multiple lengths were specified for the variable AH22 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AH37 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AH43A by input data set(s). This can cause truncation of data.
+41                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 WARNING: Multiple lengths were specified for the variable AH44 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AH44A by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AH6 by input data set(s). This can cause truncation of data.
@@ -2398,8 +2433,6 @@ WARNING: Multiple lengths were specified for the variable AJ136 by input data se
 WARNING: Multiple lengths were specified for the variable AJ137 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AJ138 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AJ139 by input data set(s). This can cause truncation of data.
-41                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 WARNING: Multiple lengths were specified for the variable AJ140 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AJ141 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AJ144 by input data set(s). This can cause truncation of data.
@@ -2425,6 +2458,8 @@ WARNING: Multiple lengths were specified for the variable AL18A by input data se
 WARNING: Multiple lengths were specified for the variable AL2 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AL22 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AL32 by input data set(s). This can cause truncation of data.
+42                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 WARNING: Multiple lengths were specified for the variable AL5 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AL6 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AM1 by input data set(s). This can cause truncation of data.
@@ -2458,8 +2493,6 @@ WARNING: Multiple lengths were specified for the variable AH119 by input data se
 WARNING: Multiple lengths were specified for the variable AH120 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AJ8B by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AD39W by input data set(s). This can cause truncation of data.
-42                                                         The SAS System                               13:26 Friday, March 29, 2019
-
 NOTE: There were 20724 observations read from the data set CHIS2013.ADULT.
 NOTE: There were 19516 observations read from the data set CHIS2014.ADULT.
 NOTE: There were 21034 observations read from the data set CHIS2015.ADULT.
@@ -2467,1879 +2500,1706 @@ NOTE: There were 21055 observations read from the data set CHIS2016.ADULT.
 NOTE: There were 21153 observations read from the data set CHIS2017.ADULT.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.56 seconds
-      cpu time            0.56 seconds
+      real time           0.58 seconds
+      cpu time            0.57 seconds
       
 
 13459      
-13460      /* SPECIFY CHIS FORMATS */
-13461      OPTIONS fmtsearch=(CHIS);
-13462      
-13463      /* CHIS GENERAL FORMATS */
-13464      PROC FORMAT LIBRARY=CHIS;
-13465      	
-13465    !  VALUE fCHISBool		-9	= 'Not Ascertained'
-13466      						-8	= 'Dont Know'
-13467      						-7	= 'Refused'
-13468      						-2	= 'Proxy Skipped'
-13469      						-1	= 'Inapplicable'
-13470      						1	= 'Yes'
-13471      						2	= 'No'
-13472      						;
-NOTE: Format FCHISBOOL is already on the library CHIS.FORMATS.
-NOTE: Format FCHISBOOL has been written to CHIS.FORMATS.
-13473      
-13474      	
-13474    !  VALUE fCHIS4Lichert	-9	= 'Not Ascertained'
-13475      						-8	= 'Dont Know'
-13476      						-7	= 'Refused'
-13477      						-2	= 'Proxy Skipped'
-13478      						-1	= 'Inapplicable'
-13479      						1	= 'Strongly Agree'
-13480      						2	= 'Agree'
-13481      						3	= 'Disagree'
-13482      						4	= 'Strongly Disagree'
-13483      						;
-NOTE: Format FCHIS4LICHERT is already on the library CHIS.FORMATS.
-NOTE: Format FCHIS4LICHERT has been written to CHIS.FORMATS.
-13484      
-13485      	
-13485    !  VALUE fCHIS4LichTim	-9	= 'Not Ascertained'
-13486      						-8	= 'Dont Know'
-13487      						-7	= 'Refused'
-13488      						-2	= 'Proxy Skipped'
-13489      						-1	= 'Inapplicable'
-13490      						1	= 'All of the Time'
-13491      						2	= 'Most of the Time'
-13492      						3	= 'Some of the Time'
-13493      						4	= 'None of the Time'
-13494      						;
-NOTE: Format FCHIS4LICHTIM is already on the library CHIS.FORMATS.
-NOTE: Format FCHIS4LICHTIM has been written to CHIS.FORMATS.
-13495      
-13496      	
+13460      PROC CONTENTS DATA=CHIS.CHIS_DATA_RAW VARNUM;
+13461      	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_RAW';
+13462      RUN;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.33 seconds
+      cpu time            0.32 seconds
+      
+
+13463      
+13464      /* SPECIFY CHIS FORMATS */
+13465      OPTIONS fmtsearch=(CHIS);
+13466      
 43                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-13496    !  VALUE fCHIS5LichTim	-9	= 'Not Ascertained'
-13497      						-8	= 'Dont Know'
-13498      						-7	= 'Refused'
-13499      						-2	= 'Proxy Skipped'
-13500      						-1	= 'Inapplicable'
-13501      						1	= 'All of the Time'
-13502      						2	= 'Most of the Time'
-13503      						3	= 'Some of the Time'
-13504      						4	= 'A Little of the Time'
-13505      						5	= 'Not at All'
-13506      						;
+13467      /* CHIS GENERAL FORMATS */
+13468      PROC FORMAT LIBRARY=CHIS;
+13469      	
+13469    !  VALUE fCHISBool		-9	= 'Not Ascertained'
+13470      						-8	= 'Dont Know'
+13471      						-7	= 'Refused'
+13472      						-2	= 'Proxy Skipped'
+13473      						-1	= 'Inapplicable'
+13474      						1	= 'Yes'
+13475      						2	= 'No'
+13476      						;
+NOTE: Format FCHISBOOL is already on the library CHIS.FORMATS.
+NOTE: Format FCHISBOOL has been written to CHIS.FORMATS.
+13477      
+13478      	
+13478    !  VALUE fCHIS4Lichert	-9	= 'Not Ascertained'
+13479      						-8	= 'Dont Know'
+13480      						-7	= 'Refused'
+13481      						-2	= 'Proxy Skipped'
+13482      						-1	= 'Inapplicable'
+13483      						1	= 'Strongly Agree'
+13484      						2	= 'Agree'
+13485      						3	= 'Disagree'
+13486      						4	= 'Strongly Disagree'
+13487      						;
+NOTE: Format FCHIS4LICHERT is already on the library CHIS.FORMATS.
+NOTE: Format FCHIS4LICHERT has been written to CHIS.FORMATS.
+13488      
+13489      	
+13489    !  VALUE fCHIS4LichTim	-9	= 'Not Ascertained'
+13490      						-8	= 'Dont Know'
+13491      						-7	= 'Refused'
+13492      						-2	= 'Proxy Skipped'
+13493      						-1	= 'Inapplicable'
+13494      						1	= 'All of the Time'
+13495      						2	= 'Most of the Time'
+13496      						3	= 'Some of the Time'
+13497      						4	= 'None of the Time'
+13498      						;
+NOTE: Format FCHIS4LICHTIM is already on the library CHIS.FORMATS.
+NOTE: Format FCHIS4LICHTIM has been written to CHIS.FORMATS.
+13499      
+13500      	
+13500    !  VALUE fCHIS5LichTim	-9	= 'Not Ascertained'
+13501      						-8	= 'Dont Know'
+13502      						-7	= 'Refused'
+13503      						-2	= 'Proxy Skipped'
+13504      						-1	= 'Inapplicable'
+13505      						1	= 'All of the Time'
+13506      						2	= 'Most of the Time'
+13507      						3	= 'Some of the Time'
+13508      						4	= 'A Little of the Time'
+13509      						5	= 'Not at All'
+13510      						;
 NOTE: Format FCHIS5LICHTIM is already on the library CHIS.FORMATS.
 NOTE: Format FCHIS5LICHTIM has been written to CHIS.FORMATS.
-13507      
-13508      	
-13508    !  VALUE fCHIS3Truth	-9	= 'Not Ascertained'
-13509      						-8	= 'Dont Know'
-13510      						-7	= 'Refused'
-13511      						-2	= 'Proxy Skipped'
-13512      						-1	= 'Inapplicable'
-13513      						1	= 'Often True'
-13514      						2	= 'Sometimes True'
-13515      						3	= 'Never True'
-13516      						;
-NOTE: Format FCHIS3TRUTH is already on the library CHIS.FORMATS.
-NOTE: Format FCHIS3TRUTH has been written to CHIS.FORMATS.
-13517      
-13518      	
-13518    !  VALUE fCHIS4Amt		-9	= 'Not Ascertained'
-13519      						-8	= 'Dont Know'
-13520      						-7	= 'Refused'
-13521      						-2	= 'Proxy Skipped'
-13522      						-1	= 'Inapplicable'
-13523      						1	= 'A Lot'
-13524      						2	= 'Some'
-13525      						3	= 'Not at All'
-13526      						4	= 'Does Not Work'
-13527      						;
-NOTE: Format FCHIS4AMT is already on the library CHIS.FORMATS.
-NOTE: Format FCHIS4AMT has been written to CHIS.FORMATS.
-13528      
-13529      	
-13529    !  VALUE fCHIS3Amt		-9	= 'Not Ascertained'
-13530      						-8	= 'Dont Know'
-13531      						-7	= 'Refused'
-13532      						-2	= 'Proxy Skipped'
-13533      						-1	= 'Inapplicable'
-13534      						1	= 'A Lot'
-13535      						2	= 'Some'
-13536      						3	= 'Not at All'
-13537      						;
-NOTE: Format FCHIS3AMT is already on the library CHIS.FORMATS.
-NOTE: Format FCHIS3AMT has been written to CHIS.FORMATS.
-13538      
-13539      	
-13539    !  VALUE fCHIS3Severit	-9	= 'Not Ascertained'
-13540      						-8	= 'Dont Know'
-13541      						-7	= 'Refused'
+13511      
+13512      	
 44                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-13542      						-2	= 'Proxy Skipped'
-13543      						-1	= 'Inapplicable'
-13544      						0	= 'None'
-13545      						1	= 'Moderate'
-13546      						2	= 'Severe'
-13547      						;
+13512    !  VALUE fCHIS3Truth	-9	= 'Not Ascertained'
+13513      						-8	= 'Dont Know'
+13514      						-7	= 'Refused'
+13515      						-2	= 'Proxy Skipped'
+13516      						-1	= 'Inapplicable'
+13517      						1	= 'Often True'
+13518      						2	= 'Sometimes True'
+13519      						3	= 'Never True'
+13520      						;
+NOTE: Format FCHIS3TRUTH is already on the library CHIS.FORMATS.
+NOTE: Format FCHIS3TRUTH has been written to CHIS.FORMATS.
+13521      
+13522      	
+13522    !  VALUE fCHIS4Amt		-9	= 'Not Ascertained'
+13523      						-8	= 'Dont Know'
+13524      						-7	= 'Refused'
+13525      						-2	= 'Proxy Skipped'
+13526      						-1	= 'Inapplicable'
+13527      						1	= 'A Lot'
+13528      						2	= 'Some'
+13529      						3	= 'Not at All'
+13530      						4	= 'Does Not Work'
+13531      						;
+NOTE: Format FCHIS4AMT is already on the library CHIS.FORMATS.
+NOTE: Format FCHIS4AMT has been written to CHIS.FORMATS.
+13532      
+13533      	
+13533    !  VALUE fCHIS3Amt		-9	= 'Not Ascertained'
+13534      						-8	= 'Dont Know'
+13535      						-7	= 'Refused'
+13536      						-2	= 'Proxy Skipped'
+13537      						-1	= 'Inapplicable'
+13538      						1	= 'A Lot'
+13539      						2	= 'Some'
+13540      						3	= 'Not at All'
+13541      						;
+NOTE: Format FCHIS3AMT is already on the library CHIS.FORMATS.
+NOTE: Format FCHIS3AMT has been written to CHIS.FORMATS.
+13542      
+13543      	
+13543    !  VALUE fCHIS3Severit	-9	= 'Not Ascertained'
+13544      						-8	= 'Dont Know'
+13545      						-7	= 'Refused'
+13546      						-2	= 'Proxy Skipped'
+13547      						-1	= 'Inapplicable'
+13548      						0	= 'None'
+13549      						1	= 'Moderate'
+13550      						2	= 'Severe'
+13551      						;
 NOTE: Format FCHIS3SEVERIT is already on the library CHIS.FORMATS.
 NOTE: Format FCHIS3SEVERIT has been written to CHIS.FORMATS.
-13548      
-13549      	
-13549    !  VALUE fCHIS3Diffic	-9	= 'Not Ascertained'
-13550      						-8	= 'Dont Know'
-13551      						-7	= 'Refused'
-13552      						-2	= 'Proxy Skipped'
-13553      						-1	= 'Inapplicable'
-13554      						1	= 'Very Difficult'
-13555      						2	= 'Somewhat Difficult'
-13556      						3	= 'Not Too Difficult / Not at All Difficult'
-13557      						;
-NOTE: Format FCHIS3DIFFIC is already on the library CHIS.FORMATS.
-NOTE: Format FCHIS3DIFFIC has been written to CHIS.FORMATS.
-13558      RUN;
-
-NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.00 seconds
-      cpu time            0.00 seconds
-      
-
-13559      
-13560      /* CHIS SECTION A: DEMOGRAPHIC INFORMATION FORMATS */
-13561      PROC FORMAT LIBRARY=CHIS;
-13562      	
-13562    !  VALUE fage			-1	= 'NA'
-13563      						18	= '18-25'
-13564      						26	= '26-29'
-13565      						30	= '30-34'
-13566      						35	= '35-39'
-13567      						40	= '40-44'
-13568      						45	= '45-49'
-13569      						50	= '50-54'
-13570      						55	= '55-59'
-13571      						60	= '60-64'
-13572      						65	= '65-69'
-13573      						70	= '70-74'
-13574      						75	= '75-79'
-13575      						80	= '80-84'
-13576      						85	= '85+';
-NOTE: Format FAGE is already on the library CHIS.FORMATS.
-NOTE: Format FAGE has been written to CHIS.FORMATS.
-13577      	
-13577    !  VALUE fbnrysex		1	= 'Male'
-13578      						2	= 'Female';
-NOTE: Format FBNRYSEX is already on the library CHIS.FORMATS.
-NOTE: Format FBNRYSEX has been written to CHIS.FORMATS.
-13579      	
-13579    !  VALUE flatintp		-1	= 'Non-Latino'
-13580      						1	= 'Mexican'
-13581      						2	= 'Other';
+13552      
+13553      	
+13553    !  VALUE fCHIS3Diffic	-9	= 'Not Ascertained'
+13554      						-8	= 'Dont Know'
+13555      						-7	= 'Refused'
+13556      						-2	= 'Proxy Skipped'
+13557      						-1	= 'Inapplicable'
 45                                                         The SAS System                               13:26 Friday, March 29, 2019
 
+13558      						1	= 'Very Difficult'
+13559      						2	= 'Somewhat Difficult'
+13560      						3	= 'Not Too Difficult / Not at All Difficult'
+13561      						;
+NOTE: Format FCHIS3DIFFIC is already on the library CHIS.FORMATS.
+NOTE: Format FCHIS3DIFFIC has been written to CHIS.FORMATS.
+13562      RUN;
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+13563      
+13564      /* CHIS SECTION A: DEMOGRAPHIC INFORMATION FORMATS */
+13565      PROC FORMAT LIBRARY=CHIS;
+13566      	
+13566    !  VALUE fage			-1	= 'NA'
+13567      						18	= '18-25'
+13568      						26	= '26-29'
+13569      						30	= '30-34'
+13570      						35	= '35-39'
+13571      						40	= '40-44'
+13572      						45	= '45-49'
+13573      						50	= '50-54'
+13574      						55	= '55-59'
+13575      						60	= '60-64'
+13576      						65	= '65-69'
+13577      						70	= '70-74'
+13578      						75	= '75-79'
+13579      						80	= '80-84'
+13580      						85	= '85+';
+NOTE: Format FAGE is already on the library CHIS.FORMATS.
+NOTE: Format FAGE has been written to CHIS.FORMATS.
+13581      	
+13581    !  VALUE fbnrysex		1	= 'Male'
+13582      						2	= 'Female';
+NOTE: Format FBNRYSEX is already on the library CHIS.FORMATS.
+NOTE: Format FBNRYSEX has been written to CHIS.FORMATS.
+13583      	
+13583    !  VALUE flatintp		-1	= 'Non-Latino'
+13584      						1	= 'Mexican'
+13585      						2	= 'Other';
 NOTE: Format FLATINTP is already on the library CHIS.FORMATS.
 NOTE: Format FLATINTP has been written to CHIS.FORMATS.
-13582      	
-13582    !  VALUE fombsrr_p		1	= 'Hispanic'
-13583      						2	= 'White, Non-Hispanic'
-13584      						3	= 'African American'
-13585      						4	= 'American Indian / Alaska Native'
-13586      						5	= 'Asian'
-13587      						6	= 'Other / Multiracial';
+13586      	
+13586    !  VALUE fombsrr_p		1	= 'Hispanic'
+13587      						2	= 'White, Non-Hispanic'
+13588      						3	= 'African American'
+13589      						4	= 'American Indian / Alaska Native'
+13590      						5	= 'Asian'
+13591      						6	= 'Other / Multiracial';
 NOTE: Format FOMBSRR_P is already on the library CHIS.FORMATS.
 NOTE: Format FOMBSRR_P has been written to CHIS.FORMATS.
-13588      	
-13588    !  VALUE fracecn_p		1	= 'Other'
-13589      						2	= 'American Indian / Alaska Native'
-13590      						3	= 'Asian'
-13591      						4	= 'African American'
-13592      						5	= 'White'
-13593      						7	= 'Multiracial';
-NOTE: Format FRACECN_P is already on the library CHIS.FORMATS.
-NOTE: Format FRACECN_P has been written to CHIS.FORMATS.
-13594      	
-13594    !  VALUE fracedf_p		1	= 'Latino'
-13595      						2	= 'Other'
-13596      						3	= 'American Indian / Alaska Native'
-13597      						4	= 'Asian'
-13598      						5	= 'African American'
-13599      						6	= 'White'
-13600      						8	= 'Multiracial';
-NOTE: Format FRACEDF_P is already on the library CHIS.FORMATS.
-NOTE: Format FRACEDF_P has been written to CHIS.FORMATS.
-13601      	
-13601    !  VALUE fracehp_p		1	= 'Latino'
-13602      						2	= 'Other / Mutliracial'
-13603      						3	= 'American Indian / Alaska Native'
-13604      						4	= 'Asian'
-13605      						5	= 'African American'
-13606      						6	= 'White';
-NOTE: Format FRACEHP_P is already on the library CHIS.FORMATS.
-NOTE: Format FRACEHP_P has been written to CHIS.FORMATS.
-13607      	
-13607    !  VALUE faac			-9	= 'Not Ascertained'
-13608      						-8	= 'Dont Know'
-13609      						-7	= 'Refused'
-13610      						-1	= 'Inapplicable'
-13611      						1	= 'Yes'
-13612      						2	= 'No';
-NOTE: Format FAAC is already on the library CHIS.FORMATS.
-NOTE: Format FAAC has been written to CHIS.FORMATS.
-13613      	
-13613    !  VALUE fmarit		1	= 'Married'
-13614      						2	= 'Other'
-13615      						3	= 'Never Married';
-NOTE: Format FMARIT is already on the library CHIS.FORMATS.
-NOTE: Format FMARIT has been written to CHIS.FORMATS.
-13616      	
-13616    !  VALUE fmarit_adlt	-1	= 'Inapplicable'
-13617      						1	= 'Married'
-13618      						2	= 'Living with Partner'
+13592      	
+13592    !  VALUE fracecn_p		1	= 'Other'
+13593      						2	= 'American Indian / Alaska Native'
+13594      						3	= 'Asian'
 46                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-13619      						3	= 'Widowed'
-13620      						4	= 'Divorced/Separated'
-13621      						5	= 'Never Married';
+13595      						4	= 'African American'
+13596      						5	= 'White'
+13597      						7	= 'Multiracial';
+NOTE: Format FRACECN_P is already on the library CHIS.FORMATS.
+NOTE: Format FRACECN_P has been written to CHIS.FORMATS.
+13598      	
+13598    !  VALUE fracedf_p		1	= 'Latino'
+13599      						2	= 'Other'
+13600      						3	= 'American Indian / Alaska Native'
+13601      						4	= 'Asian'
+13602      						5	= 'African American'
+13603      						6	= 'White'
+13604      						8	= 'Multiracial';
+NOTE: Format FRACEDF_P is already on the library CHIS.FORMATS.
+NOTE: Format FRACEDF_P has been written to CHIS.FORMATS.
+13605      	
+13605    !  VALUE fracehp_p		1	= 'Latino'
+13606      						2	= 'Other / Mutliracial'
+13607      						3	= 'American Indian / Alaska Native'
+13608      						4	= 'Asian'
+13609      						5	= 'African American'
+13610      						6	= 'White';
+NOTE: Format FRACEHP_P is already on the library CHIS.FORMATS.
+NOTE: Format FRACEHP_P has been written to CHIS.FORMATS.
+13611      	
+13611    !  VALUE faac			-9	= 'Not Ascertained'
+13612      						-8	= 'Dont Know'
+13613      						-7	= 'Refused'
+13614      						-1	= 'Inapplicable'
+13615      						1	= 'Yes'
+13616      						2	= 'No';
+NOTE: Format FAAC is already on the library CHIS.FORMATS.
+NOTE: Format FAAC has been written to CHIS.FORMATS.
+13617      	
+13617    !  VALUE fmarit		1	= 'Married'
+13618      						2	= 'Other'
+13619      						3	= 'Never Married';
+NOTE: Format FMARIT is already on the library CHIS.FORMATS.
+NOTE: Format FMARIT has been written to CHIS.FORMATS.
+13620      	
+13620    !  VALUE fmarit_adlt	-1	= 'Inapplicable'
+13621      						1	= 'Married'
+13622      						2	= 'Living with Partner'
+13623      						3	= 'Widowed'
+13624      						4	= 'Divorced/Separated'
+13625      						5	= 'Never Married';
 NOTE: Format FMARIT_ADLT is already on the library CHIS.FORMATS.
 NOTE: Format FMARIT_ADLT has been written to CHIS.FORMATS.
-13622      	
-13622    !  VALUE fmarit_scnd	1	= 'Married'
-13623      						2	= 'Living w/ Partner'
-13624      						3	= 'Wid/Sep/Div'
-13625      						4	= 'Never Married';
+13626      	
+13626    !  VALUE fmarit_scnd	1	= 'Married'
+13627      						2	= 'Living w/ Partner'
+13628      						3	= 'Wid/Sep/Div'
+13629      						4	= 'Never Married';
 NOTE: Format FMARIT_SCND is already on the library CHIS.FORMATS.
 NOTE: Format FMARIT_SCND has been written to CHIS.FORMATS.
-13626      RUN;
+13630      RUN;
 
 NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.00 seconds
-      cpu time            0.00 seconds
-      
-
-13627      DATA CHIS.CHIS_DATA_RAW;
-13628      	FORMAT	srage_p1 	fage.;
-13629      	FORMAT	srsex		fbnrysex.;
-13630      	FORMAT	latin2tp	flatintp.;
-13631      	FORMAT	sras		fCHISBool.;
-13632      	FORMAT	sraso		fCHISBool.;
-13633      	FORMAT	srch		fCHISBool.;
-13634      	FORMAT	srkr		fCHISBool.;
-13635      	FORMAT	srjp		fCHISBool.;
-13636      	FORMAT	srph		fCHISBool.;
-13637      	FORMAT	srvt		fCHISBool.;
-13638      	FORMAT	srh			fCHISBool.;
-13639      	FORMAT	srw			fCHISBool.;
-13640      	FORMAT	sraa		fCHISBool.;
-13641      	FORMAT	srai		fCHISBool.;
-13642      	FORMAT	sro			fCHISBool.;
-13643      	FORMAT	ombsrr_p1	fombsrr_p.;
-13644      	FORMAT	racecn_p1	fracecn_p.;
-13645      	FORMAT	racedf_p1	fracedf_p.;
-13646      	FORMAT	racehp2_p1	fracehp_p.;
-13647      	FORMAT	aa5c		faac.;
-13648      	FORMAT	marit		fmarit.;
-13649      	FORMAT	marit_45	fmarit_adlt.;
-13650      	FORMAT	marit2		fmarit_scnd.;
-13651      RUN;
-
-NOTE: Variable srage_p1 is uninitialized.
-NOTE: Variable srsex is uninitialized.
-NOTE: Variable latin2tp is uninitialized.
-NOTE: Variable sras is uninitialized.
-NOTE: Variable sraso is uninitialized.
-NOTE: Variable srch is uninitialized.
-NOTE: Variable srkr is uninitialized.
-NOTE: Variable srjp is uninitialized.
-NOTE: Variable srph is uninitialized.
-NOTE: Variable srvt is uninitialized.
-NOTE: Variable srh is uninitialized.
-NOTE: Variable srw is uninitialized.
-NOTE: Variable sraa is uninitialized.
 47                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-NOTE: Variable srai is uninitialized.
-NOTE: Variable sro is uninitialized.
-NOTE: Variable ombsrr_p1 is uninitialized.
-NOTE: Variable racecn_p1 is uninitialized.
-NOTE: Variable racedf_p1 is uninitialized.
-NOTE: Variable racehp2_p1 is uninitialized.
-NOTE: Variable aa5c is uninitialized.
-NOTE: Variable marit is uninitialized.
-NOTE: Variable marit_45 is uninitialized.
-NOTE: Variable marit2 is uninitialized.
-NOTE: The data set CHIS.CHIS_DATA_RAW has 1 observations and 23 variables.
-NOTE: DATA statement used (Total process time):
-      real time           0.07 seconds
-      cpu time            0.07 seconds
+      real time           0.00 seconds
+      cpu time            0.00 seconds
       
 
-13652      
-13653      /* CHIS SECTION B: GENERAL HEALTH CONDITION */
-13654      PROC FORMAT LIBRARY=CHIS;
-13655      	
-13655    !  VALUE fab			1	= 'Excellent'
-13656      						2	= 'Very Good'
-13657      						3	= 'Good'
-13658      						4	= 'Fair'
-13659      						5	= 'Poor';
+13631      DATA CHIS.CHIS_DATA_RAW;
+13632      	SET CHIS.CHIS_DATA_RAW;
+13633      	FORMAT	srage_p1 	fage.;
+13634      	FORMAT	srsex		fbnrysex.;
+13635      	FORMAT	latin2tp	flatintp.;
+13636      	FORMAT	sras		fCHISBool.;
+13637      	FORMAT	sraso		fCHISBool.;
+13638      	FORMAT	srch		fCHISBool.;
+13639      	FORMAT	srkr		fCHISBool.;
+13640      	FORMAT	srjp		fCHISBool.;
+13641      	FORMAT	srph		fCHISBool.;
+13642      	FORMAT	srvt		fCHISBool.;
+13643      	FORMAT	srh			fCHISBool.;
+13644      	FORMAT	srw			fCHISBool.;
+13645      	FORMAT	sraa		fCHISBool.;
+13646      	FORMAT	srai		fCHISBool.;
+13647      	FORMAT	sro			fCHISBool.;
+13648      	FORMAT	ombsrr_p1	fombsrr_p.;
+13649      	FORMAT	racecn_p1	fracecn_p.;
+13650      	FORMAT	racedf_p1	fracedf_p.;
+13651      	FORMAT	racehp2_p1	fracehp_p.;
+13652      	FORMAT	aa5c		faac.;
+13653      	FORMAT	marit		fmarit.;
+13654      	FORMAT	marit_45	fmarit_adlt.;
+13655      	FORMAT	marit2		fmarit_scnd.;
+13656      RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
+NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.47 seconds
+      cpu time            0.46 seconds
+      
+
+13657      
+13658      PROC CONTENTS DATA=CHIS.CHIS_DATA_RAW VARNUM;
+13659      	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_RAW';
+13660      RUN;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.40 seconds
+      cpu time            0.39 seconds
+      
+
+13661      
+13662      /* CHIS SECTION B: GENERAL HEALTH CONDITION */
+13663      PROC FORMAT LIBRARY=CHIS;
+13664      	
+13664    !  VALUE fab			1	= 'Excellent'
+13665      						2	= 'Very Good'
+13666      						3	= 'Good'
+13667      						4	= 'Fair'
+13668      						5	= 'Poor';
 NOTE: Format FAB is already on the library CHIS.FORMATS.
-NOTE: Format FAB has been written to CHIS.FORMATS.
-13660      	
-13660    !  VALUE fastcur		1	= 'Current Asthma'
-13661      						2	= 'No Current Asthma';
-NOTE: Format FASTCUR is already on the library CHIS.FORMATS.
-NOTE: Format FASTCUR has been written to CHIS.FORMATS.
-13662      	
-13662    !  VALUE fabadlt_p		-1	= 'Inapplicable'
-13663      						0	= '0 Days'
-13664      						1	= '1-2 Days'
-13665      						3	= '3-4 Days'
-13666      						5	= '5+ Days';
-NOTE: Format FABADLT_P is already on the library CHIS.FORMATS.
-NOTE: Format FABADLT_P has been written to CHIS.FORMATS.
-13667      	
-13667    !  VALUE fabdiabet		1	= 'Yes'
-13668      						2	= 'No'
-13669      						3	= 'Borderline/Pre-Diabetes';
-NOTE: Format FABDIABET is already on the library CHIS.FORMATS.
-NOTE: Format FABDIABET has been written to CHIS.FORMATS.
-13670      	
-13670    !  VALUE fdiabage		-1	= 'Inapplicable'
-13671      						1	= '<= 18'
-13672      						2	= '19-29'
-13673      						3	= '30-39'
-13674      						4	= '40-49'
-13675      						5	= '50-59'
-13676      						6	= '60-69'
-13677      						7	= '70-79'
-13678      						8	= '>= 80';
-NOTE: Format FDIABAGE is already on the library CHIS.FORMATS.
-NOTE: Format FDIABAGE has been written to CHIS.FORMATS.
 48                                                         The SAS System                               13:26 Friday, March 29, 2019
 
+NOTE: Format FAB has been written to CHIS.FORMATS.
+13669      	
+13669    !  VALUE fastcur		1	= 'Current Asthma'
+13670      						2	= 'No Current Asthma';
+NOTE: Format FASTCUR is already on the library CHIS.FORMATS.
+NOTE: Format FASTCUR has been written to CHIS.FORMATS.
+13671      	
+13671    !  VALUE fabadlt_p		-1	= 'Inapplicable'
+13672      						0	= '0 Days'
+13673      						1	= '1-2 Days'
+13674      						3	= '3-4 Days'
+13675      						5	= '5+ Days';
+NOTE: Format FABADLT_P is already on the library CHIS.FORMATS.
+NOTE: Format FABADLT_P has been written to CHIS.FORMATS.
+13676      	
+13676    !  VALUE fabdiabet		1	= 'Yes'
+13677      						2	= 'No'
+13678      						3	= 'Borderline/Pre-Diabetes';
+NOTE: Format FABDIABET is already on the library CHIS.FORMATS.
+NOTE: Format FABDIABET has been written to CHIS.FORMATS.
 13679      	
-13679    !  VALUE fdiabtype		-1	= 'Inapplicable'
-13680      						1	= 'Type I'
-13681      						2	= 'Type II';
+13679    !  VALUE fdiabage		-1	= 'Inapplicable'
+13680      						1	= '<= 18'
+13681      						2	= '19-29'
+13682      						3	= '30-39'
+13683      						4	= '40-49'
+13684      						5	= '50-59'
+13685      						6	= '60-69'
+13686      						7	= '70-79'
+13687      						8	= '>= 80';
+NOTE: Format FDIABAGE is already on the library CHIS.FORMATS.
+NOTE: Format FDIABAGE has been written to CHIS.FORMATS.
+13688      	
+13688    !  VALUE fdiabtype		-1	= 'Inapplicable'
+13689      						1	= 'Type I'
+13690      						2	= 'Type II';
 NOTE: Format FDIABTYPE is already on the library CHIS.FORMATS.
 NOTE: Format FDIABTYPE has been written to CHIS.FORMATS.
-13682      	
-13682    !  VALUE fdiabfeet		-1	= 'Inapplicable'
-13683      						0	= '0 Times'
-13684      						1	= '1 Time'
-13685      						2	= '2 Times'
-13686      						3	= '3 Times'
-13687      						4	= '4 Times'
-13688      						5	= '5+ Times';
+13691      	
+13691    !  VALUE fdiabfeet		-1	= 'Inapplicable'
+13692      						0	= '0 Times'
+13693      						1	= '1 Time'
+13694      						2	= '2 Times'
+13695      						3	= '3 Times'
+13696      						4	= '4 Times'
+13697      						5	= '5+ Times';
 NOTE: Format FDIABFEET is already on the library CHIS.FORMATS.
 NOTE: Format FDIABFEET has been written to CHIS.FORMATS.
-13689      	
-13689    !  VALUE fdiabdilat	-1	= 'Inapplicable'
-13690      						1	= 'Within the Past Month'
-13691      						2	= '1 to 12 Months Ago'
-13692      						3	= '1 to 2 Years Ago'
-13693      						4	= '2 or More Years Ago'
-13694      						5	= 'Never';
+13698      	
+13698    !  VALUE fdiabdilat	-1	= 'Inapplicable'
+13699      						1	= 'Within the Past Month'
+13700      						2	= '1 to 12 Months Ago'
+13701      						3	= '1 to 2 Years Ago'
+13702      						4	= '2 or More Years Ago'
+13703      						5	= 'Never';
 NOTE: Format FDIABDILAT is already on the library CHIS.FORMATS.
 NOTE: Format FDIABDILAT has been written to CHIS.FORMATS.
-13695      	
-13695    !  VALUE fdiabctlmgt	-2	= 'Proxy Skipped'
-13696      						-1	= 'Inapplicable'
-13697      						1	= 'Very Confident'
-13698      						2	= 'Somewhat Confident'
-13699      						3	= 'Not Too Confident / Not at All Confident';
-NOTE: Format FDIABCTLMGT is already on the library CHIS.FORMATS.
-NOTE: Format FDIABCTLMGT has been written to CHIS.FORMATS.
-13700      	
-13700    !  VALUE fdiabpreg		-1	= 'Inapplicable'
-13701      						1	= 'Yes'
-13702      						2	= 'No'
-13703      						3	= 'Borderline Gestational Diabetes';
-NOTE: Format FDIABPREG is already on the library CHIS.FORMATS.
-NOTE: Format FDIABPREG has been written to CHIS.FORMATS.
 13704      	
-13704    !  VALUE fhighbp		1	= 'Yes'
-13705      						2	= 'No'
-13706      						3	= 'Borderline Hypertension';
-NOTE: Format FHIGHBP is already on the library CHIS.FORMATS.
-NOTE: Format FHIGHBP has been written to CHIS.FORMATS.
-13707      RUN;
-
-NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.00 seconds
-      cpu time            0.00 seconds
-      
-
-13708      DATA CHIS.CHIS_DATA_RAW;
-13709      	FORMAT	ab1			fab.;
-13710      	FORMAT	ab17		fCHISBool.;
-13711      	FORMAT	ab40		fCHISBool.;
-13712      	FORMAT	ab41		fCHISBool.;
 49                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-13713      	FORMAT	astcur		fastcur.;
-13714      	FORMAT	ab42_p1		fabadlt_p.;
-13715      	FORMAT	ab43		fCHISBool.;
-13716      	FORMAT	ab98		fCHISBool.;
-13717      	FORMAT	ab22		fabdiabet.;
-13718      	FORMAT	ab99		fCHISBool.;
-13719      	FORMAT	diabetes	fCHISBool.;
-13720      	FORMAT	prediab		fCHISBool.;
-13721      	FORMAT	ab23_p1		fdiabage.;
-13722      	FORMAT	ab51_p1		fdiabtype.;
-13723      	FORMAT	ab24		fCHISBool.;
-13724      	FORMAT	ab25		fCHISBool.;
-13725      	FORMAT	ab28_p1		fdiabfeet.;
-13726      	FORMAT	ab63		fdiabdilat.;
-13727      	FORMAT	ab112		fCHISBool.;
-13728      	FORMAT	ab114_p1	fdiabctlmgt.;
-13729      	FORMAT	ab81		fdiabpreg.;
-13730      	FORMAT	ab29		fhighbp.;
-13731      	FORMAT	ab30		fCHISBool.;
-13732      	FORMAT	ab34		fCHISBool.;
-13733      	FORMAT	ab52		fCHISBool.;
-13734      	FORMAT	ab118		fCHISBool.;
-13735      RUN;
-
-NOTE: Variable ab1 is uninitialized.
-NOTE: Variable ab17 is uninitialized.
-NOTE: Variable ab40 is uninitialized.
-NOTE: Variable ab41 is uninitialized.
-NOTE: Variable astcur is uninitialized.
-NOTE: Variable ab42_p1 is uninitialized.
-NOTE: Variable ab43 is uninitialized.
-NOTE: Variable ab98 is uninitialized.
-NOTE: Variable ab22 is uninitialized.
-NOTE: Variable ab99 is uninitialized.
-NOTE: Variable diabetes is uninitialized.
-NOTE: Variable prediab is uninitialized.
-NOTE: Variable ab23_p1 is uninitialized.
-NOTE: Variable ab51_p1 is uninitialized.
-NOTE: Variable ab24 is uninitialized.
-NOTE: Variable ab25 is uninitialized.
-NOTE: Variable ab28_p1 is uninitialized.
-NOTE: Variable ab63 is uninitialized.
-NOTE: Variable ab112 is uninitialized.
-NOTE: Variable ab114_p1 is uninitialized.
-NOTE: Variable ab81 is uninitialized.
-NOTE: Variable ab29 is uninitialized.
-NOTE: Variable ab30 is uninitialized.
-NOTE: Variable ab34 is uninitialized.
-NOTE: Variable ab52 is uninitialized.
-NOTE: Variable ab118 is uninitialized.
-NOTE: The data set CHIS.CHIS_DATA_RAW has 1 observations and 26 variables.
-NOTE: DATA statement used (Total process time):
-      real time           0.02 seconds
-      cpu time            0.01 seconds
-      
-
-13736      
-13737      /* CHIS SECTION C: HEALTH BEHAVIOURS */
-50                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-13738      PROC FORMAT LIBRARY=CHIS;
-13739      	
-13739    !  VALUE fad37w		1	= 'Yes'
-13740      						2	= 'No'
-13741      						3	= 'Unable to Walk'
-13742      						;
-NOTE: Format FAD37W is already on the library CHIS.FORMATS.
-NOTE: Format FAD37W has been written to CHIS.FORMATS.
-13743      
-13744      	
-13744    !  VALUE faesoda_p1z	0	= '0 Times'
-13745      						1	= '1 Time'
-13746      						2	= '2-3 Times'
-13747      						3	= '4-6 Times'
-13748      						4	= '7-13 Times'
-13749      						5	= '14-20 Times'
-13750      						6	= '21+ Times'
-13751      						;
-NOTE: Format FAESODA_P1Z is already on the library CHIS.FORMATS.
-NOTE: Format FAESODA_P1Z has been written to CHIS.FORMATS.
-13752      
-13753      	
-13753    !  VALUE fac42z		1	= 'Never'
-13754      						2	= 'Sometimes'
-13755      						3	= 'Usually'
-13756      						4	= 'Always'
-13757      						5	= 'Doesnt Eat Fruits & Vegetables'
-13758      						6	= 'Doesnt Shop for Fruits & Vegetables'
-13759      						7	= 'Doesnt Shop in His/Her Neighborhood'
-13760      						;
-NOTE: Format FAC42Z is already on the library CHIS.FORMATS.
-NOTE: Format FAC42Z has been written to CHIS.FORMATS.
-13761      
-13762      	
-13762    !  VALUE fac42_p		1	= 'Never'
-13763      						2	= 'Sometimes'
-13764      						3	= 'Usually'
-13765      						4	= 'Always'
-13766      						5	= 'Does Eat/Shop for Fruits & Vegetables'
-13767      						;
-NOTE: Format FAC42_P is already on the library CHIS.FORMATS.
-NOTE: Format FAC42_P has been written to CHIS.FORMATS.
-13768      
-13769      	
-13769    !  VALUE fac44z		-1	= 'Inapplicable'
-13770      						1	= 'Never'
-13771      						2	= 'Sometimes'
-13772      						3	= 'Usually'
-13773      						4	= 'Always'
-13774      						;
-NOTE: Format FAC44Z is already on the library CHIS.FORMATS.
-NOTE: Format FAC44Z has been written to CHIS.FORMATS.
-13775      
-13776      	
-13776    !  VALUE fae15a		-1	= 'Inapplicable'
-13777      						1	= 'Every Day'
-13778      						2	= 'Some Days'
-13779      						3	= 'Not at All'
-51                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-13780      						;
-NOTE: Format FAE15A is already on the library CHIS.FORMATS.
-NOTE: Format FAE15A has been written to CHIS.FORMATS.
-13781      
-13782      	
-13782    !  VALUE fad32_p1z		-1	= 'Inapplicable'
-13783      						0	= '0 Cigarettes'
-13784      						1	= '1-5 Cigarettes'
-13785      						6	= '6-10 Cigarettes'
-13786      						11	= '11-15 Cigarettes'
-13787      						16	= '16+ Cigarettes'
-13788      						;
-NOTE: Format FAD32_P1Z is already on the library CHIS.FORMATS.
-NOTE: Format FAD32_P1Z has been written to CHIS.FORMATS.
-13789      
-13790      	
-13790    !  VALUE fae16_p1z		-1	= 'Inapplicable'
-13791      						0	= '0 Cigarettes'
-13792      						1	= '1 Cigarette'
-13793      						2	= '2 Cigarettes'
-13794      						3	= '3 Cigarettes'
-13795      						4	= '4 Cigarettes'
-13796      						5	= '5 Cigarettes'
-13797      						6	= '6-10 Cigarettes'
-13798      						11	= '11+ Cigarettes'
-13799      						;
-NOTE: Format FAE16_P1Z is already on the library CHIS.FORMATS.
-NOTE: Format FAE16_P1Z has been written to CHIS.FORMATS.
-13800      
-13801      	
-13801    !  VALUE fsmkcur		1	= 'Current Smoker'
-13802      						2	= 'Not Current Smoker'
-13803      						;
-NOTE: Format FSMKCUR is already on the library CHIS.FORMATS.
-NOTE: Format FSMKCUR has been written to CHIS.FORMATS.
-13804      
-13805      	
-13805    !  VALUE fsmoking		1	= 'Currently Smokes'
-13806      						2	= 'Quit Smoking'
-13807      						3	= 'Never Smoked Regularly'
-13808      						;
-NOTE: Format FSMOKING is already on the library CHIS.FORMATS.
-NOTE: Format FSMOKING has been written to CHIS.FORMATS.
-13809      
-13810      	
-13810    !  VALUE fnumcig		1	= 'None'
-13811      						2	= '<=1 Cigarette'
-13812      						3	= '2-5 Cigarettes'
-13813      						4	= '6-10 Cigarettes'
-13814      						5	= '11-19 Cigarettes'
-13815      						6	= '20 or More'
-13816      						;
-NOTE: Format FNUMCIG is already on the library CHIS.FORMATS.
-NOTE: Format FNUMCIG has been written to CHIS.FORMATS.
-13817      RUN;
+13704    !  VALUE fdiabctlmgt	-2	= 'Proxy Skipped'
+13705      						-1	= 'Inapplicable'
+13706      						1	= 'Very Confident'
+13707      						2	= 'Somewhat Confident'
+13708      						3	= 'Not Too Confident / Not at All Confident';
+NOTE: Format FDIABCTLMGT is already on the library CHIS.FORMATS.
+NOTE: Format FDIABCTLMGT has been written to CHIS.FORMATS.
+13709      	
+13709    !  VALUE fdiabpreg		-1	= 'Inapplicable'
+13710      						1	= 'Yes'
+13711      						2	= 'No'
+13712      						3	= 'Borderline Gestational Diabetes';
+NOTE: Format FDIABPREG is already on the library CHIS.FORMATS.
+NOTE: Format FDIABPREG has been written to CHIS.FORMATS.
+13713      	
+13713    !  VALUE fhighbp		1	= 'Yes'
+13714      						2	= 'No'
+13715      						3	= 'Borderline Hypertension';
+NOTE: Format FHIGHBP is already on the library CHIS.FORMATS.
+NOTE: Format FHIGHBP has been written to CHIS.FORMATS.
+13716      RUN;
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
-52                                                         The SAS System                               13:26 Friday, March 29, 2019
-
       cpu time            0.00 seconds
       
 
-13818      
-13819      DATA CHIS.CHIS_DATA_RAW;
-13820      	FORMAT	ad37w		fad37w.;
-13821      	FORMAT	ad40w		fCHISBool.;
-13822      	FORMAT	aesoda_p1	faesoda_p1z.;
-13823      	FORMAT	ac42		fac42z.;
-13824      	FORMAT	ac42_p		fac42_p.;
-13825      	FORMAT	ac44		fac44z.;
-13826      	FORMAT	ae15		fCHISBool.;
-13827      	FORMAT	ae15a		fae15a.;
-13828      	FORMAT	ad32_p1		fad32_p1z.;
-13829      	FORMAT	ae16_p1		fae16_p1z.;
-13830      	FORMAT	smkcur		fsmkcur.;
-13831      	FORMAT	smoking		fssmoking.;
+13717      DATA CHIS.CHIS_DATA_RAW;
+13718      	SET CHIS.CHIS_DATA_RAW;
+13719      	FORMAT	ab1			fab.;
+13720      	FORMAT	ab17		fCHISBool.;
+13721      	FORMAT	ab40		fCHISBool.;
+13722      	FORMAT	ab41		fCHISBool.;
+13723      	FORMAT	astcur		fastcur.;
+13724      	FORMAT	ab42_p1		fabadlt_p.;
+13725      	FORMAT	ab43		fCHISBool.;
+13726      	FORMAT	ab98		fCHISBool.;
+13727      	FORMAT	ab22		fabdiabet.;
+13728      	FORMAT	ab99		fCHISBool.;
+13729      	FORMAT	diabetes	fCHISBool.;
+13730      	FORMAT	prediab		fCHISBool.;
+13731      	FORMAT	ab23_p1		fdiabage.;
+13732      	FORMAT	ab51_p1		fdiabtype.;
+13733      	FORMAT	ab24		fCHISBool.;
+13734      	FORMAT	ab25		fCHISBool.;
+13735      	FORMAT	ab28_p1		fdiabfeet.;
+13736      	FORMAT	ab63		fdiabdilat.;
+13737      	FORMAT	ab112		fCHISBool.;
+13738      	FORMAT	ab114_p1	fdiabctlmgt.;
+13739      	FORMAT	ab81		fdiabpreg.;
+13740      	FORMAT	ab29		fhighbp.;
+13741      	FORMAT	ab30		fCHISBool.;
+13742      	FORMAT	ab34		fCHISBool.;
+13743      	FORMAT	ab52		fCHISBool.;
+13744      	FORMAT	ab118		fCHISBool.;
+13745      RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
+50                                                         The SAS System                               13:26 Friday, March 29, 2019
+
+NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.46 seconds
+      cpu time            0.45 seconds
+      
+
+13746      
+13747      /* CHIS SECTION C: HEALTH BEHAVIOURS */
+13748      PROC FORMAT LIBRARY=CHIS;
+13749      	
+13749    !  VALUE fad37w		1	= 'Yes'
+13750      						2	= 'No'
+13751      						3	= 'Unable to Walk'
+13752      						;
+NOTE: Format FAD37W is already on the library CHIS.FORMATS.
+NOTE: Format FAD37W has been written to CHIS.FORMATS.
+13753      
+13754      	
+13754    !  VALUE faesoda_p1z	0	= '0 Times'
+13755      						1	= '1 Time'
+13756      						2	= '2-3 Times'
+13757      						3	= '4-6 Times'
+13758      						4	= '7-13 Times'
+13759      						5	= '14-20 Times'
+13760      						6	= '21+ Times'
+13761      						;
+NOTE: Format FAESODA_P1Z is already on the library CHIS.FORMATS.
+NOTE: Format FAESODA_P1Z has been written to CHIS.FORMATS.
+13762      
+13763      	
+13763    !  VALUE fac42z		1	= 'Never'
+13764      						2	= 'Sometimes'
+13765      						3	= 'Usually'
+13766      						4	= 'Always'
+13767      						5	= 'Doesnt Eat Fruits & Vegetables'
+13768      						6	= 'Doesnt Shop for Fruits & Vegetables'
+13769      						7	= 'Doesnt Shop in His/Her Neighborhood'
+13770      						;
+NOTE: Format FAC42Z is already on the library CHIS.FORMATS.
+NOTE: Format FAC42Z has been written to CHIS.FORMATS.
+13771      
+13772      	
+13772    !  VALUE fac42_p		1	= 'Never'
+13773      						2	= 'Sometimes'
+13774      						3	= 'Usually'
+13775      						4	= 'Always'
+13776      						5	= 'Does Eat/Shop for Fruits & Vegetables'
+13777      						;
+NOTE: Format FAC42_P is already on the library CHIS.FORMATS.
+NOTE: Format FAC42_P has been written to CHIS.FORMATS.
+13778      
+13779      	
+13779    !  VALUE fac44z		-1	= 'Inapplicable'
+13780      						1	= 'Never'
+13781      						2	= 'Sometimes'
+13782      						3	= 'Usually'
+13783      						4	= 'Always'
+13784      						;
+51                                                         The SAS System                               13:26 Friday, March 29, 2019
+
+NOTE: Format FAC44Z is already on the library CHIS.FORMATS.
+NOTE: Format FAC44Z has been written to CHIS.FORMATS.
+13785      
+13786      	
+13786    !  VALUE fae15a		-1	= 'Inapplicable'
+13787      						1	= 'Every Day'
+13788      						2	= 'Some Days'
+13789      						3	= 'Not at All'
+13790      						;
+NOTE: Format FAE15A is already on the library CHIS.FORMATS.
+NOTE: Format FAE15A has been written to CHIS.FORMATS.
+13791      
+13792      	
+13792    !  VALUE fad32_p1z		-1	= 'Inapplicable'
+13793      						0	= '0 Cigarettes'
+13794      						1	= '1-5 Cigarettes'
+13795      						6	= '6-10 Cigarettes'
+13796      						11	= '11-15 Cigarettes'
+13797      						16	= '16+ Cigarettes'
+13798      						;
+NOTE: Format FAD32_P1Z is already on the library CHIS.FORMATS.
+NOTE: Format FAD32_P1Z has been written to CHIS.FORMATS.
+13799      
+13800      	
+13800    !  VALUE fae16_p1z		-1	= 'Inapplicable'
+13801      						0	= '0 Cigarettes'
+13802      						1	= '1 Cigarette'
+13803      						2	= '2 Cigarettes'
+13804      						3	= '3 Cigarettes'
+13805      						4	= '4 Cigarettes'
+13806      						5	= '5 Cigarettes'
+13807      						6	= '6-10 Cigarettes'
+13808      						11	= '11+ Cigarettes'
+13809      						;
+NOTE: Format FAE16_P1Z is already on the library CHIS.FORMATS.
+NOTE: Format FAE16_P1Z has been written to CHIS.FORMATS.
+13810      
+13811      	
+13811    !  VALUE fsmkcur		1	= 'Current Smoker'
+13812      						2	= 'Not Current Smoker'
+13813      						;
+NOTE: Format FSMKCUR is already on the library CHIS.FORMATS.
+NOTE: Format FSMKCUR has been written to CHIS.FORMATS.
+13814      
+13815      	
+13815    !  VALUE fsmoking		1	= 'Currently Smokes'
+13816      						2	= 'Quit Smoking'
+13817      						3	= 'Never Smoked Regularly'
+13818      						;
+NOTE: Format FSMOKING is already on the library CHIS.FORMATS.
+NOTE: Format FSMOKING has been written to CHIS.FORMATS.
+13819      
+13820      	
+13820    !  VALUE fnumcig		1	= 'None'
+13821      						2	= '<=1 Cigarette'
+13822      						3	= '2-5 Cigarettes'
+13823      						4	= '6-10 Cigarettes'
+13824      						5	= '11-19 Cigarettes'
+52                                                         The SAS System                               13:26 Friday, March 29, 2019
+
+13825      						6	= '20 or More'
+13826      						;
+NOTE: Format FNUMCIG is already on the library CHIS.FORMATS.
+NOTE: Format FNUMCIG has been written to CHIS.FORMATS.
+13827      RUN;
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+13828      
+13829      DATA CHIS.CHIS_DATA_RAW;
+13830      	SET CHIS.CHIS_DATA_RAW;
+13831      	FORMAT	ad37w		fad37w.;
+13832      	FORMAT	ad40w		fCHISBool.;
+13833      	FORMAT	aesoda_p1	faesoda_p1z.;
+13834      	FORMAT	ac42		fac42z.;
+13835      	FORMAT	ac42_p		fac42_p.;
+13836      	FORMAT	ac44		fac44z.;
+13837      	FORMAT	ae15		fCHISBool.;
+13838      	FORMAT	ae15a		fae15a.;
+13839      	FORMAT	ad32_p1		fad32_p1z.;
+13840      	FORMAT	ae16_p1		fae16_p1z.;
+13841      	FORMAT	smkcur		fsmkcur.;
+13842      	FORMAT	smoking		fssmoking.;
                             __________
                             484
 NOTE 484-185: Format FSSMOKING was not found or could not be loaded.
 
-13832      	FORMAT	numcig		fnumcig.;
-13833      	FORMAT	ac49		fCHISBool.;
-13834      	FORMAT	ac50		fCHISBool.;
-13835      RUN;
+13843      	FORMAT	numcig		fnumcig.;
+13844      	FORMAT	ac49		fCHISBool.;
+13845      	FORMAT	ac50		fCHISBool.;
+13846      RUN;
 
-NOTE: Variable ad37w is uninitialized.
-NOTE: Variable ad40w is uninitialized.
-NOTE: Variable aesoda_p1 is uninitialized.
-NOTE: Variable ac42 is uninitialized.
-NOTE: Variable ac42_p is uninitialized.
-NOTE: Variable ac44 is uninitialized.
-NOTE: Variable ae15 is uninitialized.
-NOTE: Variable ae15a is uninitialized.
-NOTE: Variable ad32_p1 is uninitialized.
-NOTE: Variable ae16_p1 is uninitialized.
-NOTE: Variable smkcur is uninitialized.
-NOTE: Variable smoking is uninitialized.
-NOTE: Variable numcig is uninitialized.
-NOTE: Variable ac49 is uninitialized.
-NOTE: Variable ac50 is uninitialized.
-NOTE: The data set CHIS.CHIS_DATA_RAW has 1 observations and 15 variables.
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
+NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.02 seconds
-      cpu time            0.03 seconds
+      real time           0.45 seconds
+      cpu time            0.45 seconds
       
 
-13836      
-13837      /* CHIS SECTION D: GENERAL HEALTH, DISABILITY & SEXUAL HEALTH */
-13838      PROC FORMAT LIBRARY=CHIS;
-13839      	
-13839    !  VALUE	frbmi		1	= 'Underweight 0-18.49'
-13840      						2	= 'Normal 18.5-24.99'
-13841      						3	= 'Overweight 25.0-29.99'
-13842      						4	= 'Obese 30.0+'
-13843      						;
+13847      
+13848      /* CHIS SECTION D: GENERAL HEALTH, DISABILITY & SEXUAL HEALTH */
+13849      PROC FORMAT LIBRARY=CHIS;
+13850      	
+13850    !  VALUE	frbmi		1	= 'Underweight 0-18.49'
+13851      						2	= 'Normal 18.5-24.99'
+13852      						3	= 'Overweight 25.0-29.99'
+13853      						4	= 'Obese 30.0+'
+13854      						;
 NOTE: Format FRBMI is already on the library CHIS.FORMATS.
 NOTE: Format FRBMI has been written to CHIS.FORMATS.
+13855      RUN;
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
 53                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-13844      RUN;
-
-NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.00 seconds
-      cpu time            0.01 seconds
       
 
-13845      
-13846      DATA CHIS.CHIS_DATA_RAW;
-13847      	FORMAT	rbmi		frbmi.;
-13848      	FORMAT	ovrwt		fCHISBool.;
-13849      	FORMAT	ad50		fCHISBool.;
-13850      RUN;
+13856      
+13857      DATA CHIS.CHIS_DATA_RAW;
+13858      	SET CHIS.CHIS_DATA_RAW;
+13859      	FORMAT	rbmi		frbmi.;
+13860      	FORMAT	ovrwt		fCHISBool.;
+13861      	FORMAT	ad50		fCHISBool.;
+13862      RUN;
 
-NOTE: Variable rbmi is uninitialized.
-NOTE: Variable ovrwt is uninitialized.
-NOTE: Variable ad50 is uninitialized.
-NOTE: The data set CHIS.CHIS_DATA_RAW has 1 observations and 3 variables.
+NOTE: Format FSSMOKING was not found or could not be loaded.
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
+NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.00 seconds
-      cpu time            0.00 seconds
+      real time           0.43 seconds
+      cpu time            0.43 seconds
       
 
-13851      
-13852      /* CHIS SECTION F: MENTAL HEALTH */
-13853      PROC FORMAT LIBRARY=CHIS;
-13854      	
-13854    !  VALUE faj1z			-2	= 'Proxy Skipped'
-13855      						-1	= 'Inapplicable'
-13856      						1	= 'Yes'
-13857      						2	= 'No'
-13858      						3	= 'No Insurance'
-13859      						;
+13863      
+13864      /* CHIS SECTION F: MENTAL HEALTH */
+13865      PROC FORMAT LIBRARY=CHIS;
+13866      	
+13866    !  VALUE faj1z			-2	= 'Proxy Skipped'
+13867      						-1	= 'Inapplicable'
+13868      						1	= 'Yes'
+13869      						2	= 'No'
+13870      						3	= 'No Insurance'
+13871      						;
 NOTE: Format FAJ1Z is already on the library CHIS.FORMATS.
 NOTE: Format FAJ1Z has been written to CHIS.FORMATS.
-13860      RUN;
+13872      RUN;
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
       cpu time            0.00 seconds
       
 
-13861      
-13862      DATA CHIS.CHIS_DATA_RAW;
-13863      	FORMAT	aj29		fCHIS5LichTim.;
-13864      	FORMAT	aj30		fCHIS5LichTim.;
-13865      	FORMAT	aj31		fCHIS5LichTim.;
-13866      	FORMAT	aj32		fCHIS5LichTim.;
-13867      	FORMAT	aj33		fCHIS5LichTim.;
-13868      	FORMAT	aj34		fCHIS5LichTim.;
-13869      	FORMAT	dstrs30		fCHISBool.;
-13870      	FORMAT	af62		fCHISBool.;
-13871      	FORMAT	af63		fCHIS5LichTim.;
-13872      	FORMAT	af64		fCHIS5LichTim.;
-13873      	FORMAT	af65		fCHIS5LichTim.;
-13874      	FORMAT	af66		fCHIS5LichTim.;
-13875      	FORMAT	af67		fCHIS5LichTim.;
-13876      	FORMAT	af68		fCHIS5LichTim.;
+13873      
+13874      DATA CHIS.CHIS_DATA_RAW;
+13875      	SET CHIS.CHIS_DATA_RAW;
+13876      	FORMAT	aj29		fCHIS5LichTim.;
+13877      	FORMAT	aj30		fCHIS5LichTim.;
+13878      	FORMAT	aj31		fCHIS5LichTim.;
+13879      	FORMAT	aj32		fCHIS5LichTim.;
+13880      	FORMAT	aj33		fCHIS5LichTim.;
+13881      	FORMAT	aj34		fCHIS5LichTim.;
+13882      	FORMAT	dstrs30		fCHISBool.;
+13883      	FORMAT	af62		fCHISBool.;
+13884      	FORMAT	af63		fCHIS5LichTim.;
+13885      	FORMAT	af64		fCHIS5LichTim.;
+13886      	FORMAT	af65		fCHIS5LichTim.;
+13887      	FORMAT	af66		fCHIS5LichTim.;
+13888      	FORMAT	af67		fCHIS5LichTim.;
+13889      	FORMAT	af68		fCHIS5LichTim.;
+13890      	FORMAT	af69b		fCHIS4Amt.;
+13891      	FORMAT	af70b		fCHIS3Amt.;
+13892      	FORMAT	af71b		fCHIS3Amt.;
+13893      	FORMAT	af72b		fCHIS3Amt.;
 54                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-13877      	FORMAT	af69a		fCHIS4Amt.;
-13878      	FORMAT	af70b		fCHIS3Amt.;
-13879      	FORMAT	af71b		fCHIS3Amt.;
-13880      	FORMAT	af72b		fCHIS3Amt.;
-13881      	FORMAT	dstrs12		fCHISBool.;
-13882      	FORMAT	chores2		fCHIS3Severit.;
-13883      	FORMAT	social2		fCHIS3Severit.;
-13884      	FORMAT	work2		fCHIS3Severit.;
-13885      	FORMAT	family2		fCHIS3Severit.;
-13886      	FORMAT	aj1			faj1z.;
-13887      RUN;
+13894      	FORMAT	dstrs12		fCHISBool.;
+13895      	FORMAT	chores2		fCHIS3Severit.;
+13896      	FORMAT	social2		fCHIS3Severit.;
+13897      	FORMAT	work2		fCHIS3Severit.;
+13898      	FORMAT	family2		fCHIS3Severit.;
+13899      	FORMAT	aj1			faj1z.;
+13900      RUN;
 
-NOTE: Variable aj29 is uninitialized.
-NOTE: Variable aj30 is uninitialized.
-NOTE: Variable aj31 is uninitialized.
-NOTE: Variable aj32 is uninitialized.
-NOTE: Variable aj33 is uninitialized.
-NOTE: Variable aj34 is uninitialized.
-NOTE: Variable dstrs30 is uninitialized.
-NOTE: Variable af62 is uninitialized.
-NOTE: Variable af63 is uninitialized.
-NOTE: Variable af64 is uninitialized.
-NOTE: Variable af65 is uninitialized.
-NOTE: Variable af66 is uninitialized.
-NOTE: Variable af67 is uninitialized.
-NOTE: Variable af68 is uninitialized.
-NOTE: Variable af69a is uninitialized.
-NOTE: Variable af70b is uninitialized.
-NOTE: Variable af71b is uninitialized.
-NOTE: Variable af72b is uninitialized.
-NOTE: Variable dstrs12 is uninitialized.
-NOTE: Variable chores2 is uninitialized.
-NOTE: Variable social2 is uninitialized.
-NOTE: Variable work2 is uninitialized.
-NOTE: Variable family2 is uninitialized.
-NOTE: Variable aj1 is uninitialized.
-NOTE: The data set CHIS.CHIS_DATA_RAW has 1 observations and 24 variables.
+NOTE: Format FSSMOKING was not found or could not be loaded.
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
+NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.01 seconds
-      cpu time            0.00 seconds
+      real time           0.55 seconds
+      cpu time            0.49 seconds
       
 
-13888      
-13889      /* CHIS SECTION G: DEMOGRAPHIC INFORMATION / CHILD CARE */
-13890      PROC FORMAT LIBRARY=CHIS;
-13891      	
-13891    !  VALUE fah3nativity	-1	= 'Inapplicable'
-13892      						1	= 'Born in U.S.'
-13893      						2	= 'Born Outside U.S.'
-13894      						;
+13901      
+13902      /* CHIS SECTION G: DEMOGRAPHIC INFORMATION / CHILD CARE */
+13903      PROC FORMAT LIBRARY=CHIS;
+13904      	
+13904    !  VALUE fah3nativity	-1	= 'Inapplicable'
+13905      						1	= 'Born in U.S.'
+13906      						2	= 'Born Outside U.S.'
+13907      						;
 NOTE: Format FAH3NATIVITY is already on the library CHIS.FORMATS.
 NOTE: Format FAH3NATIVITY has been written to CHIS.FORMATS.
-13895      	
-13896      	
-13896    !  VALUE flnghm_p1z	1	= 'English'
-13897      						2	= 'Spanish'
-13898      						3	= 'Chinese'
-13899      						4	= 'Vietnamese'
-55                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-13900      						5	= 'Korean'
-13901      						6	= 'Other One Language Only'
-13902      						8	= 'English & Spanish'
-13903      						9	= 'English & Chinese'
-13904      						10	= 'English & European Language'
-13905      						11	= 'English & Another Asian Language'
-13906      						12	= 'English & One Other Language'
-13907      						13	= 'Other Languages (2+)'
-13908      						;
+13908      	
+13909      	
+13909    !  VALUE flnghm_p1z	1	= 'English'
+13910      						2	= 'Spanish'
+13911      						3	= 'Chinese'
+13912      						4	= 'Vietnamese'
+13913      						5	= 'Korean'
+13914      						6	= 'Other One Language Only'
+13915      						8	= 'English & Spanish'
+13916      						9	= 'English & Chinese'
+13917      						10	= 'English & European Language'
+13918      						11	= 'English & Another Asian Language'
+13919      						12	= 'English & One Other Language'
+13920      						13	= 'Other Languages (2+)'
+13921      						;
 NOTE: Format FLNGHM_P1Z is already on the library CHIS.FORMATS.
 NOTE: Format FLNGHM_P1Z has been written to CHIS.FORMATS.
-13909      
-13910      	
-13910    !  VALUE fah37z		-1	= 'Inapplicable'
-13911      						1	= 'Very Well'
-13912      						2	= 'Well'
-13913      						3	= 'Not Well'
-13914      						4	= 'Not at All'
-13915      						;
+13922      
+13923      	
+13923    !  VALUE fah37z		-1	= 'Inapplicable'
+13924      						1	= 'Very Well'
+13925      						2	= 'Well'
+13926      						3	= 'Not Well'
+13927      						4	= 'Not at All'
+13928      						;
 NOTE: Format FAH37Z is already on the library CHIS.FORMATS.
 NOTE: Format FAH37Z has been written to CHIS.FORMATS.
-13916      
-13917      	
-13917    !  VALUE fspk_eng		1	= 'Speak Only English'
-13918      						2	= 'Very Well / Well'
-13919      						3	= 'Not Well / Not at All'
-13920      						;
+13929      
+13930      	
+13930    !  VALUE fspk_eng		1	= 'Speak Only English'
+13931      						2	= 'Very Well / Well'
+13932      						3	= 'Not Well / Not at All'
+55                                                         The SAS System                               13:26 Friday, March 29, 2019
+
+13933      						;
 NOTE: Format FSPK_ENG is already on the library CHIS.FORMATS.
 NOTE: Format FSPK_ENG has been written to CHIS.FORMATS.
-13921      
-13922      	
-13922    !  VALUE fcitizen		1	= 'US-Born Citizen'
-13923      						2	= 'Naturalized Citizen'
-13924      						3	= 'Non-Citizen'
-13925      						;
+13934      
+13935      	
+13935    !  VALUE fcitizen		1	= 'US-Born Citizen'
+13936      						2	= 'Naturalized Citizen'
+13937      						3	= 'Non-Citizen'
+13938      						;
 NOTE: Format FCITIZEN is already on the library CHIS.FORMATS.
 NOTE: Format FCITIZEN has been written to CHIS.FORMATS.
-13926      
-13927      	
-13927    !  VALUE fyrus_p1z		-1	= 'Inapplicable'
-13928      						1	= '<5 Years'
-13929      						3	= '5-9 Years'
-13930      						4	= '10-14 Years'
-13931      						5	= '15-19 Years'
-13932      						;
+13939      
+13940      	
+13940    !  VALUE fyrus_p1z		-1	= 'Inapplicable'
+13941      						1	= '<5 Years'
+13942      						3	= '5-9 Years'
+13943      						4	= '10-14 Years'
+13944      						5	= '15-19 Years'
+13945      						;
 NOTE: Format FYRUS_P1Z is already on the library CHIS.FORMATS.
 NOTE: Format FYRUS_P1Z has been written to CHIS.FORMATS.
-13933      
-13934      	
-13934    !  VALUE fpctlf_p		1	= '0-20'
-13935      						2	= '21-40'
-13936      						3	= '41-60'
-13937      						4	= '61-80'
-13938      						5	= '81+'
-13939      						;
+13946      
+13947      	
+13947    !  VALUE fpctlf_p		1	= '0-20'
+13948      						2	= '21-40'
+13949      						3	= '41-60'
+13950      						4	= '61-80'
+13951      						5	= '81+'
+13952      						;
 NOTE: Format FPCTLF_P is already on the library CHIS.FORMATS.
 NOTE: Format FPCTLF_P has been written to CHIS.FORMATS.
-13940      
-56                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-13941      	
-13941    !  VALUE fahedc_p1z	1	= 'None / Primary School'
-13942      						2	= 'High School, Partial'
-13943      						3	= 'High School, Graduate'
-13944      						4	= 'College, Partial'
-13945      						5	= 'Vocational School'
-13946      						6	= 'Associates Degree'
-13947      						7	= 'Bachelors Degree'
-13948      						8	= 'Masters Degree'
-13949      						9	= 'Doctorate Degree'
-13950      						;
+13953      
+13954      	
+13954    !  VALUE fahedc_p1z	1	= 'None / Primary School'
+13955      						2	= 'High School, Partial'
+13956      						3	= 'High School, Graduate'
+13957      						4	= 'College, Partial'
+13958      						5	= 'Vocational School'
+13959      						6	= 'Associates Degree'
+13960      						7	= 'Bachelors Degree'
+13961      						8	= 'Masters Degree'
+13962      						9	= 'Doctorate Degree'
+13963      						;
 NOTE: Format FAHEDC_P1Z is already on the library CHIS.FORMATS.
 NOTE: Format FAHEDC_P1Z has been written to CHIS.FORMATS.
-13951      
-13952      	
-13952    !  VALUE fag10z		-1	= 'Inapplicable'
-13953      						1	= 'Yes'
-13954      						2	= 'No'
-13955      						3	= 'Looking for Work'
-13956      						;
-NOTE: Format FAG10Z is already on the library CHIS.FORMATS.
-NOTE: Format FAG10Z has been written to CHIS.FORMATS.
-13957      
-13958      	
-13958    !  VALUE fwrkst_p1z	1	= 'Full-Time Employment (21+ hrs/week)'
-13959      						2	= 'Part-Time Employment (0-20 hrs/week)'
-13960      						3	= 'Other Employed'
-13961      						4	= 'Unemployed, Looking for Work'
-13962      						5	= 'Unemployed, Not Looking for Work'
-13963      						;
-NOTE: Format FWRKST_P1Z is already on the library CHIS.FORMATS.
-NOTE: Format FWRKST_P1Z has been written to CHIS.FORMATS.
 13964      
 13965      	
-13965    !  VALUE fserved		-1	= 'Inapplicable'
-13966      						1	= '<0.5 Years'
-13967      						2	= '0.5 - 2 Years'
-13968      						3	= '2 - 4 Years'
-13969      						4	= '4 - 20 Years'
-13970      						5	= '20+ Years'
-13971      						;
+13965    !  VALUE fag10z		-1	= 'Inapplicable'
+13966      						1	= 'Yes'
+13967      						2	= 'No'
+13968      						3	= 'Looking for Work'
+13969      						;
+NOTE: Format FAG10Z is already on the library CHIS.FORMATS.
+NOTE: Format FAG10Z has been written to CHIS.FORMATS.
+13970      
+13971      	
+13971    !  VALUE fwrkst_p1z	1	= 'Full-Time Employment (21+ hrs/week)'
+13972      						2	= 'Part-Time Employment (0-20 hrs/week)'
+56                                                         The SAS System                               13:26 Friday, March 29, 2019
+
+13973      						3	= 'Other Employed'
+13974      						4	= 'Unemployed, Looking for Work'
+13975      						5	= 'Unemployed, Not Looking for Work'
+13976      						;
+NOTE: Format FWRKST_P1Z is already on the library CHIS.FORMATS.
+NOTE: Format FWRKST_P1Z has been written to CHIS.FORMATS.
+13977      
+13978      	
+13978    !  VALUE fserved		-1	= 'Inapplicable'
+13979      						1	= '<0.5 Years'
+13980      						2	= '0.5 - 2 Years'
+13981      						3	= '2 - 4 Years'
+13982      						4	= '4 - 20 Years'
+13983      						5	= '20+ Years'
+13984      						;
 NOTE: Format FSERVED is already on the library CHIS.FORMATS.
 NOTE: Format FSERVED has been written to CHIS.FORMATS.
-13972      
-13973      	
-13973    !  VALUE ffamtyp_p		1	= 'Single Adult, 21+'
-13974      						2	= 'Single Young Adult, 19-20'
-13975      						3	= 'Married w/o Kids'
-13976      						4	= 'Married w/ Kids'
-13977      						5	= 'Single w/ Kids'
-13978      						6	= 'Single 18 Years Old'
-13979      						;
+13985      
+13986      	
+13986    !  VALUE ffamtyp_p		1	= 'Single Adult, 21+'
+13987      						2	= 'Single Young Adult, 19-20'
+13988      						3	= 'Married w/o Kids'
+13989      						4	= 'Married w/ Kids'
+13990      						5	= 'Single w/ Kids'
+13991      						6	= 'Single 18 Years Old'
+13992      						;
 NOTE: Format FFAMTYP_P is already on the library CHIS.FORMATS.
 NOTE: Format FFAMTYP_P has been written to CHIS.FORMATS.
-13980      
-13981      RUN;
+13993      
+13994      RUN;
 
 NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+13995      
+13996      DATA CHIS.CHIS_DATA_RAW;
+13997      	SET CHIS.CHIS_DATA_RAW;
+13998      	FORMAT	ah33new		fah3nativity.;
+13999      	FORMAT	ah34new		fah3nativity.;
+14000      	FORMAT	ah35new		fah3nativity.;
+14001      	FORMAT	lnghm_p1	flnghm_p1z.;
+14002      	FORMAT	ah37		fah37z.;
+14003      	FORMAT	spk_eng		fspk_eng.;
+14004      	FORMAT	citizen2	fcitizen.;
+14005      	FORMAT	yrus_p1		fyrus_p1z.;
+14006      	FORMAT	pctlf_p		fpctlf_p.;
+14007      	FORMAT	ah43a		fCHISBool.;
+14008      	FORMAT	ahedc_p1	fahedc_p1z.;
+14009      	FORMAT	ag10		fag10z.;
+14010      	FORMAT	wrkst_p1	fwrkst_p1z.;
+14011      	FORMAT	ag22		fCHISBool.;
+14012      	FORMAT	served		fserved.;
+14013      	FORMAT	famtyp_p	ffamtyp_p.;
+14014      RUN;
+
+NOTE: Format FSSMOKING was not found or could not be loaded.
 57                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-      real time           0.00 seconds
-      cpu time            0.01 seconds
-      
-
-13982      
-13983      DATA CHIS.CHIS_DATA_RAW;
-13984      	FORMAT	ah33new		fah3nativity.;
-13985      	FORMAT	ah34new		fah3nativity.;
-13986      	FORMAT	ah35new		fah3nativity.;
-13987      	FORMAT	lnghm_p1	flnghm_p1z.;
-13988      	FORMAT	ah37		fah37z.;
-13989      	FORMAT	spk_eng		fspk_eng.;
-13990      	FORMAT	citizen2	fcitizen.;
-13991      	FORMAT	yrus_p1		fyrus_p1z.;
-13992      	FORMAT	pctlf_p		fpctlf_p.;
-13993      	FORMAT	ah43a		fCHISBool.;
-13994      	FORMAT	ahedc_p1	fahedc_p1z.;
-13995      	FORMAT	ag10		fag10z.;
-13996      	FORMAT	wrkst_p1	fwrkst_p1z.;
-13997      	FORMAT	ag22		fCHISBool.;
-13998      	FORMAT	served		fserved.;
-13999      	FORMAT	famtyp_p	ffamtyp_p.;
-14000      RUN;
-
-NOTE: Variable ah33new is uninitialized.
-NOTE: Variable ah34new is uninitialized.
-NOTE: Variable ah35new is uninitialized.
-NOTE: Variable lnghm_p1 is uninitialized.
-NOTE: Variable ah37 is uninitialized.
-NOTE: Variable spk_eng is uninitialized.
-NOTE: Variable citizen2 is uninitialized.
-NOTE: Variable yrus_p1 is uninitialized.
-NOTE: Variable pctlf_p is uninitialized.
-NOTE: Variable ah43a is uninitialized.
-NOTE: Variable ahedc_p1 is uninitialized.
-NOTE: Variable ag10 is uninitialized.
-NOTE: Variable wrkst_p1 is uninitialized.
-NOTE: Variable ag22 is uninitialized.
-NOTE: Variable served is uninitialized.
-NOTE: Variable famtyp_p is uninitialized.
-NOTE: The data set CHIS.CHIS_DATA_RAW has 1 observations and 16 variables.
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
+NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.02 seconds
-      cpu time            0.01 seconds
+      real time           0.49 seconds
+      cpu time            0.48 seconds
       
 
-14001      
-14002      /* CHIS SECTION H: HEALTH INSURANCE */
-14003      PROC FORMAT LIBRARY=CHIS;
-14004      	
-14004    !  VALUE	fai15z		-1	= 'Inapplicable'
-14005      						1	= 'Covered by Another Plan'
-14006      						2	= 'Too Expensive'
-14007      						3	= 'Didnt Like Plan Offered'
-14008      						4	= 'Dont Need or Believe in Health Insurance'
-14009      						5	= 'In Process'
-14010      						6	= 'Didnt Take Up - Other'
-14011      						7	= 'Receive Extra Pay/Benefits Not to Enroll'
-58                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-14012      						91	= 'Other'
-14013      						;
+14015      
+14016      /* CHIS SECTION H: HEALTH INSURANCE */
+14017      PROC FORMAT LIBRARY=CHIS;
+14018      	
+14018    !  VALUE	fai15z		-1	= 'Inapplicable'
+14019      						1	= 'Covered by Another Plan'
+14020      						2	= 'Too Expensive'
+14021      						3	= 'Didnt Like Plan Offered'
+14022      						4	= 'Dont Need or Believe in Health Insurance'
+14023      						5	= 'In Process'
+14024      						6	= 'Didnt Take Up - Other'
+14025      						7	= 'Receive Extra Pay/Benefits Not to Enroll'
+14026      						91	= 'Other'
+14027      						;
 NOTE: Format FAI15Z is already on the library CHIS.FORMATS.
 NOTE: Format FAI15Z has been written to CHIS.FORMATS.
-14014      
-14015      	
-14015    !  VALUE	fai15a		-1	= 'Inapplicable'
-14016      						1	= 'Havent Worked Here Long Enough'
-14017      						2	= 'Contract or Temp Employee'
-14018      						3	= 'Didnt Work Enough Hours per Week'
-14019      						4	= 'Does Not Meet Age Requirements'
-14020      						5	= 'Only Management Can Get Health Insurance'
-14021      						6	= 'Not Eligible - Other'
-14022      						7	= 'Has Left Position / Retired / Laid Off'
-14023      						91	= 'Other'
-14024      						;
+14028      
+14029      	
+14029    !  VALUE	fai15a		-1	= 'Inapplicable'
+14030      						1	= 'Havent Worked Here Long Enough'
+14031      						2	= 'Contract or Temp Employee'
+14032      						3	= 'Didnt Work Enough Hours per Week'
+14033      						4	= 'Does Not Meet Age Requirements'
+14034      						5	= 'Only Management Can Get Health Insurance'
+14035      						6	= 'Not Eligible - Other'
+14036      						7	= 'Has Left Position / Retired / Laid Off'
+14037      						91	= 'Other'
+14038      						;
 NOTE: Format FAI15A is already on the library CHIS.FORMATS.
 NOTE: Format FAI15A has been written to CHIS.FORMATS.
-14025      
-14026      	
-14026    !  VALUE	fai22a_p	-8	= 'Dont Know'
-14027      						-1	= 'Inapplicable'
-14028      						1	= 'Kaiser'
-14029      						2	= 'Blue Cross'
-14030      						3	= 'United Healthcare'
-14031      						4	= 'Blue Shield'
-14032      						5	= 'Health Net'
-14033      						6	= 'Aetna'
-14034      						7	= 'Cigna Health Care'
-14035      						8	= 'Other'
-14036      						;
+14039      
+14040      	
+14040    !  VALUE	fai22a_p	-8	= 'Dont Know'
+14041      						-1	= 'Inapplicable'
+14042      						1	= 'Kaiser'
+14043      						2	= 'Blue Cross'
+14044      						3	= 'United Healthcare'
+14045      						4	= 'Blue Shield'
+14046      						5	= 'Health Net'
+14047      						6	= 'Aetna'
+14048      						7	= 'Cigna Health Care'
+14049      						8	= 'Other'
+14050      						;
 NOTE: Format FAI22A_P is already on the library CHIS.FORMATS.
 NOTE: Format FAI22A_P has been written to CHIS.FORMATS.
-14037      
-14038      	
-14038    !  VALUE	fhmo		1	= 'HMO'
-14039      						2	= 'Non-HMO'
-14040      						3	= 'Uninsured'
-14041      						;
+14051      
+14052      	
+14052    !  VALUE	fhmo		1	= 'HMO'
+14053      						2	= 'Non-HMO'
+14054      						3	= 'Uninsured'
+14055      						;
+58                                                         The SAS System                               13:26 Friday, March 29, 2019
+
 NOTE: Format FHMO is already on the library CHIS.FORMATS.
 NOTE: Format FHMO has been written to CHIS.FORMATS.
-14042      
-14043      	
-14043    !  VALUE	fai28z		-1	= 'Inapplicable'
-14044      						1	= '1 to 3 Yrs Ago'
-14045      						2	= 'More than 3 Yrs Ago'
-14046      						3	= 'Never Had Health Insurance Coverage'
-14047      						;
+14056      
+14057      	
+14057    !  VALUE	fai28z		-1	= 'Inapplicable'
+14058      						1	= '1 to 3 Yrs Ago'
+14059      						2	= 'More than 3 Yrs Ago'
+14060      						3	= 'Never Had Health Insurance Coverage'
+14061      						;
 NOTE: Format FAI28Z is already on the library CHIS.FORMATS.
 NOTE: Format FAI28Z has been written to CHIS.FORMATS.
-14048      
-14049      	
-14049    !  VALUE	fah101_p	-1	= 'Inapplicable'
-14050      						1	= 'Broker'
-14051      						2	= 'Family Member / Friend'
-14052      						3	= 'Internet'
-14053      						4	= 'Other / Multiple Reasons'
-14054      						;
-59                                                         The SAS System                               13:26 Friday, March 29, 2019
-
+14062      
+14063      	
+14063    !  VALUE	fah101_p	-1	= 'Inapplicable'
+14064      						1	= 'Broker'
+14065      						2	= 'Family Member / Friend'
+14066      						3	= 'Internet'
+14067      						4	= 'Other / Multiple Reasons'
+14068      						;
 NOTE: Format FAH101_P is already on the library CHIS.FORMATS.
 NOTE: Format FAH101_P has been written to CHIS.FORMATS.
-14055      
-14056      	
-14056    !  VALUE	funinsany	-1	= 'Skipped - Ages>=65'
-14057      						1	= 'Uninsured All Year'
-14058      						2	= 'Uninsured Part Year'
-14059      						3	= 'Insured All Year'
-14060      						;
+14069      
+14070      	
+14070    !  VALUE	funinsany	-1	= 'Skipped - Ages>=65'
+14071      						1	= 'Uninsured All Year'
+14072      						2	= 'Uninsured Part Year'
+14073      						3	= 'Insured All Year'
+14074      						;
 NOTE: Format FUNINSANY is already on the library CHIS.FORMATS.
 NOTE: Format FUNINSANY has been written to CHIS.FORMATS.
-14061      
-14062      	
-14062    !  VALUE	fins64_p	-1	= 'Skipped - Age >= 65'
-14063      						1	= 'Uninsured'
-14064      						2	= 'Medi-Cal (Medicaid)'
-14065      						3	= 'Medicare'
-14066      						4	= 'Employment-Based'
-14067      						5	= 'Privately Purchased'
-14068      						6	= 'Chip/Other Public Prgm'
-14069      						;
-NOTE: Format FINS64_P is already on the library CHIS.FORMATS.
-NOTE: Format FINS64_P has been written to CHIS.FORMATS.
-14070      
-14071      	
-14071    !  VALUE	finsany		1	= 'Currently Uninsured'
-14072      						2	= 'Unins. Any Past 12 mo'
-14073      						3	= 'Insured All Past 12 mo'
-14074      						;
-NOTE: Format FINSANY is already on the library CHIS.FORMATS.
-NOTE: Format FINSANY has been written to CHIS.FORMATS.
 14075      
 14076      	
-14076    !  VALUE	finst_12z	-1	= 'Inapplicable-age>=65'
-14077      						1	= 'Medi-Cal (Medicaid) Only'
-14078      						2	= 'Employer-Based Coverage Only (EBI)'
-14079      						3	= 'Private Coverage Only'
-14080      						4	= 'Other Coverage Only'
-14081      						5	= 'Any 2 or More Types (Never Uninsured)'
-14082      						6	= 'Uninsured Only'
-14083      						7	= 'Uninsured + Employer-Based Only'
-14084      						8	= 'Any 1 or More Types + Uninsured'
-14085      						;
+14076    !  VALUE	fins64_p	-1	= 'Skipped - Age >= 65'
+14077      						1	= 'Uninsured'
+14078      						2	= 'Medi-Cal (Medicaid)'
+14079      						3	= 'Medicare'
+14080      						4	= 'Employment-Based'
+14081      						5	= 'Privately Purchased'
+14082      						6	= 'Chip/Other Public Prgm'
+14083      						;
+NOTE: Format FINS64_P is already on the library CHIS.FORMATS.
+NOTE: Format FINS64_P has been written to CHIS.FORMATS.
+14084      
+14085      	
+14085    !  VALUE	finsany		1	= 'Currently Uninsured'
+14086      						2	= 'Unins. Any Past 12 mo'
+14087      						3	= 'Insured All Past 12 mo'
+14088      						;
+NOTE: Format FINSANY is already on the library CHIS.FORMATS.
+NOTE: Format FINSANY has been written to CHIS.FORMATS.
+14089      
+14090      	
+14090    !  VALUE	finst_12z	-1	= 'Inapplicable-age>=65'
+14091      						1	= 'Medi-Cal (Medicaid) Only'
+14092      						2	= 'Employer-Based Coverage Only (EBI)'
+14093      						3	= 'Private Coverage Only'
+14094      						4	= 'Other Coverage Only'
+14095      						5	= 'Any 2 or More Types (Never Uninsured)'
+59                                                         The SAS System                               13:26 Friday, March 29, 2019
+
+14096      						6	= 'Uninsured Only'
+14097      						7	= 'Uninsured + Employer-Based Only'
+14098      						8	= 'Any 1 or More Types + Uninsured'
+14099      						;
 NOTE: Format FINST_12Z is already on the library CHIS.FORMATS.
 NOTE: Format FINST_12Z has been written to CHIS.FORMATS.
-14086      
-14087      	
-14087    !  VALUE	fins65z		-1	= 'Skipped - Age < 65'
-14088      						1	= 'Medicare + Medi-Cal (Medicaid)'
-14089      						2	= 'Medicare + Other'
-14090      						3	= 'Medicare Only'
-14091      						4	= 'Other Only'
-14092      						5	= 'Uninsured'
-14093      						;
-NOTE: Format FINS65Z is already on the library CHIS.FORMATS.
-NOTE: Format FINS65Z has been written to CHIS.FORMATS.
-14094      
-14095      	
-60                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-14095    !  VALUE	finsps		-1	= 'Inapplicable'
-14096      						1	= 'Primary'
-14097      						2	= 'Secondary'
-14098      						3	= 'Not Specified as Primary or Secondary'
-14099      						;
-NOTE: Format FINSPS is already on the library CHIS.FORMATS.
-NOTE: Format FINSPS has been written to CHIS.FORMATS.
 14100      
 14101      	
-14101    !  VALUE	fofftk		-1	= 'Unemployed or Self-Employed'
-14102      						1	= 'Accepted EBI'
-14103      						2	= 'Not Accepted EBI, Offered & Eligible'
-14104      						3	= 'Was Offered EBI, Not Eligible'
-14105      						4	= 'Was Not Offered EBI'
-14106      						;
+14101    !  VALUE	fins65z		-1	= 'Skipped - Age < 65'
+14102      						1	= 'Medicare + Medi-Cal (Medicaid)'
+14103      						2	= 'Medicare + Other'
+14104      						3	= 'Medicare Only'
+14105      						4	= 'Other Only'
+14106      						5	= 'Uninsured'
+14107      						;
+NOTE: Format FINS65Z is already on the library CHIS.FORMATS.
+NOTE: Format FINS65Z has been written to CHIS.FORMATS.
+14108      
+14109      	
+14109    !  VALUE	finsps		-1	= 'Inapplicable'
+14110      						1	= 'Primary'
+14111      						2	= 'Secondary'
+14112      						3	= 'Not Specified as Primary or Secondary'
+14113      						;
+NOTE: Format FINSPS is already on the library CHIS.FORMATS.
+NOTE: Format FINSPS has been written to CHIS.FORMATS.
+14114      
+14115      	
+14115    !  VALUE	fofftk		-1	= 'Unemployed or Self-Employed'
+14116      						1	= 'Accepted EBI'
+14117      						2	= 'Not Accepted EBI, Offered & Eligible'
+14118      						3	= 'Was Offered EBI, Not Eligible'
+14119      						4	= 'Was Not Offered EBI'
+14120      						;
 NOTE: Format FOFFTK is already on the library CHIS.FORMATS.
 NOTE: Format FOFFTK has been written to CHIS.FORMATS.
-14107      RUN;
+14121      RUN;
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
       
 
-14108      
-14109      DATA CHIS.CHIS_DATA_RAW;
-14110      	FORMAT	ai4			fCHISBool.;
-14111      	FORMAT	ah100		fCHISBool.;
-14112      	FORMAT	ah103		fCHISBool.;
-14113      	FORMAT	ai15		fai15z.;
-14114      	FORMAT	ai15a		fai15a.;
-14115      	FORMAT	ai22c		fCHISBool.;
-14116      	FORMAT	ai25new		fCHISBool.;
-14117      	FORMAT	ai25		fCHISBool.;
-14118      	FORMAT	ai22a_p		fai22a_p.;
-14119      	FORMAT	hmo			fhmo.;
-14120      	FORMAT	ah71_p1		fCHISBool.;
-14121      	FORMAT	ah72_p1		fCHISBool.;
-14122      	FORMAT	ah73B		fCHISBool.;
-14123      	FORMAT	ah74		fCHISBool.;
-14124      	FORMAT	ah75		fCHISBool.;
-14125      	FORMAT	ai28		fai28z.;
-14126      	FORMAT	ah14		fCHISBool.;
-14127      	FORMAT	ah101_p		fah101_p.;
-14128      	FORMAT	ah98_p1		fCHIS3Diffic.;
-14129      	FORMAT	ah99_p1		fCHIS3Diffic.;
-14130      	FORMAT	ins			FCHISBool.;
-14131      	FORMAT	uninsany	funinsany.;
-14132      	FORMAT	ins64_p		fins64_p.;
-14133      	FORMAT	insany		finsany.;
-14134      	FORMAT	inst_12		finst_12z.;
-14135      	FORMAT	ins65		fins65z.;
-14136      	FORMAT	insem		fCHISBool.;
-14137      	FORMAT	insmc		fCHISBool.;
-14138      	FORMAT	insmd		fCHISBool.;
-14139      	FORMAT	insog		fCHISBool.;
-14140      	FORMAT	inspr		fCHISBool.;
-14141      	FORMAT	insps		finsps.;
-61                                                         The SAS System                               13:26 Friday, March 29, 2019
+14122      
+14123      DATA CHIS.CHIS_DATA_RAW;
+14124      	SET CHIS.CHIS_DATA_RAW;
+14125      	FORMAT	ai4			fCHISBool.;
+14126      	FORMAT	ah100		fCHISBool.;
+14127      	FORMAT	ah103		fCHISBool.;
+14128      	FORMAT	ai15		fai15z.;
+14129      	FORMAT	ai15a		fai15a.;
+14130      	FORMAT	ai22c		fCHISBool.;
+14131      	FORMAT	ai25new		fCHISBool.;
+14132      	FORMAT	ai25		fCHISBool.;
+14133      	FORMAT	ai22a_p		fai22a_p.;
+14134      	FORMAT	hmo			fhmo.;
+14135      	FORMAT	ah71_p1		fCHISBool.;
+14136      	FORMAT	ah72_p1		fCHISBool.;
+60                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-14142      	FORMAT	offtk		fofftk.;
-14143      RUN;
+14137      	FORMAT	ah73B		fCHISBool.;
+14138      	FORMAT	ah74		fCHISBool.;
+14139      	FORMAT	ah75		fCHISBool.;
+14140      	FORMAT	ai28		fai28z.;
+14141      	FORMAT	ah14		fCHISBool.;
+14142      	FORMAT	ah101_p		fah101_p.;
+14143      	FORMAT	ah98_p1		fCHIS3Diffic.;
+14144      	FORMAT	ah99_p1		fCHIS3Diffic.;
+14145      	FORMAT	ins			FCHISBool.;
+14146      	FORMAT	uninsany	funinsany.;
+14147      	FORMAT	ins64_p		fins64_p.;
+14148      	FORMAT	insany		finsany.;
+14149      	FORMAT	inst_12		finst_12z.;
+14150      	FORMAT	ins65		fins65z.;
+14151      	FORMAT	insem		fCHISBool.;
+14152      	FORMAT	insmc		fCHISBool.;
+14153      	FORMAT	insmd		fCHISBool.;
+14154      	FORMAT	insog		fCHISBool.;
+14155      	FORMAT	inspr		fCHISBool.;
+14156      	FORMAT	insps		finsps.;
+14157      	FORMAT	offtk		fofftk.;
+14158      RUN;
 
-NOTE: Variable ai4 is uninitialized.
-NOTE: Variable ah100 is uninitialized.
-NOTE: Variable ah103 is uninitialized.
-NOTE: Variable ai15 is uninitialized.
-NOTE: Variable ai15a is uninitialized.
-NOTE: Variable ai22c is uninitialized.
-NOTE: Variable ai25new is uninitialized.
-NOTE: Variable ai25 is uninitialized.
-NOTE: Variable ai22a_p is uninitialized.
-NOTE: Variable hmo is uninitialized.
-NOTE: Variable ah71_p1 is uninitialized.
-NOTE: Variable ah72_p1 is uninitialized.
-NOTE: Variable ah73B is uninitialized.
-NOTE: Variable ah74 is uninitialized.
-NOTE: Variable ah75 is uninitialized.
-NOTE: Variable ai28 is uninitialized.
-NOTE: Variable ah14 is uninitialized.
-NOTE: Variable ah101_p is uninitialized.
-NOTE: Variable ah98_p1 is uninitialized.
-NOTE: Variable ah99_p1 is uninitialized.
-NOTE: Variable ins is uninitialized.
-NOTE: Variable uninsany is uninitialized.
-NOTE: Variable ins64_p is uninitialized.
-NOTE: Variable insany is uninitialized.
-NOTE: Variable inst_12 is uninitialized.
-NOTE: Variable ins65 is uninitialized.
-NOTE: Variable insem is uninitialized.
-NOTE: Variable insmc is uninitialized.
-NOTE: Variable insmd is uninitialized.
-NOTE: Variable insog is uninitialized.
-NOTE: Variable inspr is uninitialized.
-NOTE: Variable insps is uninitialized.
-NOTE: Variable offtk is uninitialized.
-NOTE: The data set CHIS.CHIS_DATA_RAW has 1 observations and 33 variables.
+NOTE: Format FSSMOKING was not found or could not be loaded.
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
+NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.02 seconds
-      cpu time            0.03 seconds
+      real time           0.50 seconds
+      cpu time            0.50 seconds
       
 
-14144      
-14145      /* CHIS SECTION J: HEALTH CARE UTILIZATION / ACCESS & DENTAL HEALTH */
-14146      PROC FORMAT LIBRARY=CHIS;
-14147      	
-14147    !  VALUE	fah1z		1	= 'Yes'
-14148      						2	= 'No'
-14149      						3	= 'Doctor / My Doctor'
-14150      						4	= 'Kaiser'
-14151      						5	= 'More than One Place'
-14152      						;
+14159      
+14160      /* CHIS SECTION J: HEALTH CARE UTILIZATION / ACCESS & DENTAL HEALTH */
+14161      PROC FORMAT LIBRARY=CHIS;
+14162      	
+14162    !  VALUE	fah1z		1	= 'Yes'
+14163      						2	= 'No'
+14164      						3	= 'Doctor / My Doctor'
+14165      						4	= 'Kaiser'
+14166      						5	= 'More than One Place'
+14167      						;
 NOTE: Format FAH1Z is already on the library CHIS.FORMATS.
 NOTE: Format FAH1Z has been written to CHIS.FORMATS.
-14153      
-14154      	
-14154    !  VALUE	fah3_p1z	-1	= 'Inapplicable'
-14155      						1	= 'Doctors Office / Kasier / HMO'
-62                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-14156      						2	= 'Clinic / Health Center / Hospital Clinic'
-14157      						3	= 'Emergency Room'
-14158      						4	= 'Some Other Place / No One Particular Place'
-14159      						;
-NOTE: Format FAH3_P1Z is already on the library CHIS.FORMATS.
-NOTE: Format FAH3_P1Z has been written to CHIS.FORMATS.
-14160      
-14161      	
-14161    !  VALUE	fusual_tp	1	= 'Doctors Office / Kaiser / HMO'
-14162      						2	= 'Commun/Gov Clin, Commun Hosp'
-14163      						3	= 'Emergency Room'
-14164      						5	= 'Some Other Place'
-14165      						6	= 'No One Particular Place'
-14166      						7	= 'No Usual Source of Care'
-14167      						;
-NOTE: Format FUSUAL_TP is already on the library CHIS.FORMATS.
-NOTE: Format FUSUAL_TP has been written to CHIS.FORMATS.
 14168      
 14169      	
-14169    !  VALUE	fusual5tp	1	= 'Doctors Office / Kaiser / HMO'
-14170      						2	= 'Commun/Gov Clin, Commun Hosp'
-14171      						3	= 'Emergency Room / Urgent Care'
-14172      						4	= 'Some Other Place / No One Particular Place'
-14173      						5	= 'No Usual Source of Care'
+14169    !  VALUE	fah3_p1z	-1	= 'Inapplicable'
+14170      						1	= 'Doctors Office / Kasier / HMO'
+14171      						2	= 'Clinic / Health Center / Hospital Clinic'
+14172      						3	= 'Emergency Room'
+14173      						4	= 'Some Other Place / No One Particular Place'
 14174      						;
-NOTE: Format FUSUAL5TP is already on the library CHIS.FORMATS.
-NOTE: Format FUSUAL5TP has been written to CHIS.FORMATS.
+NOTE: Format FAH3_P1Z is already on the library CHIS.FORMATS.
+NOTE: Format FAH3_P1Z has been written to CHIS.FORMATS.
 14175      
 14176      	
-14176    !  VALUE	fah6z		-1	= 'Inapplicable'
-14177      						0	= 'Within the Past Yr'
-14178      						1	= '1 to 2 Yrs Ago'
-14179      						2	= '2 to 5 Yrs Ago'
-14180      						3	= 'More than 5 Yrs Ago'
-14181      						4	= 'Never'
+14176    !  VALUE	fusual_tp	1	= 'Doctors Office / Kaiser / HMO'
+14177      						2	= 'Commun/Gov Clin, Commun Hosp'
+14178      						3	= 'Emergency Room'
+61                                                         The SAS System                               13:26 Friday, March 29, 2019
+
+14179      						5	= 'Some Other Place'
+14180      						6	= 'No One Particular Place'
+14181      						7	= 'No Usual Source of Care'
 14182      						;
-NOTE: Format FAH6Z is already on the library CHIS.FORMATS.
-NOTE: Format FAH6Z has been written to CHIS.FORMATS.
+NOTE: Format FUSUAL_TP is already on the library CHIS.FORMATS.
+NOTE: Format FUSUAL_TP has been written to CHIS.FORMATS.
 14183      
 14184      	
-14184    !  VALUE	facmdnum	0	= '0 Times'
-14185      						1	= '1 Time'
-14186      						2	= '2 Times'
-14187      						3	= '3 Times'
-14188      						4	= '4 Times'
-14189      						5	= '5 Times'
-14190      						6	= '6 Times'
-14191      						7	= '7-8 Times'
-14192      						8	= '9-12 Times'
-14193      						9	= '13-24 Times'
-14194      						10	= '25+ Times'
-14195      						;
+14184    !  VALUE	fusual5tp	1	= 'Doctors Office / Kaiser / HMO'
+14185      						2	= 'Commun/Gov Clin, Commun Hosp'
+14186      						3	= 'Emergency Room / Urgent Care'
+14187      						4	= 'Some Other Place / No One Particular Place'
+14188      						5	= 'No Usual Source of Care'
+14189      						;
+NOTE: Format FUSUAL5TP is already on the library CHIS.FORMATS.
+NOTE: Format FUSUAL5TP has been written to CHIS.FORMATS.
+14190      
+14191      	
+14191    !  VALUE	fah6z		-1	= 'Inapplicable'
+14192      						0	= 'Within the Past Yr'
+14193      						1	= '1 to 2 Yrs Ago'
+14194      						2	= '2 to 5 Yrs Ago'
+14195      						3	= 'More than 5 Yrs Ago'
+14196      						4	= 'Never'
+14197      						;
+NOTE: Format FAH6Z is already on the library CHIS.FORMATS.
+NOTE: Format FAH6Z has been written to CHIS.FORMATS.
+14198      
+14199      	
+14199    !  VALUE	facmdnum	0	= '0 Times'
+14200      						1	= '1 Time'
+14201      						2	= '2 Times'
+14202      						3	= '3 Times'
+14203      						4	= '4 Times'
+14204      						5	= '5 Times'
+14205      						6	= '6 Times'
+14206      						7	= '7-8 Times'
+14207      						8	= '9-12 Times'
+14208      						9	= '13-24 Times'
+14209      						10	= '25+ Times'
+14210      						;
 NOTE: Format FACMDNUM is already on the library CHIS.FORMATS.
 NOTE: Format FACMDNUM has been written to CHIS.FORMATS.
-14196      
-14197      	
-14197    !  VALUE	faj103z		-1	= 'Inapplicable'
-14198      						1	= 'Never'
-63                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-14199      						2	= 'Sometimes'
-14200      						3	= 'Usually'
-14201      						4	= 'Always'
-14202      						;
-NOTE: Format FAJ103Z is already on the library CHIS.FORMATS.
-NOTE: Format FAJ103Z has been written to CHIS.FORMATS.
-14203      
-14204      	
-14204    !  VALUE	faj114z		-1	= 'Inapplicable'
-14205      						0	= 'One Year Ago or Less'
-14206      						1	= '1 to 2 Years Ago'
-14207      						2	= '2 to 5 Years Ago'
-14208      						3	= 'More than 5 Years Ago'
-14209      						4	= 'Never'
-14210      						;
-NOTE: Format FAJ114Z is already on the library CHIS.FORMATS.
-NOTE: Format FAJ114Z has been written to CHIS.FORMATS.
 14211      
 14212      	
-14212    !  VALUE	faj131_p1z	-1	= 'Inapplicable'
-14213      						1	= 'Couldnt Get Appointment'
-14214      						2	= 'Cost, Insurance (Not Covrd/Accptd, No Ins)'
-14215      						5	= 'Transportation Problems'
-14216      						6	= 'Hours Not Convenient'
-14217      						9	= 'I Didnt Have Time'
-14218      						12	= 'Did Not Think Serious Enough/Needed'
-14219      						13	= 'Not Satisfied with Health Care Received'
-14220      						14	= 'Other Reason'
-14221      						15	= 'Anxiety, Fear, Avoidance of Medical Care'
-14222      						;
+14212    !  VALUE	faj103z		-1	= 'Inapplicable'
+14213      						1	= 'Never'
+14214      						2	= 'Sometimes'
+14215      						3	= 'Usually'
+14216      						4	= 'Always'
+14217      						;
+NOTE: Format FAJ103Z is already on the library CHIS.FORMATS.
+NOTE: Format FAJ103Z has been written to CHIS.FORMATS.
+14218      
+14219      	
+14219    !  VALUE	faj114z		-1	= 'Inapplicable'
+14220      						0	= 'One Year Ago or Less'
+14221      						1	= '1 to 2 Years Ago'
+62                                                         The SAS System                               13:26 Friday, March 29, 2019
+
+14222      						2	= '2 to 5 Years Ago'
+14223      						3	= 'More than 5 Years Ago'
+14224      						4	= 'Never'
+14225      						;
+NOTE: Format FAJ114Z is already on the library CHIS.FORMATS.
+NOTE: Format FAJ114Z has been written to CHIS.FORMATS.
+14226      
+14227      	
+14227    !  VALUE	faj131_p1z	-1	= 'Inapplicable'
+14228      						1	= 'Couldnt Get Appointment'
+14229      						2	= 'Cost, Insurance (Not Covrd/Accptd, No Ins)'
+14230      						5	= 'Transportation Problems'
+14231      						6	= 'Hours Not Convenient'
+14232      						9	= 'I Didnt Have Time'
+14233      						12	= 'Did Not Think Serious Enough/Needed'
+14234      						13	= 'Not Satisfied with Health Care Received'
+14235      						14	= 'Other Reason'
+14236      						15	= 'Anxiety, Fear, Avoidance of Medical Care'
+14237      						;
 NOTE: Format FAJ131_P1Z is already on the library CHIS.FORMATS.
 NOTE: Format FAJ131_P1Z has been written to CHIS.FORMATS.
-14223      
-14224      	
-14224    !  VALUE	frn_forgo	-1	= 'Inapplicable'
-14225      						1	= 'Cost'
-14226      						2	= 'Couldnt Get Appointment'
-14227      						3	= 'Didnt Have Time'
-14228      						4	= 'Others'
-14229      						;
+14238      
+14239      	
+14239    !  VALUE	frn_forgo	-1	= 'Inapplicable'
+14240      						1	= 'Cost'
+14241      						2	= 'Couldnt Get Appointment'
+14242      						3	= 'Didnt Have Time'
+14243      						4	= 'Others'
+14244      						;
 NOTE: Format FRN_FORGO is already on the library CHIS.FORMATS.
 NOTE: Format FRN_FORGO has been written to CHIS.FORMATS.
-14230      
-14231      	
-14231    !  VALUE	fah95_p1z	-1	= 'Inapplicable'
-14232      						0	= '0 Times'
-14233      						1	= '1 Time'
-14234      						2	= '2 Times'
-14235      						3	= '3 Times'
-14236      						4	= '4 Times'
-14237      						5	= '5+ Times'
-14238      						;
+14245      
+14246      	
+14246    !  VALUE	fah95_p1z	-1	= 'Inapplicable'
+14247      						0	= '0 Times'
+14248      						1	= '1 Time'
+14249      						2	= '2 Times'
+14250      						3	= '3 Times'
+14251      						4	= '4 Times'
+14252      						5	= '5+ Times'
+14253      						;
 NOTE: Format FAH95_P1Z is already on the library CHIS.FORMATS.
 NOTE: Format FAH95_P1Z has been written to CHIS.FORMATS.
-14239      RUN;
+14254      RUN;
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
-64                                                         The SAS System                               13:26 Friday, March 29, 2019
-
       cpu time            0.00 seconds
       
 
-14240      
-14241      DATA CHIS.CHIS_DATA_RAW;
-14242      	FORMAT	ah1			fah1z.;
-14243      	FORMAT	ah3_p1		fah3_p1z.;
-14244      	FORMAT	usoc		fCHISBool.;
-14245      	FORMAT	usual		fCHISBool.;
-14246      	FORMAT	usual_tp	fusual_tp.;
-14247      	FORMAT	usual5tp	fusual5tp.;
-14248      	FORMAT	ah6			fah6z.;
-14249      	FORMAT	acmdnum		facmdnum.;
-14250      	FORMAT	doct_yr		fCHISBool.;
-14251      	FORMAT	aj77		fCHISBool.;
-14252      	FORMAT	aj9			fCHISBool.;
-14253      	FORMAT	aj10		fCHISBool.;
-14254      	FORMAT	ah16		fCHISBool.;
-14255      	FORMAT	aj19		fCHISBool.;
-14256      	FORMAT	ah22		fCHISBool.;
-14257      	FORMAT	aj20		fCHISBool.;
-14258      	FORMAT	aj102		fCHISBool.;
-14259      	FORMAT	aj103		faj103z.;
-14260      	FORMAT	timappt		fCHISBool.;
-14261      	FORMAT	aj105		fCHISBool.;
-14262      	FORMAT	aj106		fCHISBool.;
-14263      	FORMAT	aj107		fCHISBool.;
-14264      	FORMAT	aj114		faj114z.;
-14265      	FORMAT	aj129		fCHISBool.;
-14266      	FORMAT	aj131_p1	faj131_p1z.;
-14267      	FORMAT	chare_pv	fCHISBool.;
-14268      	FORMAT	rn_forgo	frn_forgo.;
-14269      	FORMAT	forgo		fCHISBool.;
-14270      	FORMAT	aj136		fCHISBool.;
-14271      	FORMAT	aj137		fCHISBool.;
-14272      	FORMAT	aj138		fCHISBool.;
-14273      	FORMAT	aj139		fCHISBool.;
-14274      	FORMAT	aj133		fCHISBool.;
-14275      	FORMAT	aj134		fCHISBool.;
-14276      	FORMAT	aj135		fCHISBool.;
-14277      	FORMAT	pc_ins		fCHISBool.;
-14278      	FORMAT	pc_newp		fCHISBool.;
-14279      	FORMAT	sc_ins		fCHISBool.;
-14280      	FORMAT	sc_newp		fCHISBool.;
-14281      	FORMAT	ah95_p1		fah95_p1z.;
-14282      	FORMAT	er			fCHISBool.;
-14283      RUN;
+14255      
+14256      DATA CHIS.CHIS_DATA_RAW;
+14257      	SET CHIS.CHIS_DATA_RAW;
+14258      	FORMAT	ah1			fah1z.;
+14259      	FORMAT	ah3_p1		fah3_p1z.;
+14260      	FORMAT	usoc		fCHISBool.;
+14261      	FORMAT	usual		fCHISBool.;
+14262      	FORMAT	usual_tp	fusual_tp.;
+63                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-NOTE: Variable ah1 is uninitialized.
-NOTE: Variable ah3_p1 is uninitialized.
-NOTE: Variable usoc is uninitialized.
-NOTE: Variable usual is uninitialized.
-NOTE: Variable usual_tp is uninitialized.
-NOTE: Variable usual5tp is uninitialized.
-NOTE: Variable ah6 is uninitialized.
-NOTE: Variable acmdnum is uninitialized.
-NOTE: Variable doct_yr is uninitialized.
-NOTE: Variable aj77 is uninitialized.
-65                                                         The SAS System                               13:26 Friday, March 29, 2019
+14263      	FORMAT	usual5tp	fusual5tp.;
+14264      	FORMAT	ah6			fah6z.;
+14265      	FORMAT	acmdnum		facmdnum.;
+14266      	FORMAT	doct_yr		fCHISBool.;
+14267      	FORMAT	aj77		fCHISBool.;
+14268      	FORMAT	aj9			fCHISBool.;
+14269      	FORMAT	aj10		fCHISBool.;
+14270      	FORMAT	ah16		fCHISBool.;
+14271      	FORMAT	aj19		fCHISBool.;
+14272      	FORMAT	ah22		fCHISBool.;
+14273      	FORMAT	aj20		fCHISBool.;
+14274      	FORMAT	aj102		fCHISBool.;
+14275      	FORMAT	aj103		faj103z.;
+14276      	FORMAT	timappt		fCHISBool.;
+14277      	FORMAT	aj105		fCHISBool.;
+14278      	FORMAT	aj106		fCHISBool.;
+14279      	FORMAT	aj107		fCHISBool.;
+14280      	FORMAT	aj114		faj114z.;
+14281      	FORMAT	aj129		fCHISBool.;
+14282      	FORMAT	aj131_p1	faj131_p1z.;
+14283      	FORMAT	care_pv		fCHISBool.;
+14284      	FORMAT	rn_forgo	frn_forgo.;
+14285      	FORMAT	forgo		fCHISBool.;
+14286      	FORMAT	aj136		fCHISBool.;
+14287      	FORMAT	aj137		fCHISBool.;
+14288      	FORMAT	aj138		fCHISBool.;
+14289      	FORMAT	aj139		fCHISBool.;
+14290      	FORMAT	aj133		fCHISBool.;
+14291      	FORMAT	aj134		fCHISBool.;
+14292      	FORMAT	aj135		fCHISBool.;
+14293      	FORMAT	pc_ins		fCHISBool.;
+14294      	FORMAT	pc_newp		fCHISBool.;
+14295      	FORMAT	sc_ins		fCHISBool.;
+14296      	FORMAT	sc_newp		fCHISBool.;
+14297      	FORMAT	ah95_p1		fah95_p1z.;
+14298      	FORMAT	er			fCHISBool.;
+14299      RUN;
 
-NOTE: Variable aj9 is uninitialized.
-NOTE: Variable aj10 is uninitialized.
-NOTE: Variable ah16 is uninitialized.
-NOTE: Variable aj19 is uninitialized.
-NOTE: Variable ah22 is uninitialized.
-NOTE: Variable aj20 is uninitialized.
-NOTE: Variable aj102 is uninitialized.
-NOTE: Variable aj103 is uninitialized.
-NOTE: Variable timappt is uninitialized.
-NOTE: Variable aj105 is uninitialized.
-NOTE: Variable aj106 is uninitialized.
-NOTE: Variable aj107 is uninitialized.
-NOTE: Variable aj114 is uninitialized.
-NOTE: Variable aj129 is uninitialized.
-NOTE: Variable aj131_p1 is uninitialized.
-NOTE: Variable chare_pv is uninitialized.
-NOTE: Variable rn_forgo is uninitialized.
-NOTE: Variable forgo is uninitialized.
-NOTE: Variable aj136 is uninitialized.
-NOTE: Variable aj137 is uninitialized.
-NOTE: Variable aj138 is uninitialized.
-NOTE: Variable aj139 is uninitialized.
-NOTE: Variable aj133 is uninitialized.
-NOTE: Variable aj134 is uninitialized.
-NOTE: Variable aj135 is uninitialized.
-NOTE: Variable pc_ins is uninitialized.
-NOTE: Variable pc_newp is uninitialized.
-NOTE: Variable sc_ins is uninitialized.
-NOTE: Variable sc_newp is uninitialized.
-NOTE: Variable ah95_p1 is uninitialized.
-NOTE: Variable er is uninitialized.
-NOTE: The data set CHIS.CHIS_DATA_RAW has 1 observations and 41 variables.
+NOTE: Format FSSMOKING was not found or could not be loaded.
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
+NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.02 seconds
-      cpu time            0.01 seconds
+      real time           0.52 seconds
+      cpu time            0.53 seconds
       
 
-14284      
-14285      /* CHIS SECTION K: EMPLOYMENT, INCOME, POVERTY STATUS & FOOD SECURITY */
-14286      PROC FORMAT LIBRARY=CHIS;
-14287      	
-14287    !  VALUE	fak1z		1	= 'Working at a Job/Business'
-14288      						2	= 'With a Job/Business but Not at Work'
-14289      						3	= 'Looking for Work'
-14290      						4	= 'Not Working Job / Business (Unemp)'
-14291      						;
+14300      
+14301      /* CHIS SECTION K: EMPLOYMENT, INCOME, POVERTY STATUS & FOOD SECURITY */
+14302      PROC FORMAT LIBRARY=CHIS;
+14303      	
+14303    !  VALUE	fak1z		1	= 'Working at a Job/Business'
+14304      						2	= 'With a Job/Business but Not at Work'
+14305      						3	= 'Looking for Work'
+14306      						4	= 'Not Working Job / Business (Unemp)'
+14307      						;
 NOTE: Format FAK1Z is already on the library CHIS.FORMATS.
 NOTE: Format FAK1Z has been written to CHIS.FORMATS.
-14292      
-14293      	
-14293    !  VALUE	fak2_p1z	-1	= 'Inapplicable'
-14294      						2	= 'On Planned Vacation'
-14295      						3	= 'Couldnt Find a Job'
-14296      						4	= 'Going to School / Sudent'
-14297      						5	= 'Retired'
-14298      						6	= 'Physical Disability'
-14299      						7	= 'Unable to Work Temporarily'
-14300      						8	= 'On Layoff or Strike'
-66                                                         The SAS System                               13:26 Friday, March 29, 2019
+14308      
+64                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-14301      						10	= 'Off Season'
-14302      						11	= 'Sick'
-14303      						91	= 'Other'
-14304      						;
+14309      	
+14309    !  VALUE	fak2_p1z	-1	= 'Inapplicable'
+14310      						2	= 'On Planned Vacation'
+14311      						3	= 'Couldnt Find a Job'
+14312      						4	= 'Going to School / Sudent'
+14313      						5	= 'Retired'
+14314      						6	= 'Physical Disability'
+14315      						7	= 'Unable to Work Temporarily'
+14316      						8	= 'On Layoff or Strike'
+14317      						10	= 'Off Season'
+14318      						11	= 'Sick'
+14319      						91	= 'Other'
+14320      						;
 NOTE: Format FAK2_P1Z is already on the library CHIS.FORMATS.
 NOTE: Format FAK2_P1Z has been written to CHIS.FORMATS.
-14305      
-14306      	
-14306    !  VALUE	fak4z		-1	= 'Inapplicable'
-14307      						1	= 'Private Company, Non-Profit Org'
-14308      						2	= 'Government'
-14309      						3	= 'Self-Employed'
-14310      						4	= 'Family Business or Farm'
-14311      						;
+14321      
+14322      	
+14322    !  VALUE	fak4z		-1	= 'Inapplicable'
+14323      						1	= 'Private Company, Non-Profit Org'
+14324      						2	= 'Government'
+14325      						3	= 'Self-Employed'
+14326      						4	= 'Family Business or Farm'
+14327      						;
 NOTE: Format FAK4Z is already on the library CHIS.FORMATS.
 NOTE: Format FAK4Z has been written to CHIS.FORMATS.
-14312      
-14313      	
-14313    !  VALUE	findmain2z	-9	= 'Not Ascertained'
-14314      						-8	= 'Dont Know'
-14315      						-7	= 'Refused'
-14316      						-1	= 'Inapplicable'
-14317      						1	= 'Agriculture, Forestry, Fishing, Hunting'
-14318      						2	= 'Construction'
-14319      						3	= 'Manufacturing'
-14320      						4	= 'Wholesale Trace'
-14321      						5	= 'Retail Trade'
-14322      						6	= 'Transportation, Warehousing, and Utilities'
-14323      						7	= 'Information'
-14324      						8	= 'Finance and Insurance, Real Estate, Rent'
-14325      						9	= 'Professional, Scientific, Management'
-14326      						10	= 'Educational Services, Healthcare and So'
-14327      						11	= 'Arts, Entertainment, Recreation, Acommo'
-14328      						12	= 'Other Services, Except Public Administration'
-14329      						13	= 'Public Administration'
-14330      						14	= 'Military'
-14331      						99	= 'Could Not be Coded'
-14332      						;
+14328      
+14329      	
+14329    !  VALUE	findmain2z	-9	= 'Not Ascertained'
+14330      						-8	= 'Dont Know'
+14331      						-7	= 'Refused'
+14332      						-1	= 'Inapplicable'
+14333      						1	= 'Agriculture, Forestry, Fishing, Hunting'
+14334      						2	= 'Construction'
+14335      						3	= 'Manufacturing'
+14336      						4	= 'Wholesale Trace'
+14337      						5	= 'Retail Trade'
+14338      						6	= 'Transportation, Warehousing, and Utilities'
+14339      						7	= 'Information'
+14340      						8	= 'Finance and Insurance, Real Estate, Rent'
+14341      						9	= 'Professional, Scientific, Management'
+14342      						10	= 'Educational Services, Healthcare and So'
+14343      						11	= 'Arts, Entertainment, Recreation, Acommo'
+14344      						12	= 'Other Services, Except Public Administration'
+14345      						13	= 'Public Administration'
+14346      						14	= 'Military'
+14347      						99	= 'Could Not be Coded'
+14348      						;
 NOTE: Format FINDMAIN2Z is already on the library CHIS.FORMATS.
 NOTE: Format FINDMAIN2Z has been written to CHIS.FORMATS.
-14333      
-14334      	
-14334    !  VALUE	foccmain2z	-9	= 'Not Ascertained'
-14335      						-8	= 'Dont Know'
-14336      						-7	= 'Refused'
-14337      						-1	= 'Inapplicable'
-14338      						1	= 'Management, Busi8ness, and Financial Occu'
-14339      						2	= 'Computer, Engineering, and Science Occup'
-14340      						3	= 'Education, Legal, Communityu Service, Art'
-14341      						4	= 'Healthcare Practitioners & Technical O'
-14342      						5	= 'Services Occupations'
-14343      						6	= 'Sales & Realted Occupations'
-14344      						7	= 'Office & Administrative Support Occupa'
-14345      						8	= 'Farming, Fishing, & Forestry Occupatio'
-14346      						9	= 'Construction & Extraction Occupations'
-14347      						10	= 'Installation, Maintenance, & Repair Oc'
-14348      						11	= 'Production Occupations'
-14349      						12	= 'Transportation & Material Moving Occup'
-67                                                         The SAS System                               13:26 Friday, March 29, 2019
+14349      
+14350      	
+14350    !  VALUE	foccmain2z	-9	= 'Not Ascertained'
+14351      						-8	= 'Dont Know'
+14352      						-7	= 'Refused'
+14353      						-1	= 'Inapplicable'
+14354      						1	= 'Management, Busi8ness, and Financial Occu'
+14355      						2	= 'Computer, Engineering, and Science Occup'
+14356      						3	= 'Education, Legal, Communityu Service, Art'
+65                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-14350      						13	= 'Military Specific Occupations'
-14351      						99	= 'Could Not be Coded'
-14352      						;
+14357      						4	= 'Healthcare Practitioners & Technical O'
+14358      						5	= 'Services Occupations'
+14359      						6	= 'Sales & Realted Occupations'
+14360      						7	= 'Office & Administrative Support Occupa'
+14361      						8	= 'Farming, Fishing, & Forestry Occupatio'
+14362      						9	= 'Construction & Extraction Occupations'
+14363      						10	= 'Installation, Maintenance, & Repair Oc'
+14364      						11	= 'Production Occupations'
+14365      						12	= 'Transportation & Material Moving Occup'
+14366      						13	= 'Military Specific Occupations'
+14367      						99	= 'Could Not be Coded'
+14368      						;
 NOTE: Format FOCCMAIN2Z is already on the library CHIS.FORMATS.
 NOTE: Format FOCCMAIN2Z has been written to CHIS.FORMATS.
-14353      
-14354      	
-14354    !  VALUE	fakwklngz	-1	= 'Inapplicable'
-14355      						0	= '<1 Year'
-14356      						1	= '1 Year'
-14357      						2	= '2 Years'
-14358      						3	= '3 Years'
-14359      						4	= '4 Years'
-14360      						5	= '5 Years'
-14361      						6	= '6-9 Years'
-14362      						7	= '10-14 Years'
-14363      						8	= '15-19 Years'
-14364      						9	= '20-29 Years'
-14365      						10	= '30+ Years'
-14366      						;
+14369      
+14370      	
+14370    !  VALUE	fakwklngz	-1	= 'Inapplicable'
+14371      						0	= '<1 Year'
+14372      						1	= '1 Year'
+14373      						2	= '2 Years'
+14374      						3	= '3 Years'
+14375      						4	= '4 Years'
+14376      						5	= '5 Years'
+14377      						6	= '6-9 Years'
+14378      						7	= '10-14 Years'
+14379      						8	= '15-19 Years'
+14380      						9	= '20-29 Years'
+14381      						10	= '30+ Years'
+14382      						;
 NOTE: Format FAKWKLNGZ is already on the library CHIS.FORMATS.
 NOTE: Format FAKWKLNGZ has been written to CHIS.FORMATS.
-14367      
-14368      	
-14368    !  VALUE	fak8z		-1	= 'Inapplicable'
-14369      						1	= '1 or 2'
-14370      						2	= '3 - 9'
-14371      						3	= '10 - 24'
-14372      						4	= '25 - 50'
-14373      						5	= '51 - 100'
-14374      						6	= '101 - 200'
-14375      						7	= '201 - 999'
-14376      						8	= '1,000 or More'
-14377      						;
+14383      
+14384      	
+14384    !  VALUE	fak8z		-1	= 'Inapplicable'
+14385      						1	= '1 or 2'
+14386      						2	= '3 - 9'
+14387      						3	= '10 - 24'
+14388      						4	= '25 - 50'
+14389      						5	= '51 - 100'
+14390      						6	= '101 - 200'
+14391      						7	= '201 - 999'
+14392      						8	= '1,000 or More'
+14393      						;
 NOTE: Format FAK8Z is already on the library CHIS.FORMATS.
 NOTE: Format FAK8Z has been written to CHIS.FORMATS.
-14378      
-14379      	
-14379    !  VALUE	fak33_p1z	-1	= 'Inapplicable'
-14380      						1	= '1'
-14381      						2	= '2'
-14382      						3	= '3'
-14383      						;
+14394      
+14395      	
+14395    !  VALUE	fak33_p1z	-1	= 'Inapplicable'
+14396      						1	= '1'
+14397      						2	= '2'
+14398      						3	= '3'
+14399      						;
 NOTE: Format FAK33_P1Z is already on the library CHIS.FORMATS.
 NOTE: Format FAK33_P1Z has been written to CHIS.FORMATS.
-14384      	
-14384    !  VALUE	fam3az		-1	= 'Inapplicable'
-14385      						1	= 'Almost Every Month'
-14386      						2	= 'Some Months but Not Every month'
-14387      						3	= 'Only in 1 or 2 Months'
-14388      						;
+14400      	
+14400    !  VALUE	fam3az		-1	= 'Inapplicable'
+14401      						1	= 'Almost Every Month'
+14402      						2	= 'Some Months but Not Every month'
+66                                                         The SAS System                               13:26 Friday, March 29, 2019
+
+14403      						3	= 'Only in 1 or 2 Months'
+14404      						;
 NOTE: Format FAM3AZ is already on the library CHIS.FORMATS.
 NOTE: Format FAM3AZ has been written to CHIS.FORMATS.
-14389      
-14390      	
-14390    !  VALUE	ffslev		-1	= 'Inapplicable / >=200% FPL'
-14391      						1	= 'Food Security'
-14392      						2	= 'Food Insecurity w/o Hunger'
-68                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-14393      						3	= 'Food Insecurity w/ Hunger'
-14394      						;
+14405      
+14406      	
+14406    !  VALUE	ffslev		-1	= 'Inapplicable / >=200% FPL'
+14407      						1	= 'Food Security'
+14408      						2	= 'Food Insecurity w/o Hunger'
+14409      						3	= 'Food Insecurity w/ Hunger'
+14410      						;
 NOTE: Format FFSLEV is already on the library CHIS.FORMATS.
 NOTE: Format FFSLEV has been written to CHIS.FORMATS.
-14395      
-14396      	
-14396    !  VALUE	ffpg		1	= 'FPG 0 - 138'
-14397      						2 	= 'FPG 139 - 200'
-14398      						3	= 'FPG 201 - 400'
-14399      						4	= 'FPG 400+'
-14400      						;
+14411      
+14412      	
+14412    !  VALUE	ffpg		1	= 'FPG 0 - 138'
+14413      						2 	= 'FPG 139 - 200'
+14414      						3	= 'FPG 201 - 400'
+14415      						4	= 'FPG 400+'
+14416      						;
 NOTE: Format FFPG is already on the library CHIS.FORMATS.
 NOTE: Format FFPG has been written to CHIS.FORMATS.
-14401      	
-14402      	
-14402    !  VALUE	fpovll_aca	1	= '0-138% FPL'
-14403      						2	= '139%-249% FPL'
-14404      						3	= '250%-399% FPL'
-14405      						4	= '400%+ FPL'
-14406      						;
+14417      	
+14418      	
+14418    !  VALUE	fpovll_aca	1	= '0-138% FPL'
+14419      						2	= '139%-249% FPL'
+14420      						3	= '250%-399% FPL'
+14421      						4	= '400%+ FPL'
+14422      						;
 NOTE: Format FPOVLL_ACA is already on the library CHIS.FORMATS.
 NOTE: Format FPOVLL_ACA has been written to CHIS.FORMATS.
-14407      
-14408      	
-14408    !  VALUE	fpovll		1	= '0-99% FPL'
-14409      						2	= '100-199% FPL'
-14410      						3	= '200-299% FPL'
-14411      						4	= '300% FPL and Above'
-14412      						;
+14423      
+14424      	
+14424    !  VALUE	fpovll		1	= '0-99% FPL'
+14425      						2	= '100-199% FPL'
+14426      						3	= '200-299% FPL'
+14427      						4	= '300% FPL and Above'
+14428      						;
 NOTE: Format FPOVLL is already on the library CHIS.FORMATS.
 NOTE: Format FPOVLL has been written to CHIS.FORMATS.
-14413      RUN;
+14429      RUN;
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
-      cpu time            0.00 seconds
-      
-
-14414      
-14415      DATA CHIS.CHIS_DATA_RAW;
-14416      	FORMAT	ak1			fak1z.;
-14417      	FORMAT	ak2_p1		fak2_p1z.;
-14418      	FORMAT	ak4			fak4z.;
-14419      	FORMAT	indmain2	findmain2z.;
-14420      	FORMAT	occmain2	foccmain2z.;
-14421      	FORMAT	akwklng		fakwklngz.;
-14422      	FORMAT	ak8			fak8z.;
-14423      	FORMAT	ak32		fCHISBool.;
-14424      	FORMAT	ak33_p1		fak33_p1z.;
-14425      	FORMAT	am1			fCHIS3Truth.;
-14426      	FORMAT	am2			fCHIS3Truth.;
-14427      	FORMAT	am3			fCHISBool.;
-14428      	FORMAT	am3a		fam3az.;
-14429      	FORMAT	am4			fCHISBool.;
-14430      	FORMAT	am5			fCHISBool.;
-14431      	FORMAT	fslev		ffslev.;
-14432      	FORMAT	fpg			ffpg.;
-14433      	FORMAT	povll_aca	fpovll_aca.;
-69                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-14434      	FORMAT	povll		fpovll.;
-14435      RUN;
-
-NOTE: Variable ak1 is uninitialized.
-NOTE: Variable ak2_p1 is uninitialized.
-NOTE: Variable ak4 is uninitialized.
-NOTE: Variable indmain2 is uninitialized.
-NOTE: Variable occmain2 is uninitialized.
-NOTE: Variable akwklng is uninitialized.
-NOTE: Variable ak8 is uninitialized.
-NOTE: Variable ak32 is uninitialized.
-NOTE: Variable ak33_p1 is uninitialized.
-NOTE: Variable am1 is uninitialized.
-NOTE: Variable am2 is uninitialized.
-NOTE: Variable am3 is uninitialized.
-NOTE: Variable am3a is uninitialized.
-NOTE: Variable am4 is uninitialized.
-NOTE: Variable am5 is uninitialized.
-NOTE: Variable fslev is uninitialized.
-NOTE: Variable fpg is uninitialized.
-NOTE: Variable povll_aca is uninitialized.
-NOTE: Variable povll is uninitialized.
-NOTE: The data set CHIS.CHIS_DATA_RAW has 1 observations and 19 variables.
-NOTE: DATA statement used (Total process time):
-      real time           0.02 seconds
       cpu time            0.01 seconds
       
 
-14436      
-14437      /* CHIS SECTION L: PUBLIC PROGRAM PARETICIPATION */
-14438      DATA CHIS.CHIS_DATA_RAW;
-14439      	FORMAT	al2			fCHISBool.;
-14440      	FORMAT	al5			fCHISBool.;
-14441      	FORMAT	al6			fCHISBool.;
-14442      	FORMAT	al22		fCHISBool.;
-14443      	FORMAT	al32		fCHISBool.;
-14444      	FORMAT	al18a		fCHISBool.;
-14445      RUN;
+14430      
+14431      DATA CHIS.CHIS_DATA_RAW;
+14432      	SET CHIS.CHIS_DATA_RAW;
+14433      	FORMAT	ak1			fak1z.;
+14434      	FORMAT	ak2_p1		fak2_p1z.;
+14435      	FORMAT	ak4			fak4z.;
+14436      	FORMAT	indmain2	findmain2z.;
+14437      	FORMAT	occmain2	foccmain2z.;
+14438      	FORMAT	akwklng		fakwklngz.;
+14439      	FORMAT	ak8			fak8z.;
+14440      	FORMAT	ak32		fCHISBool.;
+67                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-NOTE: Variable al2 is uninitialized.
-NOTE: Variable al5 is uninitialized.
-NOTE: Variable al6 is uninitialized.
-NOTE: Variable al22 is uninitialized.
-NOTE: Variable al32 is uninitialized.
-NOTE: Variable al18a is uninitialized.
-NOTE: The data set CHIS.CHIS_DATA_RAW has 1 observations and 6 variables.
+14441      	FORMAT	ak33_p1		fak33_p1z.;
+14442      	FORMAT	am1			fCHIS3Truth.;
+14443      	FORMAT	am2			fCHIS3Truth.;
+14444      	FORMAT	am3			fCHISBool.;
+14445      	FORMAT	am3a		fam3az.;
+14446      	FORMAT	am4			fCHISBool.;
+14447      	FORMAT	am5			fCHISBool.;
+14448      	FORMAT	fslev		ffslev.;
+14449      	FORMAT	fpg			ffpg.;
+14450      	FORMAT	povll_aca	fpovll_aca.;
+14451      	FORMAT	povll		fpovll.;
+14452      RUN;
+
+NOTE: Format FSSMOKING was not found or could not be loaded.
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
+NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.00 seconds
-      cpu time            0.00 seconds
+      real time           0.51 seconds
+      cpu time            0.51 seconds
       
 
-14446      
-14447      /* CHIS SECTION M: HOUSING & COMMUNITY INVOLVEMENT */
-14448      PROC FORMAT LIBRARY=CHIS;
-14449      	
-14449    !  VALUE	fak23z		1	= 'House'
-14450      						2	= 'Duplex'
-14451      						3	= 'Building with 3 or More Units'
-70                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-14452      						4	= 'Mobile Home'
-14453      						;
-NOTE: Format FAK23Z is already on the library CHIS.FORMATS.
-NOTE: Format FAK23Z has been written to CHIS.FORMATS.
-14454      
-14455      	
-14455    !  VALUE	fak25z		-9	= 'Not Ascertained'
-14456      						-8	= 'Dont Know'
-14457      						-7	= 'Refused'
-14458      						1	= 'Own'
-14459      						2	= 'Rent'
-14460      						3	= 'Other Arrangement'
-14461      						;
-NOTE: Format FAK25Z is already on the library CHIS.FORMATS.
-NOTE: Format FAK25Z has been written to CHIS.FORMATS.
-14462      
+14453      
+14454      /* CHIS SECTION L: PUBLIC PROGRAM PARETICIPATION */
+14455      DATA CHIS.CHIS_DATA_RAW;
+14456      	SET CHIS.CHIS_DATA_RAW;
+14457      	FORMAT	al2			fCHISBool.;
+14458      	FORMAT	al5			fCHISBool.;
+14459      	FORMAT	al6			fCHISBool.;
+14460      	FORMAT	al22		fCHISBool.;
+14461      	FORMAT	al32		fCHISBool.;
+14462      	FORMAT	al18a		fCHISBool.;
 14463      RUN;
 
-NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.00 seconds
-      cpu time            0.00 seconds
+NOTE: Format FSSMOKING was not found or could not be loaded.
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
+NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.50 seconds
+      cpu time            0.50 seconds
       
 
 14464      
-14465      DATA CHIS.CHIS_DATA_RAW;
-14466      	FORMAT	ak23		fak23z.;
-14467      	FORMAT	ak25		fak25z.;	
-14468      	FORMAT	am19		fCHIS4Lichert.;
-14469      	FORMAT	am20		fCHIS4Lichert.;
-14470      	FORMAT	am21		fCHIS4Lichert.;
-14471      	FORMAT	ak28		fCHIS4LichTim.;
-14472      	FORMAT	am36		fCHISBool.;
-14473      RUN;
+14465      /* CHIS SECTION M: HOUSING & COMMUNITY INVOLVEMENT */
+14466      PROC FORMAT LIBRARY=CHIS;
+14467      	
+14467    !  VALUE	fak23z		1	= 'House'
+14468      						2	= 'Duplex'
+14469      						3	= 'Building with 3 or More Units'
+14470      						4	= 'Mobile Home'
+14471      						;
+NOTE: Format FAK23Z is already on the library CHIS.FORMATS.
+NOTE: Format FAK23Z has been written to CHIS.FORMATS.
+14472      
+14473      	
+14473    !  VALUE	fak25z		-9	= 'Not Ascertained'
+14474      						-8	= 'Dont Know'
+14475      						-7	= 'Refused'
+14476      						1	= 'Own'
+68                                                         The SAS System                               13:26 Friday, March 29, 2019
 
-NOTE: Variable ak23 is uninitialized.
-NOTE: Variable ak25 is uninitialized.
-NOTE: Variable am19 is uninitialized.
-NOTE: Variable am20 is uninitialized.
-NOTE: Variable am21 is uninitialized.
-NOTE: Variable ak28 is uninitialized.
-NOTE: Variable am36 is uninitialized.
-NOTE: The data set CHIS.CHIS_DATA_RAW has 1 observations and 7 variables.
-NOTE: DATA statement used (Total process time):
-      real time           0.01 seconds
-      cpu time            0.01 seconds
+14477      						2	= 'Rent'
+14478      						3	= 'Other Arrangement'
+14479      						;
+NOTE: Format FAK25Z is already on the library CHIS.FORMATS.
+NOTE: Format FAK25Z has been written to CHIS.FORMATS.
+14480      
+14481      RUN;
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
       
 
-14474      
-14475      
-14476      /* CHIS SECTION N: DEMOGRAPHIC INFORMATION / GEOGRAPHIC INFORMATION */
-14477      PROC FORMAT LIBRARY=CHIS;
-14478      	
-14478    !  VALUE fam34z		-8	= 'Dont Know'
-14479      						-7	= 'Refused'
-14480      						-1	= 'Inapplicable'
-14481      						1	= 'All or Almost All Calls on Cell Phones'
-14482      						2	= 'Some Calls on Cell, Some Regular Phones'
-14483      						3	= 'Very Few or No Calls on Cell Phones'
-71                                                         The SAS System                               13:26 Friday, March 29, 2019
+14482      
+14483      DATA CHIS.CHIS_DATA_RAW;
+14484      	SET CHIS.CHIS_DATA_RAW;
+14485      	FORMAT	ak23		fak23z.;
+14486      	FORMAT	ak25		fak25z.;	
+14487      	FORMAT	am19		fCHIS4Lichert.;
+14488      	FORMAT	am20		fCHIS4Lichert.;
+14489      	FORMAT	am21		fCHIS4Lichert.;
+14490      	FORMAT	ak28		fCHIS4LichTim.;
+14491      	FORMAT	am36		fCHISBool.;
+14492      RUN;
 
-14484      						;
+NOTE: Format FSSMOKING was not found or could not be loaded.
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
+NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.51 seconds
+      cpu time            0.51 seconds
+      
+
+14493      
+14494      
+14495      /* CHIS SECTION N: DEMOGRAPHIC INFORMATION / GEOGRAPHIC INFORMATION */
+14496      PROC FORMAT LIBRARY=CHIS;
+14497      	
+14497    !  VALUE fam34z		-8	= 'Dont Know'
+14498      						-7	= 'Refused'
+14499      						-1	= 'Inapplicable'
+14500      						1	= 'All or Almost All Calls on Cell Phones'
+14501      						2	= 'Some Calls on Cell, Some Regular Phones'
+14502      						3	= 'Very Few or No Calls on Cell Phones'
+14503      						;
 NOTE: Format FAM34Z is already on the library CHIS.FORMATS.
 NOTE: Format FAM34Z has been written to CHIS.FORMATS.
-14485      
-14486      	
-14486    !  VALUE fur_clrt2z		-1	= 'Inapplicable'
-14487      						1	= 'Urban'
-14488      						2	= 'Rural'
-14489      						;
+14504      
+14505      	
+14505    !  VALUE fur_clrt2z		-1	= 'Inapplicable'
+14506      						1	= 'Urban'
+14507      						2	= 'Rural'
+14508      						;
 NOTE: Format FUR_CLRT2Z is already on the library CHIS.FORMATS.
 NOTE: Format FUR_CLRT2Z has been written to CHIS.FORMATS.
-14490      
-14491      	
-14491    !  VALUE fur_clrt6z	-1	= 'Inapplicable'
-14492      						1	= 'Urban'
-14493      						2	= '2nd City'
-14494      						3	= 'Mixed'
-14495      						4	= 'Suburban'
-14496      						5	= 'Town'
-14497      						6	= 'Rural'
-14498      						;
+14509      
+14510      	
+14510    !  VALUE fur_clrt6z	-1	= 'Inapplicable'
+69                                                         The SAS System                               13:26 Friday, March 29, 2019
+
+14511      						1	= 'Urban'
+14512      						2	= '2nd City'
+14513      						3	= 'Mixed'
+14514      						4	= 'Suburban'
+14515      						5	= 'Town'
+14516      						6	= 'Rural'
+14517      						;
 NOTE: Format FUR_CLRT6Z is already on the library CHIS.FORMATS.
 NOTE: Format FUR_CLRT6Z has been written to CHIS.FORMATS.
-14499      
-14500      	
-14500    !  VALUE fur_clrt4z	-1	= 'Inapplicable'
-14501      						1	= 'Urban'
-14502      						2	= '2nd City'
-14503      						3	= 'Suburban'
-14504      						4	= 'Town & Rural'
-14505      						;
+14518      
+14519      	
+14519    !  VALUE fur_clrt4z	-1	= 'Inapplicable'
+14520      						1	= 'Urban'
+14521      						2	= '2nd City'
+14522      						3	= 'Suburban'
+14523      						4	= 'Town & Rural'
+14524      						;
 NOTE: Format FUR_CLRT4Z is already on the library CHIS.FORMATS.
 NOTE: Format FUR_CLRT4Z has been written to CHIS.FORMATS.
-14506      RUN;
+14525      RUN;
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
       cpu time            0.00 seconds
       
 
-14507      
-14508      DATA CHIS.CHIS_DATA_RAW;
-14509      	FORMAT	am34		fam34z.;
-14510      	FORMAT	ur_clrt2	fur_clrt2z.;
-14511      	FORMAT	ur_ihs		fur_clrt2z.;
-14512      	FORMAT	ur_omb		fur_clrt2z.;
-14513      	FORMAT	ur_rhp		fur_clrt2z.;
-14514      	FORMAT	ur_bg6		fur_clrt6z.;
-14515      	FORMAT	ur_clrt6	fur_clrt6z.;
-14516      	FORMAT	ur_tract6	fur_clrt6z.;
-14517      
-14518      	FORMAT	ur_clrt		fur_clrt4z.;
-14519      RUN;
-
-NOTE: Variable am34 is uninitialized.
-NOTE: Variable ur_clrt2 is uninitialized.
-NOTE: Variable ur_ihs is uninitialized.
-NOTE: Variable ur_omb is uninitialized.
-72                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-NOTE: Variable ur_rhp is uninitialized.
-NOTE: Variable ur_bg6 is uninitialized.
-NOTE: Variable ur_clrt6 is uninitialized.
-NOTE: Variable ur_tract6 is uninitialized.
-NOTE: Variable ur_clrt is uninitialized.
-NOTE: The data set CHIS.CHIS_DATA_RAW has 1 observations and 9 variables.
-NOTE: DATA statement used (Total process time):
-      real time           0.01 seconds
-      cpu time            0.00 seconds
-      
-14519    !     	
-
-14520      
-14521      /* CHIS SECTION Q: SCREENING INFORMATION */
-14522      PROC FORMAT LIBRARY=CHIS;
-14523      	
-14523    !  VALUE fintvlngc_p	1	= 'English'
-14524      						2	= 'Spanish'
-14525      						3	= 'Other';
-NOTE: Format FINTVLNGC_P is already on the library CHIS.FORMATS.
-NOTE: Format FINTVLNGC_P has been written to CHIS.FORMATS.
-14526      	
-14526    !  VALUE fsrtenr		1	= 'Own'
-14527      						2	= 'Rent/Other';
-NOTE: Format FSRTENR is already on the library CHIS.FORMATS.
-NOTE: Format FSRTENR has been written to CHIS.FORMATS.
-14528      RUN;
-
-NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.00 seconds
-      cpu time            0.00 seconds
-      
-
-14529      
-14530      DATA CHIS.CHIS_DATA_RAW;
-14531      	FORMAT	intvlngc_p1	fintvlngc_p.;
-14532      	FORMAT	proxy		fCHISBool.;
-14533      	FORMAT	srtenr		fsrtenr.;	
-14534      RUN;
-
-NOTE: Variable intvlngc_p1 is uninitialized.
-NOTE: Variable proxy is uninitialized.
-NOTE: Variable srtenr is uninitialized.
-NOTE: The data set CHIS.CHIS_DATA_RAW has 1 observations and 3 variables.
-NOTE: DATA statement used (Total process time):
-      real time           0.01 seconds
-      cpu time            0.01 seconds
-      
-
-14535      
-14536      /* CHIS.CHIS_DATA_RAW CONTENTS */
-14537      PROC CONTENTS DATA=CHIS.CHIS_DATA_RAW VARNUM;
-14538      	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_RAW';
+14526      
+14527      DATA CHIS.CHIS_DATA_RAW;
+14528      	SET CHIS.CHIS_DATA_RAW;
+14529      	FORMAT	am34		fam34z.;
+14530      	FORMAT	ur_clrt2	fur_clrt2z.;
+14531      	FORMAT	ur_ihs		fur_clrt2z.;
+14532      	FORMAT	ur_omb		fur_clrt2z.;
+14533      	FORMAT	ur_rhp		fur_clrt2z.;
+14534      	FORMAT	ur_bg6		fur_clrt6z.;
+14535      	FORMAT	ur_clrt6	fur_clrt6z.;
+14536      	FORMAT	ur_tract6	fur_clrt6z.;
+14537      
+14538      	FORMAT	ur_clrt		fur_clrt4z.;
 14539      RUN;
 
-NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.02 seconds
-      cpu time            0.01 seconds
-73                                                         The SAS System                               13:26 Friday, March 29, 2019
-
+NOTE: Format FSSMOKING was not found or could not be loaded.
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
+NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.49 seconds
+      cpu time            0.50 seconds
       
+14539    !     	
 
 14540      
-14541      ODS GRAPHICS OFF;
-14542      QUIT;
-14543      
-14544      GOPTIONS NOACCESSIBLE;
-14545      %LET _CLIENTTASKLABEL=;
-14546      %LET _CLIENTPROCESSFLOWNAME=;
-14547      %LET _CLIENTPROJECTPATH=;
-14548      %LET _CLIENTPROJECTPATHHOST=;
-14549      %LET _CLIENTPROJECTNAME=;
-14550      %LET _SASPROGRAMFILE=;
-14551      %LET _SASPROGRAMFILEHOST=;
-14552      
-14553      ;*';*";*/;quit;run;
-14554      ODS _ALL_ CLOSE;
-NOTE: ODS PDF(EGPDF) printed 75 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-14308-c5a757b2\contents\SAS 
-      Temporary Files\_TD7140_R90T7H56_\#LN00234.
-14555      
+14541      /* CHIS SECTION Q: SCREENING INFORMATION */
+14542      PROC FORMAT LIBRARY=CHIS;
+14543      	
+14543    !  VALUE fintvlngc_p	1	= 'English'
+14544      						2	= 'Spanish'
+14545      						3	= 'Other';
+NOTE: Format FINTVLNGC_P is already on the library CHIS.FORMATS.
+70                                                         The SAS System                               13:26 Friday, March 29, 2019
+
+NOTE: Format FINTVLNGC_P has been written to CHIS.FORMATS.
+14546      	
+14546    !  VALUE fsrtenr		1	= 'Own'
+14547      						2	= 'Rent/Other';
+NOTE: Format FSRTENR is already on the library CHIS.FORMATS.
+NOTE: Format FSRTENR has been written to CHIS.FORMATS.
+14548      RUN;
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+14549      
+14550      DATA CHIS.CHIS_DATA_RAW;
+14551      	SET CHIS.CHIS_DATA_RAW;
+14552      	FORMAT	intvlngc_p1	fintvlngc_p.;
+14553      	FORMAT	proxy		fCHISBool.;
+14554      	FORMAT	srtenr		fsrtenr.;	
+14555      RUN;
+
+NOTE: Format FSSMOKING was not found or could not be loaded.
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
+NOTE: The data set CHIS.CHIS_DATA_RAW has 103482 observations and 830 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.51 seconds
+      cpu time            0.48 seconds
+      
+
 14556      
-14557      QUIT; RUN;
-14558      
+14557      /* CHIS.CHIS_DATA_RAW CONTENTS */
+14558      PROC CONTENTS DATA=CHIS.CHIS_DATA_RAW VARNUM;
+14559      	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_RAW';
+14560      RUN;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.34 seconds
+      cpu time            0.32 seconds
+      
+
+14561      
+14562      ODS GRAPHICS OFF;
+14563      QUIT;
+14564      
+14565      GOPTIONS NOACCESSIBLE;
+14566      %LET _CLIENTTASKLABEL=;
+14567      %LET _CLIENTPROCESSFLOWNAME=;
+14568      %LET _CLIENTPROJECTPATH=;
+14569      %LET _CLIENTPROJECTPATHHOST=;
+14570      %LET _CLIENTPROJECTNAME=;
+14571      %LET _SASPROGRAMFILE=;
+14572      %LET _SASPROGRAMFILEHOST=;
+14573      
+14574      ;*';*";*/;quit;run;
+14575      ODS _ALL_ CLOSE;
+NOTE: ODS PDF(EGPDF) printed 149 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-14308-c5a757b2\contents\SAS 
+      Temporary Files\_TD7140_R90T7H56_\#LN00446.
+14576      
+71                                                         The SAS System                               13:26 Friday, March 29, 2019
+
+14577      
+14578      QUIT; RUN;
+14579      
