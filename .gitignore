@@ -1,6 +1,7 @@
 # Ignore SAS Data Files
 *.sas7bdat
 *.sas7bcat
+*.egp
 
 # Ignore Enterprise Miner Directory
 CHIS/CHIS Asthma/
