@@ -1,0 +1,509 @@
+1                                                          The SAS System                               13:26 Friday, March 29, 2019
+
+1          ;*';*";*/;quit;run;
+2          OPTIONS PAGENO=MIN;
+3          %LET _CLIENTTASKLABEL='CHIS_30_FinalData';
+4          %LET _CLIENTPROCESSFLOWNAME='Process Flow';
+5          %LET
+5        ! _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
+6          %LET _CLIENTPROJECTPATHHOST='R90T7H56';
+7          %LET _CLIENTPROJECTNAME='CHIS_Analysis.egp';
+8          %LET _SASPROGRAMFILE='';
+9          %LET _SASPROGRAMFILEHOST='';
+10         
+11         ODS _ALL_ CLOSE;
+12         OPTIONS DEV=PNG;
+13         GOPTIONS XPIXELS=0 YPIXELS=0;
+14         FILENAME EGPDF TEMP;
+15         ODS PDF(ID=EGPDF) FILE=EGPDF STYLE=SasDocPrinter;
+NOTE: Writing ODS PDF(EGPDF) output to DISK destination "EGPDF", printer "PDF".
+16         FILENAME EGSR TEMP;
+17         ODS tagsets.sasreport13(ID=EGSR) FILE=EGSR
+18             STYLE=HTMLBlue
+19             STYLESHEET=(URL="file:///C:/Program%20Files/SASHome/SASEnterpriseGuide/7.1/Styles/HTMLBlue.css")
+20             NOGTITLE
+21             NOGFOOTNOTE
+22             GPATH=&sasworklocation
+23             ENCODING=UTF8
+24             options(rolap="on")
+25         ;
+NOTE: Writing TAGSETS.SASREPORT13(EGSR) Body file: EGSR
+26         
+27         GOPTIONS ACCESSIBLE;
+28         /************************************************************************************************************************
+28       ! *****
+29         **  Project Name    : Secondary Research of Asthma  Hospitalizations
+29       !    **
+30         **                    Masters of Science in Business Analytics Capstone Project
+30       !    **
+31         **                    March / April 2019
+31       !    **
+32         **  Author          : Matthew C. Vanderbilt
+32       !    **
+33         **                    Candidate & NU Scholar, National University
+33       !    **
+34         **                    Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine
+34       !    **
+35         **
+35       ! =======================================================================================================================
+35       ! **
+36         **  Date Created    : 29 March 2019 16:36
+36       !    **
+37         **  Input Files     : CHIS Adult Public Data for 2001, 2003, 2005, 2007, 2009, and 2011 - 2017
+37       !    **
+38         **                    Only one-year dat files were utilized; the two-year files were not imported
+38       !    **
+39         **
+39       ! -----------------------------------------------------------------------------------------------------------------------
+39       ! **
+40         **  Program Name    : CHIS_30_FinalData
+40       !    **
+2                                                          The SAS System                               13:26 Friday, March 29, 2019
+
+41         **  Purpose         : Create final variable table for analysis
+41       !    **
+42         **  Reference Note  :  Some code may be adapted/used from other sources; see README for "Reference Materials"
+42       !    **
+43         **
+43       !    **
+44         *************************************************************************************************************************
+44       ! ****/
+45         
+46         ODS GRAPHICS ON;
+47         
+48         /* MASTER LIBRARY */
+49         %LET localProjectPath = %SYSFUNC(SUBSTR(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH)), 1,
+49       ! %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH))) - %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTNAME))) ));
+50         LIBNAME CHIS "&localProjectPath";
+NOTE: Libref CHIS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS
+51         
+52         /* APPLY CHIS FORMATS */
+53         OPTIONS fmtsearch=(CHIS);
+54         
+55         /* CUSTOM VARIABLE FORMATS */
+56         PROC FORMAT LIBRARY=CHIS;
+57         	
+57       !  VALUE fBoolean		-1	= 'NA'
+58         						0	= 'False'
+59         						1	= 'True';
+NOTE: Format FBOOLEAN is already on the library CHIS.FORMATS.
+NOTE: Format FBOOLEAN has been written to CHIS.FORMATS.
+60         	
+60       !  VALUE fagegroup		-1	= 'NA'
+61         						1	= 'Young Adult (18-39)'
+62         						2	= 'Middle Aged (40-64)'
+63         						3	= 'Later Adult (65+)';
+NOTE: Format FAGEGROUP is already on the library CHIS.FORMATS.
+NOTE: Format FAGEGROUP has been written to CHIS.FORMATS.
+64         	
+64       !  VALUE flanguage		-1	= 'NA'
+65         						1	= 'English'
+66         						2	= 'Spanish'
+67         						3	= 'Other';
+NOTE: Format FLANGUAGE is already on the library CHIS.FORMATS.
+NOTE: Format FLANGUAGE has been written to CHIS.FORMATS.
+68         	
+68       !  VALUE fmaritstat	-1	= 'NA'
+69         						1	= 'Married/Partnered'
+70         						2	= 'Widowed/Separated'
+71         						3	= 'Never Married';
+NOTE: Format FMARITSTAT is already on the library CHIS.FORMATS.
+NOTE: Format FMARITSTAT has been written to CHIS.FORMATS.
+72         RUN;
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+3                                                          The SAS System                               13:26 Friday, March 29, 2019
+
+73         
+74         /* ADD DERIVED VARIABLES */
+75         DATA CHIS.CHIS_DATA_FINAL;
+76         	SET CHIS.CHIS_DATA_INTRM;
+77         
+78         	* Recode Variables;
+79         	maritstat	= -1;
+80         	IF marit2	IN(1,2)	THEN maritstat = 1;
+81         	IF marit2	= 3		THEN maritstat = 2;
+82         	IF marit2	= 4		THEN maritstat = 3;
+83         	LABEL	maritstat	= 'marital status';
+84         	FORMAT	maritstat	fmaritstat.;
+85         
+86         	agegroup	= -1;
+87         	IF srage_p1 >= 18 AND srage_p1 < 40	THEN agegroup = 1;
+88         	IF srage_p1 >= 40 AND srage_p1 < 65	THEN agegroup = 2;
+89         	IF srage_p1 >= 65					THEN agegroup = 3;
+90         	LABEL	agegroup	= 'age group';
+91         	FORMAT	agegroup 	fagegroup.;
+92         RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: The data set CHIS.CHIS_DATA_FINAL has 103482 observations and 374 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.34 seconds
+      cpu time            0.32 seconds
+      
+
+93         
+94         PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
+95         	TITLE 'PROC FREQ - CHIS.CHIS_DATA';
+96         	TABLES	marit2*maritstat
+97         			srage_p1*agegroup
+98         			;
+99         RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.14 seconds
+      cpu time            0.11 seconds
+      
+
+100        
+101        DATA CHIS.CHIS_DATA_FINAL(	KEEP=
+102        							RACEDF_P1
+103        							SRSEX
+104        							AB1
+105        							AB17
+106        							AB22
+107        							AB24
+108        							AB25
+109        							AB29
+110        							AB30
+111        							AB34
+112        							AB40
+113        							AB41
+114        							AB42_P1
+115        							AB43
+4                                                          The SAS System                               13:26 Friday, March 29, 2019
+
+116        							AB52
+117        							AB98
+118        							ASTCUR
+119        							AC42_P
+120        							AD37W
+121        							AD40W
+122        							AE15A
+123        							AESODA_P1
+124        							SMOKING
+125        							AD50
+126        							RBMI
+127        							AF63
+128        							AF64
+129        							AF65
+130        							AF66
+131        							AG22
+132        							AH33NEW
+133        							AH34NEW
+134        							AH35NEW
+135        							AH37
+136        							AHEDC_P1
+137        							CITIZEN2
+138        							FAMTYP_P
+139        							LNGHM_P1
+140        							WRKST_P1
+141        							AI22A_P
+142        							AI25
+143        							HMO
+144        							INS
+145        							AH16
+146        							AH22
+147        							AJ105
+148        							AJ136
+149        							AJ19
+150        							AJ20
+151        							CARE_PV
+152        							ER
+153        							USUAL5TP
+154        							AK4
+155        							FSLEV
+156        							INDMAIN2
+157        							OCCMAIN2
+158        							POVLL
+159        							AL18A
+160        							AL2
+161        							AL22
+162        							AL32
+163        							AL5
+164        							AL6
+165        							AK23
+166        							AK25
+167        							AK28
+168        							AM19
+169        							AM20
+170        							AM21
+171        							AM36
+172        							AM34
+173        							town_type
+5                                                          The SAS System                               13:26 Friday, March 29, 2019
+
+174        							maritstat
+175        							agegroup
+176        						);
+177        	SET CHIS.CHIS_DATA_FINAL;
+178        RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: The data set CHIS.CHIS_DATA_FINAL has 103482 observations and 74 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.27 seconds
+      cpu time            0.28 seconds
+      
+
+179        
+180        PROC CONTENTS DATA=CHIS.CHIS_DATA_FINAL VARNUM;
+181        	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_FINAL';
+182        RUN;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+      
+
+183        
+184        /* EVALUATE FINAL TABLE */
+185        PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
+186        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  A: Demographic Information';
+187        	TABLES	RACEDF_P1
+188        			SRSEX
+189        			;
+190        RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+      
+
+191        
+192        PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
+193        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  B: General Health Conditions';
+194        	TABLES	AB1
+195        			AB17
+196        			AB22
+197        			AB24
+198        			AB25
+199        			AB29
+200        			AB30
+201        			AB34
+202        			AB40
+203        			AB41
+204        			AB42_P1
+205        			AB43
+206        			AB52
+207        			AB98
+208        			ASTCUR
+209        			;
+210        RUN;
+6                                                          The SAS System                               13:26 Friday, March 29, 2019
+
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.11 seconds
+      cpu time            0.12 seconds
+      
+
+211        
+212        PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
+213        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  C: Health Behaviours';
+214        	TABLES	AC42_P
+215        			AD37W
+216        			AD40W
+217        			AE15A
+218        			AESODA_P1
+219        			SMOKING
+220        			;
+221        RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.06 seconds
+      
+
+222        
+223        PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
+224        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  D: General Health, Disability, & Sexual Health';
+225        	TABLES	AD50
+226        			RBMI;
+227        RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+      
+
+228        
+229        PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
+230        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  F: Mental Health';
+231        	TABLES	AF63
+232        			AF64
+233        			AF65
+234        			AF66
+235        			;
+236        RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.06 seconds
+      
+
+237        
+238        PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
+239        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  G: Demographic Information';
+240        	TABLES	AG22
+7                                                          The SAS System                               13:26 Friday, March 29, 2019
+
+241        			AH33NEW
+242        			AH34NEW
+243        			AH35NEW
+244        			AH37
+245        			AHEDC_P1
+246        			CITIZEN2
+247        			FAMTYP_P
+248        			LNGHM_P1
+249        			WRKST_P1
+250        			;
+251        RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.06 seconds
+      
+
+252        
+253        PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
+254        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  H: Health Insurance';
+255        	TABLES	AI22A_P
+256        			AI25
+257        			HMO
+258        			INS
+259        			;
+260        RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.03 seconds
+      
+
+261        
+262        PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
+263        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  J: Health Care Utilization/Acess & Dental Health';
+264        	TABLES	AH16
+265        			AH22
+266        			AJ105
+267        			AJ136
+268        			AJ19
+269        			AJ20
+270        			CARE_PV
+271        			ER
+272        			USUAL5TP
+273        			;
+274        RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.06 seconds
+      
+
+275        
+276        PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
+277        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  K: Employment, Income, Poverty Status, & Food Security';
+8                                                          The SAS System                               13:26 Friday, March 29, 2019
+
+278        	TABLES	AK4
+279        			FSLEV
+280        			INDMAIN2
+281        			OCCMAIN2
+282        			POVLL
+283        			;
+284        RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.06 seconds
+      
+
+285        
+286        PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
+287        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  L: Public Program Participation';
+288        	TABLES	AL18A
+289        			AL2
+290        			AL22
+291        			AL32
+292        			AL5
+293        			AL6
+294        			;
+295        RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.03 seconds
+      
+
+296        
+297        PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
+298        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  M: Housing & Community Involvement';
+299        	TABLES	AK23
+300        			AK25
+301        			AK28
+302        			AM19
+303        			AM20
+304        			AM21
+305        			AM36
+306        			;
+307        RUN;
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.04 seconds
+      
+
+308        
+309        PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
+310        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  N: Demographic Information';
+311        	TABLES	AM34
+312        			;
+313        RUN;
+
+9                                                          The SAS System                               13:26 Friday, March 29, 2019
+
+NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_FINAL.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+314        
+315        ODS GRAPHICS OFF;
+316        QUIT;
+317        
+318        GOPTIONS NOACCESSIBLE;
+319        %LET _CLIENTTASKLABEL=;
+320        %LET _CLIENTPROCESSFLOWNAME=;
+321        %LET _CLIENTPROJECTPATH=;
+322        %LET _CLIENTPROJECTPATHHOST=;
+323        %LET _CLIENTPROJECTNAME=;
+324        %LET _SASPROGRAMFILE=;
+325        %LET _SASPROGRAMFILEHOST=;
+326        
+327        ;*';*";*/;quit;run;
+328        ODS _ALL_ CLOSE;
+NOTE: ODS PDF(EGPDF) printed 30 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-14308-c5a757b2\contents\SAS 
+      Temporary Files\_TD7140_R90T7H56_\#LN00762.
+329        
+330        
+331        QUIT; RUN;
+332        

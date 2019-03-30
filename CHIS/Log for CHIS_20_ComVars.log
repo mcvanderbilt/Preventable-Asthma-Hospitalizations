@@ -334,8 +334,8 @@ NOTE: DATA statement used (Total process time):
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: The data set CHIS.CHIS_DATA_INTRM has 103482 observations and 456 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.47 seconds
-      cpu time            0.48 seconds
+      real time           0.48 seconds
+      cpu time            0.46 seconds
       
 
 300        
@@ -353,8 +353,8 @@ NOTE: DATA statement used (Total process time):
 
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.36 seconds
-      cpu time            0.32 seconds
+      real time           0.26 seconds
+      cpu time            0.21 seconds
       
 
 312        
@@ -368,8 +368,8 @@ NOTE: PROCEDURE FREQ used (Total process time):
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: The data set CHIS.CHIS_DATA_INTRM has 103482 observations and 372 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.47 seconds
-      cpu time            0.45 seconds
+      real time           0.55 seconds
+      cpu time            0.56 seconds
       
 
 317        
@@ -378,7 +378,7 @@ NOTE: DATA statement used (Total process time):
 320        RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.25 seconds
+      real time           0.26 seconds
       cpu time            0.25 seconds
       
 
@@ -395,7 +395,7 @@ NOTE: PROCEDURE CONTENTS used (Total process time):
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
       real time           0.10 seconds
-      cpu time            0.10 seconds
+      cpu time            0.11 seconds
       
 
 330        
@@ -423,8 +423,8 @@ NOTE: PROCEDURE FREQ used (Total process time):
 
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.27 seconds
-      cpu time            0.25 seconds
+      real time           0.20 seconds
+      cpu time            0.17 seconds
       
 
 350        
@@ -438,8 +438,8 @@ NOTE: PROCEDURE FREQ used (Total process time):
 
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.13 seconds
-      cpu time            0.09 seconds
+      real time           0.10 seconds
+      cpu time            0.10 seconds
       
 358        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 
@@ -471,8 +471,8 @@ NOTE: PROCEDURE FREQ used (Total process time):
 
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.22 seconds
-      cpu time            0.20 seconds
+      real time           0.21 seconds
+      cpu time            0.18 seconds
       
 
 384        
@@ -500,7 +500,7 @@ NOTE: PROCEDURE FREQ used (Total process time):
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
       real time           0.18 seconds
-      cpu time            0.17 seconds
+      cpu time            0.15 seconds
       
 
 403        
@@ -551,7 +551,7 @@ NOTE: PROCEDURE FREQ used (Total process time):
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
       real time           0.22 seconds
-      cpu time            0.23 seconds
+      cpu time            0.21 seconds
       
 
 438        
@@ -594,7 +594,7 @@ NOTE: PROCEDURE FREQ used (Total process time):
 
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.26 seconds
+      real time           0.27 seconds
       cpu time            0.26 seconds
       
 
@@ -648,8 +648,8 @@ NOTE: PROCEDURE FREQ used (Total process time):
 
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.31 seconds
-      cpu time            0.29 seconds
+      real time           0.33 seconds
+      cpu time            0.31 seconds
       
 
 520        
@@ -680,8 +680,8 @@ NOTE: PROCEDURE FREQ used (Total process time):
 
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.24 seconds
-      cpu time            0.21 seconds
+      real time           0.21 seconds
+      cpu time            0.20 seconds
       
 
 543        
@@ -697,8 +697,8 @@ NOTE: PROCEDURE FREQ used (Total process time):
 
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.12 seconds
-      cpu time            0.11 seconds
+      real time           0.11 seconds
+      cpu time            0.12 seconds
       
 
 553        
@@ -715,8 +715,8 @@ NOTE: PROCEDURE FREQ used (Total process time):
 
 NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.15 seconds
-      cpu time            0.12 seconds
+      real time           0.12 seconds
+      cpu time            0.10 seconds
       
 13                                                         The SAS System                               13:26 Friday, March 29, 2019
 
@@ -737,7 +737,7 @@ NOTE: PROCEDURE FREQ used (Total process time):
 577        ;*';*";*/;quit;run;
 578        ODS _ALL_ CLOSE;
 NOTE: ODS PDF(EGPDF) printed 66 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-14308-c5a757b2\contents\SAS 
-      Temporary Files\_TD7140_R90T7H56_\#LN00697.
+      Temporary Files\_TD7140_R90T7H56_\#LN00746.
 579        
 580        
 581        QUIT; RUN;

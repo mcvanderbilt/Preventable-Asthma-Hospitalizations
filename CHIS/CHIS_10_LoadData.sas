@@ -1,3 +1,6 @@
+/* Library assignment for Local.CHIS */
+Libname CHIS V9 'C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS' ;
+
 
 GOPTIONS ACCESSIBLE;
 /*****************************************************************************************************************************
@@ -725,7 +728,8 @@ PROC FORMAT LIBRARY=CHIS;
 						91	= 'Other'
 						;
 
-	VALUE	fai22a_p	-8	= 'Dont Know'
+	VALUE	fai22a_p	-9	= 'Not Ascertained'
+						-8	= 'Dont Know'
 						-1	= 'Inapplicable'
 						1	= 'Kaiser'
 						2	= 'Blue Cross'
