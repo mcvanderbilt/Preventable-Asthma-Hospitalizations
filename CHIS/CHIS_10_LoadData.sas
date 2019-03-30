@@ -1,6 +1,3 @@
-/* Library assignment for Local.CHIS */
-Libname CHIS V9 'C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS' ;
-
 
 GOPTIONS ACCESSIBLE;
 /*****************************************************************************************************************************
@@ -115,35 +112,65 @@ PROC CONTENTS DATA=CHIS2013.adult VARNUM;
 	TITLE 'PROC CONTENTS - CHIS2013.adult';
 RUN;
 
+/* LOAD 2012 DATA */
+LIBNAME CHIS2012 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS12_adult_sas\Data\';
+%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_PROC_FORMAT.SAS';
+
+DATA data2012;
+	SET CHIS2012.adult;
+	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_FORMAT.SAS';
+	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_LABEL.SAS';
+RUN;
+
+PROC CONTENTS DATA=CHIS2012.adult VARNUM;
+	TITLE 'PROC CONTENTS - CHIS2012.adult';
+RUN;
+
+/* LOAD 2011 DATA */
+LIBNAME CHIS2011 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS12_adult_sas\Data\';
+%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_PROC_FORMAT.SAS';
+
+DATA data2011;
+	SET CHIS2011.adult;
+	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_FORMAT.SAS';
+	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_LABEL.SAS';
+RUN;
+
+PROC CONTENTS DATA=CHIS2011.adult VARNUM;
+	TITLE 'PROC CONTENTS - CHIS2011.adult';
+RUN;
+
 /* COMBINE DATA */
 DATA CHIS.CHIS_DATA_RAW;
-	SET CHIS2013.adult (in=in13)
+	SET CHIS2011.adult (in=in11)
+		CHIS2012.adult (in=in12)
+		CHIS2013.adult (in=in13)
 		CHIS2014.adult (in=in14)
 		CHIS2015.adult (in=in15)
-		CHIS2016.adult (in=in16)
-		CHIS2017.adult (in=in17);
+		CHIS2016.adult (in=in16);
 
-	IF		in13 THEN year=2013;
+	IF		in11 THEN year=2011;
+	ELSE iF in12 THEN year=2012;
+	ELSE IF in13 THEN year=2013;
 	ELSE IF in14 THEN year=2014;
 	ELSE IF in15 THEN year=2015;
 	ELSE IF in16 THEN year=2016;
-	ELSE IF in17 THEN year=2017;
 
 	***Create new weight variables;
 
-	fnwgt0 = rakedw0/5;
+	fnwgt0 = rakedw0/6;
 
 	ARRAY a_origwgts[80] rakedw1-rakedw80;
 	ARRAY a_newwgts[160] fnwgt1-fnwgt160;
 
 	DO i = 1 to 80;
-			IF year=2011 THEN DO;
-				a_newwgts[i]    = a_origwgts[i]/5;
-				a_newwgts[i+80] = rakedw0/5;
+			IF year=2016 THEN DO;
+				a_newwgts[i]    = a_origwgts[i]/6;
+				a_newwgts[i+80] = rakedw0/6;
     		END;
-		    ELSE IF year>2011 then do;
-		      a_newwgts[i]    = rakedw0/5;
-		      a_newwgts[i+80] = a_origwgts[i]/5;
+		    ELSE IF year<2016 then do;
+		      a_newwgts[i]    = rakedw0/6;
+		      a_newwgts[i+80] = a_origwgts[i]/6;
 		    END;
   	END;
 RUN;
@@ -175,6 +202,17 @@ PROC FORMAT LIBRARY=CHIS;
 						2	= 'Agree'
 						3	= 'Disagree'
 						4	= 'Strongly Disagree'
+						;
+
+	VALUE fCHIS4NvrAlys	-9	= 'Not Ascertained'
+						-8	= 'Dont Know'
+						-7	= 'Refused'
+						-2	= 'Proxy Skipped'
+						-1	= 'Inapplicable'
+						1	= 'Never'
+						2	= 'Sometimes'
+						3	= 'Usually'
+						4	= 'Always'
 						;
 
 	VALUE fCHIS4LichTim	-9	= 'Not Ascertained'
@@ -249,6 +287,16 @@ PROC FORMAT LIBRARY=CHIS;
 						1	= 'Very Difficult'
 						2	= 'Somewhat Difficult'
 						3	= 'Not Too Difficult / Not at All Difficult'
+						;
+
+	VALUE fCHIS3Confid	-9	= 'Not Ascertained'
+						-8	= 'Dont Know'
+						-7	= 'Refused'
+						-2	= 'Proxy Skipped'
+						-1	= 'Inapplicable'
+						1	= 'Very Confident'
+						2	= 'Somewhat Confident'
+						3	= 'Not Too Confident / Not at All Confident'
 						;
 RUN;
 
@@ -356,17 +404,28 @@ PROC FORMAT LIBRARY=CHIS;
 						2	= 'Very Good'
 						3	= 'Good'
 						4	= 'Fair'
-						5	= 'Poor';
+						5	= 'Poor'
+						;
+	VALUE fab19z		-1	= 'Inapplicable'
+						1	= 'Not at All'
+						2	= 'Less than Every Month'
+						3	= 'Every Month'
+						4	= 'Every Week'
+						5	= 'Every Day'
+						;
 	VALUE fastcur		1	= 'Current Asthma'
-						2	= 'No Current Asthma';
+						2	= 'No Current Asthma'
+						;
 	VALUE fabadlt_p		-1	= 'Inapplicable'
 						0	= '0 Days'
 						1	= '1-2 Days'
 						3	= '3-4 Days'
-						5	= '5+ Days';
+						5	= '5+ Days'
+						;
 	VALUE fabdiabet		1	= 'Yes'
 						2	= 'No'
-						3	= 'Borderline/Pre-Diabetes';
+						3	= 'Borderline/Pre-Diabetes'
+						;
 	VALUE fdiabage		-1	= 'Inapplicable'
 						1	= '<= 18'
 						2	= '19-29'
@@ -375,35 +434,42 @@ PROC FORMAT LIBRARY=CHIS;
 						5	= '50-59'
 						6	= '60-69'
 						7	= '70-79'
-						8	= '>= 80';
+						8	= '>= 80'
+						;
 	VALUE fdiabtype		-1	= 'Inapplicable'
 						1	= 'Type I'
-						2	= 'Type II';
+						2	= 'Type II'
+						;
 	VALUE fdiabfeet		-1	= 'Inapplicable'
 						0	= '0 Times'
 						1	= '1 Time'
 						2	= '2 Times'
 						3	= '3 Times'
 						4	= '4 Times'
-						5	= '5+ Times';
+						5	= '5+ Times'
+						;
 	VALUE fdiabdilat	-1	= 'Inapplicable'
 						1	= 'Within the Past Month'
 						2	= '1 to 12 Months Ago'
 						3	= '1 to 2 Years Ago'
 						4	= '2 or More Years Ago'
-						5	= 'Never';
+						5	= 'Never'
+						;
 	VALUE fdiabctlmgt	-2	= 'Proxy Skipped'
 						-1	= 'Inapplicable'
 						1	= 'Very Confident'
 						2	= 'Somewhat Confident'
-						3	= 'Not Too Confident / Not at All Confident';
+						3	= 'Not Too Confident / Not at All Confident'
+						;
 	VALUE fdiabpreg		-1	= 'Inapplicable'
 						1	= 'Yes'
 						2	= 'No'
-						3	= 'Borderline Gestational Diabetes';
+						3	= 'Borderline Gestational Diabetes'
+						;
 	VALUE fhighbp		1	= 'Yes'
 						2	= 'No'
-						3	= 'Borderline Hypertension';
+						3	= 'Borderline Hypertension'
+						;
 RUN;
 DATA CHIS.CHIS_DATA_RAW;
 	SET CHIS.CHIS_DATA_RAW;
@@ -411,10 +477,16 @@ DATA CHIS.CHIS_DATA_RAW;
 	FORMAT	ab17		fCHISBool.;
 	FORMAT	ab40		fCHISBool.;
 	FORMAT	ab41		fCHISBool.;
+	FORMAT	ab19		fTODO.;
 	FORMAT	astcur		fastcur.;
+	FORMAT	ah13a		fCHISBool.;
+	FORMAT	asts		fCHISBool.;
+	FORMAT	astyr		fCHISBool.;
+	FORMAT	ab18		fCHISBool.;
 	FORMAT	ab42_p1		fabadlt_p.;
 	FORMAT	ab43		fCHISBool.;
 	FORMAT	ab98		fCHISBool.;
+	FORMAT	ab108_p1	fCHIS3Confid.;
 	FORMAT	ab22		fabdiabet.;
 	FORMAT	ab99		fCHISBool.;
 	FORMAT	diabetes	fCHISBool.;
@@ -432,6 +504,9 @@ DATA CHIS.CHIS_DATA_RAW;
 	FORMAT	ab30		fCHISBool.;
 	FORMAT	ab34		fCHISBool.;
 	FORMAT	ab52		fCHISBool.;
+	FORMAT	ab115		fCHISBool.;
+	FORMAT	ab116_p1	fCHISBool.;
+	FORMAT	ab117		fCHISBool.;
 	FORMAT	ab118		fCHISBool.;
 RUN;
 
@@ -901,13 +976,6 @@ PROC FORMAT LIBRARY=CHIS;
 						10	= '25+ Times'
 						;
 
-	VALUE	faj103z		-1	= 'Inapplicable'
-						1	= 'Never'
-						2	= 'Sometimes'
-						3	= 'Usually'
-						4	= 'Always'
-						;
-
 	VALUE	faj114z		-1	= 'Inapplicable'
 						0	= 'One Year Ago or Less'
 						1	= '1 to 2 Years Ago'
@@ -964,11 +1032,14 @@ DATA CHIS.CHIS_DATA_RAW;
 	FORMAT	ah22		fCHISBool.;
 	FORMAT	aj20		fCHISBool.;
 	FORMAT	aj102		fCHISBool.;
-	FORMAT	aj103		faj103z.;
+	FORMAT	aj103		fCHIS4NvrAlys.;
 	FORMAT	timappt		fCHISBool.;
 	FORMAT	aj105		fCHISBool.;
 	FORMAT	aj106		fCHISBool.;
 	FORMAT	aj107		fCHISBool.;
+	FORMAT	aj108		fCHISBool.;
+	FORMAT	aj112		fCHIS4NvrAlys.;
+	FORMAT	aj113		fCHIS4NvrAlys.;
 	FORMAT	aj114		faj114z.;
 	FORMAT	aj129		fCHISBool.;
 	FORMAT	aj131_p1	faj131_p1z.;
@@ -987,6 +1058,7 @@ DATA CHIS.CHIS_DATA_RAW;
 	FORMAT	sc_ins		fCHISBool.;
 	FORMAT	sc_newp		fCHISBool.;
 	FORMAT	ah95_p1		fah95_p1z.;
+	FORMAT	ah12		fCHISBool.;
 	FORMAT	er			fCHISBool.;
 RUN;
 
@@ -1224,10 +1296,6 @@ DATA CHIS.CHIS_DATA_RAW;
 	FORMAT	ur_ihs		fur_clrt2z.;
 	FORMAT	ur_omb		fur_clrt2z.;
 	FORMAT	ur_rhp		fur_clrt2z.;
-	FORMAT	ur_bg6		fur_clrt6z.;
-	FORMAT	ur_clrt6	fur_clrt6z.;
-	FORMAT	ur_tract6	fur_clrt6z.;
-
 	FORMAT	ur_clrt		fur_clrt4z.;
 RUN;	
 
