@@ -15,24 +15,6 @@ GOPTIONS ACCESSIBLE;
 **  Program Name    : CHIS_10_LoadData                                                                                      **
 **  Purpose         : Loads CHIS data files and creates combined file with adjusted weightings                              **
 **  Reference Note  :  Some code may be adapted/used from other sources; see README for "Reference Materials"                **
-**  ----------------------------------------------------------------------------------------------------------------------- **
-**  MODIFICATIONS                                                                                                           **
-**  =============                                                                                                           **
-**  Date            : 18 February 2019 21:23                                                                                **
-**  Programmer Name : Matthew C. Vanderbilt                                                                                 **
-**  Description     : Initial development of import protocol                                                                **
-**                                                                                                                          **
-**  Date            : 10 March 2019 14:40                                                                                   **
-**  Programmer Name : Matthew C. Vanderbilt                                                                                 **
-**  Description     : Updated local path and corrected library references in combine routine.                               **
-**                                                                                                                          **
-**  Date            : 10 March 2019 19:32                                                                                   **
-**  Programmer Name : Matthew C. Vanderbilt                                                                                 **
-**  Description     : Created and applied formatting per CHIS data dictionary.                                              **
-**                                                                                                                          **
-**  Date            : 29 March 2019 14:09                                                                                   **
-**  Programmer Name : Matthew C. Vanderbilt                                                                                 **
-**  Description     : Completed creation and application of formatting per CHIS data dictionary to common & used variables  **
 **                                                                                                                          **
 *****************************************************************************************************************************/
 
@@ -127,13 +109,13 @@ PROC CONTENTS DATA=CHIS2012.adult VARNUM;
 RUN;
 
 /* LOAD 2011 DATA */
-LIBNAME CHIS2011 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS12_adult_sas\Data\';
-%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_PROC_FORMAT.SAS';
+LIBNAME CHIS2011 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS11_adult_sas\Data\';
+%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS11_adult_sas\Data\ADULT_PROC_FORMAT.SAS';
 
 DATA data2011;
 	SET CHIS2011.adult;
-	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_FORMAT.SAS';
-	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_LABEL.SAS';
+	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS11_adult_sas\Data\ADULT_FORMAT.SAS';
+	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS11_adult_sas\Data\ADULT_LABEL.SAS';
 RUN;
 
 PROC CONTENTS DATA=CHIS2011.adult VARNUM;
@@ -173,10 +155,6 @@ DATA CHIS.CHIS_DATA_RAW;
 		      a_newwgts[i+80] = a_origwgts[i]/6;
 		    END;
   	END;
-RUN;
-
-PROC CONTENTS DATA=CHIS.CHIS_DATA_RAW VARNUM;
-	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_RAW';
 RUN;
 
 /* SPECIFY CHIS FORMATS */
@@ -392,10 +370,6 @@ DATA CHIS.CHIS_DATA_RAW;
 	FORMAT	marit		fmarit.;
 	FORMAT	marit_45	fmarit_adlt.;
 	FORMAT	marit2		fmarit_scnd.;
-RUN;
-
-PROC CONTENTS DATA=CHIS.CHIS_DATA_RAW VARNUM;
-	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_RAW';
 RUN;
 
 /* CHIS SECTION B: GENERAL HEALTH CONDITION */

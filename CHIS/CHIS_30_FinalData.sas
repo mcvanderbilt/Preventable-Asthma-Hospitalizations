@@ -1,10 +1,3 @@
-%LET _CLIENTTASKLABEL='CHIS_30_FinalData';
-%LET _CLIENTPROCESSFLOWNAME='Process Flow';
-%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
-%LET _CLIENTPROJECTPATHHOST='R90T7H56';
-%LET _CLIENTPROJECTNAME='CHIS_Analysis.egp';
-%LET _SASPROGRAMFILE='';
-%LET _SASPROGRAMFILEHOST='';
 
 GOPTIONS ACCESSIBLE;
 /*****************************************************************************************************************************
@@ -80,82 +73,99 @@ PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
 			;
 RUN;
 
-DATA CHIS.CHIS_DATA_FINAL(	KEEP=
-							RACEDF_P1
-							SRSEX
-							AB1
-							AB17
-							AB22
-							AB24
-							AB25
-							AB29
-							AB30
-							AB34
-							AB40
-							AB41
-							AB42_P1
-							AB43
-							AB52
-							AB98
-							ASTCUR
-							AC42_P
-							AD37W
-							AD40W
-							AE15A
-							AESODA_P1
-							SMOKING
-							AD50
-							RBMI
-							AF63
-							AF64
-							AF65
-							AF66
-							AG22
-							AH33NEW
-							AH34NEW
-							AH35NEW
-							AH37
-							AHEDC_P1
-							CITIZEN2
-							FAMTYP_P
-							LNGHM_P1
-							WRKST_P1
-							AI22A_P
-							AI25
-							HMO
-							INS
-							AH16
-							AH22
-							AJ105
-							AJ136
-							AJ19
-							AJ20
-							CARE_PV
-							ER
-							USUAL5TP
-							AK4
-							FSLEV
-							INDMAIN2
-							OCCMAIN2
-							POVLL
-							AL18A
-							AL2
-							AL22
-							AL32
-							AL5
-							AL6
-							AK23
-							AK25
-							AK28
-							AM19
-							AM20
-							AM21
-							AM36
-							AM34
-							town_type
-							maritstat
-							agegroup
-						);
+DATA CHIS.CHIS_DATA_FINAL(	KEEP=	SRTENR
+									SRSEX
+									RACEDF_P1
+									AB1
+									AB17
+									AB40
+									AB41
+									ASTCUR
+									ASTS
+									ASTYR
+									AB18
+									AB19
+									AH13A
+									AB43
+									AB98
+									AB108_P1
+									AB22
+									AB24
+									AB25
+									AB30
+									AB34
+									AB52
+									AB117
+									AD37W
+									AD40W
+									AESODA_P1
+									AE15
+									AE15A
+									SMKCUR
+									SMOKING
+									NUMCIG
+									AC42_P
+									AC44
+									AD50
+									RBMI
+									AF65
+									AF63
+									DSTRS12
+									DSTRS30
+									AH33NEW
+									AH34NEW
+									AH35NEW
+									LNGHM_P1
+									AH37
+									CITIZEN2
+									YRUS_P1
+									PCTLF_P
+									AG22
+									SERVED
+									AG10
+									WRKST_P1
+									AHEDC_P1
+									FAMTYP_P
+									HMO
+									AI22A_P
+									AI25
+									AH71_P1
+									AH72_P1
+									AH14
+									INS
+									AH1
+									USUAL5TP
+									AJ9
+									AH16
+									AJ19
+									AH22
+									AJ20
+									AJ102
+									AJ105
+									AJ108
+									AJ112
+									AJ113
+									AH12
+									ER
+									AK4
+									FSLEV
+									POVLL
+									AL6
+									AL22
+									AL18A
+									AK23
+									AK25
+									AM19
+									AM21
+									AK28
+									AM36
+									AM34
+									UR_CLRT
+									maritstat
+									agegroup
+									year
+									fnwgt0-fnwgt160
+							);
 	SET CHIS.CHIS_DATA_FINAL;
 RUN;
 
@@ -166,8 +176,12 @@ RUN;
 /* EVALUATE FINAL TABLE */
 PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  A: Demographic Information';
-	TABLES	RACEDF_P1
+	TABLES	SRTENR
 			SRSEX
+			RACEDF_P1
+			maritstat
+			agegroup
+			year
 			;
 RUN;
 
@@ -175,30 +189,39 @@ PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  B: General Health Conditions';
 	TABLES	AB1
 			AB17
+			AB40
+			AB41
+			ASTCUR
+			ASTS
+			ASTYR
+			AB18
+			AB19
+			AH13A
+			AB43
+			AB98
+			AB108_P1
 			AB22
 			AB24
 			AB25
-			AB29
 			AB30
 			AB34
-			AB40
-			AB41
-			AB42_P1
-			AB43
 			AB52
-			AB98
-			ASTCUR
+			AB117
 			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  C: Health Behaviours';
-	TABLES	AC42_P
-			AD37W
+	TABLES	AD37W
 			AD40W
-			AE15A
 			AESODA_P1
+			AE15
+			AE15A
+			SMKCUR
 			SMOKING
+			NUMCIG
+			AC42_P
+			AC44
 			;
 RUN;
 
@@ -210,48 +233,60 @@ RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  F: Mental Health';
-	TABLES	AF63
-			AF64
-			AF65
-			AF66
+	TABLES	AF65
+			AF63
+			DSTRS12
+			DSTRS30
 			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  G: Demographic Information';
-	TABLES	AG22
-			AH33NEW
+	TABLES	AH33NEW
 			AH34NEW
 			AH35NEW
-			AH37
-			AHEDC_P1
-			CITIZEN2
-			FAMTYP_P
 			LNGHM_P1
+			AH37
+			CITIZEN2
+			YRUS_P1
+			PCTLF_P
+			AG22
+			SERVED
+			AG10
 			WRKST_P1
+			AHEDC_P1
+			FAMTYP_P
 			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  H: Health Insurance';
-	TABLES	AI22A_P
+	TABLES	HMO
+			AI22A_P
 			AI25
-			HMO
+			AH71_P1
+			AH72_P1
+			AH14
 			INS
 			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  J: Health Care Utilization/Acess & Dental Health';
-	TABLES	AH16
-			AH22
-			AJ105
-			AJ136
-			AJ19
-			AJ20
-			CARE_PV
-			ER
+	TABLES	AH1
 			USUAL5TP
+			AJ9
+			AH16
+			AJ19
+			AH22
+			AJ20
+			AJ102
+			AJ105
+			AJ108
+			AJ112
+			AJ113
+			AH12
+			ER
 			;
 RUN;
 
@@ -259,20 +294,15 @@ PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  K: Employment, Income, Poverty Status, & Food Security';
 	TABLES	AK4
 			FSLEV
-			INDMAIN2
-			OCCMAIN2
 			POVLL
 			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  L: Public Program Participation';
-	TABLES	AL18A
-			AL2
+	TABLES	AL6
 			AL22
-			AL32
-			AL5
-			AL6
+			AL18A
 			;
 RUN;
 
@@ -280,10 +310,9 @@ PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  M: Housing & Community Involvement';
 	TABLES	AK23
 			AK25
-			AK28
 			AM19
-			AM20
 			AM21
+			AK28
 			AM36
 			;
 RUN;
@@ -291,6 +320,7 @@ RUN;
 PROC FREQ DATA=CHIS.CHIS_DATA_FINAL;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_FINAL -  N: Demographic Information';
 	TABLES	AM34
+			UR_CLRT
 			;
 RUN;
 

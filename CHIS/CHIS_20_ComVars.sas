@@ -1,10 +1,3 @@
-%LET _CLIENTTASKLABEL='CHIS_20_ComVars';
-%LET _CLIENTPROCESSFLOWNAME='Process Flow';
-%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
-%LET _CLIENTPROJECTPATHHOST='R90T7H56';
-%LET _CLIENTPROJECTNAME='CHIS_Analysis.egp';
-%LET _SASPROGRAMFILE='';
-%LET _SASPROGRAMFILEHOST='';
 
 GOPTIONS ACCESSIBLE;
 /*****************************************************************************************************************************
@@ -31,261 +24,234 @@ ODS GRAPHICS ON;
 LIBNAME CHIS "&localProjectPath";
 
 /* MINIMIZE TO CROSS-YEAR COMMON VARIABLES */
-DATA CHIS.CHIS_DATA_INTRM(	KEEP =	
-							MARIT2
-							RACEDF_P1
-							SRAGE_P1
-							SRSEX
-							AB1
-							AB112
-							AB114_P1
-							AB118
-							AB17
-							AB22
-							AB23_P1
-							AB24
-							AB25
-							AB28_P1
-							AB29
-							AB30
-							AB34
-							AB40
-							AB41
-							AB42_P1
-							AB43
-							AB51_P1
-							AB52
-							AB63
-							AB98
-							AB99
-							ASTCUR
-							AC42
-							AC42_P
-							AC44
-							AC49
-							AC50
-							AD32_P1
-							AD37W
-							AD40W
-							AD41W
-							AD42W
-							AE_SODA
-							AE15
-							AE15A
-							AE16_P1
-							AESODA_P1
-							NUMCIG
-							SMKCUR
-							SMOKING
-							AD50
-							BMI_P
-							HGHTI_P
-							HGHTM_P
-							OVRWT
-							RBMI
-							WGHTK_P
-							WGHTP_P
-							AF62
-							AF63
-							AF64
-							AF65
-							AF66
-							AF67
-							AF68
-							AF69B
-							AF70B
-							AF71B
-							AF72B
-							AJ1
-							AJ29
-							AJ30
-							AJ31
-							AJ32
-							AJ33
-							AJ34
-							CHORES2
-							DISTRESS
-							DSTRS_P1
-							DSTRS12
-							DSTRS30
-							DSTRSYR
-							FAMILY2
-							SOCIAL2
-							WORK2
-							AG10
-							AG22
-							AH33NEW
-							AH34NEW
-							AH35NEW
-							AH37
-							AH43A
-							AHEDC_P1
-							CITIZEN2
-							FAMSIZE2_P1
-							FAMTYP_P
-							LNGHM_P1
-							PCTLF_P
-							SERVED
-							SPK_ENG
-							WRKST_P1
-							YRUS_P1
-							AH100
-							AH101_P
-							AH103
-							AH14
-							AH71_P1
-							AH72_P1
-							AH73B
-							AH74
-							AH75
-							AH98_P1
-							AH99_P1
-							AI15
-							AI15A
-							AI22A_P
-							AI22C
-							AI25
-							AI25NEW
-							AI28
-							AI4
-							HMO
-							INS
-							INS12M
-							INS64_P
-							INS65
-							INSANY
-							INSEM
-							INSMC
-							INSMD
-							INSOG
-							INSPR
-							INSPS
-							INST_12
-							OFFTK
-							UNINSANY
-							ACMDNUM
-							AH1
-							AH16
-							AH22
-							AH3_P1
-							AH6
-							AH95_P1
-							AJ10
-							AJ102
-							AJ103
-							AJ105
-							AJ106
-							AJ107
-							AJ114
-							AJ129
-							AJ131_P1
-							AJ133
-							AJ134
-							AJ135
-							AJ136
-							AJ137
-							AJ138
-							AJ139
-							AJ19
-							AJ20
-							AJ77
-							AJ9
-							CARE_PV
-							DOCT_YR
-							ER
-							FORGO
-							PC_INS
-							PC_NEWP
-							RN_FORGO
-							SC_INS
-							SC_NEWP
-							TIMAPPT
-							USOC
-							USUAL
-							USUAL_TP
-							USUAL5TP
-							AK1
-							AK10_P
-							AK10A_P
-							AK2_P1
-							AK32
-							AK33_P1
-							AK4
-							AK8
-							AKWKLNG
-							AM1
-							AM2
-							AM3
-							AM3A
-							AM4
-							AM5
-							FPG
-							FSLEV
-							INDMAIN2
-							OCCMAIN2
-							POVLL
-							POVLL_ACA
-							AL18A
-							AL2
-							AL22
-							AL32
-							AL5
-							AL6
-							AK23
-							AK25
-							AK28
-							AM19
-							AM20
-							AM21
-							AM36
-							AM34
-							UR_CLRT2
-							HHSIZE_P1
-							RAKEDW0-RAKEDW80
-							year
-							i
-							fnwgt0-fnwgt160
-							ur_clrt
-							ur_clrt6
-						);
-	SET CHIS.CHIS_DATA_RAW (WHERE =	(year>=2013));
-RUN;
-
- /* NORMALIZATION OF [UR_CLRT6] to [UR_CLRT] */
-DATA CHIS.CHIS_DATA_INTRM;
-	SET CHIS.CHIS_DATA_INTRM;
-
-	IF year		= 2017	THEN 
-		DO;
-			IF ur_clrt6	= 1		THEN town_type = 1;
-			IF ur_clrt6	= 2		THEN town_type = 2;
-			IF ur_clrt6	= 3		THEN town_type = 2;
-			IF ur_clrt6	= 4		THEN town_type = 3;
-			IF ur_clrt6	= 5		THEN town_type = 4;
-			IF ur_clrt6	= 6		THEN town_type = 4;
-		END;
-	ELSE town_type = ur_clrt;
-
-	FORMAT	town_type	fur_clrt.;
-	LABEL	town_type	= 'RURAL AND URBAN - CLARITAS (BY ZIPCODE) (4 LVLS)';
-
-RUN;
-
-/* CHECK RECODING OF UR_CLRT6 AND UR_CLRT */
-PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
-	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM';
-	TABLES	ur_clrt
-			ur_clrt6
-			town_type
-			ur_clrt*town_type
-			ur_clrt6*town_type
-			;
-
-RUN;
-
-/* DROP UNNEEDED UR_CLRT6 */
-DATA CHIS.CHIS_DATA_INTRM (DROP=ur_clrt ur_clrt6 i rakedw0-rakedw80);
-	SET CHIS.CHIS_DATA_INTRM;
+DATA CHIS.CHIS_DATA_INTRM(	KEEP =	SRTENR
+									SRAGE_P1
+									SRSEX
+									SRAS
+									SRASO
+									SRCH
+									SRPH
+									SRH
+									SRO
+									OMBSRR_P1
+									RACECN_P1
+									RACEDF_P1
+									SRW
+									SRAA
+									SRAI
+									AA5C
+									MARIT
+									MARIT_45
+									MARIT2
+									LATIN2TP
+									AB1
+									AB17
+									AB40
+									AB41
+									ASTCUR
+									ASTS
+									ASTYR
+									AB18
+									AB19
+									AH13A
+									AB43
+									AB98
+									AB108_P1
+									AB22
+									AB99
+									AB24
+									AB25
+									AB63
+									AB112
+									AB114_P1
+									AB30
+									AB34
+									AB52
+									AB117
+									AB118
+									AB113
+									AB119
+									AD37W
+									AD40W
+									AD41W
+									AD42W
+									AC31_P1
+									AC11
+									AE_SODA
+									AESODA_P1
+									AE15
+									AE15A
+									AD32_P1
+									AE16_P1
+									SMKCUR
+									SMOKING
+									NUMCIG
+									AC42_P
+									AC44
+									HGHTI_P
+									HGHTM_P
+									HEIGHM_P
+									WEIGHK_P
+									WGHTK_P
+									WGHTP_P
+									AD50
+									BMI_P
+									RBMI
+									AD57
+									OVRWT
+									AD51
+									AD52
+									AD53
+									AD54
+									DISABLE
+									AJ29
+									AF65
+									AF67
+									AF68
+									AF70B
+									AF71B
+									AF72B
+									AJ1
+									AJ31
+									AF62
+									AF63
+									DSTRS12
+									DSTRS30
+									CHORES2
+									SOCIAL2
+									FAMILY2
+									AH33NEW
+									AH34NEW
+									AH35NEW
+									LNGHM_P1
+									AH37
+									SPK_ENG
+									CITIZEN2
+									YRUS_P1
+									PCTLF_P
+									AH44
+									AH43A
+									AH44A
+									ACHLDC_P1
+									AG22
+									SERVED
+									AG10
+									WRKST_P1
+									AG8
+									AG11
+									AG9_P1
+									AHEDC_P1
+									FAMTYP_P
+									AI4
+									AI15
+									AI15A
+									AI22C
+									HMO
+									AI22A_P
+									AI25
+									AI25NEW
+									AH71_P1
+									AH72_P1
+									AH74
+									AH75
+									AI28
+									AH14
+									AH96_P1
+									AH97_P1
+									INS
+									INS12M
+									INS65
+									INSANY
+									INSEM
+									INSMC
+									INSMD
+									INSOG
+									IHS
+									INSPR
+									INSPS
+									INST_12
+									UNINSANY
+									OFFTK
+									AH98_P1
+									AH99_P1
+									AH100
+									AH101_P
+									AH103
+									INS64_P
+									AH1
+									AH3_P1
+									USOC
+									USUAL
+									USUAL_TP
+									USUAL5TP
+									AH6
+									ACMDNUM
+									DOCT_YR
+									AJ77
+									AJ10
+									AJ50_P
+									AJ9
+									AJ11
+									AH16
+									AJ19
+									AH22
+									AJ20
+									AJ102
+									AJ103
+									AJ105
+									AJ106
+									AJ107
+									AJ108
+									AJ112
+									AJ113
+									AH12
+									ER
+									AH95_P1
+									AK1
+									AK2_P1
+									AK4
+									AKWKLNG
+									AK8
+									AK10_P
+									AK10A_P
+									AM1
+									AM2
+									AM3
+									AM3A
+									AM4
+									AM5
+									FSLEV
+									FSLEVCB
+									POVGWD_P
+									POVLL
+									AL6
+									AL22
+									AL18A
+									AK23
+									AK25
+									AM19
+									AM21
+									AM35
+									AK28
+									AM36
+									AM39
+									AM38_P1
+									AM40
+									AM34
+									UR_CLRT
+									UR_CLRT2
+									UR_IHS
+									UR_OMB
+									UR_RHP
+									UR_BG
+									UR_TRACT
+									PUF1Y_ID
+									HHSIZE_P1
+									PROXY
+									year
+									fnwgt0-fnwgt160
+								);
+	SET CHIS.CHIS_DATA_RAW (WHERE =	(year>=2011));
 RUN;
 
 PROC CONTENTS DATA=CHIS.CHIS_DATA_INTRM VARNUM;
@@ -295,144 +261,170 @@ RUN;
 /* EVALUATE INTERIM TABLE */
 PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  A: Demographic Information';
-	TABLES	MARIT2
-			RACEDF_P1
+	TABLES	SRTENR
 			SRAGE_P1
-			SRSEX;
+			SRSEX
+			SRAS
+			SRASO
+			SRCH
+			SRPH
+			SRH
+			SRO
+			OMBSRR_P1
+			RACECN_P1
+			RACEDF_P1
+			SRW
+			SRAA
+			SRAI
+			AA5C
+			MARIT
+			MARIT_45
+			MARIT2
+			LATIN2TP
+			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  G: Demographic Information';
-	TABLES	AG10
-			AG22
-			AH33NEW
+	TABLES	AH33NEW
 			AH34NEW
 			AH35NEW
-			AH37
-			AH43A
-			AHEDC_P1
-			CITIZEN2
-			FAMTYP_P
 			LNGHM_P1
-			PCTLF_P
-			SERVED
+			AH37
 			SPK_ENG
+			CITIZEN2
+			YRUS_P1
+			PCTLF_P
+			AH44
+			AH43A
+			AH44A
+			ACHLDC_P1
+			AG22
+			SERVED
+			AG10
 			WRKST_P1
-			YRUS_P1;
+			AG8
+			AG11
+			AG9_P1
+			AHEDC_P1
+			FAMTYP_P
+			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  N: Demographic Information';
 	TABLES	AM34
+			UR_CLRT
 			UR_CLRT2
-			town_type
+			UR_IHS
+			UR_OMB
+			UR_RHP
+			UR_BG
+			UR_TRACT
 			;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  B: General Health Conditions';
 	TABLES	AB1
-			AB112
-			AB114_P1
-			AB118
 			AB17
-			AB22
-			AB23_P1
-			AB24
-			AB25
-			AB28_P1
-			AB29
-			AB30
-			AB34
 			AB40
 			AB41
-			AB42_P1
+			ASTCUR
+			ASTS
+			ASTYR
+			AB18
+			AB19
+			AH13A
 			AB43
-			AB51_P1
-			AB52
-			AB63
 			AB98
+			AB108_P1
+			AB22
 			AB99
-			ASTCUR;
+			AB24
+			AB25
+			AB63
+			AB112
+			AB114_P1
+			AB30
+			AB34
+			AB52
+			AB117
+			AB118
+			AB113
+			AB119
+			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  C: Health Behaviours';
-	TABLES	AC42
-			AC42_P
-			AC44
-			AC49
-			AC50
-			AD32_P1
-			AD37W
+	TABLES	AD37W
 			AD40W
+			AESODA_P1
 			AE15
 			AE15A
+			AD32_P1
 			AE16_P1
-			AESODA_P1
-			NUMCIG
 			SMKCUR
-			SMOKING;
+			SMOKING
+			NUMCIG
+			AC42_P
+			AC44
+			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  D: General Health, Disability, & Sexual Health';
 	TABLES	AD50
+			RBMI
+			AD57
 			OVRWT
-			RBMI;
+			AD51
+			AD52
+			AD53
+			AD54
+			DISABLE
+			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  F: Mental Health';
-	TABLES	AF62
-			AF63
-			AF64
+	TABLES	AJ29
 			AF65
-			AF66
 			AF67
 			AF68
-			AF69B
 			AF70B
 			AF71B
 			AF72B
 			AJ1
-			AJ29
-			AJ30
 			AJ31
-			AJ32
-			AJ33
-			AJ34
-			CHORES2
+			AF62
+			AF63
 			DSTRS12
 			DSTRS30
-			FAMILY2
+			CHORES2
 			SOCIAL2
-			WORK2;
+			FAMILY2
+			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  H: Health Insurance';
-	TABLES	AH100
-			AH101_P
-			AH103
-			AH14
-			AH71_P1
-			AH72_P1
-			AH73B
-			AH74
-			AH75
-			AH98_P1
-			AH99_P1
+	TABLES	AI4
 			AI15
 			AI15A
-			AI22A_P
 			AI22C
+			HMO
+			AI22A_P
 			AI25
 			AI25NEW
+			AH71_P1
+			AH72_P1
+			AH74
+			AH75
 			AI28
-			AI4
-			HMO
+			AH14
+			AH97_P1
 			INS
-			INS64_P
 			INS65
 			INSANY
 			INSEM
@@ -442,97 +434,99 @@ PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 			INSPR
 			INSPS
 			INST_12
+			UNINSANY
 			OFFTK
-			UNINSANY;
+			AH98_P1
+			AH99_P1
+			AH100
+			AH101_P
+			AH103
+			INS64_P
+			AH96_P1
+			IHS
+			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  J: Health Care Utilization/Acess & Dental Health';
-	TABLES	ACMDNUM
-			AH1
-			AH16
-			AH22
+	TABLES	AH1
 			AH3_P1
+			USOC
+			USUAL
+			USUAL_TP
+			USUAL5TP
 			AH6
-			AH95_P1
+			ACMDNUM
+			DOCT_YR
+			AJ77
 			AJ10
+			AJ50_P
+			AJ9
+			AJ11
+			AH16
+			AJ19
+			AH22
+			AJ20
 			AJ102
 			AJ103
 			AJ105
 			AJ106
 			AJ107
-			AJ114
-			AJ129
-			AJ131_P1
-			AJ133
-			AJ134
-			AJ135
-			AJ136
-			AJ137
-			AJ138
-			AJ139
-			AJ19
-			AJ20
-			AJ77
-			AJ9
-			CARE_PV
-			DOCT_YR
+			AJ108
+			AJ112
+			AJ113
+			AH12
 			ER
-			FORGO
-			PC_INS
-			PC_NEWP
-			RN_FORGO
-			SC_INS
-			SC_NEWP
-			TIMAPPT
-			USOC
-			USUAL
-			USUAL_TP
-			USUAL5TP;
+			AH95_P1
+			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  K: Employment, Income, Poverty Status, & Food Security';
 	TABLES	AK1
 			AK2_P1
-			AK32
-			AK33_P1
 			AK4
-			AK8
 			AKWKLNG
+			AK8
 			AM1
 			AM2
 			AM3
 			AM3A
 			AM4
 			AM5
-			FPG
 			FSLEV
-			INDMAIN2
-			OCCMAIN2
+			FSLEVCB
 			POVLL
-			POVLL_ACA;
+			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  L: Public Program Participation';
-	TABLES	AL18A
-			AL2
+	TABLES	AL6
 			AL22
-			AL32
-			AL5
-			AL6;
+			AL18A
+			;
 RUN;
 
 PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  M: Housing & Community Involvement';
 	TABLES	AK23
 			AK25
-			AK28
 			AM19
-			AM20
 			AM21
-			AM36;
+			AM35
+			AK28
+			AM36
+			AM38_P1
+			AM40
+			AM39
+			;
+RUN;
+
+PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  Q: Screening Information';
+	TABLES	PROXY
+			;
 RUN;
 
 ODS GRAPHICS OFF;

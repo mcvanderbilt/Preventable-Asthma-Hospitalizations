@@ -1,4 +1,4 @@
-1                                                          The SAS System                               13:26 Friday, March 29, 2019
+1                                                          The SAS System                               07:35 Sunday, March 31, 2019
 
 1          ;*';*";*/;quit;run;
 2          OPTIONS PAGENO=MIN;
@@ -58,7 +58,7 @@ NOTE: Writing TAGSETS.SASREPORT13(EGSR) Body file: EGSR
 49         **	Purpose			: Adds Project-Specific Variables to Dataset															**
 50         **	Reference Note	: Some code may be adapted/used from other sources; see README for "Reference Materials"				**
 51         **																															**
-2                                                          The SAS System                               13:26 Friday, March 29, 2019
+2                                                          The SAS System                               07:35 Sunday, March 31, 2019
 
 52         *************************************************************************************************************************
 52       ! ****/
@@ -74,671 +74,657 @@ NOTE: Libref CHIS was successfully assigned as follows:
       Physical Name: C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS
 59         
 60         /* MINIMIZE TO CROSS-YEAR COMMON VARIABLES */
-61         DATA CHIS.CHIS_DATA_INTRM(	KEEP =	
-62         							MARIT2
-63         							RACEDF_P1
-64         							SRAGE_P1
-65         							SRSEX
-66         							AB1
-67         							AB112
-68         							AB114_P1
-69         							AB118
-70         							AB17
-71         							AB22
-72         							AB23_P1
-73         							AB24
-74         							AB25
-75         							AB28_P1
-76         							AB29
-77         							AB30
-78         							AB34
-79         							AB40
-80         							AB41
-81         							AB42_P1
-82         							AB43
-83         							AB51_P1
-84         							AB52
-85         							AB63
-86         							AB98
-87         							AB99
-88         							ASTCUR
-89         							AC42
-90         							AC42_P
-91         							AC44
-92         							AC49
-93         							AC50
-94         							AD32_P1
-95         							AD37W
-96         							AD40W
-97         							AD41W
-98         							AD42W
-99         							AE_SODA
-100        							AE15
-101        							AE15A
-102        							AE16_P1
-103        							AESODA_P1
-104        							NUMCIG
-3                                                          The SAS System                               13:26 Friday, March 29, 2019
+61         DATA CHIS.CHIS_DATA_INTRM(	KEEP =	SRTENR
+62         									SRAGE_P1
+63         									SRSEX
+64         									SRAS
+65         									SRASO
+66         									SRCH
+67         									SRPH
+68         									SRH
+69         									SRO
+70         									OMBSRR_P1
+71         									RACECN_P1
+72         									RACEDF_P1
+73         									SRW
+74         									SRAA
+75         									SRAI
+76         									AA5C
+77         									MARIT
+78         									MARIT_45
+79         									MARIT2
+80         									LATIN2TP
+81         									AB1
+82         									AB17
+83         									AB40
+84         									AB41
+85         									ASTCUR
+86         									ASTS
+87         									ASTYR
+88         									AB18
+89         									AB19
+90         									AH13A
+91         									AB43
+92         									AB98
+93         									AB108_P1
+94         									AB22
+95         									AB99
+96         									AB24
+97         									AB25
+98         									AB63
+99         									AB112
+100        									AB114_P1
+101        									AB30
+102        									AB34
+103        									AB52
+104        									AB117
+3                                                          The SAS System                               07:35 Sunday, March 31, 2019
 
-105        							SMKCUR
-106        							SMOKING
-107        							AD50
-108        							BMI_P
-109        							HGHTI_P
-110        							HGHTM_P
-111        							OVRWT
-112        							RBMI
-113        							WGHTK_P
-114        							WGHTP_P
-115        							AF62
-116        							AF63
-117        							AF64
-118        							AF65
-119        							AF66
-120        							AF67
-121        							AF68
-122        							AF69B
-123        							AF70B
-124        							AF71B
-125        							AF72B
-126        							AJ1
-127        							AJ29
-128        							AJ30
-129        							AJ31
-130        							AJ32
-131        							AJ33
-132        							AJ34
-133        							CHORES2
-134        							DISTRESS
-135        							DSTRS_P1
-136        							DSTRS12
-137        							DSTRS30
-138        							DSTRSYR
-139        							FAMILY2
-140        							SOCIAL2
-141        							WORK2
-142        							AG10
-143        							AG22
-144        							AH33NEW
-145        							AH34NEW
-146        							AH35NEW
-147        							AH37
-148        							AH43A
-149        							AHEDC_P1
-150        							CITIZEN2
-151        							FAMSIZE2_P1
-152        							FAMTYP_P
-153        							LNGHM_P1
-154        							PCTLF_P
-155        							SERVED
-156        							SPK_ENG
-157        							WRKST_P1
-158        							YRUS_P1
-159        							AH100
-160        							AH101_P
-161        							AH103
-162        							AH14
-4                                                          The SAS System                               13:26 Friday, March 29, 2019
+105        									AB118
+106        									AB113
+107        									AB119
+108        									AD37W
+109        									AD40W
+110        									AD41W
+111        									AD42W
+112        									AC31_P1
+113        									AC11
+114        									AE_SODA
+115        									AESODA_P1
+116        									AE15
+117        									AE15A
+118        									AD32_P1
+119        									AE16_P1
+120        									SMKCUR
+121        									SMOKING
+122        									NUMCIG
+123        									AC42_P
+124        									AC44
+125        									HGHTI_P
+126        									HGHTM_P
+127        									HEIGHM_P
+128        									WEIGHK_P
+129        									WGHTK_P
+130        									WGHTP_P
+131        									AD50
+132        									BMI_P
+133        									RBMI
+134        									AD57
+135        									OVRWT
+136        									AD51
+137        									AD52
+138        									AD53
+139        									AD54
+140        									DISABLE
+141        									AJ29
+142        									AF65
+143        									AF67
+144        									AF68
+145        									AF70B
+146        									AF71B
+147        									AF72B
+148        									AJ1
+149        									AJ31
+150        									AF62
+151        									AF63
+152        									DSTRS12
+153        									DSTRS30
+154        									CHORES2
+155        									SOCIAL2
+156        									FAMILY2
+157        									AH33NEW
+158        									AH34NEW
+159        									AH35NEW
+160        									LNGHM_P1
+161        									AH37
+162        									SPK_ENG
+4                                                          The SAS System                               07:35 Sunday, March 31, 2019
 
-163        							AH71_P1
-164        							AH72_P1
-165        							AH73B
-166        							AH74
-167        							AH75
-168        							AH98_P1
-169        							AH99_P1
-170        							AI15
-171        							AI15A
-172        							AI22A_P
-173        							AI22C
-174        							AI25
-175        							AI25NEW
-176        							AI28
-177        							AI4
-178        							HMO
-179        							INS
-180        							INS12M
-181        							INS64_P
-182        							INS65
-183        							INSANY
-184        							INSEM
-185        							INSMC
-186        							INSMD
-187        							INSOG
-188        							INSPR
-189        							INSPS
-190        							INST_12
-191        							OFFTK
-192        							UNINSANY
-193        							ACMDNUM
-194        							AH1
-195        							AH16
-196        							AH22
-197        							AH3_P1
-198        							AH6
-199        							AH95_P1
-200        							AJ10
-201        							AJ102
-202        							AJ103
-203        							AJ105
-204        							AJ106
-205        							AJ107
-206        							AJ114
-207        							AJ129
-208        							AJ131_P1
-209        							AJ133
-210        							AJ134
-211        							AJ135
-212        							AJ136
-213        							AJ137
-214        							AJ138
-215        							AJ139
-216        							AJ19
-217        							AJ20
-218        							AJ77
-219        							AJ9
-220        							CARE_PV
-5                                                          The SAS System                               13:26 Friday, March 29, 2019
+163        									CITIZEN2
+164        									YRUS_P1
+165        									PCTLF_P
+166        									AH44
+167        									AH43A
+168        									AH44A
+169        									ACHLDC_P1
+170        									AG22
+171        									SERVED
+172        									AG10
+173        									WRKST_P1
+174        									AG8
+175        									AG11
+176        									AG9_P1
+177        									AHEDC_P1
+178        									FAMTYP_P
+179        									AI4
+180        									AI15
+181        									AI15A
+182        									AI22C
+183        									HMO
+184        									AI22A_P
+185        									AI25
+186        									AI25NEW
+187        									AH71_P1
+188        									AH72_P1
+189        									AH74
+190        									AH75
+191        									AI28
+192        									AH14
+193        									AH96_P1
+194        									AH97_P1
+195        									INS
+196        									INS12M
+197        									INS65
+198        									INSANY
+199        									INSEM
+200        									INSMC
+201        									INSMD
+202        									INSOG
+203        									IHS
+204        									INSPR
+205        									INSPS
+206        									INST_12
+207        									UNINSANY
+208        									OFFTK
+209        									AH98_P1
+210        									AH99_P1
+211        									AH100
+212        									AH101_P
+213        									AH103
+214        									INS64_P
+215        									AH1
+216        									AH3_P1
+217        									USOC
+218        									USUAL
+219        									USUAL_TP
+220        									USUAL5TP
+5                                                          The SAS System                               07:35 Sunday, March 31, 2019
 
-221        							DOCT_YR
-222        							ER
-223        							FORGO
-224        							PC_INS
-225        							PC_NEWP
-226        							RN_FORGO
-227        							SC_INS
-228        							SC_NEWP
-229        							TIMAPPT
-230        							USOC
-231        							USUAL
-232        							USUAL_TP
-233        							USUAL5TP
-234        							AK1
-235        							AK10_P
-236        							AK10A_P
-237        							AK2_P1
-238        							AK32
-239        							AK33_P1
-240        							AK4
-241        							AK8
-242        							AKWKLNG
-243        							AM1
-244        							AM2
-245        							AM3
-246        							AM3A
-247        							AM4
-248        							AM5
-249        							FPG
-250        							FSLEV
-251        							INDMAIN2
-252        							OCCMAIN2
-253        							POVLL
-254        							POVLL_ACA
-255        							AL18A
-256        							AL2
-257        							AL22
-258        							AL32
-259        							AL5
-260        							AL6
-261        							AK23
-262        							AK25
-263        							AK28
-264        							AM19
-265        							AM20
-266        							AM21
-267        							AM36
-268        							AM34
-269        							UR_CLRT2
-270        							HHSIZE_P1
-271        							RAKEDW0-RAKEDW80
-272        							year
-273        							i
-274        							fnwgt0-fnwgt160
-275        							ur_clrt
-276        							ur_clrt6
-277        						);
-278        	SET CHIS.CHIS_DATA_RAW (WHERE =	(year>=2013));
-6                                                          The SAS System                               13:26 Friday, March 29, 2019
+221        									AH6
+222        									ACMDNUM
+223        									DOCT_YR
+224        									AJ77
+225        									AJ10
+226        									AJ50_P
+227        									AJ9
+228        									AJ11
+229        									AH16
+230        									AJ19
+231        									AH22
+232        									AJ20
+233        									AJ102
+234        									AJ103
+235        									AJ105
+236        									AJ106
+237        									AJ107
+238        									AJ108
+239        									AJ112
+240        									AJ113
+241        									AH12
+242        									ER
+243        									AH95_P1
+244        									AK1
+245        									AK2_P1
+246        									AK4
+247        									AKWKLNG
+248        									AK8
+249        									AK10_P
+250        									AK10A_P
+251        									AM1
+252        									AM2
+253        									AM3
+254        									AM3A
+255        									AM4
+256        									AM5
+257        									FSLEV
+258        									FSLEVCB
+259        									POVGWD_P
+260        									POVLL
+261        									AL6
+262        									AL22
+263        									AL18A
+264        									AK23
+265        									AK25
+266        									AM19
+267        									AM21
+268        									AM35
+269        									AK28
+270        									AM36
+271        									AM39
+272        									AM38_P1
+273        									AM40
+274        									AM34
+275        									UR_CLRT
+276        									UR_CLRT2
+277        									UR_IHS
+278        									UR_OMB
+6                                                          The SAS System                               07:35 Sunday, March 31, 2019
 
-279        RUN;
+279        									UR_RHP
+280        									UR_BG
+281        									UR_TRACT
+282        									PUF1Y_ID
+283        									HHSIZE_P1
+284        									PROXY
+285        									year
+286        									fnwgt0-fnwgt160
+287        								);
+288        	SET CHIS.CHIS_DATA_RAW (WHERE =	(year>=2011));
+289        RUN;
 
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_RAW.
-      WHERE year>=2013;
-NOTE: The data set CHIS.CHIS_DATA_INTRM has 103482 observations and 455 variables.
+NOTE: Format FTODO was not found or could not be loaded.
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
+      WHERE year>=2011;
+NOTE: The data set CHIS.CHIS_DATA_INTRM has 125264 observations and 386 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.48 seconds
-      cpu time            0.46 seconds
+      real time           0.68 seconds
+      cpu time            0.68 seconds
       
 
-280        
-281         /* NORMALIZATION OF [UR_CLRT6] to [UR_CLRT] */
-282        DATA CHIS.CHIS_DATA_INTRM;
-283        	SET CHIS.CHIS_DATA_INTRM;
-284        
-285        	IF year		= 2017	THEN
-286        		DO;
-287        			IF ur_clrt6	= 1		THEN town_type = 1;
-288        			IF ur_clrt6	= 2		THEN town_type = 2;
-289        			IF ur_clrt6	= 3		THEN town_type = 2;
-290        			IF ur_clrt6	= 4		THEN town_type = 3;
-291        			IF ur_clrt6	= 5		THEN town_type = 4;
-292        			IF ur_clrt6	= 6		THEN town_type = 4;
-293        		END;
-294        	ELSE town_type = ur_clrt;
-295        
-296        	FORMAT	town_type	fur_clrt.;
-297        	LABEL	town_type	= 'RURAL AND URBAN - CLARITAS (BY ZIPCODE) (4 LVLS)';
-298        
-299        RUN;
+290        
+291        PROC CONTENTS DATA=CHIS.CHIS_DATA_INTRM VARNUM;
+292        	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_INTRM';
+293        RUN;
 
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
-NOTE: The data set CHIS.CHIS_DATA_INTRM has 103482 observations and 456 variables.
-NOTE: DATA statement used (Total process time):
-      real time           0.48 seconds
-      cpu time            0.46 seconds
-      
-
-300        
-301        /* CHECK RECODING OF UR_CLRT6 AND UR_CLRT */
-302        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
-303        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM';
-304        	TABLES	ur_clrt
-305        			ur_clrt6
-306        			town_type
-307        			ur_clrt*town_type
-308        			ur_clrt6*town_type
-309        			;
-310        
-311        RUN;
-
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
-NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.26 seconds
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.22 seconds
       cpu time            0.21 seconds
       
 
-312        
-7                                                          The SAS System                               13:26 Friday, March 29, 2019
+294        
+295        /* EVALUATE INTERIM TABLE */
+296        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+297        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  A: Demographic Information';
+298        	TABLES	SRTENR
+299        			SRAGE_P1
+300        			SRSEX
+301        			SRAS
+302        			SRASO
+303        			SRCH
+304        			SRPH
+305        			SRH
+306        			SRO
+307        			OMBSRR_P1
+308        			RACECN_P1
+309        			RACEDF_P1
+310        			SRW
+311        			SRAA
+312        			SRAI
+313        			AA5C
+314        			MARIT
+315        			MARIT_45
+316        			MARIT2
+317        			LATIN2TP
+318        			;
+319        RUN;
 
-313        /* DROP UNNEEDED UR_CLRT6 */
-314        DATA CHIS.CHIS_DATA_INTRM (DROP=ur_clrt ur_clrt6 i rakedw0-rakedw80);
-315        	SET CHIS.CHIS_DATA_INTRM;
-316        RUN;
+7                                                          The SAS System                               07:35 Sunday, March 31, 2019
 
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
-NOTE: The data set CHIS.CHIS_DATA_INTRM has 103482 observations and 372 variables.
-NOTE: DATA statement used (Total process time):
-      real time           0.55 seconds
-      cpu time            0.56 seconds
-      
-
-317        
-318        PROC CONTENTS DATA=CHIS.CHIS_DATA_INTRM VARNUM;
-319        	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_INTRM';
-320        RUN;
-
-NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.26 seconds
-      cpu time            0.25 seconds
-      
-
-321        
-322        /* EVALUATE INTERIM TABLE */
-323        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
-324        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  A: Demographic Information';
-325        	TABLES	MARIT2
-326        			RACEDF_P1
-327        			SRAGE_P1
-328        			SRSEX;
-329        RUN;
-
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
-NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.10 seconds
-      cpu time            0.11 seconds
-      
-
-330        
-331        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
-332        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  G: Demographic Information';
-333        	TABLES	AG10
-334        			AG22
-335        			AH33NEW
-336        			AH34NEW
-337        			AH35NEW
-338        			AH37
-339        			AH43A
-340        			AHEDC_P1
-341        			CITIZEN2
-342        			FAMTYP_P
-343        			LNGHM_P1
-344        			PCTLF_P
-345        			SERVED
-346        			SPK_ENG
-347        			WRKST_P1
-348        			YRUS_P1;
-349        RUN;
-8                                                          The SAS System                               13:26 Friday, March 29, 2019
-
-
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
       real time           0.20 seconds
       cpu time            0.17 seconds
       
 
-350        
-351        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
-352        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  N: Demographic Information';
-353        	TABLES	AM34
-354        			UR_CLRT2
-355        			town_type
-356        			;
-357        
+320        
+321        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+322        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  G: Demographic Information';
+323        	TABLES	AH33NEW
+324        			AH34NEW
+325        			AH35NEW
+326        			LNGHM_P1
+327        			AH37
+328        			SPK_ENG
+329        			CITIZEN2
+330        			YRUS_P1
+331        			PCTLF_P
+332        			AH44
+333        			AH43A
+334        			AH44A
+335        			ACHLDC_P1
+336        			AG22
+337        			SERVED
+338        			AG10
+339        			WRKST_P1
+340        			AG8
+341        			AG11
+342        			AG9_P1
+343        			AHEDC_P1
+344        			FAMTYP_P
+345        			;
+346        RUN;
 
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.23 seconds
+      cpu time            0.20 seconds
+      
+
+347        
+348        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+349        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  N: Demographic Information';
+350        	TABLES	AM34
+351        			UR_CLRT
+352        			UR_CLRT2
+353        			UR_IHS
+354        			UR_OMB
+355        			UR_RHP
+356        			UR_BG
+357        			UR_TRACT
+358        			;
+359        
+
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.14 seconds
+      cpu time            0.11 seconds
+8                                                          The SAS System                               07:35 Sunday, March 31, 2019
+
+      
+360        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+
+361        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  B: General Health Conditions';
+362        	TABLES	AB1
+363        			AB17
+364        			AB40
+365        			AB41
+366        			ASTCUR
+367        			ASTS
+368        			ASTYR
+369        			AB18
+370        			AB19
+371        			AH13A
+372        			AB43
+373        			AB98
+374        			AB108_P1
+375        			AB22
+376        			AB99
+377        			AB24
+378        			AB25
+379        			AB63
+380        			AB112
+381        			AB114_P1
+382        			AB30
+383        			AB34
+384        			AB52
+385        			AB117
+386        			AB118
+387        			AB113
+388        			AB119
+389        			;
+390        RUN;
+
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.25 seconds
+      cpu time            0.26 seconds
+      
+
+391        
+392        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+393        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  C: Health Behaviours';
+394        	TABLES	AD37W
+395        			AD40W
+396        			AESODA_P1
+397        			AE15
+398        			AE15A
+399        			AD32_P1
+400        			AE16_P1
+401        			SMKCUR
+402        			SMOKING
+403        			NUMCIG
+404        			AC42_P
+405        			AC44
+406        			;
+407        RUN;
+
+9                                                          The SAS System                               07:35 Sunday, March 31, 2019
+
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.17 seconds
+      cpu time            0.15 seconds
+      
+
+408        
+409        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+410        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  D: General Health, Disability, & Sexual Health';
+411        	TABLES	AD50
+412        			RBMI
+413        			AD57
+414        			OVRWT
+415        			AD51
+416        			AD52
+417        			AD53
+418        			AD54
+419        			DISABLE
+420        			;
+421        RUN;
+
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.14 seconds
+      cpu time            0.12 seconds
+      
+
+422        
+423        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+424        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  F: Mental Health';
+425        	TABLES	AJ29
+426        			AF65
+427        			AF67
+428        			AF68
+429        			AF70B
+430        			AF71B
+431        			AF72B
+432        			AJ1
+433        			AJ31
+434        			AF62
+435        			AF63
+436        			DSTRS12
+437        			DSTRS30
+438        			CHORES2
+439        			SOCIAL2
+440        			FAMILY2
+441        			;
+442        RUN;
+
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.20 seconds
+      cpu time            0.20 seconds
+      
+
+443        
+444        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+445        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  H: Health Insurance';
+10                                                         The SAS System                               07:35 Sunday, March 31, 2019
+
+446        	TABLES	AI4
+447        			AI15
+448        			AI15A
+449        			AI22C
+450        			HMO
+451        			AI22A_P
+452        			AI25
+453        			AI25NEW
+454        			AH71_P1
+455        			AH72_P1
+456        			AH74
+457        			AH75
+458        			AI28
+459        			AH14
+460        			AH97_P1
+461        			INS
+462        			INS65
+463        			INSANY
+464        			INSEM
+465        			INSMC
+466        			INSMD
+467        			INSOG
+468        			INSPR
+469        			INSPS
+470        			INST_12
+471        			UNINSANY
+472        			OFFTK
+473        			AH98_P1
+474        			AH99_P1
+475        			AH100
+476        			AH101_P
+477        			AH103
+478        			INS64_P
+479        			AH96_P1
+480        			IHS
+481        			;
+482        RUN;
+
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.31 seconds
+      cpu time            0.29 seconds
+      
+
+483        
+484        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+485        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  J: Health Care Utilization/Acess & Dental Health';
+486        	TABLES	AH1
+487        			AH3_P1
+488        			USOC
+489        			USUAL
+490        			USUAL_TP
+491        			USUAL5TP
+492        			AH6
+493        			ACMDNUM
+494        			DOCT_YR
+495        			AJ77
+496        			AJ10
+11                                                         The SAS System                               07:35 Sunday, March 31, 2019
+
+497        			AJ50_P
+498        			AJ9
+499        			AJ11
+500        			AH16
+501        			AJ19
+502        			AH22
+503        			AJ20
+504        			AJ102
+505        			AJ103
+506        			AJ105
+507        			AJ106
+508        			AJ107
+509        			AJ108
+510        			AJ112
+511        			AJ113
+512        			AH12
+513        			ER
+514        			AH95_P1
+515        			;
+516        RUN;
+
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.26 seconds
+      cpu time            0.25 seconds
+      
+
+517        
+518        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+519        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  K: Employment, Income, Poverty Status, & Food Security';
+520        	TABLES	AK1
+521        			AK2_P1
+522        			AK4
+523        			AKWKLNG
+524        			AK8
+525        			AM1
+526        			AM2
+527        			AM3
+528        			AM3A
+529        			AM4
+530        			AM5
+531        			FSLEV
+532        			FSLEVCB
+533        			POVLL
+534        			;
+535        RUN;
+
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.20 seconds
+      cpu time            0.20 seconds
+      
+
+536        
+537        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+538        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  L: Public Program Participation';
+539        	TABLES	AL6
+540        			AL22
+12                                                         The SAS System                               07:35 Sunday, March 31, 2019
+
+541        			AL18A
+542        			;
+543        RUN;
+
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
       real time           0.10 seconds
       cpu time            0.10 seconds
       
-358        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
 
-359        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  B: General Health Conditions';
-360        	TABLES	AB1
-361        			AB112
-362        			AB114_P1
-363        			AB118
-364        			AB17
-365        			AB22
-366        			AB23_P1
-367        			AB24
-368        			AB25
-369        			AB28_P1
-370        			AB29
-371        			AB30
-372        			AB34
-373        			AB40
-374        			AB41
-375        			AB42_P1
-376        			AB43
-377        			AB51_P1
-378        			AB52
-379        			AB63
-380        			AB98
-381        			AB99
-382        			ASTCUR;
-383        RUN;
+544        
+545        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+546        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  M: Housing & Community Involvement';
+547        	TABLES	AK23
+548        			AK25
+549        			AM19
+550        			AM21
+551        			AM35
+552        			AK28
+553        			AM36
+554        			AM38_P1
+555        			AM40
+556        			AM39
+557        			;
+558        RUN;
 
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.21 seconds
-      cpu time            0.18 seconds
-      
-
-384        
-385        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
-386        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  C: Health Behaviours';
-9                                                          The SAS System                               13:26 Friday, March 29, 2019
-
-387        	TABLES	AC42
-388        			AC42_P
-389        			AC44
-390        			AC49
-391        			AC50
-392        			AD32_P1
-393        			AD37W
-394        			AD40W
-395        			AE15
-396        			AE15A
-397        			AE16_P1
-398        			AESODA_P1
-399        			NUMCIG
-400        			SMKCUR
-401        			SMOKING;
-402        RUN;
-
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
-NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.18 seconds
+      real time           0.17 seconds
       cpu time            0.15 seconds
       
 
-403        
-404        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
-405        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  D: General Health, Disability, & Sexual Health';
-406        	TABLES	AD50
-407        			OVRWT
-408        			RBMI;
-409        RUN;
+559        
+560        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
+561        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  Q: Screening Information';
+562        	TABLES	PROXY
+563        			;
+564        RUN;
 
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
       real time           0.09 seconds
       cpu time            0.07 seconds
       
 
-410        
-411        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
-412        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  F: Mental Health';
-413        	TABLES	AF62
-414        			AF63
-415        			AF64
-416        			AF65
-417        			AF66
-418        			AF67
-419        			AF68
-420        			AF69B
-421        			AF70B
-422        			AF71B
-423        			AF72B
-424        			AJ1
-425        			AJ29
-426        			AJ30
-427        			AJ31
-428        			AJ32
-429        			AJ33
-430        			AJ34
-10                                                         The SAS System                               13:26 Friday, March 29, 2019
+565        
+566        ODS GRAPHICS OFF;
+567        QUIT;
+568        
+569        GOPTIONS NOACCESSIBLE;
+570        %LET _CLIENTTASKLABEL=;
+571        %LET _CLIENTPROCESSFLOWNAME=;
+572        %LET _CLIENTPROJECTPATH=;
+573        %LET _CLIENTPROJECTPATHHOST=;
+574        %LET _CLIENTPROJECTNAME=;
+575        %LET _SASPROGRAMFILE=;
+576        %LET _SASPROGRAMFILEHOST=;
+577        
+13                                                         The SAS System                               07:35 Sunday, March 31, 2019
 
-431        			CHORES2
-432        			DSTRS12
-433        			DSTRS30
-434        			FAMILY2
-435        			SOCIAL2
-436        			WORK2;
-437        RUN;
-
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
-NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.22 seconds
-      cpu time            0.21 seconds
-      
-
-438        
-439        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
-440        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  H: Health Insurance';
-441        	TABLES	AH100
-442        			AH101_P
-443        			AH103
-444        			AH14
-445        			AH71_P1
-446        			AH72_P1
-447        			AH73B
-448        			AH74
-449        			AH75
-450        			AH98_P1
-451        			AH99_P1
-452        			AI15
-453        			AI15A
-454        			AI22A_P
-455        			AI22C
-456        			AI25
-457        			AI25NEW
-458        			AI28
-459        			AI4
-460        			HMO
-461        			INS
-462        			INS64_P
-463        			INS65
-464        			INSANY
-465        			INSEM
-466        			INSMC
-467        			INSMD
-468        			INSOG
-469        			INSPR
-470        			INSPS
-471        			INST_12
-472        			OFFTK
-473        			UNINSANY;
-474        RUN;
-
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
-NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.27 seconds
-      cpu time            0.26 seconds
-      
-
-11                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-475        
-476        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
-477        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  J: Health Care Utilization/Acess & Dental Health';
-478        	TABLES	ACMDNUM
-479        			AH1
-480        			AH16
-481        			AH22
-482        			AH3_P1
-483        			AH6
-484        			AH95_P1
-485        			AJ10
-486        			AJ102
-487        			AJ103
-488        			AJ105
-489        			AJ106
-490        			AJ107
-491        			AJ114
-492        			AJ129
-493        			AJ131_P1
-494        			AJ133
-495        			AJ134
-496        			AJ135
-497        			AJ136
-498        			AJ137
-499        			AJ138
-500        			AJ139
-501        			AJ19
-502        			AJ20
-503        			AJ77
-504        			AJ9
-505        			CARE_PV
-506        			DOCT_YR
-507        			ER
-508        			FORGO
-509        			PC_INS
-510        			PC_NEWP
-511        			RN_FORGO
-512        			SC_INS
-513        			SC_NEWP
-514        			TIMAPPT
-515        			USOC
-516        			USUAL
-517        			USUAL_TP
-518        			USUAL5TP;
-519        RUN;
-
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
-NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.33 seconds
-      cpu time            0.31 seconds
-      
-
-520        
-521        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
-522        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  K: Employment, Income, Poverty Status, & Food Security';
-523        	TABLES	AK1
-524        			AK2_P1
-525        			AK32
-12                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-526        			AK33_P1
-527        			AK4
-528        			AK8
-529        			AKWKLNG
-530        			AM1
-531        			AM2
-532        			AM3
-533        			AM3A
-534        			AM4
-535        			AM5
-536        			FPG
-537        			FSLEV
-538        			INDMAIN2
-539        			OCCMAIN2
-540        			POVLL
-541        			POVLL_ACA;
-542        RUN;
-
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
-NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.21 seconds
-      cpu time            0.20 seconds
-      
-
-543        
-544        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
-545        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  L: Public Program Participation';
-546        	TABLES	AL18A
-547        			AL2
-548        			AL22
-549        			AL32
-550        			AL5
-551        			AL6;
-552        RUN;
-
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
-NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.11 seconds
-      cpu time            0.12 seconds
-      
-
-553        
-554        PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
-555        	TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM -  M: Housing & Community Involvement';
-556        	TABLES	AK23
-557        			AK25
-558        			AK28
-559        			AM19
-560        			AM20
-561        			AM21
-562        			AM36;
-563        RUN;
-
-NOTE: There were 103482 observations read from the data set CHIS.CHIS_DATA_INTRM.
-NOTE: PROCEDURE FREQ used (Total process time):
-      real time           0.12 seconds
-      cpu time            0.10 seconds
-      
-13                                                         The SAS System                               13:26 Friday, March 29, 2019
-
-
-564        
-565        ODS GRAPHICS OFF;
-566        QUIT;
-567        
-568        GOPTIONS NOACCESSIBLE;
-569        %LET _CLIENTTASKLABEL=;
-570        %LET _CLIENTPROCESSFLOWNAME=;
-571        %LET _CLIENTPROJECTPATH=;
-572        %LET _CLIENTPROJECTPATHHOST=;
-573        %LET _CLIENTPROJECTNAME=;
-574        %LET _SASPROGRAMFILE=;
-575        %LET _SASPROGRAMFILEHOST=;
-576        
-577        ;*';*";*/;quit;run;
-578        ODS _ALL_ CLOSE;
-NOTE: ODS PDF(EGPDF) printed 66 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-14308-c5a757b2\contents\SAS 
-      Temporary Files\_TD7140_R90T7H56_\#LN00746.
-579        
+578        ;*';*";*/;quit;run;
+579        ODS _ALL_ CLOSE;
+NOTE: ODS PDF(EGPDF) printed 66 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-21248-e27f955e\contents\SAS 
+      Temporary Files\_TD14384_R90T7H56_\#LN00155.
 580        
-581        QUIT; RUN;
-582        
+581        
+582        QUIT; RUN;
+583        
