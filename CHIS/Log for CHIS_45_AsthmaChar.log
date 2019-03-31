@@ -1,0 +1,172 @@
+1                                                          The SAS System                               07:35 Sunday, March 31, 2019
+
+1          ;*';*";*/;quit;run;
+2          OPTIONS PAGENO=MIN;
+3          %LET _CLIENTTASKLABEL='CHIS_45_AsthmaChar';
+4          %LET _CLIENTPROCESSFLOWNAME='Process Flow';
+5          %LET
+5        ! _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
+6          %LET _CLIENTPROJECTPATHHOST='R90T7H56';
+7          %LET _CLIENTPROJECTNAME='CHIS_Analysis.egp';
+8          %LET _SASPROGRAMFILE='';
+9          %LET _SASPROGRAMFILEHOST='';
+10         
+11         ODS _ALL_ CLOSE;
+12         OPTIONS DEV=PNG;
+13         GOPTIONS XPIXELS=0 YPIXELS=0;
+14         FILENAME EGHTML TEMP;
+15         ODS HTML(ID=EGHTML) FILE=EGHTML
+16             ENCODING='utf-8'
+17             STYLE=HTMLBlue
+18             STYLESHEET=(URL="file:///C:/Program%20Files/SASHome/SASEnterpriseGuide/7.1/Styles/HTMLBlue.css")
+19             NOGTITLE
+20             NOGFOOTNOTE
+21             GPATH=&sasworklocation
+22         ;
+NOTE: Writing HTML(EGHTML) Body file: EGHTML
+23         FILENAME EGPDF TEMP;
+24         ODS PDF(ID=EGPDF) FILE=EGPDF STYLE=Pearl;
+NOTE: Writing ODS PDF(EGPDF) output to DISK destination "EGPDF", printer "PDF".
+25         FILENAME EGSR TEMP;
+26         ODS tagsets.sasreport13(ID=EGSR) FILE=EGSR
+27             STYLE=HTMLBlue
+28             STYLESHEET=(URL="file:///C:/Program%20Files/SASHome/SASEnterpriseGuide/7.1/Styles/HTMLBlue.css")
+29             NOGTITLE
+30             NOGFOOTNOTE
+31             GPATH=&sasworklocation
+32             ENCODING=UTF8
+33             options(rolap="on")
+34         ;
+NOTE: Writing TAGSETS.SASREPORT13(EGSR) Body file: EGSR
+35         
+36         GOPTIONS ACCESSIBLE;
+37         /************************************************************************************************************************
+37       ! *****
+38         **	Project Name	: Secondary Research of Asthma  Hospitalizations														**
+39         **					  Masters of Science in Business Analytics Cappstone Project											**
+40         **					  February 2019																							**
+41         **	Author			: Matthew C. Vanderbilt																					**
+42         **					  Candidate & NU Scholar, National University															**
+43         **					  Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine					**
+44         **	======================================================================================================================
+44       ! = **
+45         **	Date Created	: 31 March 2019 09:59																					**
+46         **	Input Files		: CHIS.CHIS_DATA (see CHIS_10_LoadData)																	**
+47         **	----------------------------------------------------------------------------------------------------------------------
+47       ! - **
+48         **	Program Name	: CHIS_45_AthmaChar																						**
+49         **	Purpose			: Investigates Characteristics of Sample																**
+50         **	Reference Note	: Some code may be adapted/used from other sources; see README for "Reference Materials"				**
+51         **																															**
+2                                                          The SAS System                               07:35 Sunday, March 31, 2019
+
+52         *************************************************************************************************************************
+52       ! ****/
+53         
+54         ODS GRAPHICS ON;
+55         
+56         /* MASTER LIBRARY */
+57         %LET localProjectPath = %SYSFUNC(SUBSTR(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH)), 1,
+57       ! %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH))) - %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTNAME))) ));
+58         LIBNAME CHIS "&localProjectPath";
+NOTE: Libref CHIS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS
+59         
+60         /* APPLY CHIS FORMATS */
+61         OPTIONS fmtsearch=(CHIS);
+62         
+63         /* ASTHMA STATISTICS */
+64         PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+65         	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Asthma Variables';
+66         	WEIGHT	FNWGT0;
+67         	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+68         	TABLES	AB17
+69         			AB40
+70         			AB41
+71         			ASTCUR
+72         			ASTS
+73         			ASTYR
+74         			AB18
+75         			AB19
+76         			AH13A
+77         			AB43
+78         			AB98
+79         			AB108_P1
+80         			;
+81         RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           4:16.97
+      cpu time            4:16.18
+      
+
+82         
+83         PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+84         	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Asthma Variables';
+85         	WEIGHT	FNWGT0;
+86         	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+87         	TABLES	AB17*ASTS
+88         			AB17*AB18
+89         			AB17*AB19
+90         			AB17*AB43
+91         			AB17*AB98
+92         			AB17*AB108_P1
+93         			AB40*AB17
+94         			AB40*ASTCUR
+95         			AB40*ASTYR
+96         			AB40*AB18
+97         			AB40*AB19
+98         			AB40*AH13A
+3                                                          The SAS System                               07:35 Sunday, March 31, 2019
+
+99         			AB40*AB43
+100        			AB40*AB98
+101        			AB40*AB108_P1
+102        			AB43*AB98
+103        			/ CHISQ
+104        			;
+105        RUN;
+
+NOTE: Chi-square tests cannot be computed for the table of AB17 by ASTS because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB17 by AB18 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB17 by AB19 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB17 by AB43 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB17 by AB98 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB17 by AB108_P1 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB40 by AB17 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB40 by ASTCUR because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB40 by ASTYR because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB40 by AB18 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB40 by AB19 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB40 by AH13A because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB40 by AB43 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB40 by AB98 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB40 by AB108_P1 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB43 by AB98 because at least one table cell has 0 frequency.
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           6:51.57
+      cpu time            6:50.54
+      
+
+106        
+107        ODS GRAPHICS OFF;
+108        QUIT;
+109        
+110        GOPTIONS NOACCESSIBLE;
+111        %LET _CLIENTTASKLABEL=;
+112        %LET _CLIENTPROCESSFLOWNAME=;
+113        %LET _CLIENTPROJECTPATH=;
+114        %LET _CLIENTPROJECTPATHHOST=;
+115        %LET _CLIENTPROJECTNAME=;
+116        %LET _SASPROGRAMFILE=;
+117        %LET _SASPROGRAMFILEHOST=;
+118        
+119        ;*';*";*/;quit;run;
+120        ODS _ALL_ CLOSE;
+NOTE: ODS PDF(EGPDF) printed 17 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-21248-e27f955e\contents\SAS 
+      Temporary Files\_TD14384_R90T7H56_\#LN00231.
+121        
+122        
+123        QUIT; RUN;
+124        
