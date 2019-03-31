@@ -1,0 +1,352 @@
+1                                                          The SAS System                               07:35 Sunday, March 31, 2019
+
+1          ;*';*";*/;quit;run;
+2          OPTIONS PAGENO=MIN;
+3          %LET _CLIENTTASKLABEL='CHIS_40_SubjectChar';
+4          %LET _CLIENTPROCESSFLOWNAME='Process Flow';
+5          %LET
+5        ! _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
+6          %LET _CLIENTPROJECTPATHHOST='R90T7H56';
+7          %LET _CLIENTPROJECTNAME='CHIS_Analysis.egp';
+8          %LET _SASPROGRAMFILE='';
+9          %LET _SASPROGRAMFILEHOST='';
+10         
+11         ODS _ALL_ CLOSE;
+12         OPTIONS DEV=PNG;
+13         GOPTIONS XPIXELS=0 YPIXELS=0;
+14         FILENAME EGHTML TEMP;
+15         ODS HTML(ID=EGHTML) FILE=EGHTML
+16             ENCODING='utf-8'
+17             STYLE=HTMLBlue
+18             STYLESHEET=(URL="file:///C:/Program%20Files/SASHome/SASEnterpriseGuide/7.1/Styles/HTMLBlue.css")
+19             NOGTITLE
+20             NOGFOOTNOTE
+21             GPATH=&sasworklocation
+22         ;
+NOTE: Writing HTML(EGHTML) Body file: EGHTML
+23         FILENAME EGPDF TEMP;
+24         ODS PDF(ID=EGPDF) FILE=EGPDF STYLE=Pearl;
+NOTE: Writing ODS PDF(EGPDF) output to DISK destination "EGPDF", printer "PDF".
+25         FILENAME EGSR TEMP;
+26         ODS tagsets.sasreport13(ID=EGSR) FILE=EGSR
+27             STYLE=HTMLBlue
+28             STYLESHEET=(URL="file:///C:/Program%20Files/SASHome/SASEnterpriseGuide/7.1/Styles/HTMLBlue.css")
+29             NOGTITLE
+30             NOGFOOTNOTE
+31             GPATH=&sasworklocation
+32             ENCODING=UTF8
+33             options(rolap="on")
+34         ;
+NOTE: Writing TAGSETS.SASREPORT13(EGSR) Body file: EGSR
+35         
+36         GOPTIONS ACCESSIBLE;
+37         /************************************************************************************************************************
+37       ! *****
+38         **	Project Name	: Secondary Research of Asthma  Hospitalizations														**
+39         **					  Masters of Science in Business Analytics Cappstone Project											**
+40         **					  February 2019																							**
+41         **	Author			: Matthew C. Vanderbilt																					**
+42         **					  Candidate & NU Scholar, National University															**
+43         **					  Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine					**
+44         **	======================================================================================================================
+44       ! = **
+45         **	Date Created	: 23 March 2019 22:31																					**
+46         **	Input Files		: CHIS.CHIS_DATA (see CHIS_10_LoadData)																	**
+47         **	----------------------------------------------------------------------------------------------------------------------
+47       ! - **
+48         **	Program Name	: CHIS_40_SubjectChar																					**
+49         **	Purpose			: Investigates Characteristics of Sample																**
+50         **	Reference Note	: Some code may be adapted/used from other sources; see README for "Reference Materials"				**
+51         **																															**
+2                                                          The SAS System                               07:35 Sunday, March 31, 2019
+
+52         *************************************************************************************************************************
+52       ! ****/
+53         
+54         ODS GRAPHICS ON;
+55         
+56         /* MASTER LIBRARY */
+57         %LET localProjectPath = %SYSFUNC(SUBSTR(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH)), 1,
+57       ! %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH))) - %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTNAME))) ));
+58         LIBNAME CHIS "&localProjectPath";
+NOTE: Libref CHIS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS
+59         
+60         /* APPLY CHIS FORMATS */
+61         OPTIONS fmtsearch=(CHIS);
+62         
+63         PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+64         	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  A: Demographic Information';
+65         	WEIGHT	FNWGT0;
+66         	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+67         	TABLES	SRTENR
+68         			SRSEX
+69         			RACEDF_P1
+70         			maritstat
+71         			agegroup
+72         			year
+73         			;
+74         RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           1:36.80
+      cpu time            1:36.18
+      
+
+75         
+76         PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+77         	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  B: General Health Conditions';
+78         	WEIGHT	FNWGT0;
+79         	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+80         	TABLES	AB1
+81         			AB17
+82         			AB40
+83         			AB41
+84         			ASTCUR
+85         			ASTS
+86         			ASTYR
+87         			AB18
+88         			AB19
+89         			AH13A
+90         			AB43
+91         			AB98
+92         			AB108_P1
+93         			AB22
+94         			AB24
+95         			AB25
+96         			AB30
+97         			AB34
+98         			AB52
+3                                                          The SAS System                               07:35 Sunday, March 31, 2019
+
+99         			AB117
+100        			;
+101        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           9:27.89
+      cpu time            9:25.90
+      
+
+102        
+103        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+104        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  C: Health Behaviours';
+105        	WEIGHT	FNWGT0;
+106        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+107        	TABLES	AD37W
+108        			AD40W
+109        			AESODA_P1
+110        			AE15
+111        			AE15A
+112        			SMKCUR
+113        			SMOKING
+114        			NUMCIG
+115        			AC42_P
+116        			AC44
+117        			;
+118        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           3:09.66
+      cpu time            3:08.89
+      
+
+119        
+120        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+121        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  D: General Health, Disability, & Sexual Health';
+122        	WEIGHT	FNWGT0;
+123        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+124        	TABLES	AD50
+125        			RBMI;
+126        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           31.25 seconds
+      cpu time            30.50 seconds
+      
+
+127        
+128        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+129        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  F: Mental Health';
+130        	WEIGHT	FNWGT0;
+131        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+132        	TABLES	AF65
+133        			AF63
+134        			DSTRS12
+135        			DSTRS30
+136        			;
+137        RUN;
+
+4                                                          The SAS System                               07:35 Sunday, March 31, 2019
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           57.30 seconds
+      cpu time            56.73 seconds
+      
+
+138        
+139        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+140        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  G: Demographic Information';
+141        	WEIGHT	FNWGT0;
+142        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+143        	TABLES	AH33NEW
+144        			AH34NEW
+145        			AH35NEW
+146        			LNGHM_P1
+147        			AH37
+148        			CITIZEN2
+149        			YRUS_P1
+150        			PCTLF_P
+151        			AG22
+152        			SERVED
+153        			AG10
+154        			WRKST_P1
+155        			AHEDC_P1
+156        			FAMTYP_P
+157        			;
+158        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           5:05.06
+      cpu time            5:04.00
+      
+
+159        
+160        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+161        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  H: Health Insurance';
+162        	WEIGHT	FNWGT0;
+163        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+164        	TABLES	HMO
+165        			AI22A_P
+166        			AI25
+167        			AH71_P1
+168        			AH72_P1
+169        			AH14
+170        			INS
+171        			;
+172        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           1:42.23
+      cpu time            1:41.51
+      
+
+173        
+174        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+175        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  J: Health Care Utilization/Acess & Dental Health';
+176        	WEIGHT	FNWGT0;
+177        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+178        	TABLES	AH1
+5                                                          The SAS System                               07:35 Sunday, March 31, 2019
+
+179        			USUAL5TP
+180        			AJ9
+181        			AH16
+182        			AJ19
+183        			AH22
+184        			AJ20
+185        			AJ102
+186        			AJ105
+187        			AJ108
+188        			AJ112
+189        			AJ113
+190        			AH12
+191        			ER
+192        			;
+193        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           5:17.50
+      cpu time            5:16.56
+      
+
+194        
+195        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+196        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  K: Employment, Income, Poverty Status, & Food Security';
+197        	WEIGHT	FNWGT0;
+198        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+199        	TABLES	AK4
+200        			FSLEV
+201        			POVLL
+202        			;
+203        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           41.66 seconds
+      cpu time            40.81 seconds
+      
+
+204        
+205        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+206        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  L: Public Program Participation';
+207        	WEIGHT	FNWGT0;
+208        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+209        	TABLES	AL6
+210        			AL22
+211        			AL18A
+212        			;
+213        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           41.37 seconds
+      cpu time            40.78 seconds
+      
+
+214        
+215        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+216        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  M: Housing & Community Involvement';
+217        	WEIGHT	FNWGT0;
+218        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+6                                                          The SAS System                               07:35 Sunday, March 31, 2019
+
+219        	TABLES	AK23
+220        			AK25
+221        			AM19
+222        			AM21
+223        			AK28
+224        			AM36
+225        			;
+226        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           1:27.89
+      cpu time            1:27.20
+      
+
+227        
+228        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+229        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  N: Demographic Information';
+230        	WEIGHT	FNWGT0;
+231        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+232        	TABLES	AM34
+233        			UR_CLRT
+234        			;
+235        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           29.00 seconds
+      cpu time            28.54 seconds
+      
+
+236        
+237        ODS GRAPHICS OFF;
+238        QUIT;
+239        
+240        GOPTIONS NOACCESSIBLE;
+241        %LET _CLIENTTASKLABEL=;
+242        %LET _CLIENTPROCESSFLOWNAME=;
+243        %LET _CLIENTPROJECTPATH=;
+244        %LET _CLIENTPROJECTPATHHOST=;
+245        %LET _CLIENTPROJECTNAME=;
+246        %LET _SASPROGRAMFILE=;
+247        %LET _SASPROGRAMFILEHOST=;
+248        
+249        ;*';*";*/;quit;run;
+250        ODS _ALL_ CLOSE;
+NOTE: ODS PDF(EGPDF) printed 29 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-21248-e27f955e\contents\SAS 
+      Temporary Files\_TD14384_R90T7H56_\#LN00215.
+251        
+252        
+253        QUIT; RUN;
+254        
