@@ -97,8 +97,8 @@ NOTE: Libref CHIS was successfully assigned as follows:
 81         RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           4:16.97
-      cpu time            4:16.18
+      real time           4:07.91
+      cpu time            4:07.03
       
 
 82         
@@ -124,49 +124,74 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 100        			AB40*AB98
 101        			AB40*AB108_P1
 102        			AB43*AB98
-103        			/ CHISQ
-104        			;
-105        RUN;
+103        			;
+104        RUN;
 
-NOTE: Chi-square tests cannot be computed for the table of AB17 by ASTS because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB17 by AB18 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB17 by AB19 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB17 by AB43 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB17 by AB98 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB17 by AB108_P1 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB40 by AB17 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB40 by ASTCUR because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB40 by ASTYR because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB40 by AB18 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB40 by AB19 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB40 by AH13A because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB40 by AB43 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB40 by AB98 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB40 by AB108_P1 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB43 by AB98 because at least one table cell has 0 frequency.
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           6:51.57
-      cpu time            6:50.54
+      real time           6:08.88
+      cpu time            6:08.15
       
 
-106        
-107        ODS GRAPHICS OFF;
-108        QUIT;
-109        
-110        GOPTIONS NOACCESSIBLE;
-111        %LET _CLIENTTASKLABEL=;
-112        %LET _CLIENTPROCESSFLOWNAME=;
-113        %LET _CLIENTPROJECTPATH=;
-114        %LET _CLIENTPROJECTPATHHOST=;
-115        %LET _CLIENTPROJECTNAME=;
-116        %LET _SASPROGRAMFILE=;
-117        %LET _SASPROGRAMFILEHOST=;
-118        
-119        ;*';*";*/;quit;run;
-120        ODS _ALL_ CLOSE;
-NOTE: ODS PDF(EGPDF) printed 17 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-21248-e27f955e\contents\SAS 
-      Temporary Files\_TD14384_R90T7H56_\#LN00231.
-121        
-122        
-123        QUIT; RUN;
-124        
+105        
+106        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL (WHERE=(ab17=1)) VARMETHOD=JACKKNIFE;
+107        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Lifetime Asthmatic Variables';
+108        	WEIGHT	FNWGT0;
+109        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+110        	TABLES	AB17*AB40
+111        			AB17*ASTS
+112        			AB17*AB18
+113        			AB17*AB19
+114        			AB17*AB43
+115        			AB17*AB98
+116        			AB17*AB108_P1
+117        			;
+118        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           25.21 seconds
+      cpu time            24.54 seconds
+      
+
+119        
+120        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL (WHERE=(ab40=1)) VARMETHOD=JACKKNIFE;
+121        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Current Asthmatic Variables';
+122        	WEIGHT	FNWGT0;
+123        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+124        	TABLES	AB40*ASTYR
+125        			AB40*AB18
+126        			AB40*AB19
+127        			AB40*AH13A
+128        			AB40*AB43
+129        			AB40*AB98
+130        			AB40*AB108_P1
+131        			;
+132        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           20.28 seconds
+      cpu time            19.45 seconds
+      
+
+133        
+134        ODS GRAPHICS OFF;
+135        QUIT;
+136        
+137        GOPTIONS NOACCESSIBLE;
+138        %LET _CLIENTTASKLABEL=;
+4                                                          The SAS System                               07:35 Sunday, March 31, 2019
+
+139        %LET _CLIENTPROCESSFLOWNAME=;
+140        %LET _CLIENTPROJECTPATH=;
+141        %LET _CLIENTPROJECTPATHHOST=;
+142        %LET _CLIENTPROJECTNAME=;
+143        %LET _SASPROGRAMFILE=;
+144        %LET _SASPROGRAMFILEHOST=;
+145        
+146        ;*';*";*/;quit;run;
+147        ODS _ALL_ CLOSE;
+NOTE: ODS PDF(EGPDF) printed 21 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-21248-e27f955e\contents\SAS 
+      Temporary Files\_TD14384_R90T7H56_\#LN00267.
+148        
+149        
+150        QUIT; RUN;
+151        
