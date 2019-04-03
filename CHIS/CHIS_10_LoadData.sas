@@ -1,3 +1,10 @@
+%LET _CLIENTTASKLABEL='CHIS_10_LoadData';
+%LET _CLIENTPROCESSFLOWNAME='Process Flow';
+%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
+%LET _CLIENTPROJECTPATHHOST='R90T7H56';
+%LET _CLIENTPROJECTNAME='CHIS_Analysis.egp';
+%LET _SASPROGRAMFILE='';
+%LET _SASPROGRAMFILEHOST='';
 
 GOPTIONS ACCESSIBLE;
 /*****************************************************************************************************************************
@@ -451,7 +458,7 @@ DATA CHIS.CHIS_DATA_RAW;
 	FORMAT	ab17		fCHISBool.;
 	FORMAT	ab40		fCHISBool.;
 	FORMAT	ab41		fCHISBool.;
-	FORMAT	ab19		fTODO.;
+	FORMAT	ab19		fab19z.;
 	FORMAT	astcur		fastcur.;
 	FORMAT	ah13a		fCHISBool.;
 	FORMAT	asts		fCHISBool.;
@@ -613,6 +620,12 @@ RUN;
 
 DATA CHIS.CHIS_DATA_RAW;
 	SET CHIS.CHIS_DATA_RAW;
+
+	IF year=2013 THEN
+		DO;
+		IF ahedc > 8 THEN ahedc = ahedc - 1;
+		END;
+
 	FORMAT	aj29		fCHIS5LichTim.;
 	FORMAT	aj30		fCHIS5LichTim.;
 	FORMAT	aj31		fCHIS5LichTim.;
@@ -641,6 +654,7 @@ RUN;
 
 /* CHIS SECTION G: DEMOGRAPHIC INFORMATION / CHILD CARE */
 PROC FORMAT LIBRARY=CHIS;
+
 	VALUE fah3nativity	-1	= 'Inapplicable'
 						1	= 'Born in U.S.'
 						2	= 'Born Outside U.S.'
@@ -660,7 +674,11 @@ PROC FORMAT LIBRARY=CHIS;
 						13	= 'Other Languages (2+)'
 						;
 
-	VALUE fah37z		-1	= 'Inapplicable'
+	VALUE fah37z		-9	= 'Not Ascertained'
+						-8	= 'Dont Know'
+						-7	= 'Refused'
+						-2	= 'Proxy Skipped'
+						-1	= 'Inapplicable'
 						1	= 'Very Well'
 						2	= 'Well'
 						3	= 'Not Well'
@@ -715,7 +733,11 @@ PROC FORMAT LIBRARY=CHIS;
 						5	= 'Unemployed, Not Looking for Work'
 						;
 
-	VALUE fserved		-1	= 'Inapplicable'
+	VALUE fserved		-9	= 'Not Ascertained'
+						-8	= 'Dont Know'
+						-7	= 'Refused'
+						-2	= 'Proxy Skipped'
+						-1	= 'Inapplicable'
 						1	= '<0.5 Years'
 						2	= '0.5 - 2 Years'
 						3	= '2 - 4 Years'

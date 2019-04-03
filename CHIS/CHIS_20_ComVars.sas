@@ -1,3 +1,10 @@
+%LET _CLIENTTASKLABEL='CHIS_20_ComVars';
+%LET _CLIENTPROCESSFLOWNAME='Process Flow';
+%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
+%LET _CLIENTPROJECTPATHHOST='R90T7H56';
+%LET _CLIENTPROJECTNAME='CHIS_Analysis.egp';
+%LET _SASPROGRAMFILE='';
+%LET _SASPROGRAMFILEHOST='';
 
 GOPTIONS ACCESSIBLE;
 /*****************************************************************************************************************************

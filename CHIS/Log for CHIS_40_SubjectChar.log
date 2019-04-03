@@ -1,4 +1,4 @@
-1                                                          The SAS System                               07:35 Sunday, March 31, 2019
+1                                                          The SAS System                               17:43 Tuesday, April 2, 2019
 
 1          ;*';*";*/;quit;run;
 2          OPTIONS PAGENO=MIN;
@@ -58,7 +58,7 @@ NOTE: Writing TAGSETS.SASREPORT13(EGSR) Body file: EGSR
 49         **	Purpose			: Investigates Characteristics of Sample																**
 50         **	Reference Note	: Some code may be adapted/used from other sources; see README for "Reference Materials"				**
 51         **																															**
-2                                                          The SAS System                               07:35 Sunday, March 31, 2019
+2                                                          The SAS System                               17:43 Tuesday, April 2, 2019
 
 52         *************************************************************************************************************************
 52       ! ****/
@@ -90,8 +90,8 @@ NOTE: Libref CHIS was successfully assigned as follows:
 74         RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           1:36.80
-      cpu time            1:36.18
+      real time           1:28.61
+      cpu time            1:27.84
       
 
 75         
@@ -118,15 +118,15 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 96         			AB30
 97         			AB34
 98         			AB52
-3                                                          The SAS System                               07:35 Sunday, March 31, 2019
+3                                                          The SAS System                               17:43 Tuesday, April 2, 2019
 
 99         			AB117
 100        			;
 101        RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           9:27.89
-      cpu time            9:25.90
+      real time           8:40.52
+      cpu time            8:39.29
       
 
 102        
@@ -148,8 +148,8 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 118        RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           3:09.66
-      cpu time            3:08.89
+      real time           2:45.10
+      cpu time            2:44.34
       
 
 119        
@@ -162,8 +162,8 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 126        RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           31.25 seconds
-      cpu time            30.50 seconds
+      real time           28.06 seconds
+      cpu time            27.21 seconds
       
 
 127        
@@ -178,11 +178,11 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 136        			;
 137        RUN;
 
-4                                                          The SAS System                               07:35 Sunday, March 31, 2019
+4                                                          The SAS System                               17:43 Tuesday, April 2, 2019
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           57.30 seconds
-      cpu time            56.73 seconds
+      real time           56.71 seconds
+      cpu time            56.03 seconds
       
 
 138        
@@ -208,8 +208,8 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 158        RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           5:05.06
-      cpu time            5:04.00
+      real time           5:31.63
+      cpu time            5:30.49
       
 
 159        
@@ -228,8 +228,8 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 172        RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           1:42.23
-      cpu time            1:41.51
+      real time           1:57.42
+      cpu time            1:56.73
       
 
 173        
@@ -238,7 +238,7 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 176        	WEIGHT	FNWGT0;
 177        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
 178        	TABLES	AH1
-5                                                          The SAS System                               07:35 Sunday, March 31, 2019
+5                                                          The SAS System                               17:43 Tuesday, April 2, 2019
 
 179        			USUAL5TP
 180        			AJ9
@@ -257,8 +257,8 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 193        RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           5:17.50
-      cpu time            5:16.56
+      real time           5:13.96
+      cpu time            5:12.95
       
 
 194        
@@ -273,8 +273,8 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 203        RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           41.66 seconds
-      cpu time            40.81 seconds
+      real time           47.60 seconds
+      cpu time            46.78 seconds
       
 
 204        
@@ -289,8 +289,8 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 213        RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           41.37 seconds
-      cpu time            40.78 seconds
+      real time           49.46 seconds
+      cpu time            48.53 seconds
       
 
 214        
@@ -298,7 +298,7 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 216        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  M: Housing & Community Involvement';
 217        	WEIGHT	FNWGT0;
 218        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-6                                                          The SAS System                               07:35 Sunday, March 31, 2019
+6                                                          The SAS System                               17:43 Tuesday, April 2, 2019
 
 219        	TABLES	AK23
 220        			AK25
@@ -310,8 +310,8 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 226        RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           1:27.89
-      cpu time            1:27.20
+      real time           1:39.78
+      cpu time            1:38.92
       
 
 227        
@@ -325,8 +325,8 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 235        RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           29.00 seconds
-      cpu time            28.54 seconds
+      real time           34.87 seconds
+      cpu time            34.03 seconds
       
 
 236        
@@ -344,8 +344,8 @@ NOTE: PROCEDURE SURVEYFREQ used (Total process time):
 248        
 249        ;*';*";*/;quit;run;
 250        ODS _ALL_ CLOSE;
-NOTE: ODS PDF(EGPDF) printed 29 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-21248-e27f955e\contents\SAS 
-      Temporary Files\_TD14384_R90T7H56_\#LN00215.
+NOTE: ODS PDF(EGPDF) printed 29 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-7912-5f498c46\contents\SAS 
+      Temporary Files\_TD19348_R90T7H56_\#LN00180.
 251        
 252        
 253        QUIT; RUN;
