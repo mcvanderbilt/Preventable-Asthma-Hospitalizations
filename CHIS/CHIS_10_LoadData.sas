@@ -607,11 +607,6 @@ RUN;
 DATA CHIS.CHIS_DATA_RAW;
 	SET CHIS.CHIS_DATA_RAW;
 
-	IF year=2013 THEN
-		DO;
-		IF ahedc > 8 THEN ahedc = ahedc - 1;
-		END;
-
 	FORMAT	aj29		fCHIS5LichTim.;
 	FORMAT	aj30		fCHIS5LichTim.;
 	FORMAT	aj31		fCHIS5LichTim.;
