@@ -469,6 +469,8 @@ DATA CHIS.CHIS_DATA_RAW;
 	FORMAT	ab81		fdiabpreg.;
 	FORMAT	ab29		fhighbp.;
 	FORMAT	ab30		fCHISBool.;
+	FORMAT	insmc		fCHISBool.;
+	FORMAT	insmd		fCHISBool.;
 	FORMAT	ab34		fCHISBool.;
 	FORMAT	ab52		fCHISBool.;
 	FORMAT	ab115		fCHISBool.;
