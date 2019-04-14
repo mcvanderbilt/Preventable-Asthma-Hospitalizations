@@ -87,256 +87,6 @@ NOTE: Libref CHIS2016 was successfully assigned as follows:
       Physical Name: C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS16_adult_sas\Data
 54         %INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
 54       ! University\ANA699B\CHIS\CHIS16_adult_sas\Data\ADULT_PROC_FORMAT.SAS';
-NOTE: Format $MISSNO has been output.
-NOTE: Format AAGEP has been output.
-NOTE: Format AB108PX has been output.
-NOTE: Format AB10X has been output.
-NOTE: Format AB114PX has been output.
-NOTE: Format AB116PX has been output.
-NOTE: Format AB120PX has been output.
-NOTE: Format AB19X has been output.
-NOTE: Format AB1X has been output.
-NOTE: Format AB22X has been output.
-NOTE: Format AB23P1X has been output.
-NOTE: Format AB26_P1F has been output.
-NOTE: Format AB27PX has been output.
-NOTE: Format AB28PX has been output.
-NOTE: Format AB29X has been output.
-NOTE: Format AB42PX has been output.
-NOTE: Format AB51PX has been output.
-NOTE: Format AB63X has been output.
-NOTE: Format AB81X has been output.
-NOTE: Format AC102_P1F has been output.
-NOTE: Format AC108_P1F has been output.
-NOTE: Format AC109_P1F has been output.
-NOTE: Format AC110_P1F has been output.
-NOTE: Format AC111X has been output.
-NOTE: Format AC112X has been output.
-NOTE: Format AC113X has been output.
-NOTE: Format AC114X has been output.
-NOTE: Format AC11X has been output.
-NOTE: Format AC31X has been output.
-NOTE: Format AC42H has been output.
-NOTE: Format AC42PF has been output.
-3                                                          The SAS System                             08:20 Saturday, April 13, 2019
-
-NOTE: Format AC42X has been output.
-NOTE: Format AC53BNUM_P1F has been output.
-NOTE: Format AC54BNUM_P1F has been output.
-NOTE: Format AC58X has been output.
-NOTE: Format AC82B_P1F has been output.
-NOTE: Format AC84X has been output.
-NOTE: Format AC92X has been output.
-NOTE: Format ACMDNUM has been output.
-NOTE: Format AD17X has been output.
-NOTE: Format AD32PX has been output.
-NOTE: Format AD37X has been output.
-NOTE: Format AD38W has been output.
-NOTE: Format AD39X has been output.
-NOTE: Format AD41W has been output.
-NOTE: Format AE15A has been output.
-NOTE: Format AE16PH has been output.
-NOTE: Format AE95X has been output.
-NOTE: Format AESODAPX has been output.
-NOTE: Format AF40X has been output.
-NOTE: Format AF69X has been output.
-NOTE: Format AG10X has been output.
-NOTE: Format AG11X has been output.
-NOTE: Format AG1X has been output.
-NOTE: Format AG8X has been output.
-NOTE: Format AG9PX has been output.
-NOTE: Format AGREE has been output.
-NOTE: Format AH101PF has been output.
-NOTE: Format AH104X has been output.
-NOTE: Format AH105X has been output.
-NOTE: Format AH110X has been output.
-NOTE: Format AH114X has been output.
-NOTE: Format AH117X has been output.
-NOTE: Format AH126_P1F has been output.
-NOTE: Format AH1X has been output.
-NOTE: Format AH33NEWF has been output.
-NOTE: Format AH34NEWF has been output.
-NOTE: Format AH35NEWF has been output.
-NOTE: Format AH37X has been output.
-NOTE: Format AH3PX has been output.
-NOTE: Format AH6X has been output.
-NOTE: Format AH71PX has been output.
-NOTE: Format AH72PX has been output.
-NOTE: Format AH95P1F has been output.
-NOTE: Format AH96PX has been output.
-NOTE: Format AH97PX has been output.
-NOTE: Format AH98PX has been output.
-NOTE: Format AH98X has been output.
-NOTE: Format AH99PX has been output.
-NOTE: Format AHCHLDCPF has been output.
-NOTE: Format AHEDCP1X has been output.
-NOTE: Format AI15A has been output.
-NOTE: Format AI15X has been output.
-NOTE: Format AI22APF has been output.
-NOTE: Format AI25NEW has been output.
-NOTE: Format AI28X has been output.
-NOTE: Format AJ114X has been output.
-NOTE: Format AJ11X has been output.
-NOTE: Format AJ131PX has been output.
-4                                                          The SAS System                             08:20 Saturday, April 13, 2019
-
-NOTE: Format AJ142P1NEW has been output.
-NOTE: Format AJ143PX has been output.
-NOTE: Format AJ146PX has been output.
-NOTE: Format AJ167X has been output.
-NOTE: Format AJ168X has been output.
-NOTE: Format AJ1X has been output.
-NOTE: Format AJ50P has been output.
-NOTE: Format AK10A has been output.
-NOTE: Format AK10X has been output.
-NOTE: Format AK1X has been output.
-NOTE: Format AK22P1F has been output.
-NOTE: Format AK23X has been output.
-NOTE: Format AK25X has been output.
-NOTE: Format AK28X has been output.
-NOTE: Format AK2P1X has been output.
-NOTE: Format AK33PX has been output.
-NOTE: Format AK3_P1F has been output.
-NOTE: Format AK4X has been output.
-NOTE: Format AK7P1X has been output.
-NOTE: Format AK8X has been output.
-NOTE: Format AKWKF has been output.
-NOTE: Format AM1X has been output.
-NOTE: Format AM2X has been output.
-NOTE: Format AM34X has been output.
-NOTE: Format AM35X has been output.
-NOTE: Format AM38P1X has been output.
-NOTE: Format AM3A has been output.
-NOTE: Format ASTCURF has been output.
-NOTE: Format ASTYRF has been output.
-NOTE: Format BMIF has been output.
-NOTE: Format CITZN2F has been output.
-NOTE: Format DISABLE has been output.
-NOTE: Format DISTRESS has been output.
-NOTE: Format DISTRESSP has been output.
-NOTE: Format DMC3X has been output.
-NOTE: Format DMC6B_P1F has been output.
-NOTE: Format DMC7X has been output.
-NOTE: Format DMC9X has been output.
-NOTE: Format DOCT_YR has been output.
-NOTE: Format DSTRSYR has been output.
-NOTE: Format ELIG3PF has been output.
-NOTE: Format FAMSIZEPX has been output.
-NOTE: Format FAMT4F has been output.
-NOTE: Format FAM_TYPE has been output.
-NOTE: Format FPG has been output.
-NOTE: Format FSLEVCB has been output.
-NOTE: Format FSLEVF has been output.
-NOTE: Format HEIGHTMF has been output.
-NOTE: Format HGTIF has been output.
-NOTE: Format HHSIZEFP has been output.
-NOTE: Format HMO has been output.
-NOTE: Format INDMN2F has been output.
-NOTE: Format INS12F has been output.
-NOTE: Format INS12MF has been output.
-NOTE: Format INS64PF has been output.
-NOTE: Format INS65F has been output.
-NOTE: Format INS9TP has been output.
-NOTE: Format INSANYF has been output.
-5                                                          The SAS System                             08:20 Saturday, April 13, 2019
-
-NOTE: Format INSPSF has been output.
-NOTE: Format INSTYPE has been output.
-NOTE: Format INTVLNGC_P1F has been output.
-NOTE: Format IOFLAG2F has been output.
-NOTE: Format LANGHOMEPX has been output.
-NOTE: Format LAT2TPF has been output.
-NOTE: Format MAMSCRN2F has been output.
-NOTE: Format MARIT2F has been output.
-NOTE: Format MARIT45X has been output.
-NOTE: Format MARITF has been output.
-NOTE: Format MCTYPE has been output.
-NOTE: Format MEASURE has been output.
-NOTE: Format MEASUREP has been output.
-NOTE: Format N9X has been output.
-NOTE: Format NUMCIGF has been output.
-NOTE: Format OCCMN2F has been output.
-NOTE: Format OFFTKF has been output.
-NOTE: Format OMBSRREOP2X has been output.
-NOTE: Format OWF has been output.
-NOTE: Format PCTLF_PF has been output.
-NOTE: Format POVGWD has been output.
-NOTE: Format POVLLACA has been output.
-NOTE: Format POVLLF has been output.
-NOTE: Format RACECENP1F has been output.
-NOTE: Format RACEDFP1X has been output.
-NOTE: Format RBMIF has been output.
-NOTE: Format RNFORGO has been output.
-NOTE: Format SERVED has been output.
-NOTE: Format SMKCURF has been output.
-NOTE: Format SMOKINGF has been output.
-NOTE: Format SOME has been output.
-NOTE: Format SPK_ENGF has been output.
-NOTE: Format SRSEX has been output.
-NOTE: Format SRTENR has been output.
-NOTE: Format TIMEADP1X has been output.
-NOTE: Format UNINSANY has been output.
-NOTE: Format UR_CL2F has been output.
-NOTE: Format UR_CLF has been output.
-NOTE: Format UR_IHSF has been output.
-NOTE: Format UR_NHIS has been output.
-NOTE: Format UR_OMBF has been output.
-NOTE: Format UR_RHPF has been output.
-NOTE: Format USOCF has been output.
-NOTE: Format USUAL5TP has been output.
-NOTE: Format USUALF has been output.
-NOTE: Format USUALTPF has been output.
-NOTE: Format WEIGHTKF has been output.
-NOTE: Format WGHTKF has been output.
-NOTE: Format WGHTPF has been output.
-NOTE: Format WHOBMI has been output.
-NOTE: Format WORK has been output.
-NOTE: Format WRKSTP1X has been output.
-NOTE: Format YESNO has been output.
-NOTE: Format YRUSP1F has been output.
-
-NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.04 seconds
-      cpu time            0.03 seconds
-6                                                          The SAS System                             08:20 Saturday, April 13, 2019
-
-      
-
-2000       
-2001       DATA data2016;
-2002       	SET CHIS2016.adult;
-2003       	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
-2003     ! University\ANA699B\CHIS\CHIS16_adult_sas\Data\ADULT_FORMAT.SAS';
-2415       	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
-2415     ! University\ANA699B\CHIS\CHIS16_adult_sas\Data\ADULT_LABEL.SAS';
-2908       RUN;
-
-NOTE: There were 21055 observations read from the data set CHIS2016.ADULT.
-NOTE: The data set WORK.DATA2016 has 21055 observations and 490 variables.
-NOTE: DATA statement used (Total process time):
-      real time           0.25 seconds
-      cpu time            0.18 seconds
-      
-
-2909       
-2910       PROC CONTENTS DATA=CHIS2016.adult VARNUM;
-2911       	TITLE 'PROC CONTENTS - CHIS2016.adult';
-2912       RUN;
-
-NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.19 seconds
-      cpu time            0.14 seconds
-      
-
-2913       
-2914       /* LOAD 2015 DATA */
-2915       LIBNAME CHIS2015 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
-2915     ! University\ANA699B\CHIS\CHIS15_adult_sas\Data\';
-NOTE: Libref CHIS2015 was successfully assigned as follows: 
-      Engine:        V9 
-      Physical Name: C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS15_adult_sas\Data
-2916       %INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
-2916     ! University\ANA699B\CHIS\CHIS15_adult_sas\Data\ADULT_PROC_FORMAT.SAS';
 NOTE: Format $MISSNO is already on the library WORK.FORMATS.
 NOTE: Format $MISSNO has been output.
 NOTE: Format AAGEP is already on the library WORK.FORMATS.
@@ -358,8 +108,6 @@ NOTE: Format AB1X has been output.
 NOTE: Format AB22X is already on the library WORK.FORMATS.
 NOTE: Format AB22X has been output.
 NOTE: Format AB23P1X is already on the library WORK.FORMATS.
-7                                                          The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format AB23P1X has been output.
 NOTE: Format AB26_P1F is already on the library WORK.FORMATS.
 NOTE: Format AB26_P1F has been output.
@@ -370,6 +118,8 @@ NOTE: Format AB28PX has been output.
 NOTE: Format AB29X is already on the library WORK.FORMATS.
 NOTE: Format AB29X has been output.
 NOTE: Format AB42PX is already on the library WORK.FORMATS.
+3                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format AB42PX has been output.
 NOTE: Format AB51PX is already on the library WORK.FORMATS.
 NOTE: Format AB51PX has been output.
@@ -377,6 +127,22 @@ NOTE: Format AB63X is already on the library WORK.FORMATS.
 NOTE: Format AB63X has been output.
 NOTE: Format AB81X is already on the library WORK.FORMATS.
 NOTE: Format AB81X has been output.
+NOTE: Format AC102_P1F is already on the library WORK.FORMATS.
+NOTE: Format AC102_P1F has been output.
+NOTE: Format AC108_P1F is already on the library WORK.FORMATS.
+NOTE: Format AC108_P1F has been output.
+NOTE: Format AC109_P1F is already on the library WORK.FORMATS.
+NOTE: Format AC109_P1F has been output.
+NOTE: Format AC110_P1F is already on the library WORK.FORMATS.
+NOTE: Format AC110_P1F has been output.
+NOTE: Format AC111X is already on the library WORK.FORMATS.
+NOTE: Format AC111X has been output.
+NOTE: Format AC112X is already on the library WORK.FORMATS.
+NOTE: Format AC112X has been output.
+NOTE: Format AC113X is already on the library WORK.FORMATS.
+NOTE: Format AC113X has been output.
+NOTE: Format AC114X is already on the library WORK.FORMATS.
+NOTE: Format AC114X has been output.
 NOTE: Format AC11X is already on the library WORK.FORMATS.
 NOTE: Format AC11X has been output.
 NOTE: Format AC31X is already on the library WORK.FORMATS.
@@ -387,7 +153,18 @@ NOTE: Format AC42PF is already on the library WORK.FORMATS.
 NOTE: Format AC42PF has been output.
 NOTE: Format AC42X is already on the library WORK.FORMATS.
 NOTE: Format AC42X has been output.
-NOTE: Format AC82_P1F has been output.
+NOTE: Format AC53BNUM_P1F is already on the library WORK.FORMATS.
+NOTE: Format AC53BNUM_P1F has been output.
+NOTE: Format AC54BNUM_P1F is already on the library WORK.FORMATS.
+NOTE: Format AC54BNUM_P1F has been output.
+NOTE: Format AC58X is already on the library WORK.FORMATS.
+NOTE: Format AC58X has been output.
+NOTE: Format AC82B_P1F is already on the library WORK.FORMATS.
+NOTE: Format AC82B_P1F has been output.
+NOTE: Format AC84X is already on the library WORK.FORMATS.
+NOTE: Format AC84X has been output.
+NOTE: Format AC92X is already on the library WORK.FORMATS.
+NOTE: Format AC92X has been output.
 NOTE: Format ACMDNUM is already on the library WORK.FORMATS.
 NOTE: Format ACMDNUM has been output.
 NOTE: Format AD17X is already on the library WORK.FORMATS.
@@ -401,6 +178,8 @@ NOTE: Format AD38W has been output.
 NOTE: Format AD39X is already on the library WORK.FORMATS.
 NOTE: Format AD39X has been output.
 NOTE: Format AD41W is already on the library WORK.FORMATS.
+4                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format AD41W has been output.
 NOTE: Format AE15A is already on the library WORK.FORMATS.
 NOTE: Format AE15A has been output.
@@ -418,8 +197,8 @@ NOTE: Format AG10X is already on the library WORK.FORMATS.
 NOTE: Format AG10X has been output.
 NOTE: Format AG11X is already on the library WORK.FORMATS.
 NOTE: Format AG11X has been output.
-8                                                          The SAS System                             08:20 Saturday, April 13, 2019
-
+NOTE: Format AG1X is already on the library WORK.FORMATS.
+NOTE: Format AG1X has been output.
 NOTE: Format AG8X is already on the library WORK.FORMATS.
 NOTE: Format AG8X has been output.
 NOTE: Format AG9PX is already on the library WORK.FORMATS.
@@ -459,6 +238,8 @@ NOTE: Format AH71PX has been output.
 NOTE: Format AH72PX is already on the library WORK.FORMATS.
 NOTE: Format AH72PX has been output.
 NOTE: Format AH95P1F is already on the library WORK.FORMATS.
+5                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format AH95P1F has been output.
 NOTE: Format AH96PX is already on the library WORK.FORMATS.
 NOTE: Format AH96PX has been output.
@@ -478,8 +259,6 @@ NOTE: Format AI15A is already on the library WORK.FORMATS.
 NOTE: Format AI15A has been output.
 NOTE: Format AI15X is already on the library WORK.FORMATS.
 NOTE: Format AI15X has been output.
-9                                                          The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format AI22APF is already on the library WORK.FORMATS.
 NOTE: Format AI22APF has been output.
 NOTE: Format AI25NEW is already on the library WORK.FORMATS.
@@ -498,6 +277,10 @@ NOTE: Format AJ143PX is already on the library WORK.FORMATS.
 NOTE: Format AJ143PX has been output.
 NOTE: Format AJ146PX is already on the library WORK.FORMATS.
 NOTE: Format AJ146PX has been output.
+NOTE: Format AJ167X is already on the library WORK.FORMATS.
+NOTE: Format AJ167X has been output.
+NOTE: Format AJ168X is already on the library WORK.FORMATS.
+NOTE: Format AJ168X has been output.
 NOTE: Format AJ1X is already on the library WORK.FORMATS.
 NOTE: Format AJ1X has been output.
 NOTE: Format AJ50P is already on the library WORK.FORMATS.
@@ -508,11 +291,15 @@ NOTE: Format AK10X is already on the library WORK.FORMATS.
 NOTE: Format AK10X has been output.
 NOTE: Format AK1X is already on the library WORK.FORMATS.
 NOTE: Format AK1X has been output.
+NOTE: Format AK22P1F is already on the library WORK.FORMATS.
+NOTE: Format AK22P1F has been output.
 NOTE: Format AK23X is already on the library WORK.FORMATS.
 NOTE: Format AK23X has been output.
 NOTE: Format AK25X is already on the library WORK.FORMATS.
 NOTE: Format AK25X has been output.
 NOTE: Format AK28X is already on the library WORK.FORMATS.
+6                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format AK28X has been output.
 NOTE: Format AK2P1X is already on the library WORK.FORMATS.
 NOTE: Format AK2P1X has been output.
@@ -538,15 +325,12 @@ NOTE: Format AM35X is already on the library WORK.FORMATS.
 NOTE: Format AM35X has been output.
 NOTE: Format AM38P1X is already on the library WORK.FORMATS.
 NOTE: Format AM38P1X has been output.
-10                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format AM3A is already on the library WORK.FORMATS.
 NOTE: Format AM3A has been output.
 NOTE: Format ASTCURF is already on the library WORK.FORMATS.
 NOTE: Format ASTCURF has been output.
 NOTE: Format ASTYRF is already on the library WORK.FORMATS.
 NOTE: Format ASTYRF has been output.
-NOTE: Format BINGE12F has been output.
 NOTE: Format BMIF is already on the library WORK.FORMATS.
 NOTE: Format BMIF has been output.
 NOTE: Format CITZN2F is already on the library WORK.FORMATS.
@@ -569,11 +353,14 @@ NOTE: Format DOCT_YR is already on the library WORK.FORMATS.
 NOTE: Format DOCT_YR has been output.
 NOTE: Format DSTRSYR is already on the library WORK.FORMATS.
 NOTE: Format DSTRSYR has been output.
-NOTE: Format ECIG30X has been output.
 NOTE: Format ELIG3PF is already on the library WORK.FORMATS.
 NOTE: Format ELIG3PF has been output.
 NOTE: Format FAMSIZEPX is already on the library WORK.FORMATS.
 NOTE: Format FAMSIZEPX has been output.
+NOTE: Format FAMT4F is already on the library WORK.FORMATS.
+7                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
+NOTE: Format FAMT4F has been output.
 NOTE: Format FAM_TYPE is already on the library WORK.FORMATS.
 NOTE: Format FAM_TYPE has been output.
 NOTE: Format FPG is already on the library WORK.FORMATS.
@@ -598,8 +385,6 @@ NOTE: Format INS12MF is already on the library WORK.FORMATS.
 NOTE: Format INS12MF has been output.
 NOTE: Format INS64PF is already on the library WORK.FORMATS.
 NOTE: Format INS64PF has been output.
-11                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format INS65F is already on the library WORK.FORMATS.
 NOTE: Format INS65F has been output.
 NOTE: Format INS9TP is already on the library WORK.FORMATS.
@@ -633,6 +418,8 @@ NOTE: Format MEASURE has been output.
 NOTE: Format MEASUREP is already on the library WORK.FORMATS.
 NOTE: Format MEASUREP has been output.
 NOTE: Format N9X is already on the library WORK.FORMATS.
+8                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format N9X has been output.
 NOTE: Format NUMCIGF is already on the library WORK.FORMATS.
 NOTE: Format NUMCIGF has been output.
@@ -658,8 +445,6 @@ NOTE: Format RACEDFP1X is already on the library WORK.FORMATS.
 NOTE: Format RACEDFP1X has been output.
 NOTE: Format RBMIF is already on the library WORK.FORMATS.
 NOTE: Format RBMIF has been output.
-12                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format RNFORGO is already on the library WORK.FORMATS.
 NOTE: Format RNFORGO has been output.
 NOTE: Format SERVED is already on the library WORK.FORMATS.
@@ -676,6 +461,432 @@ NOTE: Format SRSEX is already on the library WORK.FORMATS.
 NOTE: Format SRSEX has been output.
 NOTE: Format SRTENR is already on the library WORK.FORMATS.
 NOTE: Format SRTENR has been output.
+NOTE: Format TIMEADP1X is already on the library WORK.FORMATS.
+NOTE: Format TIMEADP1X has been output.
+NOTE: Format UNINSANY is already on the library WORK.FORMATS.
+NOTE: Format UNINSANY has been output.
+NOTE: Format UR_CL2F is already on the library WORK.FORMATS.
+NOTE: Format UR_CL2F has been output.
+NOTE: Format UR_CLF is already on the library WORK.FORMATS.
+NOTE: Format UR_CLF has been output.
+NOTE: Format UR_IHSF is already on the library WORK.FORMATS.
+NOTE: Format UR_IHSF has been output.
+NOTE: Format UR_NHIS is already on the library WORK.FORMATS.
+NOTE: Format UR_NHIS has been output.
+NOTE: Format UR_OMBF is already on the library WORK.FORMATS.
+NOTE: Format UR_OMBF has been output.
+NOTE: Format UR_RHPF is already on the library WORK.FORMATS.
+NOTE: Format UR_RHPF has been output.
+NOTE: Format USOCF is already on the library WORK.FORMATS.
+9                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
+NOTE: Format USOCF has been output.
+NOTE: Format USUAL5TP is already on the library WORK.FORMATS.
+NOTE: Format USUAL5TP has been output.
+NOTE: Format USUALF is already on the library WORK.FORMATS.
+NOTE: Format USUALF has been output.
+NOTE: Format USUALTPF is already on the library WORK.FORMATS.
+NOTE: Format USUALTPF has been output.
+NOTE: Format WEIGHTKF is already on the library WORK.FORMATS.
+NOTE: Format WEIGHTKF has been output.
+NOTE: Format WGHTKF is already on the library WORK.FORMATS.
+NOTE: Format WGHTKF has been output.
+NOTE: Format WGHTPF is already on the library WORK.FORMATS.
+NOTE: Format WGHTPF has been output.
+NOTE: Format WHOBMI is already on the library WORK.FORMATS.
+NOTE: Format WHOBMI has been output.
+NOTE: Format WORK is already on the library WORK.FORMATS.
+NOTE: Format WORK has been output.
+NOTE: Format WRKSTP1X is already on the library WORK.FORMATS.
+NOTE: Format WRKSTP1X has been output.
+NOTE: Format YESNO is already on the library WORK.FORMATS.
+NOTE: Format YESNO has been output.
+NOTE: Format YRUSP1F is already on the library WORK.FORMATS.
+NOTE: Format YRUSP1F has been output.
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+2000       
+2001       DATA data2016;
+2002       	SET CHIS2016.adult;
+2003       	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
+2003     ! University\ANA699B\CHIS\CHIS16_adult_sas\Data\ADULT_FORMAT.SAS';
+2415       	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
+2415     ! University\ANA699B\CHIS\CHIS16_adult_sas\Data\ADULT_LABEL.SAS';
+2908       RUN;
+
+NOTE: There were 21055 observations read from the data set CHIS2016.ADULT.
+NOTE: The data set WORK.DATA2016 has 21055 observations and 490 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.34 seconds
+      cpu time            0.34 seconds
+      
+
+2909       
+2910       PROC CONTENTS DATA=CHIS2016.adult VARNUM;
+2911       	TITLE 'PROC CONTENTS - CHIS2016.adult';
+2912       RUN;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.18 seconds
+      cpu time            0.18 seconds
+      
+
+2913       
+2914       /* LOAD 2015 DATA */
+2915       LIBNAME CHIS2015 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
+10                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
+2915     ! University\ANA699B\CHIS\CHIS15_adult_sas\Data\';
+NOTE: Libref CHIS2015 was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS15_adult_sas\Data
+2916       %INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
+2916     ! University\ANA699B\CHIS\CHIS15_adult_sas\Data\ADULT_PROC_FORMAT.SAS';
+NOTE: Format $MISSNO is already on the library WORK.FORMATS.
+NOTE: Format $MISSNO has been output.
+NOTE: Format AAGEP is already on the library WORK.FORMATS.
+NOTE: Format AAGEP has been output.
+NOTE: Format AB108PX is already on the library WORK.FORMATS.
+NOTE: Format AB108PX has been output.
+NOTE: Format AB10X is already on the library WORK.FORMATS.
+NOTE: Format AB10X has been output.
+NOTE: Format AB114PX is already on the library WORK.FORMATS.
+NOTE: Format AB114PX has been output.
+NOTE: Format AB116PX is already on the library WORK.FORMATS.
+NOTE: Format AB116PX has been output.
+NOTE: Format AB120PX is already on the library WORK.FORMATS.
+NOTE: Format AB120PX has been output.
+NOTE: Format AB19X is already on the library WORK.FORMATS.
+NOTE: Format AB19X has been output.
+NOTE: Format AB1X is already on the library WORK.FORMATS.
+NOTE: Format AB1X has been output.
+NOTE: Format AB22X is already on the library WORK.FORMATS.
+NOTE: Format AB22X has been output.
+NOTE: Format AB23P1X is already on the library WORK.FORMATS.
+NOTE: Format AB23P1X has been output.
+NOTE: Format AB26_P1F is already on the library WORK.FORMATS.
+NOTE: Format AB26_P1F has been output.
+NOTE: Format AB27PX is already on the library WORK.FORMATS.
+NOTE: Format AB27PX has been output.
+NOTE: Format AB28PX is already on the library WORK.FORMATS.
+NOTE: Format AB28PX has been output.
+NOTE: Format AB29X is already on the library WORK.FORMATS.
+NOTE: Format AB29X has been output.
+NOTE: Format AB42PX is already on the library WORK.FORMATS.
+NOTE: Format AB42PX has been output.
+NOTE: Format AB51PX is already on the library WORK.FORMATS.
+NOTE: Format AB51PX has been output.
+NOTE: Format AB63X is already on the library WORK.FORMATS.
+NOTE: Format AB63X has been output.
+NOTE: Format AB81X is already on the library WORK.FORMATS.
+NOTE: Format AB81X has been output.
+NOTE: Format AC11X is already on the library WORK.FORMATS.
+NOTE: Format AC11X has been output.
+NOTE: Format AC31X is already on the library WORK.FORMATS.
+NOTE: Format AC31X has been output.
+NOTE: Format AC42H is already on the library WORK.FORMATS.
+NOTE: Format AC42H has been output.
+NOTE: Format AC42PF is already on the library WORK.FORMATS.
+NOTE: Format AC42PF has been output.
+NOTE: Format AC42X is already on the library WORK.FORMATS.
+NOTE: Format AC42X has been output.
+NOTE: Format AC82_P1F is already on the library WORK.FORMATS.
+NOTE: Format AC82_P1F has been output.
+NOTE: Format ACMDNUM is already on the library WORK.FORMATS.
+NOTE: Format ACMDNUM has been output.
+11                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
+NOTE: Format AD17X is already on the library WORK.FORMATS.
+NOTE: Format AD17X has been output.
+NOTE: Format AD32PX is already on the library WORK.FORMATS.
+NOTE: Format AD32PX has been output.
+NOTE: Format AD37X is already on the library WORK.FORMATS.
+NOTE: Format AD37X has been output.
+NOTE: Format AD38W is already on the library WORK.FORMATS.
+NOTE: Format AD38W has been output.
+NOTE: Format AD39X is already on the library WORK.FORMATS.
+NOTE: Format AD39X has been output.
+NOTE: Format AD41W is already on the library WORK.FORMATS.
+NOTE: Format AD41W has been output.
+NOTE: Format AE15A is already on the library WORK.FORMATS.
+NOTE: Format AE15A has been output.
+NOTE: Format AE16PH is already on the library WORK.FORMATS.
+NOTE: Format AE16PH has been output.
+NOTE: Format AE95X is already on the library WORK.FORMATS.
+NOTE: Format AE95X has been output.
+NOTE: Format AESODAPX is already on the library WORK.FORMATS.
+NOTE: Format AESODAPX has been output.
+NOTE: Format AF40X is already on the library WORK.FORMATS.
+NOTE: Format AF40X has been output.
+NOTE: Format AF69X is already on the library WORK.FORMATS.
+NOTE: Format AF69X has been output.
+NOTE: Format AG10X is already on the library WORK.FORMATS.
+NOTE: Format AG10X has been output.
+NOTE: Format AG11X is already on the library WORK.FORMATS.
+NOTE: Format AG11X has been output.
+NOTE: Format AG8X is already on the library WORK.FORMATS.
+NOTE: Format AG8X has been output.
+NOTE: Format AG9PX is already on the library WORK.FORMATS.
+NOTE: Format AG9PX has been output.
+NOTE: Format AGREE is already on the library WORK.FORMATS.
+NOTE: Format AGREE has been output.
+NOTE: Format AH101PF is already on the library WORK.FORMATS.
+NOTE: Format AH101PF has been output.
+NOTE: Format AH104X is already on the library WORK.FORMATS.
+NOTE: Format AH104X has been output.
+NOTE: Format AH105X is already on the library WORK.FORMATS.
+NOTE: Format AH105X has been output.
+NOTE: Format AH110X is already on the library WORK.FORMATS.
+NOTE: Format AH110X has been output.
+NOTE: Format AH114X is already on the library WORK.FORMATS.
+NOTE: Format AH114X has been output.
+NOTE: Format AH117X is already on the library WORK.FORMATS.
+NOTE: Format AH117X has been output.
+NOTE: Format AH126_P1F is already on the library WORK.FORMATS.
+NOTE: Format AH126_P1F has been output.
+NOTE: Format AH1X is already on the library WORK.FORMATS.
+NOTE: Format AH1X has been output.
+NOTE: Format AH33NEWF is already on the library WORK.FORMATS.
+NOTE: Format AH33NEWF has been output.
+NOTE: Format AH34NEWF is already on the library WORK.FORMATS.
+NOTE: Format AH34NEWF has been output.
+NOTE: Format AH35NEWF is already on the library WORK.FORMATS.
+NOTE: Format AH35NEWF has been output.
+NOTE: Format AH37X is already on the library WORK.FORMATS.
+NOTE: Format AH37X has been output.
+12                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
+NOTE: Format AH3PX is already on the library WORK.FORMATS.
+NOTE: Format AH3PX has been output.
+NOTE: Format AH6X is already on the library WORK.FORMATS.
+NOTE: Format AH6X has been output.
+NOTE: Format AH71PX is already on the library WORK.FORMATS.
+NOTE: Format AH71PX has been output.
+NOTE: Format AH72PX is already on the library WORK.FORMATS.
+NOTE: Format AH72PX has been output.
+NOTE: Format AH95P1F is already on the library WORK.FORMATS.
+NOTE: Format AH95P1F has been output.
+NOTE: Format AH96PX is already on the library WORK.FORMATS.
+NOTE: Format AH96PX has been output.
+NOTE: Format AH97PX is already on the library WORK.FORMATS.
+NOTE: Format AH97PX has been output.
+NOTE: Format AH98PX is already on the library WORK.FORMATS.
+NOTE: Format AH98PX has been output.
+NOTE: Format AH98X is already on the library WORK.FORMATS.
+NOTE: Format AH98X has been output.
+NOTE: Format AH99PX is already on the library WORK.FORMATS.
+NOTE: Format AH99PX has been output.
+NOTE: Format AHCHLDCPF is already on the library WORK.FORMATS.
+NOTE: Format AHCHLDCPF has been output.
+NOTE: Format AHEDCP1X is already on the library WORK.FORMATS.
+NOTE: Format AHEDCP1X has been output.
+NOTE: Format AI15A is already on the library WORK.FORMATS.
+NOTE: Format AI15A has been output.
+NOTE: Format AI15X is already on the library WORK.FORMATS.
+NOTE: Format AI15X has been output.
+NOTE: Format AI22APF is already on the library WORK.FORMATS.
+NOTE: Format AI22APF has been output.
+NOTE: Format AI25NEW is already on the library WORK.FORMATS.
+NOTE: Format AI25NEW has been output.
+NOTE: Format AI28X is already on the library WORK.FORMATS.
+NOTE: Format AI28X has been output.
+NOTE: Format AJ114X is already on the library WORK.FORMATS.
+NOTE: Format AJ114X has been output.
+NOTE: Format AJ11X is already on the library WORK.FORMATS.
+NOTE: Format AJ11X has been output.
+NOTE: Format AJ131PX is already on the library WORK.FORMATS.
+NOTE: Format AJ131PX has been output.
+NOTE: Format AJ142P1NEW is already on the library WORK.FORMATS.
+NOTE: Format AJ142P1NEW has been output.
+NOTE: Format AJ143PX is already on the library WORK.FORMATS.
+NOTE: Format AJ143PX has been output.
+NOTE: Format AJ146PX is already on the library WORK.FORMATS.
+NOTE: Format AJ146PX has been output.
+NOTE: Format AJ1X is already on the library WORK.FORMATS.
+NOTE: Format AJ1X has been output.
+NOTE: Format AJ50P is already on the library WORK.FORMATS.
+NOTE: Format AJ50P has been output.
+NOTE: Format AK10A is already on the library WORK.FORMATS.
+NOTE: Format AK10A has been output.
+NOTE: Format AK10X is already on the library WORK.FORMATS.
+NOTE: Format AK10X has been output.
+NOTE: Format AK1X is already on the library WORK.FORMATS.
+NOTE: Format AK1X has been output.
+NOTE: Format AK23X is already on the library WORK.FORMATS.
+NOTE: Format AK23X has been output.
+13                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
+NOTE: Format AK25X is already on the library WORK.FORMATS.
+NOTE: Format AK25X has been output.
+NOTE: Format AK28X is already on the library WORK.FORMATS.
+NOTE: Format AK28X has been output.
+NOTE: Format AK2P1X is already on the library WORK.FORMATS.
+NOTE: Format AK2P1X has been output.
+NOTE: Format AK33PX is already on the library WORK.FORMATS.
+NOTE: Format AK33PX has been output.
+NOTE: Format AK3_P1F is already on the library WORK.FORMATS.
+NOTE: Format AK3_P1F has been output.
+NOTE: Format AK4X is already on the library WORK.FORMATS.
+NOTE: Format AK4X has been output.
+NOTE: Format AK7P1X is already on the library WORK.FORMATS.
+NOTE: Format AK7P1X has been output.
+NOTE: Format AK8X is already on the library WORK.FORMATS.
+NOTE: Format AK8X has been output.
+NOTE: Format AKWKF is already on the library WORK.FORMATS.
+NOTE: Format AKWKF has been output.
+NOTE: Format AM1X is already on the library WORK.FORMATS.
+NOTE: Format AM1X has been output.
+NOTE: Format AM2X is already on the library WORK.FORMATS.
+NOTE: Format AM2X has been output.
+NOTE: Format AM34X is already on the library WORK.FORMATS.
+NOTE: Format AM34X has been output.
+NOTE: Format AM35X is already on the library WORK.FORMATS.
+NOTE: Format AM35X has been output.
+NOTE: Format AM38P1X is already on the library WORK.FORMATS.
+NOTE: Format AM38P1X has been output.
+NOTE: Format AM3A is already on the library WORK.FORMATS.
+NOTE: Format AM3A has been output.
+NOTE: Format ASTCURF is already on the library WORK.FORMATS.
+NOTE: Format ASTCURF has been output.
+NOTE: Format ASTYRF is already on the library WORK.FORMATS.
+NOTE: Format ASTYRF has been output.
+NOTE: Format BINGE12F is already on the library WORK.FORMATS.
+NOTE: Format BINGE12F has been output.
+NOTE: Format BMIF is already on the library WORK.FORMATS.
+NOTE: Format BMIF has been output.
+NOTE: Format CITZN2F is already on the library WORK.FORMATS.
+NOTE: Format CITZN2F has been output.
+NOTE: Format DISABLE is already on the library WORK.FORMATS.
+NOTE: Format DISABLE has been output.
+NOTE: Format DISTRESS is already on the library WORK.FORMATS.
+NOTE: Format DISTRESS has been output.
+NOTE: Format DISTRESSP is already on the library WORK.FORMATS.
+NOTE: Format DISTRESSP has been output.
+NOTE: Format DMC3X is already on the library WORK.FORMATS.
+NOTE: Format DMC3X has been output.
+NOTE: Format DMC6B_P1F is already on the library WORK.FORMATS.
+NOTE: Format DMC6B_P1F has been output.
+NOTE: Format DMC7X is already on the library WORK.FORMATS.
+NOTE: Format DMC7X has been output.
+NOTE: Format DMC9X is already on the library WORK.FORMATS.
+NOTE: Format DMC9X has been output.
+NOTE: Format DOCT_YR is already on the library WORK.FORMATS.
+NOTE: Format DOCT_YR has been output.
+NOTE: Format DSTRSYR is already on the library WORK.FORMATS.
+NOTE: Format DSTRSYR has been output.
+14                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
+NOTE: Format ECIG30X is already on the library WORK.FORMATS.
+NOTE: Format ECIG30X has been output.
+NOTE: Format ELIG3PF is already on the library WORK.FORMATS.
+NOTE: Format ELIG3PF has been output.
+NOTE: Format FAMSIZEPX is already on the library WORK.FORMATS.
+NOTE: Format FAMSIZEPX has been output.
+NOTE: Format FAM_TYPE is already on the library WORK.FORMATS.
+NOTE: Format FAM_TYPE has been output.
+NOTE: Format FPG is already on the library WORK.FORMATS.
+NOTE: Format FPG has been output.
+NOTE: Format FSLEVCB is already on the library WORK.FORMATS.
+NOTE: Format FSLEVCB has been output.
+NOTE: Format FSLEVF is already on the library WORK.FORMATS.
+NOTE: Format FSLEVF has been output.
+NOTE: Format HEIGHTMF is already on the library WORK.FORMATS.
+NOTE: Format HEIGHTMF has been output.
+NOTE: Format HGTIF is already on the library WORK.FORMATS.
+NOTE: Format HGTIF has been output.
+NOTE: Format HHSIZEFP is already on the library WORK.FORMATS.
+NOTE: Format HHSIZEFP has been output.
+NOTE: Format HMO is already on the library WORK.FORMATS.
+NOTE: Format HMO has been output.
+NOTE: Format INDMN2F is already on the library WORK.FORMATS.
+NOTE: Format INDMN2F has been output.
+NOTE: Format INS12F is already on the library WORK.FORMATS.
+NOTE: Format INS12F has been output.
+NOTE: Format INS12MF is already on the library WORK.FORMATS.
+NOTE: Format INS12MF has been output.
+NOTE: Format INS64PF is already on the library WORK.FORMATS.
+NOTE: Format INS64PF has been output.
+NOTE: Format INS65F is already on the library WORK.FORMATS.
+NOTE: Format INS65F has been output.
+NOTE: Format INS9TP is already on the library WORK.FORMATS.
+NOTE: Format INS9TP has been output.
+NOTE: Format INSANYF is already on the library WORK.FORMATS.
+NOTE: Format INSANYF has been output.
+NOTE: Format INSPSF is already on the library WORK.FORMATS.
+NOTE: Format INSPSF has been output.
+NOTE: Format INSTYPE is already on the library WORK.FORMATS.
+NOTE: Format INSTYPE has been output.
+NOTE: Format INTVLNGC_P1F is already on the library WORK.FORMATS.
+NOTE: Format INTVLNGC_P1F has been output.
+NOTE: Format IOFLAG2F is already on the library WORK.FORMATS.
+NOTE: Format IOFLAG2F has been output.
+NOTE: Format LANGHOMEPX is already on the library WORK.FORMATS.
+NOTE: Format LANGHOMEPX has been output.
+NOTE: Format LAT2TPF is already on the library WORK.FORMATS.
+NOTE: Format LAT2TPF has been output.
+NOTE: Format MAMSCRN2F is already on the library WORK.FORMATS.
+NOTE: Format MAMSCRN2F has been output.
+NOTE: Format MARIT2F is already on the library WORK.FORMATS.
+NOTE: Format MARIT2F has been output.
+NOTE: Format MARIT45X is already on the library WORK.FORMATS.
+NOTE: Format MARIT45X has been output.
+NOTE: Format MARITF is already on the library WORK.FORMATS.
+NOTE: Format MARITF has been output.
+NOTE: Format MCTYPE is already on the library WORK.FORMATS.
+NOTE: Format MCTYPE has been output.
+15                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
+NOTE: Format MEASURE is already on the library WORK.FORMATS.
+NOTE: Format MEASURE has been output.
+NOTE: Format MEASUREP is already on the library WORK.FORMATS.
+NOTE: Format MEASUREP has been output.
+NOTE: Format N9X is already on the library WORK.FORMATS.
+NOTE: Format N9X has been output.
+NOTE: Format NUMCIGF is already on the library WORK.FORMATS.
+NOTE: Format NUMCIGF has been output.
+NOTE: Format OCCMN2F is already on the library WORK.FORMATS.
+NOTE: Format OCCMN2F has been output.
+NOTE: Format OFFTKF is already on the library WORK.FORMATS.
+NOTE: Format OFFTKF has been output.
+NOTE: Format OMBSRREOP2X is already on the library WORK.FORMATS.
+NOTE: Format OMBSRREOP2X has been output.
+NOTE: Format OWF is already on the library WORK.FORMATS.
+NOTE: Format OWF has been output.
+NOTE: Format PCTLF_PF is already on the library WORK.FORMATS.
+NOTE: Format PCTLF_PF has been output.
+NOTE: Format POVGWD is already on the library WORK.FORMATS.
+NOTE: Format POVGWD has been output.
+NOTE: Format POVLLACA is already on the library WORK.FORMATS.
+NOTE: Format POVLLACA has been output.
+NOTE: Format POVLLF is already on the library WORK.FORMATS.
+NOTE: Format POVLLF has been output.
+NOTE: Format RACECENP1F is already on the library WORK.FORMATS.
+NOTE: Format RACECENP1F has been output.
+NOTE: Format RACEDFP1X is already on the library WORK.FORMATS.
+NOTE: Format RACEDFP1X has been output.
+NOTE: Format RBMIF is already on the library WORK.FORMATS.
+NOTE: Format RBMIF has been output.
+NOTE: Format RNFORGO is already on the library WORK.FORMATS.
+NOTE: Format RNFORGO has been output.
+NOTE: Format SERVED is already on the library WORK.FORMATS.
+NOTE: Format SERVED has been output.
+NOTE: Format SMKCURF is already on the library WORK.FORMATS.
+NOTE: Format SMKCURF has been output.
+NOTE: Format SMOKINGF is already on the library WORK.FORMATS.
+NOTE: Format SMOKINGF has been output.
+NOTE: Format SOME is already on the library WORK.FORMATS.
+NOTE: Format SOME has been output.
+NOTE: Format SPK_ENGF is already on the library WORK.FORMATS.
+NOTE: Format SPK_ENGF has been output.
+NOTE: Format SRSEX is already on the library WORK.FORMATS.
+NOTE: Format SRSEX has been output.
+NOTE: Format SRTENR is already on the library WORK.FORMATS.
+NOTE: Format SRTENR has been output.
+NOTE: Format TC53X is already on the library WORK.FORMATS.
 NOTE: Format TC53X has been output.
 NOTE: Format UNINSANY is already on the library WORK.FORMATS.
 NOTE: Format UNINSANY has been output.
@@ -687,6 +898,8 @@ NOTE: Format UR_IHSF is already on the library WORK.FORMATS.
 NOTE: Format UR_IHSF has been output.
 NOTE: Format UR_NHIS is already on the library WORK.FORMATS.
 NOTE: Format UR_NHIS has been output.
+16                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format UR_OMBF is already on the library WORK.FORMATS.
 NOTE: Format UR_OMBF has been output.
 NOTE: Format UR_RHPF is already on the library WORK.FORMATS.
@@ -717,9 +930,7 @@ NOTE: Format YRUSP1F is already on the library WORK.FORMATS.
 NOTE: Format YRUSP1F has been output.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.01 seconds
-13                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
+      real time           0.02 seconds
       cpu time            0.01 seconds
       
 
@@ -735,8 +946,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 21034 observations read from the data set CHIS2015.ADULT.
 NOTE: The data set WORK.DATA2015 has 21034 observations and 456 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.21 seconds
-      cpu time            0.18 seconds
+      real time           0.30 seconds
+      cpu time            0.31 seconds
       
 
 5491       
@@ -745,8 +956,10 @@ NOTE: DATA statement used (Total process time):
 5494       RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.15 seconds
+      real time           0.17 seconds
       cpu time            0.15 seconds
+17                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
       
 
 5495       
@@ -778,10 +991,9 @@ NOTE: Format AB1X is already on the library WORK.FORMATS.
 NOTE: Format AB1X has been output.
 NOTE: Format AB22X is already on the library WORK.FORMATS.
 NOTE: Format AB22X has been output.
-14                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format AB23P1X is already on the library WORK.FORMATS.
 NOTE: Format AB23P1X has been output.
+NOTE: Format AB26H is already on the library WORK.FORMATS.
 NOTE: Format AB26H has been output.
 NOTE: Format AB27PX is already on the library WORK.FORMATS.
 NOTE: Format AB27PX has been output.
@@ -801,35 +1013,53 @@ NOTE: Format AC11X is already on the library WORK.FORMATS.
 NOTE: Format AC11X has been output.
 NOTE: Format AC31X is already on the library WORK.FORMATS.
 NOTE: Format AC31X has been output.
+NOTE: Format AC34X is already on the library WORK.FORMATS.
 NOTE: Format AC34X has been output.
 NOTE: Format AC42H is already on the library WORK.FORMATS.
 NOTE: Format AC42H has been output.
 NOTE: Format AC42PF is already on the library WORK.FORMATS.
+18                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format AC42PF has been output.
 NOTE: Format AC42X is already on the library WORK.FORMATS.
 NOTE: Format AC42X has been output.
+NOTE: Format AC47H is already on the library WORK.FORMATS.
 NOTE: Format AC47H has been output.
+NOTE: Format AC48PX is already on the library WORK.FORMATS.
 NOTE: Format AC48PX has been output.
+NOTE: Format AC52_P1F is already on the library WORK.FORMATS.
 NOTE: Format AC52_P1F has been output.
+NOTE: Format AC53NUM_P1F is already on the library WORK.FORMATS.
 NOTE: Format AC53NUM_P1F has been output.
+NOTE: Format AC54NUM_P1F is already on the library WORK.FORMATS.
 NOTE: Format AC54NUM_P1F has been output.
+NOTE: Format AC55_P1F is already on the library WORK.FORMATS.
 NOTE: Format AC55_P1F has been output.
 NOTE: Format AC58X is already on the library WORK.FORMATS.
 NOTE: Format AC58X has been output.
+NOTE: Format AC59X is already on the library WORK.FORMATS.
 NOTE: Format AC59X has been output.
+NOTE: Format AC80_P1F is already on the library WORK.FORMATS.
 NOTE: Format AC80_P1F has been output.
 NOTE: Format AC82_P1F is already on the library WORK.FORMATS.
 NOTE: Format AC82_P1F has been output.
 NOTE: Format AC84X is already on the library WORK.FORMATS.
 NOTE: Format AC84X has been output.
+NOTE: Format AC85X is already on the library WORK.FORMATS.
 NOTE: Format AC85X has been output.
+NOTE: Format AC87X is already on the library WORK.FORMATS.
 NOTE: Format AC87X has been output.
+NOTE: Format AC88X is already on the library WORK.FORMATS.
 NOTE: Format AC88X has been output.
+NOTE: Format AC89X is already on the library WORK.FORMATS.
 NOTE: Format AC89X has been output.
+NOTE: Format AC90X is already on the library WORK.FORMATS.
 NOTE: Format AC90X has been output.
 NOTE: Format AC92X is already on the library WORK.FORMATS.
 NOTE: Format AC92X has been output.
+NOTE: Format AC93X is already on the library WORK.FORMATS.
 NOTE: Format AC93X has been output.
+NOTE: Format AC96X is already on the library WORK.FORMATS.
 NOTE: Format AC96X has been output.
 NOTE: Format ACMDNUM is already on the library WORK.FORMATS.
 NOTE: Format ACMDNUM has been output.
@@ -838,8 +1068,6 @@ NOTE: Format AD32PX has been output.
 NOTE: Format AD37X is already on the library WORK.FORMATS.
 NOTE: Format AD37X has been output.
 NOTE: Format AD39X is already on the library WORK.FORMATS.
-15                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format AD39X has been output.
 NOTE: Format AD41W is already on the library WORK.FORMATS.
 NOTE: Format AD41W has been output.
@@ -850,6 +1078,8 @@ NOTE: Format AE16PH has been output.
 NOTE: Format AESODAPX is already on the library WORK.FORMATS.
 NOTE: Format AESODAPX has been output.
 NOTE: Format AF69X is already on the library WORK.FORMATS.
+19                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format AF69X has been output.
 NOTE: Format AG10X is already on the library WORK.FORMATS.
 NOTE: Format AG10X has been output.
@@ -857,6 +1087,7 @@ NOTE: Format AG11X is already on the library WORK.FORMATS.
 NOTE: Format AG11X has been output.
 NOTE: Format AG1X is already on the library WORK.FORMATS.
 NOTE: Format AG1X has been output.
+NOTE: Format AG20X is already on the library WORK.FORMATS.
 NOTE: Format AG20X has been output.
 NOTE: Format AG8X is already on the library WORK.FORMATS.
 NOTE: Format AG8X has been output.
@@ -866,6 +1097,7 @@ NOTE: Format AGREE is already on the library WORK.FORMATS.
 NOTE: Format AGREE has been output.
 NOTE: Format AH101PF is already on the library WORK.FORMATS.
 NOTE: Format AH101PF has been output.
+NOTE: Format AH102P1X is already on the library WORK.FORMATS.
 NOTE: Format AH102P1X has been output.
 NOTE: Format AH104X is already on the library WORK.FORMATS.
 NOTE: Format AH104X has been output.
@@ -889,6 +1121,7 @@ NOTE: Format AH37X is already on the library WORK.FORMATS.
 NOTE: Format AH37X has been output.
 NOTE: Format AH3PX is already on the library WORK.FORMATS.
 NOTE: Format AH3PX has been output.
+NOTE: Format AH52PX is already on the library WORK.FORMATS.
 NOTE: Format AH52PX has been output.
 NOTE: Format AH6X is already on the library WORK.FORMATS.
 NOTE: Format AH6X has been output.
@@ -898,8 +1131,6 @@ NOTE: Format AH72PX is already on the library WORK.FORMATS.
 NOTE: Format AH72PX has been output.
 NOTE: Format AH95P1F is already on the library WORK.FORMATS.
 NOTE: Format AH95P1F has been output.
-16                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format AH96PX is already on the library WORK.FORMATS.
 NOTE: Format AH96PX has been output.
 NOTE: Format AH97PX is already on the library WORK.FORMATS.
@@ -907,6 +1138,8 @@ NOTE: Format AH97PX has been output.
 NOTE: Format AH98PX is already on the library WORK.FORMATS.
 NOTE: Format AH98PX has been output.
 NOTE: Format AH98X is already on the library WORK.FORMATS.
+20                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format AH98X has been output.
 NOTE: Format AH99PX is already on the library WORK.FORMATS.
 NOTE: Format AH99PX has been output.
@@ -924,8 +1157,11 @@ NOTE: Format AI25NEW is already on the library WORK.FORMATS.
 NOTE: Format AI25NEW has been output.
 NOTE: Format AI28X is already on the library WORK.FORMATS.
 NOTE: Format AI28X has been output.
+NOTE: Format AI45APX is already on the library WORK.FORMATS.
 NOTE: Format AI45APX has been output.
+NOTE: Format AI45PX is already on the library WORK.FORMATS.
 NOTE: Format AI45PX has been output.
+NOTE: Format AJ110X is already on the library WORK.FORMATS.
 NOTE: Format AJ110X has been output.
 NOTE: Format AJ114X is already on the library WORK.FORMATS.
 NOTE: Format AJ114X has been output.
@@ -937,11 +1173,13 @@ NOTE: Format AJ142P1NEW is already on the library WORK.FORMATS.
 NOTE: Format AJ142P1NEW has been output.
 NOTE: Format AJ143PX is already on the library WORK.FORMATS.
 NOTE: Format AJ143PX has been output.
+NOTE: Format AJ143X is already on the library WORK.FORMATS.
 NOTE: Format AJ143X has been output.
 NOTE: Format AJ1X is already on the library WORK.FORMATS.
 NOTE: Format AJ1X has been output.
 NOTE: Format AJ50P is already on the library WORK.FORMATS.
 NOTE: Format AJ50P has been output.
+NOTE: Format AJ79X is already on the library WORK.FORMATS.
 NOTE: Format AJ79X has been output.
 NOTE: Format AK10A is already on the library WORK.FORMATS.
 NOTE: Format AK10A has been output.
@@ -958,10 +1196,10 @@ NOTE: Format AK28X has been output.
 NOTE: Format AK2P1X is already on the library WORK.FORMATS.
 NOTE: Format AK2P1X has been output.
 NOTE: Format AK33PX is already on the library WORK.FORMATS.
-17                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format AK33PX has been output.
 NOTE: Format AK4X is already on the library WORK.FORMATS.
+21                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format AK4X has been output.
 NOTE: Format AK7P1X is already on the library WORK.FORMATS.
 NOTE: Format AK7P1X has been output.
@@ -1018,10 +1256,10 @@ NOTE: Format HEIGHTMF has been output.
 NOTE: Format HGTIF is already on the library WORK.FORMATS.
 NOTE: Format HGTIF has been output.
 NOTE: Format HHSIZEFP is already on the library WORK.FORMATS.
-18                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format HHSIZEFP has been output.
 NOTE: Format HMO is already on the library WORK.FORMATS.
+22                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format HMO has been output.
 NOTE: Format INDMN2F is already on the library WORK.FORMATS.
 NOTE: Format INDMN2F has been output.
@@ -1033,14 +1271,17 @@ NOTE: Format INS64PF is already on the library WORK.FORMATS.
 NOTE: Format INS64PF has been output.
 NOTE: Format INS65F is already on the library WORK.FORMATS.
 NOTE: Format INS65F has been output.
+NOTE: Format INS65SF is already on the library WORK.FORMATS.
 NOTE: Format INS65SF has been output.
 NOTE: Format INSANYF is already on the library WORK.FORMATS.
 NOTE: Format INSANYF has been output.
+NOTE: Format INSLTPX is already on the library WORK.FORMATS.
 NOTE: Format INSLTPX has been output.
 NOTE: Format INSPSF is already on the library WORK.FORMATS.
 NOTE: Format INSPSF has been output.
 NOTE: Format INSTYPE is already on the library WORK.FORMATS.
 NOTE: Format INSTYPE has been output.
+NOTE: Format IOFLAG is already on the library WORK.FORMATS.
 NOTE: Format IOFLAG has been output.
 NOTE: Format LANGHOMEPX is already on the library WORK.FORMATS.
 NOTE: Format LANGHOMEPX has been output.
@@ -1062,6 +1303,7 @@ NOTE: Format OCCMN2F is already on the library WORK.FORMATS.
 NOTE: Format OCCMN2F has been output.
 NOTE: Format OFFTKF is already on the library WORK.FORMATS.
 NOTE: Format OFFTKF has been output.
+NOTE: Format OMBSRRP1X is already on the library WORK.FORMATS.
 NOTE: Format OMBSRRP1X has been output.
 NOTE: Format OWF is already on the library WORK.FORMATS.
 NOTE: Format OWF has been output.
@@ -1076,10 +1318,11 @@ NOTE: Format POVLLF has been output.
 NOTE: Format RACECENP1F is already on the library WORK.FORMATS.
 NOTE: Format RACECENP1F has been output.
 NOTE: Format RACEDFP1X is already on the library WORK.FORMATS.
-NOTE: Format RACEDFP1X has been output.
-NOTE: Format RACEHP2P1X has been output.
-19                                                         The SAS System                             08:20 Saturday, April 13, 2019
+23                                                         The SAS System                             08:20 Saturday, April 13, 2019
 
+NOTE: Format RACEDFP1X has been output.
+NOTE: Format RACEHP2P1X is already on the library WORK.FORMATS.
+NOTE: Format RACEHP2P1X has been output.
 NOTE: Format RBMIF is already on the library WORK.FORMATS.
 NOTE: Format RBMIF has been output.
 NOTE: Format RNFORGO is already on the library WORK.FORMATS.
@@ -1134,11 +1377,11 @@ NOTE: Format YRUSP1F is already on the library WORK.FORMATS.
 NOTE: Format YRUSP1F has been output.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.01 seconds
+      real time           0.02 seconds
+24                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
       cpu time            0.01 seconds
       
-
-20                                                         The SAS System                             08:20 Saturday, April 13, 2019
 
 7337       
 7338       DATA data2014;
@@ -1152,8 +1395,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 19516 observations read from the data set CHIS2014.ADULT.
 NOTE: The data set WORK.DATA2014 has 19516 observations and 480 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.22 seconds
-      cpu time            0.21 seconds
+      real time           0.31 seconds
+      cpu time            0.32 seconds
       
 
 8226       
@@ -1162,8 +1405,8 @@ NOTE: DATA statement used (Total process time):
 8229       RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.16 seconds
-      cpu time            0.17 seconds
+      real time           0.21 seconds
+      cpu time            0.20 seconds
       
 
 8230       
@@ -1195,11 +1438,11 @@ NOTE: Format AB19X is already on the library WORK.FORMATS.
 NOTE: Format AB19X has been output.
 NOTE: Format AB1X is already on the library WORK.FORMATS.
 NOTE: Format AB1X has been output.
+25                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format AB22X is already on the library WORK.FORMATS.
 NOTE: Format AB22X has been output.
 NOTE: Format AB23P1X is already on the library WORK.FORMATS.
-21                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format AB23P1X has been output.
 NOTE: Format AB26H is already on the library WORK.FORMATS.
 NOTE: Format AB26H has been output.
@@ -1255,11 +1498,11 @@ NOTE: Format AG11X is already on the library WORK.FORMATS.
 NOTE: Format AG11X has been output.
 NOTE: Format AG1X is already on the library WORK.FORMATS.
 NOTE: Format AG1X has been output.
+26                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format AG20X is already on the library WORK.FORMATS.
 NOTE: Format AG20X has been output.
 NOTE: Format AG8X is already on the library WORK.FORMATS.
-22                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format AG8X has been output.
 NOTE: Format AG9PX is already on the library WORK.FORMATS.
 NOTE: Format AG9PX has been output.
@@ -1315,11 +1558,11 @@ NOTE: Format AI28X is already on the library WORK.FORMATS.
 NOTE: Format AI28X has been output.
 NOTE: Format AI45APX is already on the library WORK.FORMATS.
 NOTE: Format AI45APX has been output.
+27                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format AI45PX is already on the library WORK.FORMATS.
 NOTE: Format AI45PX has been output.
 NOTE: Format AJ110X is already on the library WORK.FORMATS.
-23                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format AJ110X has been output.
 NOTE: Format AJ114X is already on the library WORK.FORMATS.
 NOTE: Format AJ114X has been output.
@@ -1375,11 +1618,11 @@ NOTE: Format AM38P1X is already on the library WORK.FORMATS.
 NOTE: Format AM38P1X has been output.
 NOTE: Format AM3A is already on the library WORK.FORMATS.
 NOTE: Format AM3A has been output.
+28                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format ASTCURF is already on the library WORK.FORMATS.
 NOTE: Format ASTCURF has been output.
 NOTE: Format ASTYRF is already on the library WORK.FORMATS.
-24                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format ASTYRF has been output.
 NOTE: Format BINGE12F is already on the library WORK.FORMATS.
 NOTE: Format BINGE12F has been output.
@@ -1435,11 +1678,13 @@ NOTE: Format INSLTPX is already on the library WORK.FORMATS.
 NOTE: Format INSLTPX has been output.
 NOTE: Format INSPSF is already on the library WORK.FORMATS.
 NOTE: Format INSPSF has been output.
+29                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
+NOTE: Format INSTYP_P is already on the library WORK.FORMATS.
 NOTE: Format INSTYP_P has been output.
+NOTE: Format INTVF is already on the library WORK.FORMATS.
 NOTE: Format INTVF has been output.
 NOTE: Format IOFLAG is already on the library WORK.FORMATS.
-25                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format IOFLAG has been output.
 NOTE: Format LANGHOMEPX is already on the library WORK.FORMATS.
 NOTE: Format LANGHOMEPX has been output.
@@ -1467,6 +1712,7 @@ NOTE: Format OWF is already on the library WORK.FORMATS.
 NOTE: Format OWF has been output.
 NOTE: Format PCTLF_PF is already on the library WORK.FORMATS.
 NOTE: Format PCTLF_PF has been output.
+NOTE: Format PMOS is already on the library WORK.FORMATS.
 NOTE: Format PMOS has been output.
 NOTE: Format POVGWD is already on the library WORK.FORMATS.
 NOTE: Format POVGWD has been output.
@@ -1492,14 +1738,14 @@ NOTE: Format SMOKINGF is already on the library WORK.FORMATS.
 NOTE: Format SMOKINGF has been output.
 NOTE: Format SOME is already on the library WORK.FORMATS.
 NOTE: Format SOME has been output.
+30                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format SPK_ENGF is already on the library WORK.FORMATS.
 NOTE: Format SPK_ENGF has been output.
 NOTE: Format SRSEX is already on the library WORK.FORMATS.
 NOTE: Format SRSEX has been output.
 NOTE: Format SRTENR is already on the library WORK.FORMATS.
 NOTE: Format SRTENR has been output.
-26                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format UNINSANY is already on the library WORK.FORMATS.
 NOTE: Format UNINSANY has been output.
 NOTE: Format UR_CL2F is already on the library WORK.FORMATS.
@@ -1552,20 +1798,20 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 20724 observations read from the data set CHIS2013.ADULT.
 NOTE: The data set WORK.DATA2013 has 20724 observations and 421 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.19 seconds
-      cpu time            0.18 seconds
+31                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
+      real time           0.28 seconds
+      cpu time            0.28 seconds
       
 
 10622      
 10623      PROC CONTENTS DATA=CHIS2013.adult VARNUM;
-27                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 10624      	TITLE 'PROC CONTENTS - CHIS2013.adult';
 10625      RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.13 seconds
-      cpu time            0.12 seconds
+      real time           0.17 seconds
+      cpu time            0.17 seconds
       
 
 10626      
@@ -1579,6 +1825,7 @@ NOTE: Libref CHIS2012 was successfully assigned as follows:
 10629    ! University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_PROC_FORMAT.SAS';
 NOTE: Format AAGEP is already on the library WORK.FORMATS.
 NOTE: Format AAGEP has been output.
+NOTE: Format AB100X is already on the library WORK.FORMATS.
 NOTE: Format AB100X has been output.
 NOTE: Format AB108PX is already on the library WORK.FORMATS.
 NOTE: Format AB108PX has been output.
@@ -1590,6 +1837,7 @@ NOTE: Format AB116PX is already on the library WORK.FORMATS.
 NOTE: Format AB116PX has been output.
 NOTE: Format AB120PX is already on the library WORK.FORMATS.
 NOTE: Format AB120PX has been output.
+NOTE: Format AB16X is already on the library WORK.FORMATS.
 NOTE: Format AB16X has been output.
 NOTE: Format AB19X is already on the library WORK.FORMATS.
 NOTE: Format AB19X has been output.
@@ -1609,377 +1857,12 @@ NOTE: Format AB42PX is already on the library WORK.FORMATS.
 NOTE: Format AB42PX has been output.
 NOTE: Format AB51PX is already on the library WORK.FORMATS.
 NOTE: Format AB51PX has been output.
-NOTE: Format AB57X has been output.
-NOTE: Format AB63X is already on the library WORK.FORMATS.
-NOTE: Format AB63X has been output.
-NOTE: Format AB66PX has been output.
-NOTE: Format AC31X is already on the library WORK.FORMATS.
-NOTE: Format AC31X has been output.
-NOTE: Format AC42PF is already on the library WORK.FORMATS.
-NOTE: Format AC42PF has been output.
-NOTE: Format AC42X is already on the library WORK.FORMATS.
-28                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
-NOTE: Format AC42X has been output.
-NOTE: Format AC43X has been output.
-NOTE: Format ACMDNUM is already on the library WORK.FORMATS.
-NOTE: Format ACMDNUM has been output.
-NOTE: Format AD17X is already on the library WORK.FORMATS.
-NOTE: Format AD17X has been output.
-NOTE: Format AD18X has been output.
-NOTE: Format AD32PX is already on the library WORK.FORMATS.
-NOTE: Format AD32PX has been output.
-NOTE: Format AD37X is already on the library WORK.FORMATS.
-NOTE: Format AD37X has been output.
-NOTE: Format AD38W is already on the library WORK.FORMATS.
-NOTE: Format AD38W has been output.
-NOTE: Format AD39X is already on the library WORK.FORMATS.
-NOTE: Format AD39X has been output.
-NOTE: Format AD41W is already on the library WORK.FORMATS.
-NOTE: Format AD41W has been output.
-NOTE: Format AE15A is already on the library WORK.FORMATS.
-NOTE: Format AE15A has been output.
-NOTE: Format AE16PH is already on the library WORK.FORMATS.
-NOTE: Format AE16PH has been output.
-NOTE: Format AE91X has been output.
-NOTE: Format AESODAPX is already on the library WORK.FORMATS.
-NOTE: Format AESODAPX has been output.
-NOTE: Format AF69X is already on the library WORK.FORMATS.
-NOTE: Format AF69X has been output.
-NOTE: Format AG10X is already on the library WORK.FORMATS.
-NOTE: Format AG10X has been output.
-NOTE: Format AG11X is already on the library WORK.FORMATS.
-NOTE: Format AG11X has been output.
-NOTE: Format AG20X is already on the library WORK.FORMATS.
-NOTE: Format AG20X has been output.
-NOTE: Format AG8X is already on the library WORK.FORMATS.
-NOTE: Format AG8X has been output.
-NOTE: Format AG9PX is already on the library WORK.FORMATS.
-NOTE: Format AG9PX has been output.
-NOTE: Format AG9X has been output.
-NOTE: Format AGREE is already on the library WORK.FORMATS.
-NOTE: Format AGREE has been output.
-NOTE: Format AH101PF is already on the library WORK.FORMATS.
-NOTE: Format AH101PF has been output.
-NOTE: Format AH102P1X is already on the library WORK.FORMATS.
-NOTE: Format AH102P1X has been output.
-NOTE: Format AH102PF has been output.
-NOTE: Format AH1X is already on the library WORK.FORMATS.
-NOTE: Format AH1X has been output.
-NOTE: Format AH33NEWF is already on the library WORK.FORMATS.
-NOTE: Format AH33NEWF has been output.
-NOTE: Format AH34NEWF is already on the library WORK.FORMATS.
-NOTE: Format AH34NEWF has been output.
-NOTE: Format AH35NEWF is already on the library WORK.FORMATS.
-NOTE: Format AH35NEWF has been output.
-NOTE: Format AH37X is already on the library WORK.FORMATS.
-NOTE: Format AH37X has been output.
-NOTE: Format AH3PX is already on the library WORK.FORMATS.
-NOTE: Format AH3PX has been output.
-NOTE: Format AH52PX is already on the library WORK.FORMATS.
-NOTE: Format AH52PX has been output.
-29                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
-NOTE: Format AH5H has been output.
-NOTE: Format AH6X is already on the library WORK.FORMATS.
-NOTE: Format AH6X has been output.
-NOTE: Format AH71PX is already on the library WORK.FORMATS.
-NOTE: Format AH71PX has been output.
-NOTE: Format AH72PX is already on the library WORK.FORMATS.
-NOTE: Format AH72PX has been output.
-NOTE: Format AH95P1F is already on the library WORK.FORMATS.
-NOTE: Format AH95P1F has been output.
-NOTE: Format AH95PF has been output.
-NOTE: Format AH96PX is already on the library WORK.FORMATS.
-NOTE: Format AH96PX has been output.
-NOTE: Format AH97PX is already on the library WORK.FORMATS.
-NOTE: Format AH97PX has been output.
-NOTE: Format AH98PX is already on the library WORK.FORMATS.
-NOTE: Format AH98PX has been output.
-NOTE: Format AH99PX is already on the library WORK.FORMATS.
-NOTE: Format AH99PX has been output.
-NOTE: Format AHCHLDCF has been output.
-NOTE: Format AHCHLDCPF is already on the library WORK.FORMATS.
-NOTE: Format AHCHLDCPF has been output.
-NOTE: Format AHEDCP1X is already on the library WORK.FORMATS.
-NOTE: Format AHEDCP1X has been output.
-NOTE: Format AI15A is already on the library WORK.FORMATS.
-NOTE: Format AI15A has been output.
-NOTE: Format AI15X is already on the library WORK.FORMATS.
-NOTE: Format AI15X has been output.
-NOTE: Format AI22APF is already on the library WORK.FORMATS.
-NOTE: Format AI22APF has been output.
-NOTE: Format AI25NEW is already on the library WORK.FORMATS.
-NOTE: Format AI25NEW has been output.
-NOTE: Format AI28X is already on the library WORK.FORMATS.
-NOTE: Format AI28X has been output.
-NOTE: Format AI45APX is already on the library WORK.FORMATS.
-NOTE: Format AI45APX has been output.
-NOTE: Format AI45PX is already on the library WORK.FORMATS.
-NOTE: Format AI45PX has been output.
-NOTE: Format AJ110X is already on the library WORK.FORMATS.
-NOTE: Format AJ110X has been output.
-NOTE: Format AJ11X is already on the library WORK.FORMATS.
-NOTE: Format AJ11X has been output.
-NOTE: Format AJ1X is already on the library WORK.FORMATS.
-NOTE: Format AJ1X has been output.
-NOTE: Format AJ50P is already on the library WORK.FORMATS.
-NOTE: Format AJ50P has been output.
-NOTE: Format AJ79X is already on the library WORK.FORMATS.
-NOTE: Format AJ79X has been output.
-NOTE: Format AK10A is already on the library WORK.FORMATS.
-NOTE: Format AK10A has been output.
-NOTE: Format AK10X is already on the library WORK.FORMATS.
-NOTE: Format AK10X has been output.
-NOTE: Format AK1X is already on the library WORK.FORMATS.
-NOTE: Format AK1X has been output.
-NOTE: Format AK23X is already on the library WORK.FORMATS.
-NOTE: Format AK23X has been output.
-NOTE: Format AK25X is already on the library WORK.FORMATS.
-NOTE: Format AK25X has been output.
-NOTE: Format AK28X is already on the library WORK.FORMATS.
-30                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
-NOTE: Format AK28X has been output.
-NOTE: Format AK2P1X is already on the library WORK.FORMATS.
-NOTE: Format AK2P1X has been output.
-NOTE: Format AK4X is already on the library WORK.FORMATS.
-NOTE: Format AK4X has been output.
-NOTE: Format AK8X is already on the library WORK.FORMATS.
-NOTE: Format AK8X has been output.
-NOTE: Format AKWKF is already on the library WORK.FORMATS.
-NOTE: Format AKWKF has been output.
-NOTE: Format AM1X is already on the library WORK.FORMATS.
-NOTE: Format AM1X has been output.
-NOTE: Format AM2X is already on the library WORK.FORMATS.
-NOTE: Format AM2X has been output.
-NOTE: Format AM34X is already on the library WORK.FORMATS.
-NOTE: Format AM34X has been output.
-NOTE: Format AM35X is already on the library WORK.FORMATS.
-NOTE: Format AM35X has been output.
-NOTE: Format AM38P1X is already on the library WORK.FORMATS.
-NOTE: Format AM38P1X has been output.
-NOTE: Format AM38X has been output.
-NOTE: Format AM3A is already on the library WORK.FORMATS.
-NOTE: Format AM3A has been output.
-NOTE: Format ASTCURF is already on the library WORK.FORMATS.
-NOTE: Format ASTCURF has been output.
-NOTE: Format ASTYRF is already on the library WORK.FORMATS.
-NOTE: Format ASTYRF has been output.
-NOTE: Format BINGE12F is already on the library WORK.FORMATS.
-NOTE: Format BINGE12F has been output.
-NOTE: Format BMIF is already on the library WORK.FORMATS.
-NOTE: Format BMIF has been output.
-NOTE: Format CATRIBEF has been output.
-NOTE: Format CITZN2F is already on the library WORK.FORMATS.
-NOTE: Format CITZN2F has been output.
-NOTE: Format CNTRYS has been output.
-NOTE: Format DIAMEDF has been output.
-NOTE: Format DISABLE is already on the library WORK.FORMATS.
-NOTE: Format DISABLE has been output.
-NOTE: Format DISTRESSP is already on the library WORK.FORMATS.
-NOTE: Format DISTRESSP has been output.
-NOTE: Format DOCT_YR is already on the library WORK.FORMATS.
-NOTE: Format DOCT_YR has been output.
-NOTE: Format DSTRSYR is already on the library WORK.FORMATS.
-NOTE: Format DSTRSYR has been output.
-NOTE: Format ELIG3P1F has been output.
-NOTE: Format ELIG3PF is already on the library WORK.FORMATS.
-NOTE: Format ELIG3PF has been output.
-NOTE: Format FAM_TYPE is already on the library WORK.FORMATS.
-NOTE: Format FAM_TYPE has been output.
-NOTE: Format FSLEVCB is already on the library WORK.FORMATS.
-NOTE: Format FSLEVCB has been output.
-NOTE: Format FSLEVF is already on the library WORK.FORMATS.
-NOTE: Format FSLEVF has been output.
-NOTE: Format HEIGHTMF is already on the library WORK.FORMATS.
-NOTE: Format HEIGHTMF has been output.
-NOTE: Format HGTIF is already on the library WORK.FORMATS.
-NOTE: Format HGTIF has been output.
-NOTE: Format HHSIZEFP is already on the library WORK.FORMATS.
-NOTE: Format HHSIZEFP has been output.
-31                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
-NOTE: Format HHSMK has been output.
-NOTE: Format HMO is already on the library WORK.FORMATS.
-NOTE: Format HMO has been output.
-NOTE: Format INS12F is already on the library WORK.FORMATS.
-NOTE: Format INS12F has been output.
-NOTE: Format INS12MF is already on the library WORK.FORMATS.
-NOTE: Format INS12MF has been output.
-NOTE: Format INS64PF is already on the library WORK.FORMATS.
-NOTE: Format INS64PF has been output.
-NOTE: Format INS65F is already on the library WORK.FORMATS.
-NOTE: Format INS65F has been output.
-NOTE: Format INSANYF is already on the library WORK.FORMATS.
-NOTE: Format INSANYF has been output.
-NOTE: Format INSLTPX is already on the library WORK.FORMATS.
-NOTE: Format INSLTPX has been output.
-NOTE: Format INSPSF is already on the library WORK.FORMATS.
-NOTE: Format INSPSF has been output.
-NOTE: Format INSTYP_P is already on the library WORK.FORMATS.
-NOTE: Format INSTYP_P has been output.
-NOTE: Format INTVF is already on the library WORK.FORMATS.
-NOTE: Format INTVF has been output.
-NOTE: Format INTVP1F has been output.
-NOTE: Format LANGHOMEPX is already on the library WORK.FORMATS.
-NOTE: Format LANGHOMEPX has been output.
-NOTE: Format LAT2TPF is already on the library WORK.FORMATS.
-NOTE: Format LAT2TPF has been output.
-NOTE: Format MAM_SCRN has been output.
-NOTE: Format MARIT2F is already on the library WORK.FORMATS.
-NOTE: Format MARIT2F has been output.
-NOTE: Format MARIT45X is already on the library WORK.FORMATS.
-NOTE: Format MARIT45X has been output.
-NOTE: Format MARITF is already on the library WORK.FORMATS.
-NOTE: Format MARITF has been output.
-NOTE: Format MEASURE is already on the library WORK.FORMATS.
-NOTE: Format MEASURE has been output.
-NOTE: Format NUMCIGF is already on the library WORK.FORMATS.
-NOTE: Format NUMCIGF has been output.
-NOTE: Format OFFTKF is already on the library WORK.FORMATS.
-NOTE: Format OFFTKF has been output.
-NOTE: Format OMBSRASO has been output.
-NOTE: Format OMBSRRP1X is already on the library WORK.FORMATS.
-NOTE: Format OMBSRRP1X has been output.
-NOTE: Format OWF is already on the library WORK.FORMATS.
-NOTE: Format OWF has been output.
-NOTE: Format PCTLF_PF is already on the library WORK.FORMATS.
-NOTE: Format PCTLF_PF has been output.
-NOTE: Format PMOS is already on the library WORK.FORMATS.
-NOTE: Format PMOS has been output.
-NOTE: Format POVGWD is already on the library WORK.FORMATS.
-NOTE: Format POVGWD has been output.
-NOTE: Format POVLLF is already on the library WORK.FORMATS.
-NOTE: Format POVLLF has been output.
-NOTE: Format RACECENP1F is already on the library WORK.FORMATS.
-NOTE: Format RACECENP1F has been output.
-NOTE: Format RACEDFP1X is already on the library WORK.FORMATS.
-NOTE: Format RACEDFP1X has been output.
-NOTE: Format RACEHP2P1X is already on the library WORK.FORMATS.
-NOTE: Format RACEHP2P1X has been output.
+NOTE: Format AB57X is already on the library WORK.FORMATS.
 32                                                         The SAS System                             08:20 Saturday, April 13, 2019
 
-NOTE: Format RAKEDF has been output.
-NOTE: Format RBMIF is already on the library WORK.FORMATS.
-NOTE: Format RBMIF has been output.
-NOTE: Format SERVED is already on the library WORK.FORMATS.
-NOTE: Format SERVED has been output.
-NOTE: Format SMKCURF is already on the library WORK.FORMATS.
-NOTE: Format SMKCURF has been output.
-NOTE: Format SMOKINGF is already on the library WORK.FORMATS.
-NOTE: Format SMOKINGF has been output.
-NOTE: Format SOME is already on the library WORK.FORMATS.
-NOTE: Format SOME has been output.
-NOTE: Format SPK_ENGF is already on the library WORK.FORMATS.
-NOTE: Format SPK_ENGF has been output.
-NOTE: Format SRSEX is already on the library WORK.FORMATS.
-NOTE: Format SRSEX has been output.
-NOTE: Format SRTENR is already on the library WORK.FORMATS.
-NOTE: Format SRTENR has been output.
-NOTE: Format UNINSANY is already on the library WORK.FORMATS.
-NOTE: Format UNINSANY has been output.
-NOTE: Format UR_CL2F is already on the library WORK.FORMATS.
-NOTE: Format UR_CL2F has been output.
-NOTE: Format UR_CLF is already on the library WORK.FORMATS.
-NOTE: Format UR_CLF has been output.
-NOTE: Format UR_IHSF is already on the library WORK.FORMATS.
-NOTE: Format UR_IHSF has been output.
-NOTE: Format UR_OMBF is already on the library WORK.FORMATS.
-NOTE: Format UR_OMBF has been output.
-NOTE: Format UR_RHPF is already on the library WORK.FORMATS.
-NOTE: Format UR_RHPF has been output.
-NOTE: Format USOCF is already on the library WORK.FORMATS.
-NOTE: Format USOCF has been output.
-NOTE: Format USUAL5TP is already on the library WORK.FORMATS.
-NOTE: Format USUAL5TP has been output.
-NOTE: Format USUALF is already on the library WORK.FORMATS.
-NOTE: Format USUALF has been output.
-NOTE: Format USUALTPF is already on the library WORK.FORMATS.
-NOTE: Format USUALTPF has been output.
-NOTE: Format WEIGHTKF is already on the library WORK.FORMATS.
-NOTE: Format WEIGHTKF has been output.
-NOTE: Format WGHTKF is already on the library WORK.FORMATS.
-NOTE: Format WGHTKF has been output.
-NOTE: Format WGHTPF is already on the library WORK.FORMATS.
-NOTE: Format WGHTPF has been output.
-NOTE: Format WORK is already on the library WORK.FORMATS.
-NOTE: Format WORK has been output.
-NOTE: Format WRKST has been output.
-NOTE: Format WRKSTP1X is already on the library WORK.FORMATS.
-NOTE: Format WRKSTP1X has been output.
-NOTE: Format WT18PF has been output.
-NOTE: Format YESNO is already on the library WORK.FORMATS.
-NOTE: Format YESNO has been output.
-NOTE: Format YRUSP1F is already on the library WORK.FORMATS.
-NOTE: Format YRUSP1F has been output.
-
-NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.01 seconds
-      cpu time            0.01 seconds
-      
-33                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
-
-12235      
-12236      DATA data2012;
-12237      	SET CHIS2012.adult;
-12238      	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
-12238    ! University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_FORMAT.SAS';
-12672      	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
-12672    ! University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_LABEL.SAS';
-13107      RUN;
-
-NOTE: There were 20355 observations read from the data set CHIS2012.ADULT.
-NOTE: The data set WORK.DATA2012 has 20355 observations and 432 variables.
-NOTE: DATA statement used (Total process time):
-      real time           0.19 seconds
-      cpu time            0.17 seconds
-      
-
-13108      
-13109      PROC CONTENTS DATA=CHIS2012.adult VARNUM;
-13110      	TITLE 'PROC CONTENTS - CHIS2012.adult';
-13111      RUN;
-
-NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.13 seconds
-      cpu time            0.12 seconds
-      
-
-13112      
-13113      /* LOAD 2011 DATA */
-13114      LIBNAME CHIS2011 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
-13114    ! University\ANA699B\CHIS\CHIS11_adult_sas\Data\';
-NOTE: Libref CHIS2011 was successfully assigned as follows: 
-      Engine:        V9 
-      Physical Name: C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS11_adult_sas\Data
-13115      %INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
-13115    ! University\ANA699B\CHIS\CHIS11_adult_sas\Data\ADULT_PROC_FORMAT.SAS';
-NOTE: Format AAGEP is already on the library WORK.FORMATS.
-NOTE: Format AAGEP has been output.
-NOTE: Format AB100X is already on the library WORK.FORMATS.
-NOTE: Format AB100X has been output.
-NOTE: Format AB108PX is already on the library WORK.FORMATS.
-NOTE: Format AB108PX has been output.
-NOTE: Format AB10X is already on the library WORK.FORMATS.
-NOTE: Format AB10X has been output.
-NOTE: Format AB114PX is already on the library WORK.FORMATS.
-NOTE: Format AB114PX has been output.
-NOTE: Format AB120PX is already on the library WORK.FORMATS.
-NOTE: Format AB120PX has been output.
-NOTE: Format AB19X is already on the library WORK.FORMATS.
-NOTE: Format AB19X has been output.
-NOTE: Format AB1X is already on the library WORK.FORMATS.
-NOTE: Format AB1X has been output.
-NOTE: Format AB22X is already on the library WORK.FORMATS.
-NOTE: Format AB22X has been output.
-NOTE: Format AB57X is already on the library WORK.FORMATS.
 NOTE: Format AB57X has been output.
 NOTE: Format AB63X is already on the library WORK.FORMATS.
 NOTE: Format AB63X has been output.
-34                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format AB66PX is already on the library WORK.FORMATS.
 NOTE: Format AB66PX has been output.
 NOTE: Format AC31X is already on the library WORK.FORMATS.
@@ -2014,6 +1897,8 @@ NOTE: Format AE91X is already on the library WORK.FORMATS.
 NOTE: Format AE91X has been output.
 NOTE: Format AESODAPX is already on the library WORK.FORMATS.
 NOTE: Format AESODAPX has been output.
+NOTE: Format AF69X is already on the library WORK.FORMATS.
+NOTE: Format AF69X has been output.
 NOTE: Format AG10X is already on the library WORK.FORMATS.
 NOTE: Format AG10X has been output.
 NOTE: Format AG11X is already on the library WORK.FORMATS.
@@ -2033,13 +1918,13 @@ NOTE: Format AH101PF has been output.
 NOTE: Format AH102P1X is already on the library WORK.FORMATS.
 NOTE: Format AH102P1X has been output.
 NOTE: Format AH102PF is already on the library WORK.FORMATS.
+33                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format AH102PF has been output.
 NOTE: Format AH1X is already on the library WORK.FORMATS.
 NOTE: Format AH1X has been output.
 NOTE: Format AH33NEWF is already on the library WORK.FORMATS.
 NOTE: Format AH33NEWF has been output.
-35                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format AH34NEWF is already on the library WORK.FORMATS.
 NOTE: Format AH34NEWF has been output.
 NOTE: Format AH35NEWF is already on the library WORK.FORMATS.
@@ -2060,14 +1945,14 @@ NOTE: Format AH72PX is already on the library WORK.FORMATS.
 NOTE: Format AH72PX has been output.
 NOTE: Format AH95P1F is already on the library WORK.FORMATS.
 NOTE: Format AH95P1F has been output.
+NOTE: Format AH95PF is already on the library WORK.FORMATS.
+NOTE: Format AH95PF has been output.
 NOTE: Format AH96PX is already on the library WORK.FORMATS.
 NOTE: Format AH96PX has been output.
 NOTE: Format AH97PX is already on the library WORK.FORMATS.
 NOTE: Format AH97PX has been output.
 NOTE: Format AH98PX is already on the library WORK.FORMATS.
 NOTE: Format AH98PX has been output.
-NOTE: Format AH98X is already on the library WORK.FORMATS.
-NOTE: Format AH98X has been output.
 NOTE: Format AH99PX is already on the library WORK.FORMATS.
 NOTE: Format AH99PX has been output.
 NOTE: Format AHCHLDCF is already on the library WORK.FORMATS.
@@ -2093,13 +1978,13 @@ NOTE: Format AI45PX has been output.
 NOTE: Format AJ110X is already on the library WORK.FORMATS.
 NOTE: Format AJ110X has been output.
 NOTE: Format AJ11X is already on the library WORK.FORMATS.
+34                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format AJ11X has been output.
 NOTE: Format AJ1X is already on the library WORK.FORMATS.
 NOTE: Format AJ1X has been output.
 NOTE: Format AJ50P is already on the library WORK.FORMATS.
 NOTE: Format AJ50P has been output.
-36                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format AJ79X is already on the library WORK.FORMATS.
 NOTE: Format AJ79X has been output.
 NOTE: Format AK10A is already on the library WORK.FORMATS.
@@ -2118,8 +2003,6 @@ NOTE: Format AK2P1X is already on the library WORK.FORMATS.
 NOTE: Format AK2P1X has been output.
 NOTE: Format AK4X is already on the library WORK.FORMATS.
 NOTE: Format AK4X has been output.
-NOTE: Format AK7P1X is already on the library WORK.FORMATS.
-NOTE: Format AK7P1X has been output.
 NOTE: Format AK8X is already on the library WORK.FORMATS.
 NOTE: Format AK8X has been output.
 NOTE: Format AKWKF is already on the library WORK.FORMATS.
@@ -2134,6 +2017,8 @@ NOTE: Format AM35X is already on the library WORK.FORMATS.
 NOTE: Format AM35X has been output.
 NOTE: Format AM38P1X is already on the library WORK.FORMATS.
 NOTE: Format AM38P1X has been output.
+NOTE: Format AM38X is already on the library WORK.FORMATS.
+NOTE: Format AM38X has been output.
 NOTE: Format AM3A is already on the library WORK.FORMATS.
 NOTE: Format AM3A has been output.
 NOTE: Format ASTCURF is already on the library WORK.FORMATS.
@@ -2148,18 +2033,28 @@ NOTE: Format CATRIBEF is already on the library WORK.FORMATS.
 NOTE: Format CATRIBEF has been output.
 NOTE: Format CITZN2F is already on the library WORK.FORMATS.
 NOTE: Format CITZN2F has been output.
+NOTE: Format CNTRYS is already on the library WORK.FORMATS.
+NOTE: Format CNTRYS has been output.
+NOTE: Format DIAMEDF is already on the library WORK.FORMATS.
+NOTE: Format DIAMEDF has been output.
 NOTE: Format DISABLE is already on the library WORK.FORMATS.
+35                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format DISABLE has been output.
+NOTE: Format DISTRESSP is already on the library WORK.FORMATS.
+NOTE: Format DISTRESSP has been output.
 NOTE: Format DOCT_YR is already on the library WORK.FORMATS.
 NOTE: Format DOCT_YR has been output.
+NOTE: Format DSTRSYR is already on the library WORK.FORMATS.
+NOTE: Format DSTRSYR has been output.
 NOTE: Format ELIG3P1F is already on the library WORK.FORMATS.
 NOTE: Format ELIG3P1F has been output.
+NOTE: Format ELIG3PF is already on the library WORK.FORMATS.
+NOTE: Format ELIG3PF has been output.
 NOTE: Format FAM_TYPE is already on the library WORK.FORMATS.
 NOTE: Format FAM_TYPE has been output.
 NOTE: Format FSLEVCB is already on the library WORK.FORMATS.
 NOTE: Format FSLEVCB has been output.
-37                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format FSLEVF is already on the library WORK.FORMATS.
 NOTE: Format FSLEVF has been output.
 NOTE: Format HEIGHTMF is already on the library WORK.FORMATS.
@@ -2188,6 +2083,8 @@ NOTE: Format INSPSF is already on the library WORK.FORMATS.
 NOTE: Format INSPSF has been output.
 NOTE: Format INSTYP_P is already on the library WORK.FORMATS.
 NOTE: Format INSTYP_P has been output.
+NOTE: Format INTVF is already on the library WORK.FORMATS.
+NOTE: Format INTVF has been output.
 NOTE: Format INTVP1F is already on the library WORK.FORMATS.
 NOTE: Format INTVP1F has been output.
 NOTE: Format LANGHOMEPX is already on the library WORK.FORMATS.
@@ -2201,6 +2098,8 @@ NOTE: Format MARIT2F has been output.
 NOTE: Format MARIT45X is already on the library WORK.FORMATS.
 NOTE: Format MARIT45X has been output.
 NOTE: Format MARITF is already on the library WORK.FORMATS.
+36                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format MARITF has been output.
 NOTE: Format MEASURE is already on the library WORK.FORMATS.
 NOTE: Format MEASURE has been output.
@@ -2208,6 +2107,8 @@ NOTE: Format NUMCIGF is already on the library WORK.FORMATS.
 NOTE: Format NUMCIGF has been output.
 NOTE: Format OFFTKF is already on the library WORK.FORMATS.
 NOTE: Format OFFTKF has been output.
+NOTE: Format OMBSRASO is already on the library WORK.FORMATS.
+NOTE: Format OMBSRASO has been output.
 NOTE: Format OMBSRRP1X is already on the library WORK.FORMATS.
 NOTE: Format OMBSRRP1X has been output.
 NOTE: Format OWF is already on the library WORK.FORMATS.
@@ -2218,8 +2119,6 @@ NOTE: Format PMOS is already on the library WORK.FORMATS.
 NOTE: Format PMOS has been output.
 NOTE: Format POVGWD is already on the library WORK.FORMATS.
 NOTE: Format POVGWD has been output.
-38                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format POVLLF is already on the library WORK.FORMATS.
 NOTE: Format POVLLF has been output.
 NOTE: Format RACECENP1F is already on the library WORK.FORMATS.
@@ -2259,6 +2158,8 @@ NOTE: Format UR_OMBF has been output.
 NOTE: Format UR_RHPF is already on the library WORK.FORMATS.
 NOTE: Format UR_RHPF has been output.
 NOTE: Format USOCF is already on the library WORK.FORMATS.
+37                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format USOCF has been output.
 NOTE: Format USUAL5TP is already on the library WORK.FORMATS.
 NOTE: Format USUAL5TP has been output.
@@ -2278,8 +2179,377 @@ NOTE: Format WRKST is already on the library WORK.FORMATS.
 NOTE: Format WRKST has been output.
 NOTE: Format WRKSTP1X is already on the library WORK.FORMATS.
 NOTE: Format WRKSTP1X has been output.
+NOTE: Format WT18PF is already on the library WORK.FORMATS.
+NOTE: Format WT18PF has been output.
+NOTE: Format YESNO is already on the library WORK.FORMATS.
+NOTE: Format YESNO has been output.
+NOTE: Format YRUSP1F is already on the library WORK.FORMATS.
+NOTE: Format YRUSP1F has been output.
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+12235      
+12236      DATA data2012;
+12237      	SET CHIS2012.adult;
+12238      	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
+12238    ! University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_FORMAT.SAS';
+12672      	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
+12672    ! University\ANA699B\CHIS\CHIS12_adult_sas\Data\ADULT_LABEL.SAS';
+13107      RUN;
+
+NOTE: There were 20355 observations read from the data set CHIS2012.ADULT.
+NOTE: The data set WORK.DATA2012 has 20355 observations and 432 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.27 seconds
+      cpu time            0.26 seconds
+      
+
+13108      
+13109      PROC CONTENTS DATA=CHIS2012.adult VARNUM;
+13110      	TITLE 'PROC CONTENTS - CHIS2012.adult';
+13111      RUN;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.16 seconds
+      cpu time            0.15 seconds
+      
+
+13112      
+38                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
+13113      /* LOAD 2011 DATA */
+13114      LIBNAME CHIS2011 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
+13114    ! University\ANA699B\CHIS\CHIS11_adult_sas\Data\';
+NOTE: Libref CHIS2011 was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS11_adult_sas\Data
+13115      %INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National
+13115    ! University\ANA699B\CHIS\CHIS11_adult_sas\Data\ADULT_PROC_FORMAT.SAS';
+NOTE: Format AAGEP is already on the library WORK.FORMATS.
+NOTE: Format AAGEP has been output.
+NOTE: Format AB100X is already on the library WORK.FORMATS.
+NOTE: Format AB100X has been output.
+NOTE: Format AB108PX is already on the library WORK.FORMATS.
+NOTE: Format AB108PX has been output.
+NOTE: Format AB10X is already on the library WORK.FORMATS.
+NOTE: Format AB10X has been output.
+NOTE: Format AB114PX is already on the library WORK.FORMATS.
+NOTE: Format AB114PX has been output.
+NOTE: Format AB120PX is already on the library WORK.FORMATS.
+NOTE: Format AB120PX has been output.
+NOTE: Format AB19X is already on the library WORK.FORMATS.
+NOTE: Format AB19X has been output.
+NOTE: Format AB1X is already on the library WORK.FORMATS.
+NOTE: Format AB1X has been output.
+NOTE: Format AB22X is already on the library WORK.FORMATS.
+NOTE: Format AB22X has been output.
+NOTE: Format AB57X is already on the library WORK.FORMATS.
+NOTE: Format AB57X has been output.
+NOTE: Format AB63X is already on the library WORK.FORMATS.
+NOTE: Format AB63X has been output.
+NOTE: Format AB66PX is already on the library WORK.FORMATS.
+NOTE: Format AB66PX has been output.
+NOTE: Format AC31X is already on the library WORK.FORMATS.
+NOTE: Format AC31X has been output.
+NOTE: Format AC42PF is already on the library WORK.FORMATS.
+NOTE: Format AC42PF has been output.
+NOTE: Format AC42X is already on the library WORK.FORMATS.
+NOTE: Format AC42X has been output.
+NOTE: Format AC43X is already on the library WORK.FORMATS.
+NOTE: Format AC43X has been output.
+NOTE: Format ACMDNUM is already on the library WORK.FORMATS.
+NOTE: Format ACMDNUM has been output.
+NOTE: Format AD17X is already on the library WORK.FORMATS.
+NOTE: Format AD17X has been output.
+NOTE: Format AD18X is already on the library WORK.FORMATS.
+NOTE: Format AD18X has been output.
+NOTE: Format AD32PX is already on the library WORK.FORMATS.
+NOTE: Format AD32PX has been output.
+NOTE: Format AD37X is already on the library WORK.FORMATS.
+NOTE: Format AD37X has been output.
+NOTE: Format AD38W is already on the library WORK.FORMATS.
+NOTE: Format AD38W has been output.
+NOTE: Format AD39X is already on the library WORK.FORMATS.
+NOTE: Format AD39X has been output.
+NOTE: Format AD41W is already on the library WORK.FORMATS.
+NOTE: Format AD41W has been output.
+NOTE: Format AE15A is already on the library WORK.FORMATS.
+NOTE: Format AE15A has been output.
 39                                                         The SAS System                             08:20 Saturday, April 13, 2019
 
+NOTE: Format AE16PH is already on the library WORK.FORMATS.
+NOTE: Format AE16PH has been output.
+NOTE: Format AE91X is already on the library WORK.FORMATS.
+NOTE: Format AE91X has been output.
+NOTE: Format AESODAPX is already on the library WORK.FORMATS.
+NOTE: Format AESODAPX has been output.
+NOTE: Format AG10X is already on the library WORK.FORMATS.
+NOTE: Format AG10X has been output.
+NOTE: Format AG11X is already on the library WORK.FORMATS.
+NOTE: Format AG11X has been output.
+NOTE: Format AG20X is already on the library WORK.FORMATS.
+NOTE: Format AG20X has been output.
+NOTE: Format AG8X is already on the library WORK.FORMATS.
+NOTE: Format AG8X has been output.
+NOTE: Format AG9PX is already on the library WORK.FORMATS.
+NOTE: Format AG9PX has been output.
+NOTE: Format AG9X is already on the library WORK.FORMATS.
+NOTE: Format AG9X has been output.
+NOTE: Format AGREE is already on the library WORK.FORMATS.
+NOTE: Format AGREE has been output.
+NOTE: Format AH101PF is already on the library WORK.FORMATS.
+NOTE: Format AH101PF has been output.
+NOTE: Format AH102P1X is already on the library WORK.FORMATS.
+NOTE: Format AH102P1X has been output.
+NOTE: Format AH102PF is already on the library WORK.FORMATS.
+NOTE: Format AH102PF has been output.
+NOTE: Format AH1X is already on the library WORK.FORMATS.
+NOTE: Format AH1X has been output.
+NOTE: Format AH33NEWF is already on the library WORK.FORMATS.
+NOTE: Format AH33NEWF has been output.
+NOTE: Format AH34NEWF is already on the library WORK.FORMATS.
+NOTE: Format AH34NEWF has been output.
+NOTE: Format AH35NEWF is already on the library WORK.FORMATS.
+NOTE: Format AH35NEWF has been output.
+NOTE: Format AH37X is already on the library WORK.FORMATS.
+NOTE: Format AH37X has been output.
+NOTE: Format AH3PX is already on the library WORK.FORMATS.
+NOTE: Format AH3PX has been output.
+NOTE: Format AH52PX is already on the library WORK.FORMATS.
+NOTE: Format AH52PX has been output.
+NOTE: Format AH5H is already on the library WORK.FORMATS.
+NOTE: Format AH5H has been output.
+NOTE: Format AH6X is already on the library WORK.FORMATS.
+NOTE: Format AH6X has been output.
+NOTE: Format AH71PX is already on the library WORK.FORMATS.
+NOTE: Format AH71PX has been output.
+NOTE: Format AH72PX is already on the library WORK.FORMATS.
+NOTE: Format AH72PX has been output.
+NOTE: Format AH95P1F is already on the library WORK.FORMATS.
+NOTE: Format AH95P1F has been output.
+NOTE: Format AH96PX is already on the library WORK.FORMATS.
+NOTE: Format AH96PX has been output.
+NOTE: Format AH97PX is already on the library WORK.FORMATS.
+NOTE: Format AH97PX has been output.
+NOTE: Format AH98PX is already on the library WORK.FORMATS.
+NOTE: Format AH98PX has been output.
+NOTE: Format AH98X is already on the library WORK.FORMATS.
+NOTE: Format AH98X has been output.
+40                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
+NOTE: Format AH99PX is already on the library WORK.FORMATS.
+NOTE: Format AH99PX has been output.
+NOTE: Format AHCHLDCF is already on the library WORK.FORMATS.
+NOTE: Format AHCHLDCF has been output.
+NOTE: Format AHCHLDCPF is already on the library WORK.FORMATS.
+NOTE: Format AHCHLDCPF has been output.
+NOTE: Format AHEDCP1X is already on the library WORK.FORMATS.
+NOTE: Format AHEDCP1X has been output.
+NOTE: Format AI15A is already on the library WORK.FORMATS.
+NOTE: Format AI15A has been output.
+NOTE: Format AI15X is already on the library WORK.FORMATS.
+NOTE: Format AI15X has been output.
+NOTE: Format AI22APF is already on the library WORK.FORMATS.
+NOTE: Format AI22APF has been output.
+NOTE: Format AI25NEW is already on the library WORK.FORMATS.
+NOTE: Format AI25NEW has been output.
+NOTE: Format AI28X is already on the library WORK.FORMATS.
+NOTE: Format AI28X has been output.
+NOTE: Format AI45APX is already on the library WORK.FORMATS.
+NOTE: Format AI45APX has been output.
+NOTE: Format AI45PX is already on the library WORK.FORMATS.
+NOTE: Format AI45PX has been output.
+NOTE: Format AJ110X is already on the library WORK.FORMATS.
+NOTE: Format AJ110X has been output.
+NOTE: Format AJ11X is already on the library WORK.FORMATS.
+NOTE: Format AJ11X has been output.
+NOTE: Format AJ1X is already on the library WORK.FORMATS.
+NOTE: Format AJ1X has been output.
+NOTE: Format AJ50P is already on the library WORK.FORMATS.
+NOTE: Format AJ50P has been output.
+NOTE: Format AJ79X is already on the library WORK.FORMATS.
+NOTE: Format AJ79X has been output.
+NOTE: Format AK10A is already on the library WORK.FORMATS.
+NOTE: Format AK10A has been output.
+NOTE: Format AK10X is already on the library WORK.FORMATS.
+NOTE: Format AK10X has been output.
+NOTE: Format AK1X is already on the library WORK.FORMATS.
+NOTE: Format AK1X has been output.
+NOTE: Format AK23X is already on the library WORK.FORMATS.
+NOTE: Format AK23X has been output.
+NOTE: Format AK25X is already on the library WORK.FORMATS.
+NOTE: Format AK25X has been output.
+NOTE: Format AK28X is already on the library WORK.FORMATS.
+NOTE: Format AK28X has been output.
+NOTE: Format AK2P1X is already on the library WORK.FORMATS.
+NOTE: Format AK2P1X has been output.
+NOTE: Format AK4X is already on the library WORK.FORMATS.
+NOTE: Format AK4X has been output.
+NOTE: Format AK7P1X is already on the library WORK.FORMATS.
+NOTE: Format AK7P1X has been output.
+NOTE: Format AK8X is already on the library WORK.FORMATS.
+NOTE: Format AK8X has been output.
+NOTE: Format AKWKF is already on the library WORK.FORMATS.
+NOTE: Format AKWKF has been output.
+NOTE: Format AM1X is already on the library WORK.FORMATS.
+NOTE: Format AM1X has been output.
+NOTE: Format AM2X is already on the library WORK.FORMATS.
+NOTE: Format AM2X has been output.
+41                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
+NOTE: Format AM34X is already on the library WORK.FORMATS.
+NOTE: Format AM34X has been output.
+NOTE: Format AM35X is already on the library WORK.FORMATS.
+NOTE: Format AM35X has been output.
+NOTE: Format AM38P1X is already on the library WORK.FORMATS.
+NOTE: Format AM38P1X has been output.
+NOTE: Format AM3A is already on the library WORK.FORMATS.
+NOTE: Format AM3A has been output.
+NOTE: Format ASTCURF is already on the library WORK.FORMATS.
+NOTE: Format ASTCURF has been output.
+NOTE: Format ASTYRF is already on the library WORK.FORMATS.
+NOTE: Format ASTYRF has been output.
+NOTE: Format BINGE12F is already on the library WORK.FORMATS.
+NOTE: Format BINGE12F has been output.
+NOTE: Format BMIF is already on the library WORK.FORMATS.
+NOTE: Format BMIF has been output.
+NOTE: Format CATRIBEF is already on the library WORK.FORMATS.
+NOTE: Format CATRIBEF has been output.
+NOTE: Format CITZN2F is already on the library WORK.FORMATS.
+NOTE: Format CITZN2F has been output.
+NOTE: Format DISABLE is already on the library WORK.FORMATS.
+NOTE: Format DISABLE has been output.
+NOTE: Format DOCT_YR is already on the library WORK.FORMATS.
+NOTE: Format DOCT_YR has been output.
+NOTE: Format ELIG3P1F is already on the library WORK.FORMATS.
+NOTE: Format ELIG3P1F has been output.
+NOTE: Format FAM_TYPE is already on the library WORK.FORMATS.
+NOTE: Format FAM_TYPE has been output.
+NOTE: Format FSLEVCB is already on the library WORK.FORMATS.
+NOTE: Format FSLEVCB has been output.
+NOTE: Format FSLEVF is already on the library WORK.FORMATS.
+NOTE: Format FSLEVF has been output.
+NOTE: Format HEIGHTMF is already on the library WORK.FORMATS.
+NOTE: Format HEIGHTMF has been output.
+NOTE: Format HGTIF is already on the library WORK.FORMATS.
+NOTE: Format HGTIF has been output.
+NOTE: Format HHSIZEFP is already on the library WORK.FORMATS.
+NOTE: Format HHSIZEFP has been output.
+NOTE: Format HHSMK is already on the library WORK.FORMATS.
+NOTE: Format HHSMK has been output.
+NOTE: Format HMO is already on the library WORK.FORMATS.
+NOTE: Format HMO has been output.
+NOTE: Format INS12F is already on the library WORK.FORMATS.
+NOTE: Format INS12F has been output.
+NOTE: Format INS12MF is already on the library WORK.FORMATS.
+NOTE: Format INS12MF has been output.
+NOTE: Format INS64PF is already on the library WORK.FORMATS.
+NOTE: Format INS64PF has been output.
+NOTE: Format INS65F is already on the library WORK.FORMATS.
+NOTE: Format INS65F has been output.
+NOTE: Format INSANYF is already on the library WORK.FORMATS.
+NOTE: Format INSANYF has been output.
+NOTE: Format INSLTPX is already on the library WORK.FORMATS.
+NOTE: Format INSLTPX has been output.
+NOTE: Format INSPSF is already on the library WORK.FORMATS.
+NOTE: Format INSPSF has been output.
+NOTE: Format INSTYP_P is already on the library WORK.FORMATS.
+NOTE: Format INSTYP_P has been output.
+42                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
+NOTE: Format INTVP1F is already on the library WORK.FORMATS.
+NOTE: Format INTVP1F has been output.
+NOTE: Format LANGHOMEPX is already on the library WORK.FORMATS.
+NOTE: Format LANGHOMEPX has been output.
+NOTE: Format LAT2TPF is already on the library WORK.FORMATS.
+NOTE: Format LAT2TPF has been output.
+NOTE: Format MAM_SCRN is already on the library WORK.FORMATS.
+NOTE: Format MAM_SCRN has been output.
+NOTE: Format MARIT2F is already on the library WORK.FORMATS.
+NOTE: Format MARIT2F has been output.
+NOTE: Format MARIT45X is already on the library WORK.FORMATS.
+NOTE: Format MARIT45X has been output.
+NOTE: Format MARITF is already on the library WORK.FORMATS.
+NOTE: Format MARITF has been output.
+NOTE: Format MEASURE is already on the library WORK.FORMATS.
+NOTE: Format MEASURE has been output.
+NOTE: Format NUMCIGF is already on the library WORK.FORMATS.
+NOTE: Format NUMCIGF has been output.
+NOTE: Format OFFTKF is already on the library WORK.FORMATS.
+NOTE: Format OFFTKF has been output.
+NOTE: Format OMBSRRP1X is already on the library WORK.FORMATS.
+NOTE: Format OMBSRRP1X has been output.
+NOTE: Format OWF is already on the library WORK.FORMATS.
+NOTE: Format OWF has been output.
+NOTE: Format PCTLF_PF is already on the library WORK.FORMATS.
+NOTE: Format PCTLF_PF has been output.
+NOTE: Format PMOS is already on the library WORK.FORMATS.
+NOTE: Format PMOS has been output.
+NOTE: Format POVGWD is already on the library WORK.FORMATS.
+NOTE: Format POVGWD has been output.
+NOTE: Format POVLLF is already on the library WORK.FORMATS.
+NOTE: Format POVLLF has been output.
+NOTE: Format RACECENP1F is already on the library WORK.FORMATS.
+NOTE: Format RACECENP1F has been output.
+NOTE: Format RACEDFP1X is already on the library WORK.FORMATS.
+NOTE: Format RACEDFP1X has been output.
+NOTE: Format RACEHP2P1X is already on the library WORK.FORMATS.
+NOTE: Format RACEHP2P1X has been output.
+NOTE: Format RAKEDF is already on the library WORK.FORMATS.
+NOTE: Format RAKEDF has been output.
+NOTE: Format RBMIF is already on the library WORK.FORMATS.
+NOTE: Format RBMIF has been output.
+NOTE: Format SERVED is already on the library WORK.FORMATS.
+NOTE: Format SERVED has been output.
+NOTE: Format SMKCURF is already on the library WORK.FORMATS.
+NOTE: Format SMKCURF has been output.
+NOTE: Format SMOKINGF is already on the library WORK.FORMATS.
+NOTE: Format SMOKINGF has been output.
+NOTE: Format SOME is already on the library WORK.FORMATS.
+NOTE: Format SOME has been output.
+NOTE: Format SPK_ENGF is already on the library WORK.FORMATS.
+NOTE: Format SPK_ENGF has been output.
+NOTE: Format SRSEX is already on the library WORK.FORMATS.
+NOTE: Format SRSEX has been output.
+NOTE: Format SRTENR is already on the library WORK.FORMATS.
+NOTE: Format SRTENR has been output.
+NOTE: Format UNINSANY is already on the library WORK.FORMATS.
+NOTE: Format UNINSANY has been output.
+43                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
+NOTE: Format UR_CL2F is already on the library WORK.FORMATS.
+NOTE: Format UR_CL2F has been output.
+NOTE: Format UR_CLF is already on the library WORK.FORMATS.
+NOTE: Format UR_CLF has been output.
+NOTE: Format UR_IHSF is already on the library WORK.FORMATS.
+NOTE: Format UR_IHSF has been output.
+NOTE: Format UR_OMBF is already on the library WORK.FORMATS.
+NOTE: Format UR_OMBF has been output.
+NOTE: Format UR_RHPF is already on the library WORK.FORMATS.
+NOTE: Format UR_RHPF has been output.
+NOTE: Format USOCF is already on the library WORK.FORMATS.
+NOTE: Format USOCF has been output.
+NOTE: Format USUAL5TP is already on the library WORK.FORMATS.
+NOTE: Format USUAL5TP has been output.
+NOTE: Format USUALF is already on the library WORK.FORMATS.
+NOTE: Format USUALF has been output.
+NOTE: Format USUALTPF is already on the library WORK.FORMATS.
+NOTE: Format USUALTPF has been output.
+NOTE: Format WEIGHTKF is already on the library WORK.FORMATS.
+NOTE: Format WEIGHTKF has been output.
+NOTE: Format WGHTKF is already on the library WORK.FORMATS.
+NOTE: Format WGHTKF has been output.
+NOTE: Format WGHTPF is already on the library WORK.FORMATS.
+NOTE: Format WGHTPF has been output.
+NOTE: Format WORK is already on the library WORK.FORMATS.
+NOTE: Format WORK has been output.
+NOTE: Format WRKST is already on the library WORK.FORMATS.
+NOTE: Format WRKST has been output.
+NOTE: Format WRKSTP1X is already on the library WORK.FORMATS.
+NOTE: Format WRKSTP1X has been output.
 NOTE: Format WT18PF is already on the library WORK.FORMATS.
 NOTE: Format WT18PF has been output.
 NOTE: Format YESNO is already on the library WORK.FORMATS.
@@ -2304,9 +2574,11 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 22580 observations read from the data set CHIS2011.ADULT.
 NOTE: The data set WORK.DATA2011 has 22580 observations and 403 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.18 seconds
-      cpu time            0.17 seconds
+      real time           0.25 seconds
+      cpu time            0.25 seconds
       
+
+44                                                         The SAS System                             08:20 Saturday, April 13, 2019
 
 15363      
 15364      PROC CONTENTS DATA=CHIS2011.adult VARNUM;
@@ -2314,7 +2586,7 @@ NOTE: DATA statement used (Total process time):
 15366      RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.14 seconds
+      real time           0.15 seconds
       cpu time            0.14 seconds
       
 
@@ -2338,8 +2610,6 @@ NOTE: PROCEDURE CONTENTS used (Total process time):
 15384      	***Create new weight variables;
 15385      
 15386      	fnwgt0 = rakedw0/6;
-40                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 15387      
 15388      	ARRAY a_origwgts[80] rakedw1-rakedw80;
 15389      	ARRAY a_newwgts[160] fnwgt1-fnwgt160;
@@ -2368,6 +2638,8 @@ WARNING: Multiple lengths were specified for the variable AB18 by input data set
 WARNING: Multiple lengths were specified for the variable AB19 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AB22 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AB24 by input data set(s). This can cause truncation of data.
+45                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 WARNING: Multiple lengths were specified for the variable AB25 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AB30 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AB34 by input data set(s). This can cause truncation of data.
@@ -2398,8 +2670,6 @@ WARNING: Multiple lengths were specified for the variable AF65 by input data set
 WARNING: Multiple lengths were specified for the variable AF67 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AF68 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AF70B by input data set(s). This can cause truncation of data.
-41                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 WARNING: Multiple lengths were specified for the variable AF71B by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AF72B by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AG10 by input data set(s). This can cause truncation of data.
@@ -2428,6 +2698,8 @@ WARNING: Multiple lengths were specified for the variable AI25 by input data set
 WARNING: Multiple lengths were specified for the variable AI28 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AI4 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AJ1 by input data set(s). This can cause truncation of data.
+46                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 WARNING: Multiple lengths were specified for the variable AJ10 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AJ102 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AJ103 by input data set(s). This can cause truncation of data.
@@ -2458,8 +2730,6 @@ WARNING: Multiple lengths were specified for the variable AM19 by input data set
 WARNING: Multiple lengths were specified for the variable AM2 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AM21 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AM3 by input data set(s). This can cause truncation of data.
-42                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 WARNING: Multiple lengths were specified for the variable AM34 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AM35 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AM36 by input data set(s). This can cause truncation of data.
@@ -2488,6 +2758,8 @@ WARNING: Multiple lengths were specified for the variable AC42 by input data set
 WARNING: Multiple lengths were specified for the variable AC49 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AC50 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AG1 by input data set(s). This can cause truncation of data.
+47                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 WARNING: Multiple lengths were specified for the variable AG3 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AH73B by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AJ114 by input data set(s). This can cause truncation of data.
@@ -2518,8 +2790,6 @@ WARNING: Multiple lengths were specified for the variable AH117 by input data se
 WARNING: Multiple lengths were specified for the variable AH118 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AH119 by input data set(s). This can cause truncation of data.
 WARNING: Multiple lengths were specified for the variable AH120 by input data set(s). This can cause truncation of data.
-43                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 WARNING: Multiple lengths were specified for the variable AJ8B by input data set(s). This can cause truncation of data.
 NOTE: There were 22580 observations read from the data set CHIS2011.ADULT.
 NOTE: There were 20355 observations read from the data set CHIS2012.ADULT.
@@ -2529,8 +2799,8 @@ NOTE: There were 21034 observations read from the data set CHIS2015.ADULT.
 NOTE: There were 21055 observations read from the data set CHIS2016.ADULT.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.71 seconds
-      cpu time            0.65 seconds
+      real time           0.75 seconds
+      cpu time            0.75 seconds
       
 
 15402      
@@ -2548,6 +2818,8 @@ NOTE: DATA statement used (Total process time):
 15413      						1	= 'Yes'
 15414      						2	= 'No'
 15415      						;
+48                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format FCHISBOOL is already on the library CHIS.FORMATS.
 NOTE: Format FCHISBOOL has been written to CHIS.FORMATS.
 15416      
@@ -2578,8 +2850,6 @@ NOTE: Format FCHIS4LICHERT has been written to CHIS.FORMATS.
 15437      						;
 NOTE: Format FCHIS4NVRALYS is already on the library CHIS.FORMATS.
 NOTE: Format FCHIS4NVRALYS has been written to CHIS.FORMATS.
-44                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 15438      
 15439      	
 15439    !  VALUE fCHIS4LichTim	-9	= 'Not Ascertained'
@@ -2608,6 +2878,8 @@ NOTE: Format FCHIS4LICHTIM has been written to CHIS.FORMATS.
 15459      						5	= 'Not at All'
 15460      						;
 NOTE: Format FCHIS5LICHTIM is already on the library CHIS.FORMATS.
+49                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format FCHIS5LICHTIM has been written to CHIS.FORMATS.
 15461      
 15462      	
@@ -2638,8 +2910,6 @@ NOTE: Format FCHIS4AMT is already on the library CHIS.FORMATS.
 NOTE: Format FCHIS4AMT has been written to CHIS.FORMATS.
 15482      
 15483      	
-45                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 15483    !  VALUE fCHIS3Amt		-9	= 'Not Ascertained'
 15484      						-8	= 'Dont Know'
 15485      						-7	= 'Refused'
@@ -2668,6 +2938,8 @@ NOTE: Format FCHIS3SEVERIT has been written to CHIS.FORMATS.
 15503      	
 15503    !  VALUE fCHIS3Diffic	-9	= 'Not Ascertained'
 15504      						-8	= 'Dont Know'
+50                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 15505      						-7	= 'Refused'
 15506      						-2	= 'Proxy Skipped'
 15507      						-1	= 'Inapplicable'
@@ -2693,13 +2965,11 @@ NOTE: Format FCHIS3CONFID has been written to CHIS.FORMATS.
 15522      RUN;
 
 NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.01 seconds
-      cpu time            0.01 seconds
+      real time           0.00 seconds
+      cpu time            0.00 seconds
       
 
 15523      
-46                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 15524      /* CHIS SECTION A: DEMOGRAPHIC INFORMATION FORMATS */
 15525      PROC FORMAT LIBRARY=CHIS;
 15526      	
@@ -2728,6 +2998,8 @@ NOTE: Format FBNRYSEX has been written to CHIS.FORMATS.
 15543      	
 15543    !  VALUE flatintp		-1	= 'Non-Latino'
 15544      						1	= 'Mexican'
+51                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 15545      						2	= 'Other';
 NOTE: Format FLATINTP is already on the library CHIS.FORMATS.
 NOTE: Format FLATINTP has been written to CHIS.FORMATS.
@@ -2758,8 +3030,6 @@ NOTE: Format FRACECN_P has been written to CHIS.FORMATS.
 15563      						6	= 'White'
 15564      						8	= 'Multiracial';
 NOTE: Format FRACEDF_P is already on the library CHIS.FORMATS.
-47                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format FRACEDF_P has been written to CHIS.FORMATS.
 15565      	
 15565    !  VALUE fracehp_p		1	= 'Latino'
@@ -2788,6 +3058,8 @@ NOTE: Format FMARIT has been written to CHIS.FORMATS.
 15580      	
 15580    !  VALUE fmarit_adlt	-1	= 'Inapplicable'
 15581      						1	= 'Married'
+52                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 15582      						2	= 'Living with Partner'
 15583      						3	= 'Widowed'
 15584      						4	= 'Divorced/Separated'
@@ -2804,8 +3076,8 @@ NOTE: Format FMARIT_SCND has been written to CHIS.FORMATS.
 15590      RUN;
 
 NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.01 seconds
-      cpu time            0.01 seconds
+      real time           0.00 seconds
+      cpu time            0.00 seconds
       
 
 15591      DATA CHIS.CHIS_DATA_RAW;
@@ -2818,8 +3090,6 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 15598      	FORMAT	srch		fCHISBool.;
 15599      	FORMAT	srkr		fCHISBool.;
 15600      	FORMAT	srjp		fCHISBool.;
-48                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 15601      	FORMAT	srph		fCHISBool.;
 15602      	FORMAT	srvt		fCHISBool.;
 15603      	FORMAT	srh			fCHISBool.;
@@ -2840,14 +3110,16 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.73 seconds
-      cpu time            0.73 seconds
+      real time           0.74 seconds
+      cpu time            0.75 seconds
       
 
 15617      
 15618      /* CHIS SECTION B: GENERAL HEALTH CONDITION */
 15619      PROC FORMAT LIBRARY=CHIS;
 15620      	
+53                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 15620    !  VALUE fab			1	= 'Excellent'
 15621      						2	= 'Very Good'
 15622      						3	= 'Good'
@@ -2878,8 +3150,6 @@ NOTE: Format FASTCUR has been written to CHIS.FORMATS.
 15638      						1	= '1-2 Days'
 15639      						3	= '3-4 Days'
 15640      						5	= '5+ Days'
-49                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 15641      						;
 NOTE: Format FABADLT_P is already on the library CHIS.FORMATS.
 NOTE: Format FABADLT_P has been written to CHIS.FORMATS.
@@ -2908,6 +3178,8 @@ NOTE: Format FDIABAGE has been written to CHIS.FORMATS.
 15657      						1	= 'Type I'
 15658      						2	= 'Type II'
 15659      						;
+54                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format FDIABTYPE is already on the library CHIS.FORMATS.
 NOTE: Format FDIABTYPE has been written to CHIS.FORMATS.
 15660      	
@@ -2938,8 +3210,6 @@ NOTE: Format FDIABDILAT has been written to CHIS.FORMATS.
 15678      						2	= 'Somewhat Confident'
 15679      						3	= 'Not Too Confident / Not at All Confident'
 15680      						;
-50                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format FDIABCTLMGT is already on the library CHIS.FORMATS.
 NOTE: Format FDIABCTLMGT has been written to CHIS.FORMATS.
 15681      	
@@ -2968,6 +3238,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 15692      	SET CHIS.CHIS_DATA_RAW;
 15693      	FORMAT	ab1			fab.;
 15694      	FORMAT	ab17		fCHISBool.;
+55                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 15695      	FORMAT	ab40		fCHISBool.;
 15696      	FORMAT	ab41		fCHISBool.;
 15697      	FORMAT	ab19		fab19z.;
@@ -2998,8 +3270,6 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 15722      	FORMAT	ab34		fCHISBool.;
 15723      	FORMAT	ab52		fCHISBool.;
 15724      	FORMAT	ab115		fCHISBool.;
-51                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 15725      	FORMAT	ab116_p1	fCHISBool.;
 15726      	FORMAT	ab117		fCHISBool.;
 15727      	FORMAT	ab118		fCHISBool.;
@@ -3008,8 +3278,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.81 seconds
-      cpu time            0.79 seconds
+      real time           0.83 seconds
+      cpu time            0.81 seconds
       
 
 15729      
@@ -3028,6 +3298,8 @@ NOTE: Format FAD37W has been written to CHIS.FORMATS.
 15738      						1	= '1 Time'
 15739      						2	= '2-3 Times'
 15740      						3	= '4-6 Times'
+56                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 15741      						4	= '7-13 Times'
 15742      						5	= '14-20 Times'
 15743      						6	= '21+ Times'
@@ -3058,8 +3330,6 @@ NOTE: Format FAC42_P is already on the library CHIS.FORMATS.
 NOTE: Format FAC42_P has been written to CHIS.FORMATS.
 15761      
 15762      	
-52                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 15762    !  VALUE fac44z		-1	= 'Inapplicable'
 15763      						1	= 'Never'
 15764      						2	= 'Sometimes'
@@ -3088,6 +3358,8 @@ NOTE: Format FAE15A has been written to CHIS.FORMATS.
 15781      						;
 NOTE: Format FAD32_P1Z is already on the library CHIS.FORMATS.
 NOTE: Format FAD32_P1Z has been written to CHIS.FORMATS.
+57                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 15782      
 15783      	
 15783    !  VALUE fae16_p1z		-1	= 'Inapplicable'
@@ -3118,8 +3390,6 @@ NOTE: Format FSMKCUR has been written to CHIS.FORMATS.
 NOTE: Format FSMOKING is already on the library CHIS.FORMATS.
 NOTE: Format FSMOKING has been written to CHIS.FORMATS.
 15802      
-53                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 15803      	
 15803    !  VALUE fnumcig		1	= 'None'
 15804      						2	= '<=1 Cigarette'
@@ -3148,6 +3418,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 15819      	FORMAT	ac44		fac44z.;
 15820      	FORMAT	ae15		fCHISBool.;
 15821      	FORMAT	ae15a		fae15a.;
+58                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 15822      	FORMAT	ad32_p1		fad32_p1z.;
 15823      	FORMAT	ae16_p1		fae16_p1z.;
 15824      	FORMAT	smkcur		fsmkcur.;
@@ -3160,8 +3432,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.91 seconds
-      cpu time            0.76 seconds
+      real time           0.74 seconds
+      cpu time            0.73 seconds
       
 
 15830      
@@ -3178,10 +3450,8 @@ NOTE: Format FRBMI has been written to CHIS.FORMATS.
 15838      RUN;
 
 NOTE: PROCEDURE FORMAT used (Total process time):
-54                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
       real time           0.00 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
       
 
 15839      
@@ -3195,8 +3465,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.73 seconds
-      cpu time            0.73 seconds
+      real time           0.76 seconds
+      cpu time            0.76 seconds
       
 
 15846      
@@ -3208,6 +3478,8 @@ NOTE: DATA statement used (Total process time):
 15851      						1	= 'Yes'
 15852      						2	= 'No'
 15853      						3	= 'No Insurance'
+59                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 15854      						;
 NOTE: Format FAJ1Z is already on the library CHIS.FORMATS.
 NOTE: Format FAJ1Z has been written to CHIS.FORMATS.
@@ -3238,8 +3510,6 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 15873      	FORMAT	af63		fCHIS5LichTim.;
 15874      	FORMAT	af64		fCHIS5LichTim.;
 15875      	FORMAT	af65		fCHIS5LichTim.;
-55                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 15876      	FORMAT	af66		fCHIS5LichTim.;
 15877      	FORMAT	af67		fCHIS5LichTim.;
 15878      	FORMAT	af68		fCHIS5LichTim.;
@@ -3258,8 +3528,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 812 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.80 seconds
-      cpu time            0.78 seconds
+      real time           0.76 seconds
+      cpu time            0.75 seconds
       
 
 15890      
@@ -3268,6 +3538,8 @@ NOTE: DATA statement used (Total process time):
 15893      
 15894      	
 15894    !  VALUE fah3nativity	-1	= 'Inapplicable'
+60                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 15895      						1	= 'Born in U.S.'
 15896      						2	= 'Born Outside U.S.'
 15897      						;
@@ -3298,8 +3570,6 @@ NOTE: Format FLNGHM_P1Z has been written to CHIS.FORMATS.
 15916      						-2	= 'Proxy Skipped'
 15917      						-1	= 'Inapplicable'
 15918      						1	= 'Very Well'
-56                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 15919      						2	= 'Well'
 15920      						3	= 'Not Well'
 15921      						4	= 'Not at All'
@@ -3328,6 +3598,8 @@ NOTE: Format FCITIZEN has been written to CHIS.FORMATS.
 15935      						1	= '<5 Years'
 15936      						3	= '5-9 Years'
 15937      						4	= '10-14 Years'
+61                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 15938      						5	= '15-19 Years'
 15939      						;
 NOTE: Format FYRUS_P1Z is already on the library CHIS.FORMATS.
@@ -3358,8 +3630,6 @@ NOTE: Format FAHEDC_P1Z is already on the library CHIS.FORMATS.
 NOTE: Format FAHEDC_P1Z has been written to CHIS.FORMATS.
 15958      
 15959      	
-57                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 15959    !  VALUE fag10z		-1	= 'Inapplicable'
 15960      						1	= 'Yes'
 15961      						2	= 'No'
@@ -3388,6 +3658,8 @@ NOTE: Format FWRKST_P1Z has been written to CHIS.FORMATS.
 15978      						2	= '0.5 - 2 Years'
 15979      						3	= '2 - 4 Years'
 15980      						4	= '4 - 20 Years'
+62                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 15981      						5	= '20+ Years'
 15982      						;
 NOTE: Format FSERVED is already on the library CHIS.FORMATS.
@@ -3408,7 +3680,7 @@ NOTE: Format FFAMTYP_P has been written to CHIS.FORMATS.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
       
 
 15993      
@@ -3418,8 +3690,6 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 15997      	FORMAT	ah34new		fah3nativity.;
 15998      	FORMAT	ah35new		fah3nativity.;
 15999      	FORMAT	lnghm_p1	flnghm_p1z.;
-58                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 16000      	FORMAT	ah37		fah37z.;
 16001      	FORMAT	spk_eng		fspk_eng.;
 16002      	FORMAT	citizen2	fcitizen.;
@@ -3437,8 +3707,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 812 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.84 seconds
-      cpu time            0.82 seconds
+      real time           0.81 seconds
+      cpu time            0.81 seconds
       
 
 16013      
@@ -3448,6 +3718,8 @@ NOTE: DATA statement used (Total process time):
 16016    !  VALUE	fai15z		-1	= 'Inapplicable'
 16017      						1	= 'Covered by Another Plan'
 16018      						2	= 'Too Expensive'
+63                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 16019      						3	= 'Didnt Like Plan Offered'
 16020      						4	= 'Dont Need or Believe in Health Insurance'
 16021      						5	= 'In Process'
@@ -3478,8 +3750,6 @@ NOTE: Format FAI15A has been written to CHIS.FORMATS.
 16040      						-1	= 'Inapplicable'
 16041      						1	= 'Kaiser'
 16042      						2	= 'Blue Cross'
-59                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 16043      						3	= 'United Healthcare'
 16044      						4	= 'Blue Shield'
 16045      						5	= 'Health Net'
@@ -3487,7 +3757,6 @@ NOTE: Format FAI15A has been written to CHIS.FORMATS.
 16047      						7	= 'Cigna Health Care'
 16048      						8	= 'Other'
 16049      						;
-NOTE: Format FAI22A_P is already on the library CHIS.FORMATS.
 NOTE: Format FAI22A_P has been written to CHIS.FORMATS.
 16050      
 16051      	
@@ -3509,6 +3778,8 @@ NOTE: Format FAI28Z has been written to CHIS.FORMATS.
 16061      
 16062      	
 16062    !  VALUE	fah101_p	-1	= 'Inapplicable'
+64                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 16063      						1	= 'Broker'
 16064      						2	= 'Family Member / Friend'
 16065      						3	= 'Internet'
@@ -3538,8 +3809,6 @@ NOTE: Format FUNINSANY has been written to CHIS.FORMATS.
 NOTE: Format FINS64_P is already on the library CHIS.FORMATS.
 NOTE: Format FINS64_P has been written to CHIS.FORMATS.
 16083      
-60                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 16084      	
 16084    !  VALUE	finsany		1	= 'Currently Uninsured'
 16085      						2	= 'Unins. Any Past 12 mo'
@@ -3569,6 +3838,8 @@ NOTE: Format FINST_12Z has been written to CHIS.FORMATS.
 16103      						3	= 'Medicare Only'
 16104      						4	= 'Other Only'
 16105      						5	= 'Uninsured'
+65                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 16106      						;
 NOTE: Format FINS65Z is already on the library CHIS.FORMATS.
 NOTE: Format FINS65Z has been written to CHIS.FORMATS.
@@ -3595,10 +3866,8 @@ NOTE: Format FOFFTK has been written to CHIS.FORMATS.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
       
-
-61                                                         The SAS System                             08:20 Saturday, April 13, 2019
 
 16121      
 16122      DATA CHIS.CHIS_DATA_RAW;
@@ -3629,6 +3898,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 16147      	FORMAT	insany		finsany.;
 16148      	FORMAT	inst_12		finst_12z.;
 16149      	FORMAT	ins65		fins65z.;
+66                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 16150      	FORMAT	insem		fCHISBool.;
 16151      	FORMAT	insmc		fCHISBool.;
 16152      	FORMAT	insmd		fCHISBool.;
@@ -3641,8 +3912,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 812 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.81 seconds
-      cpu time            0.81 seconds
+      real time           0.82 seconds
+      cpu time            0.82 seconds
       
 
 16158      
@@ -3658,8 +3929,6 @@ NOTE: DATA statement used (Total process time):
 NOTE: Format FAH1Z is already on the library CHIS.FORMATS.
 NOTE: Format FAH1Z has been written to CHIS.FORMATS.
 16167      
-62                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 16168      	
 16168    !  VALUE	fah3_p1z	-1	= 'Inapplicable'
 16169      						1	= 'Doctors Office / Kasier / HMO'
@@ -3689,6 +3958,8 @@ NOTE: Format FUSUAL_TP has been written to CHIS.FORMATS.
 16187      						5	= 'No Usual Source of Care'
 16188      						;
 NOTE: Format FUSUAL5TP is already on the library CHIS.FORMATS.
+67                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 NOTE: Format FUSUAL5TP has been written to CHIS.FORMATS.
 16189      
 16190      	
@@ -3718,8 +3989,6 @@ NOTE: Format FAH6Z has been written to CHIS.FORMATS.
 NOTE: Format FACMDNUM is already on the library CHIS.FORMATS.
 NOTE: Format FACMDNUM has been written to CHIS.FORMATS.
 16210      
-63                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 16211      	
 16211    !  VALUE	faj114z		-1	= 'Inapplicable'
 16212      						0	= 'One Year Ago or Less'
@@ -3749,6 +4018,8 @@ NOTE: Format FAJ131_P1Z has been written to CHIS.FORMATS.
 16231      	
 16231    !  VALUE	frn_forgo	-1	= 'Inapplicable'
 16232      						1	= 'Cost'
+68                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 16233      						2	= 'Couldnt Get Appointment'
 16234      						3	= 'Didnt Have Time'
 16235      						4	= 'Others'
@@ -3771,15 +4042,13 @@ NOTE: Format FAH95_P1Z has been written to CHIS.FORMATS.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
-      cpu time            0.00 seconds
+      cpu time            0.01 seconds
       
 
 16247      
 16248      DATA CHIS.CHIS_DATA_RAW;
 16249      	SET CHIS.CHIS_DATA_RAW;
 16250      	FORMAT	ah1			fah1z.;
-64                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 16251      	FORMAT	ah3_p1		fah3_p1z.;
 16252      	FORMAT	usoc		fCHISBool.;
 16253      	FORMAT	usual		fCHISBool.;
@@ -3809,6 +4078,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 16277      	FORMAT	aj131_p1	faj131_p1z.;
 16278      	FORMAT	care_pv		fCHISBool.;
 16279      	FORMAT	rn_forgo	frn_forgo.;
+69                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 16280      	FORMAT	forgo		fCHISBool.;
 16281      	FORMAT	aj136		fCHISBool.;
 16282      	FORMAT	aj137		fCHISBool.;
@@ -3838,8 +4109,6 @@ NOTE: DATA statement used (Total process time):
 16298      PROC FORMAT LIBRARY=CHIS;
 16299      	
 16299    !  VALUE	fak1z		1	= 'Working at a Job/Business'
-65                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 16300      						2	= 'With a Job/Business but Not at Work'
 16301      						3	= 'Looking for Work'
 16302      						4	= 'Not Working Job / Business (Unemp)'
@@ -3869,6 +4138,8 @@ NOTE: Format FAK2_P1Z has been written to CHIS.FORMATS.
 16320      						2	= 'Government'
 16321      						3	= 'Self-Employed'
 16322      						4	= 'Family Business or Farm'
+70                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 16323      						;
 NOTE: Format FAK4Z is already on the library CHIS.FORMATS.
 NOTE: Format FAK4Z has been written to CHIS.FORMATS.
@@ -3898,8 +4169,6 @@ NOTE: Format FINDMAIN2Z is already on the library CHIS.FORMATS.
 NOTE: Format FINDMAIN2Z has been written to CHIS.FORMATS.
 16345      
 16346      	
-66                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 16346    !  VALUE	foccmain2z	-9	= 'Not Ascertained'
 16347      						-8	= 'Dont Know'
 16348      						-7	= 'Refused'
@@ -3929,6 +4198,8 @@ NOTE: Format FOCCMAIN2Z has been written to CHIS.FORMATS.
 16369      						2	= '2 Years'
 16370      						3	= '3 Years'
 16371      						4	= '4 Years'
+71                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 16372      						5	= '5 Years'
 16373      						6	= '6-9 Years'
 16374      						7	= '10-14 Years'
@@ -3958,8 +4229,6 @@ NOTE: Format FAK8Z has been written to CHIS.FORMATS.
 16392      						1	= '1'
 16393      						2	= '2'
 16394      						3	= '3'
-67                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 16395      						;
 NOTE: Format FAK33_P1Z is already on the library CHIS.FORMATS.
 NOTE: Format FAK33_P1Z has been written to CHIS.FORMATS.
@@ -3989,6 +4258,8 @@ NOTE: Format FFSLEV has been written to CHIS.FORMATS.
 16412      						;
 NOTE: Format FFPG is already on the library CHIS.FORMATS.
 NOTE: Format FFPG has been written to CHIS.FORMATS.
+72                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 16413      	
 16414      	
 16414    !  VALUE	fpovll_aca	1	= '0-138% FPL'
@@ -4018,8 +4289,6 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 16427      DATA CHIS.CHIS_DATA_RAW;
 16428      	SET CHIS.CHIS_DATA_RAW;
 16429      	FORMAT	ak1			fak1z.;
-68                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 16430      	FORMAT	ak2_p1		fak2_p1z.;
 16431      	FORMAT	ak4			fak4z.;
 16432      	FORMAT	indmain2	findmain2z.;
@@ -4043,12 +4312,14 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 812 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.85 seconds
-      cpu time            0.86 seconds
+      real time           0.83 seconds
+      cpu time            0.84 seconds
       
 
 16449      
 16450      /* CHIS SECTION L: PUBLIC PROGRAM PARETICIPATION */
+73                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 16451      DATA CHIS.CHIS_DATA_RAW;
 16452      	SET CHIS.CHIS_DATA_RAW;
 16453      	FORMAT	al2			fCHISBool.;
@@ -4062,8 +4333,8 @@ NOTE: DATA statement used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 812 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.86 seconds
-      cpu time            0.87 seconds
+      real time           0.82 seconds
+      cpu time            0.81 seconds
       
 
 16460      
@@ -4078,8 +4349,6 @@ NOTE: DATA statement used (Total process time):
 NOTE: Format FAK23Z is already on the library CHIS.FORMATS.
 NOTE: Format FAK23Z has been written to CHIS.FORMATS.
 16468      
-69                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 16469      	
 16469    !  VALUE	fak25z		-9	= 'Not Ascertained'
 16470      						-8	= 'Dont Know'
@@ -4109,12 +4378,14 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 16486      	FORMAT	ak28		fCHIS4LichTim.;
 16487      	FORMAT	am36		fCHISBool.;
 16488      RUN;
+74                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 812 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.89 seconds
-      cpu time            0.90 seconds
+      real time           0.83 seconds
+      cpu time            0.82 seconds
       
 
 16489      
@@ -4138,8 +4409,6 @@ NOTE: Format FAM34Z has been written to CHIS.FORMATS.
 16503      						1	= 'Urban'
 16504      						2	= 'Rural'
 16505      						;
-70                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format FUR_CLRT2Z is already on the library CHIS.FORMATS.
 NOTE: Format FUR_CLRT2Z has been written to CHIS.FORMATS.
 16506      
@@ -4169,6 +4438,8 @@ NOTE: Format FUR_CLRT4Z has been written to CHIS.FORMATS.
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
       cpu time            0.00 seconds
+75                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
       
 
 16523      
@@ -4185,8 +4456,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 812 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.90 seconds
-      cpu time            0.90 seconds
+      real time           0.83 seconds
+      cpu time            0.82 seconds
       
 16532    !     	
 
@@ -4198,8 +4469,6 @@ NOTE: DATA statement used (Total process time):
 16537      						2	= 'Spanish'
 16538      						3	= 'Other';
 NOTE: Format FINTVLNGC_P is already on the library CHIS.FORMATS.
-71                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format FINTVLNGC_P has been written to CHIS.FORMATS.
 16539      	
 16539    !  VALUE fsrtenr		1	= 'Own'
@@ -4224,19 +4493,21 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 812 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.90 seconds
-      cpu time            0.90 seconds
+      real time           0.88 seconds
+      cpu time            0.89 seconds
       
 
 16549      
+76                                                         The SAS System                             08:20 Saturday, April 13, 2019
+
 16550      /* CHIS.CHIS_DATA_RAW CONTENTS */
 16551      PROC CONTENTS DATA=CHIS.CHIS_DATA_RAW VARNUM;
 16552      	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_RAW';
 16553      RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.34 seconds
-      cpu time            0.31 seconds
+      real time           0.38 seconds
+      cpu time            0.37 seconds
       
 
 16554      
@@ -4255,10 +4526,8 @@ NOTE: PROCEDURE CONTENTS used (Total process time):
 16567      ;*';*";*/;quit;run;
 16568      ODS _ALL_ CLOSE;
 NOTE: ODS PDF(EGPDF) printed 111 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-24352-d7227d43\contents\SAS 
-      Temporary Files\_TD6556_R90T7H56_\#LN00128.
+      Temporary Files\_TD6556_R90T7H56_\#LN00234.
 16569      
 16570      
-72                                                         The SAS System                             08:20 Saturday, April 13, 2019
-
 16571      QUIT; RUN;
 16572      
