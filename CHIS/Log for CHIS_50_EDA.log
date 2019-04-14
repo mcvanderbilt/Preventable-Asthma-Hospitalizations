@@ -1,0 +1,257 @@
+1                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
+1          ;*';*";*/;quit;run;
+2          OPTIONS PAGENO=MIN;
+3          %LET _CLIENTTASKLABEL='CHIS_50_Univariate';
+4          %LET _CLIENTPROCESSFLOWNAME='Process Flow';
+5          %LET
+5        ! _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
+6          %LET _CLIENTPROJECTPATHHOST='R90T7H56';
+7          %LET _CLIENTPROJECTNAME='CHIS_Analysis.egp';
+8          %LET _SASPROGRAMFILE='';
+9          %LET _SASPROGRAMFILEHOST='';
+10         
+11         ODS _ALL_ CLOSE;
+12         OPTIONS DEV=PNG;
+13         GOPTIONS XPIXELS=0 YPIXELS=0;
+14         FILENAME EGHTML TEMP;
+15         ODS HTML(ID=EGHTML) FILE=EGHTML
+16             ENCODING='utf-8'
+17             STYLE=HTMLBlue
+18             STYLESHEET=(URL="file:///C:/Program%20Files/SASHome/SASEnterpriseGuide/7.1/Styles/HTMLBlue.css")
+19             NOGTITLE
+20             NOGFOOTNOTE
+21             GPATH=&sasworklocation
+22         ;
+NOTE: Writing HTML(EGHTML) Body file: EGHTML
+23         FILENAME EGPDF TEMP;
+24         ODS PDF(ID=EGPDF) FILE=EGPDF STYLE=Pearl;
+NOTE: Writing ODS PDF(EGPDF) output to DISK destination "EGPDF", printer "PDF".
+25         FILENAME EGSR TEMP;
+26         ODS tagsets.sasreport13(ID=EGSR) FILE=EGSR
+27             STYLE=HTMLBlue
+28             STYLESHEET=(URL="file:///C:/Program%20Files/SASHome/SASEnterpriseGuide/7.1/Styles/HTMLBlue.css")
+29             NOGTITLE
+30             NOGFOOTNOTE
+31             GPATH=&sasworklocation
+32             ENCODING=UTF8
+33             options(rolap="on")
+34         ;
+NOTE: Writing TAGSETS.SASREPORT13(EGSR) Body file: EGSR
+35         
+36         GOPTIONS ACCESSIBLE;
+37         /************************************************************************************************************************
+37       ! *****
+38         **	Project Name	: Secondary Research of Asthma  Hospitalizations														**
+39         **					  Masters of Science in Business Analytics Cappstone Project											**
+40         **					  February 2019																							**
+41         **	Author			: Matthew C. Vanderbilt																					**
+42         **					  Candidate & NU Scholar, National University															**
+43         **					  Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine					**
+44         **	======================================================================================================================
+44       ! = **
+45         **	Date Created	: 04 April 2019 13:37																					**
+46         **	Input Files		: CHIS.CHIS_DATA (see CHIS_10_LoadData)																	**
+47         **	----------------------------------------------------------------------------------------------------------------------
+47       ! - **
+48         **	Program Name	: CHIS_50_																					**
+49         **	Purpose			: 																**
+50         **	Reference Note	: Some code may be adapted/used from other sources; see README for "Reference Materials"				**
+51         **																															**
+2                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
+52         *************************************************************************************************************************
+52       ! ****/
+53         
+54         ODS GRAPHICS ON;
+55         
+56         /* MASTER LIBRARY */
+57         %LET localProjectPath = %SYSFUNC(SUBSTR(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH)), 1,
+57       ! %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH))) - %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTNAME))) ));
+58         LIBNAME CHIS "&localProjectPath";
+NOTE: Libref CHIS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS
+59         
+60         /* APPLY CHIS FORMATS */
+61         OPTIONS fmtsearch=(CHIS);
+62         
+63         /* Univariate Statistics */
+64         PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+65         	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Demographic Information';
+66         	WEIGHT	FNWGT0;
+67         	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+68         	TABLES (SRTENR
+69         			SRSEX
+70         			RACEDF_P1
+71         			AH33NEW
+72         			AH34NEW
+73         			AH35NEW
+74         			LNGHM_P1
+75         			AH37
+76         			CITIZEN2
+77         			YRUS_P1
+78         			PCTLF_P
+79         			AG22
+80         			SERVED
+81         			AG10
+82         			WRKST_P1
+83         			AHEDC_P1
+84         			FAMTYP_P
+85         			AM34
+86         			UR_CLRT
+87         			maritstat
+88         			agegroup
+89         			)*AB40 / CHISQ;
+90         RUN;
+
+NOTE: Chi-square tests cannot be computed for the table of AH37 by AB40 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of SERVED by AB40 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AM34 by AB40 because at least one table cell has 0 frequency.
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           18:48.28
+      cpu time            18:47.14
+      
+
+91         
+92         PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+93         	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Health Condition & Behaviours';
+94         	WEIGHT	FNWGT0;
+95         	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+3                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
+96         	TABLES (AB1
+97         			AB17
+98         			AB41
+99         			ASTCUR
+100        			ASTS
+101        			ASTYR
+102        			AB18
+103        			AB19
+104        			AH13A
+105        			AB43
+106        			AB98
+107        			AB108_P1
+108        			AB22
+109        			AB24
+110        			AB25
+111        			AB30
+112        			AB34
+113        			AB52
+114        			AB117
+115        			AD37W
+116        			AD40W
+117        			AESODA_P1
+118        			AE15
+119        			AE15A
+120        			SMKCUR
+121        			SMOKING
+122        			NUMCIG
+123        			AC42_P
+124        			AC44
+125        			AD50
+126        			RBMI
+127        			AF65
+128        			AF63
+129        			DSTRS12
+130        			DSTRS30
+131        			)*AB40 / CHISQ;
+132        RUN;
+
+NOTE: Chi-square tests cannot be computed for the table of AB17 by AB40 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB41 by AB40 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of ASTCUR by AB40 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of ASTS by AB40 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of ASTYR by AB40 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB18 by AB40 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB19 by AB40 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AH13A by AB40 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB43 by AB40 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB98 by AB40 because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB108_P1 by AB40 because at least one table cell has 0 frequency.
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           46:37.73
+      cpu time            46:36.56
+      
+
+133        
+134        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+135        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Health Insurance, Access, & Utilization';
+136        	WEIGHT	FNWGT0;
+4                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
+137        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+138        	TABLES (HMO
+139        			AI22A_P
+140        			AI25
+141        			AH71_P1
+142        			AH72_P1
+143        			AH14
+144        			INS
+145        			AH1
+146        			USUAL5TP
+147        			AJ9
+148        			AH16
+149        			AJ19
+150        			AH22
+151        			AJ20
+152        			AJ102
+153        			AJ105
+154        			AJ108
+155        			AJ112
+156        			AJ113
+157        			AH12
+158        			ER
+159        			)*AB40 / CHISQ;
+160        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           22:45.61
+      cpu time            22:43.76
+      
+
+161        
+162        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+163        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Socioeconomic Status';
+164        	WEIGHT	FNWGT0;
+165        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+166        	TABLES (AK4
+167        			FSLEV
+168        			POVLL
+169        			AL6
+170        			AL22
+171        			AL18A
+172        			AK23
+173        			AK25
+174        			AM19
+175        			AM21
+176        			AK28
+177        			AM36
+178        			)*AB40 / CHISQ;
+179        RUN;
+
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           7:11.53
+      cpu time            7:11.14
+      
+
+180        
+181        GOPTIONS NOACCESSIBLE;
+182        %LET _CLIENTTASKLABEL=;
+5                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
+183        %LET _CLIENTPROCESSFLOWNAME=;
+184        %LET _CLIENTPROJECTPATH=;
+185        %LET _CLIENTPROJECTPATHHOST=;
+186        %LET _CLIENTPROJECTNAME=;
+187        %LET _SASPROGRAMFILE=;
+188        %LET _SASPROGRAMFILEHOST=;
+189        
+190        ;*';*";*/;quit;run;
+191        ODS _ALL_ CLOSE;
+NOTE: ODS PDF(EGPDF) printed 115 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-24352-d7227d43\contents\SAS 
+      Temporary Files\_TD6556_R90T7H56_\#LN00087.
+192        
+193        
+194        QUIT; RUN;
+195        

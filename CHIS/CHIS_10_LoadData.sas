@@ -1,5 +1,5 @@
 %LET _CLIENTTASKLABEL='CHIS_10_LoadData';
-%LET _CLIENTPROCESSFLOWNAME='Process Flow';
+%LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
 %LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
 %LET _CLIENTPROJECTPATHHOST='R90T7H56';
 %LET _CLIENTPROJECTNAME='CHIS_Analysis.egp';
@@ -21,7 +21,7 @@ GOPTIONS ACCESSIBLE;
 **  ----------------------------------------------------------------------------------------------------------------------- **
 **  Program Name    : CHIS_10_LoadData                                                                                      **
 **  Purpose         : Loads CHIS data files and creates combined file with adjusted weightings                              **
-**  Reference Note  :  Some code may be adapted/used from other sources; see README for "Reference Materials"                **
+**  Reference Note  : Some code may be adapted/used from other sources; see README for "Reference Materials"                **
 **                                                                                                                          **
 *****************************************************************************************************************************/
 
@@ -30,20 +30,6 @@ ODS GRAPHICS ON;
 /* MASTER LIBRARY */
 %LET localProjectPath = %SYSFUNC(SUBSTR(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH)), 1, %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH))) - %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTNAME))) ));
 LIBNAME CHIS "&localProjectPath";
-
-/* LOAD 2017 DATA */
-LIBNAME CHIS2017 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\adult_2017_sas';
-%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\adult_2017_sas\ADULT_PROC_FORMAT.SAS';
-
-DATA data2017;
-	SET CHIS2017.adult;
-	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\adult_2017_sas\ADULT_FORMAT.SAS';
-	%INCLUDE 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\adult_2017_sas\ADULT_LABEL.SAS';
-RUN;
-
-PROC CONTENTS DATA=CHIS2017.adult VARNUM;
-	TITLE 'PROC CONTENTS - CHIS2017.adult';
-RUN;
 
 /* LOAD 2016 DATA */
 LIBNAME CHIS2016 'C:\Users\rdy2d\OneDrive\Documents\Education\Matthew\National University\ANA699B\CHIS\CHIS16_adult_sas\Data\';
