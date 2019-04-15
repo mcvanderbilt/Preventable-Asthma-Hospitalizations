@@ -1,9 +1,9 @@
-1                                                          The SAS System                               17:43 Tuesday, April 2, 2019
+1                                                          The SAS System                             08:20 Saturday, April 13, 2019
 
 1          ;*';*";*/;quit;run;
 2          OPTIONS PAGENO=MIN;
 3          %LET _CLIENTTASKLABEL='CHIS_45_AsthmaChar';
-4          %LET _CLIENTPROCESSFLOWNAME='Process Flow';
+4          %LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
 5          %LET
 5        ! _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
 6          %LET _CLIENTPROJECTPATHHOST='R90T7H56';
@@ -42,156 +42,95 @@ NOTE: Writing TAGSETS.SASREPORT13(EGSR) Body file: EGSR
 36         GOPTIONS ACCESSIBLE;
 37         /************************************************************************************************************************
 37       ! *****
-38         **	Project Name	: Secondary Research of Asthma  Hospitalizations														**
-39         **					  Masters of Science in Business Analytics Cappstone Project											**
-40         **					  February 2019																							**
-41         **	Author			: Matthew C. Vanderbilt																					**
-42         **					  Candidate & NU Scholar, National University															**
-43         **					  Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine					**
-44         **	======================================================================================================================
-44       ! = **
-45         **	Date Created	: 31 March 2019 09:59																					**
-46         **	Input Files		: CHIS.CHIS_DATA (see CHIS_10_LoadData)																	**
-47         **	----------------------------------------------------------------------------------------------------------------------
-47       ! - **
-48         **	Program Name	: CHIS_45_AthmaChar																						**
-49         **	Purpose			: Investigates Characteristics of Sample																**
-50         **	Reference Note	: Some code may be adapted/used from other sources; see README for "Reference Materials"				**
-51         **																															**
-2                                                          The SAS System                               17:43 Tuesday, April 2, 2019
+38         **  Project Name    : Secondary Research of Asthma  Hospitalizations
+38       !    **
+39         **                    Masters of Science in Business Analytics Capstone Project
+39       !    **
+40         **                    March / April 2019
+40       !    **
+41         **  Author          : Matthew C. Vanderbilt
+41       !    **
+42         **                    Candidate & NU Scholar, National University
+42       !    **
+43         **                    Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine
+43       !    **
+44         **
+44       ! =======================================================================================================================
+44       ! **
+45         **  Date Created    : 31 March 2019 09:59
+2                                                          The SAS System                             08:20 Saturday, April 13, 2019
 
-52         *************************************************************************************************************************
-52       ! ****/
+45       !    **
+46         **  Program Name    : CHIS_45_AthmaChar
+46       !    **
+47         **  Purpose         : Investigates Characteristics of Sample
+47       !    **
+48         **  Reference Note  : Some code may be adapted/used from other sources; see README for "Reference Materials"
+48       !    **
+49         **
+49       !    **
+50         *************************************************************************************************************************
+50       ! ****/
+51         
+52         ODS GRAPHICS ON;
 53         
-54         ODS GRAPHICS ON;
-55         
-56         /* MASTER LIBRARY */
-57         %LET localProjectPath = %SYSFUNC(SUBSTR(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH)), 1,
-57       ! %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH))) - %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTNAME))) ));
-58         LIBNAME CHIS "&localProjectPath";
+54         /* MASTER LIBRARY */
+55         %LET localProjectPath = %SYSFUNC(SUBSTR(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH)), 1,
+55       ! %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH))) - %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTNAME))) ));
+56         LIBNAME CHIS "&localProjectPath";
 NOTE: Libref CHIS was successfully assigned as follows: 
       Engine:        V9 
       Physical Name: C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS
-59         
-60         /* APPLY CHIS FORMATS */
-61         OPTIONS fmtsearch=(CHIS);
-62         
-63         /* ASTHMA STATISTICS */
-64         PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
-65         	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Asthma Variables';
-66         	WEIGHT	FNWGT0;
-67         	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-68         	TABLES	AB17
-69         			AB40
-70         			AB41
-71         			ASTCUR
-72         			ASTS
-73         			ASTYR
-74         			AB18
-75         			AB19
-76         			AH13A
-77         			AB43
-78         			AB98
-79         			AB108_P1
-80         			;
-81         RUN;
+57         
+58         /* APPLY CHIS FORMATS */
+59         OPTIONS fmtsearch=(CHIS);
+60         
+61         /* ASTHMA STATISTICS */
+62         PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+63         	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Asthma Variables';
+64         	WEIGHT	FNWGT0;
+65         	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+66         	TABLES	(AB17
+67         			AB40
+68         			AB41
+69         			ASTCUR
+70         			ASTS
+71         			ASTYR
+72         			AB18
+73         			AB19
+74         			AH13A
+75         			AB43
+76         			AB98
+77         			AB108_P1
+78         			)*asthmastatus
+79         			;
+80         RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           3:57.40
-      cpu time            3:56.53
+      real time           8:23.33
+      cpu time            8:22.46
       
 
-82         
-83         PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
-84         	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Asthma Variables';
-85         	WEIGHT	FNWGT0;
-86         	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-87         	TABLES	AB17*ASTS
-88         			AB17*AB18
-89         			AB17*AB19
-90         			AB17*AB43
-91         			AB17*AB98
-92         			AB17*AB108_P1
-93         			AB40*AB17
-94         			AB40*ASTCUR
-95         			AB40*ASTYR
-96         			AB40*AB18
-97         			AB40*AB19
-98         			AB40*AH13A
-3                                                          The SAS System                               17:43 Tuesday, April 2, 2019
+81         
+82         ODS GRAPHICS OFF;
+83         QUIT;
+84         
+85         GOPTIONS NOACCESSIBLE;
+86         %LET _CLIENTTASKLABEL=;
+87         %LET _CLIENTPROCESSFLOWNAME=;
+3                                                          The SAS System                             08:20 Saturday, April 13, 2019
 
-99         			AB40*AB43
-100        			AB40*AB98
-101        			AB40*AB108_P1
-102        			AB43*AB98
-103        			;
-104        RUN;
-
-NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           5:43.07
-      cpu time            5:42.37
-      
-
-105        
-106        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL (WHERE=(ab17=1)) VARMETHOD=JACKKNIFE;
-107        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Lifetime Asthmatic Variables';
-108        	WEIGHT	FNWGT0;
-109        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-110        	TABLES	AB17*AB40
-111        			AB17*ASTS
-112        			AB17*AB18
-113        			AB17*AB19
-114        			AB17*AB43
-115        			AB17*AB98
-116        			AB17*AB108_P1
-117        			;
-118        RUN;
-
-NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           25.47 seconds
-      cpu time            24.68 seconds
-      
-
-119        
-120        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL (WHERE=(ab40=1)) VARMETHOD=JACKKNIFE;
-121        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Current Asthmatic Variables';
-122        	WEIGHT	FNWGT0;
-123        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-124        	TABLES	AB40*ASTYR
-125        			AB40*AB18
-126        			AB40*AB19
-127        			AB40*AH13A
-128        			AB40*AB43
-129        			AB40*AB98
-130        			AB40*AB108_P1
-131        			;
-132        RUN;
-
-NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           18.17 seconds
-      cpu time            17.62 seconds
-      
-
-133        
-134        ODS GRAPHICS OFF;
-135        QUIT;
-136        
-137        GOPTIONS NOACCESSIBLE;
-138        %LET _CLIENTTASKLABEL=;
-4                                                          The SAS System                               17:43 Tuesday, April 2, 2019
-
-139        %LET _CLIENTPROCESSFLOWNAME=;
-140        %LET _CLIENTPROJECTPATH=;
-141        %LET _CLIENTPROJECTPATHHOST=;
-142        %LET _CLIENTPROJECTNAME=;
-143        %LET _SASPROGRAMFILE=;
-144        %LET _SASPROGRAMFILEHOST=;
-145        
-146        ;*';*";*/;quit;run;
-147        ODS _ALL_ CLOSE;
-NOTE: ODS PDF(EGPDF) printed 21 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-7912-5f498c46\contents\SAS 
-      Temporary Files\_TD19348_R90T7H56_\#LN00196.
-148        
-149        
-150        QUIT; RUN;
-151        
+88         %LET _CLIENTPROJECTPATH=;
+89         %LET _CLIENTPROJECTPATHHOST=;
+90         %LET _CLIENTPROJECTNAME=;
+91         %LET _SASPROGRAMFILE=;
+92         %LET _SASPROGRAMFILEHOST=;
+93         
+94         ;*';*";*/;quit;run;
+95         ODS _ALL_ CLOSE;
+NOTE: ODS PDF(EGPDF) printed 11 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-24352-d7227d43\contents\SAS 
+      Temporary Files\_TD6556_R90T7H56_\#LN00750.
+96         
+97         
+98         QUIT; RUN;
+99         

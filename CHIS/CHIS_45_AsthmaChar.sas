@@ -1,5 +1,5 @@
 %LET _CLIENTTASKLABEL='CHIS_45_AsthmaChar';
-%LET _CLIENTPROCESSFLOWNAME='Process Flow';
+%LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
 %LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
 %LET _CLIENTPROJECTPATHHOST='R90T7H56';
 %LET _CLIENTPROJECTNAME='CHIS_Analysis.egp';
@@ -8,20 +8,18 @@
 
 GOPTIONS ACCESSIBLE;
 /*****************************************************************************************************************************
-**	Project Name	: Secondary Research of Asthma  Hospitalizations														**
-**					  Masters of Science in Business Analytics Cappstone Project											**
-**					  February 2019																							**
-**	Author			: Matthew C. Vanderbilt																					**
-**					  Candidate & NU Scholar, National University															**
-**					  Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine					**
-**	======================================================================================================================= **
-**	Date Created	: 31 March 2019 09:59																					**
-**	Input Files		: CHIS.CHIS_DATA (see CHIS_10_LoadData)																	**
-**	----------------------------------------------------------------------------------------------------------------------- **
-**	Program Name	: CHIS_45_AthmaChar																						**
-**	Purpose			: Investigates Characteristics of Sample																**
-**	Reference Note	: Some code may be adapted/used from other sources; see README for "Reference Materials"				**
-**																															**
+**  Project Name    : Secondary Research of Asthma  Hospitalizations                                                        **
+**                    Masters of Science in Business Analytics Capstone Project                                             **
+**                    March / April 2019                                                                                    **
+**  Author          : Matthew C. Vanderbilt                                                                                 **
+**                    Candidate & NU Scholar, National University                                                           **
+**                    Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine                   **
+**  ======================================================================================================================= **
+**  Date Created    : 31 March 2019 09:59                                                                                   **
+**  Program Name    : CHIS_45_AthmaChar                                                                                     **
+**  Purpose         : Investigates Characteristics of Sample                                                                **
+**  Reference Note  : Some code may be adapted/used from other sources; see README for "Reference Materials"                **
+**                                                                                                                          **
 *****************************************************************************************************************************/
 
 ODS GRAPHICS ON;
@@ -38,69 +36,19 @@ PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
 	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Asthma Variables';
 	WEIGHT	FNWGT0;
 	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-	TABLES	AB17
-			AB40
-			AB41
-			ASTCUR
-			ASTS
-			ASTYR
-			AB18
-			AB19
-			AH13A
-			AB43
-			AB98
-			AB108_P1
-			;
-RUN;
-
-PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
-	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Asthma Variables';
-	WEIGHT	FNWGT0;
-	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-	TABLES	AB17*ASTS
-			AB17*AB18
-			AB17*AB19
-			AB17*AB43
-			AB17*AB98
-			AB17*AB108_P1
-			AB40*AB17
-			AB40*ASTCUR
-			AB40*ASTYR
-			AB40*AB18
-			AB40*AB19
-			AB40*AH13A
-			AB40*AB43
-			AB40*AB98
-			AB40*AB108_P1
-			AB43*AB98
-			;
-RUN;
-
-PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL (WHERE=(ab17=1)) VARMETHOD=JACKKNIFE;
-	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Lifetime Asthmatic Variables';
-	WEIGHT	FNWGT0;
-	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-	TABLES	AB17*AB40
-			AB17*ASTS
-			AB17*AB18
-			AB17*AB19
-			AB17*AB43
-			AB17*AB98
-			AB17*AB108_P1
-			;
-RUN;
-
-PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL (WHERE=(ab40=1)) VARMETHOD=JACKKNIFE;
-	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Current Asthmatic Variables';
-	WEIGHT	FNWGT0;
-	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-	TABLES	AB40*ASTYR
-			AB40*AB18
-			AB40*AB19
-			AB40*AH13A
-			AB40*AB43
-			AB40*AB98
-			AB40*AB108_P1
+	TABLES	(AB17		/*DOCTOR EVER TOLD HAVE ASTHMA*/
+			AB43		/*HEALTH PROFESSIONAL EVER GAVE ASTHMA MANAGEMENT PLAN*/
+			AB98		/*HAVE WRITTEN COPY OF ASTHMA CARE PLAN*/
+			AB108_P1	/*CONFIDENCE TO CONTROL AND MANAGE ASTHMA (PUF 1 YR RECODE)*/
+			AB40		/*STILL HAS ASTHMA*/
+			AB41		/*ASTHMA EPISODE/ATTACK IN PAST 12 MOS*/
+			ASTCUR		/*CURRENT ASTHMA STATUS*/
+			ASTS		/*ASTHMA SYMPTOMS PAST 12 MOS FOR POPULATION DIAGNOSED W/ ASTHMA*/
+			ASTYR		/*ASTHMA SYMPTOMS PAST 12 MOS FOR POPULATION CURRENTLY W/ ASTHMA*/
+			AB18		/*TAKING DAILY MEDICATION TO CONTROL ASTHMA*/
+			AB19		/*FREQUENCY OF ASTHMA SYMPTOMS IN PAST 12 MOS: CURRENT ASTHMATICS*/
+			AH13A		/*ER/URGENT CRE VISIT FOR ASTHMA LAST 12 MOS: CURRENT ASTHMATICS*/
+			)*asthmastatus
 			;
 RUN;
 
