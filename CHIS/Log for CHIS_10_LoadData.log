@@ -506,7 +506,7 @@ NOTE: Format YRUSP1F has been output.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.02 seconds
-      cpu time            0.01 seconds
+      cpu time            0.03 seconds
       
 
 2000       
@@ -521,8 +521,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 21055 observations read from the data set CHIS2016.ADULT.
 NOTE: The data set WORK.DATA2016 has 21055 observations and 490 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.32 seconds
-      cpu time            0.32 seconds
+      real time           0.34 seconds
+      cpu time            0.34 seconds
       
 
 2909       
@@ -531,8 +531,8 @@ NOTE: DATA statement used (Total process time):
 2912       RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.20 seconds
-      cpu time            0.18 seconds
+      real time           0.22 seconds
+      cpu time            0.21 seconds
       
 
 2913       
@@ -946,8 +946,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 21034 observations read from the data set CHIS2015.ADULT.
 NOTE: The data set WORK.DATA2015 has 21034 observations and 456 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.30 seconds
-      cpu time            0.29 seconds
+      real time           0.32 seconds
+      cpu time            0.32 seconds
       
 
 5491       
@@ -956,8 +956,8 @@ NOTE: DATA statement used (Total process time):
 5494       RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.18 seconds
-      cpu time            0.17 seconds
+      real time           0.21 seconds
+      cpu time            0.18 seconds
 17                                                         The SAS System                             08:20 Saturday, April 13, 2019
 
       
@@ -1377,10 +1377,10 @@ NOTE: Format YRUSP1F is already on the library WORK.FORMATS.
 NOTE: Format YRUSP1F has been output.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.01 seconds
+      real time           0.02 seconds
 24                                                         The SAS System                             08:20 Saturday, April 13, 2019
 
-      cpu time            0.01 seconds
+      cpu time            0.03 seconds
       
 
 7337       
@@ -1395,8 +1395,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 19516 observations read from the data set CHIS2014.ADULT.
 NOTE: The data set WORK.DATA2014 has 19516 observations and 480 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.33 seconds
-      cpu time            0.34 seconds
+      real time           0.38 seconds
+      cpu time            0.39 seconds
       
 
 8226       
@@ -1405,7 +1405,7 @@ NOTE: DATA statement used (Total process time):
 8229       RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.18 seconds
+      real time           0.19 seconds
       cpu time            0.18 seconds
       
 
@@ -1800,7 +1800,7 @@ NOTE: The data set WORK.DATA2013 has 20724 observations and 421 variables.
 NOTE: DATA statement used (Total process time):
 31                                                         The SAS System                             08:20 Saturday, April 13, 2019
 
-      real time           0.28 seconds
+      real time           0.29 seconds
       cpu time            0.28 seconds
       
 
@@ -1810,7 +1810,7 @@ NOTE: DATA statement used (Total process time):
 10625      RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.17 seconds
+      real time           0.18 seconds
       cpu time            0.17 seconds
       
 
@@ -2204,7 +2204,7 @@ NOTE: There were 20355 observations read from the data set CHIS2012.ADULT.
 NOTE: The data set WORK.DATA2012 has 20355 observations and 432 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.30 seconds
-      cpu time            0.29 seconds
+      cpu time            0.31 seconds
       
 
 13108      
@@ -2213,8 +2213,8 @@ NOTE: DATA statement used (Total process time):
 13111      RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.17 seconds
-      cpu time            0.17 seconds
+      real time           0.20 seconds
+      cpu time            0.20 seconds
       
 
 13112      
@@ -2574,8 +2574,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 22580 observations read from the data set CHIS2011.ADULT.
 NOTE: The data set WORK.DATA2011 has 22580 observations and 403 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.28 seconds
-      cpu time            0.28 seconds
+      real time           0.25 seconds
+      cpu time            0.25 seconds
       
 
 44                                                         The SAS System                             08:20 Saturday, April 13, 2019
@@ -2586,8 +2586,8 @@ NOTE: DATA statement used (Total process time):
 15366      RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.17 seconds
-      cpu time            0.15 seconds
+      real time           0.15 seconds
+      cpu time            0.14 seconds
       
 
 15367      
@@ -2799,8 +2799,8 @@ NOTE: There were 21034 observations read from the data set CHIS2015.ADULT.
 NOTE: There were 21055 observations read from the data set CHIS2016.ADULT.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.83 seconds
-      cpu time            0.82 seconds
+      real time           0.77 seconds
+      cpu time            0.76 seconds
       
 
 15402      
@@ -2966,7 +2966,7 @@ NOTE: Format FCHIS3CONFID has been written to CHIS.FORMATS.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.01 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
       
 
 15523      
@@ -3077,7 +3077,7 @@ NOTE: Format FMARIT_SCND has been written to CHIS.FORMATS.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
       
 
 15591      DATA CHIS.CHIS_DATA_RAW;
@@ -3110,8 +3110,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.75 seconds
-      cpu time            0.75 seconds
+      real time           0.80 seconds
+      cpu time            0.79 seconds
       
 
 15617      
@@ -3280,8 +3280,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.82 seconds
-      cpu time            0.81 seconds
+      real time           0.81 seconds
+      cpu time            0.79 seconds
       
 
 15731      
@@ -3434,8 +3434,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.97 seconds
-      cpu time            0.89 seconds
+      real time           0.80 seconds
+      cpu time            0.79 seconds
       
 
 15832      
@@ -3453,7 +3453,7 @@ NOTE: Format FRBMI has been written to CHIS.FORMATS.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
-      cpu time            0.00 seconds
+      cpu time            0.01 seconds
       
 
 15841      
@@ -3467,8 +3467,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.77 seconds
-      cpu time            0.76 seconds
+      real time           0.74 seconds
+      cpu time            0.75 seconds
       
 
 15848      
@@ -3525,8 +3525,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.77 seconds
-      cpu time            0.78 seconds
+      real time           0.80 seconds
+      cpu time            0.79 seconds
       
 
 15887      
@@ -3704,8 +3704,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.78 seconds
-      cpu time            0.78 seconds
+      real time           0.81 seconds
+      cpu time            0.81 seconds
       
 
 16010      
@@ -3863,8 +3863,8 @@ NOTE: Format FOFFTK has been written to CHIS.FORMATS.
 16117      RUN;
 
 NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.01 seconds
-      cpu time            0.01 seconds
+      real time           0.00 seconds
+      cpu time            0.00 seconds
       
 
 16118      
@@ -3911,7 +3911,7 @@ NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
       real time           0.83 seconds
-      cpu time            0.82 seconds
+      cpu time            0.84 seconds
       
 
 16155      
@@ -4098,7 +4098,7 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.86 seconds
+      real time           0.85 seconds
       cpu time            0.86 seconds
       
 
@@ -4279,8 +4279,8 @@ NOTE: Format FPOVLL has been written to CHIS.FORMATS.
 16422      RUN;
 
 NOTE: PROCEDURE FORMAT used (Total process time):
-      real time           0.01 seconds
-      cpu time            0.01 seconds
+      real time           0.00 seconds
+      cpu time            0.00 seconds
       
 
 16423      
@@ -4310,7 +4310,7 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.91 seconds
+      real time           0.88 seconds
       cpu time            0.89 seconds
       
 
@@ -4331,8 +4331,8 @@ NOTE: DATA statement used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.83 seconds
-      cpu time            0.84 seconds
+      real time           0.81 seconds
+      cpu time            0.81 seconds
       
 
 16457      
@@ -4382,8 +4382,8 @@ NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.83 seconds
-      cpu time            0.84 seconds
+      real time           0.79 seconds
+      cpu time            0.79 seconds
       
 
 16486      
@@ -4435,7 +4435,7 @@ NOTE: Format FUR_CLRT4Z has been written to CHIS.FORMATS.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
-      cpu time            0.00 seconds
+      cpu time            0.01 seconds
       
 
 75                                                         The SAS System                             08:20 Saturday, April 13, 2019
@@ -4454,8 +4454,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.83 seconds
-      cpu time            0.82 seconds
+      real time           0.79 seconds
+      cpu time            0.81 seconds
       
 16529    !     	
 
@@ -4491,8 +4491,8 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
 NOTE: The data set CHIS.CHIS_DATA_RAW has 125264 observations and 811 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.82 seconds
-      cpu time            0.82 seconds
+      real time           0.76 seconds
+      cpu time            0.76 seconds
       
 
 16546      
@@ -4504,7 +4504,7 @@ NOTE: DATA statement used (Total process time):
 16550      RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.33 seconds
+      real time           0.31 seconds
       cpu time            0.31 seconds
       
 
@@ -4524,7 +4524,7 @@ NOTE: PROCEDURE CONTENTS used (Total process time):
 16564      ;*';*";*/;quit;run;
 16565      ODS _ALL_ CLOSE;
 NOTE: ODS PDF(EGPDF) printed 111 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-24352-d7227d43\contents\SAS 
-      Temporary Files\_TD6556_R90T7H56_\#LN00300.
+      Temporary Files\_TD6556_R90T7H56_\#LN00645.
 16566      
 16567      
 16568      QUIT; RUN;

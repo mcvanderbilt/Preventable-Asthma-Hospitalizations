@@ -75,8 +75,6 @@ NOTE: Libref CHIS was successfully assigned as follows:
 49         /* APPLY CHIS FORMATS */
 50         OPTIONS fmtsearch=(CHIS);
 51         
-
-
 52         PROC FORMAT LIBRARY=CHIS;
 53         	
 53       !  VALUE fhealthplan	-1	= 'Inapplicable'
@@ -118,10 +116,10 @@ NOTE: Format FASTHMASTATUS has been written to CHIS.FORMATS.
 80         						3	= 'Married w/o Children'
 81         						4	= 'Married w/ Children'
 82         						;
-3                                                          The SAS System                             08:20 Saturday, April 13, 2019
-
 NOTE: Format FFAMTYPE is already on the library CHIS.FORMATS.
 NOTE: Format FFAMTYPE has been written to CHIS.FORMATS.
+3                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
 83         
 84         	
 84       !  VALUE fBoolean		-1	= 'NA'
@@ -157,7 +155,7 @@ NOTE: Format FMARITSTAT has been written to CHIS.FORMATS.
 
 NOTE: PROCEDURE FORMAT used (Total process time):
       real time           0.00 seconds
-      cpu time            0.01 seconds
+      cpu time            0.00 seconds
       
 
 103        
@@ -178,10 +176,10 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 118        	IF srage_p1 >= 40 AND srage_p1 < 65	THEN agegroup = 2;
 119        	IF srage_p1 >= 65					THEN agegroup = 3;
 120        	LABEL	agegroup	= 'age group';
-4                                                          The SAS System                             08:20 Saturday, April 13, 2019
-
 121        	FORMAT	agegroup 	fagegroup.;
 122        	
+4                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
 123        	*Secondary English Proficiency;
 124        	AH37 = AH37;
 125        	IF AH37 < -1 THEN AH37 = -1;
@@ -230,7 +228,7 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 168        	IF	AB17=1
 169        		OR AB43 = 1
 170        		OR AB98 = 1
-171        		OR AB108_P > 0
+171        		OR AB108_P1 > 0
 172        		THEN asthmastatus = 2;
 173        	IF	AB40 = 1
 174        		OR AB41 = 1
@@ -238,10 +236,10 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 176        		OR ASTS = 1
 177        		OR ASTYR = 1
 178        		OR AB18 = 1
-5                                                          The SAS System                             08:20 Saturday, April 13, 2019
-
 179        		OR AB19 = 1
 180        		OR AH13A = 1
+5                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
 181        		THEN asthmastatus = 1;
 182        	LABEL	asthmastatus	= 'asthmatic status';
 183        	FORMAT	asthmastatus	fasthmastatus.;
@@ -249,10 +247,10 @@ NOTE: PROCEDURE FORMAT used (Total process time):
 185        RUN;
 
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_RAW.
-NOTE: The data set CHIS.CHIS_DATA_INTRM has 125264 observations and 818 variables.
+NOTE: The data set CHIS.CHIS_DATA_INTRM has 125264 observations and 817 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.68 seconds
-      cpu time            0.67 seconds
+      real time           0.94 seconds
+      cpu time            0.90 seconds
       
 
 186        
@@ -262,8 +260,8 @@ NOTE: DATA statement used (Total process time):
 190        RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.35 seconds
-      cpu time            0.34 seconds
+      real time           0.38 seconds
+      cpu time            0.37 seconds
       
 
 191        
@@ -288,7 +286,7 @@ NOTE: PROCEDURE CONTENTS used (Total process time):
 210        			AB41
 211        			AB43
 212        			AB98
-213        			AB108_P
+213        			AB108_P1
 214        			AH13A
 215        			ASTCUR
 216        			ASTS
@@ -298,10 +296,10 @@ NOTE: PROCEDURE CONTENTS used (Total process time):
 
 NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
 NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.77 seconds
+      cpu time            0.68 seconds
 6                                                          The SAS System                             08:20 Saturday, April 13, 2019
 
-      real time           0.77 seconds
-      cpu time            0.61 seconds
       
 
 220        
@@ -320,7 +318,7 @@ NOTE: PROCEDURE FREQ used (Total process time):
 233        ;*';*";*/;quit;run;
 234        ODS _ALL_ CLOSE;
 NOTE: ODS PDF(EGPDF) printed 40 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-24352-d7227d43\contents\SAS 
-      Temporary Files\_TD6556_R90T7H56_\#LN00387.
+      Temporary Files\_TD6556_R90T7H56_\#LN00678.
 235        
 236        
 237        QUIT; RUN;

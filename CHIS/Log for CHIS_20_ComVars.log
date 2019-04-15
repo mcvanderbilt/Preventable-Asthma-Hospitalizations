@@ -325,62 +325,62 @@ NOTE: Libref CHIS was successfully assigned as follows:
 290        									maritstat
 291        									agegroup
 292        									healthplan
-293        									asthmastats
+293        									asthmastatus
 294        									prilanguage
-295        								);
-296        	SET CHIS.CHIS_DATA_INTRM;
-297        RUN;
+295        									famtype
+296        								);
+297        	SET CHIS.CHIS_DATA_INTRM;
+298        RUN;
 
-WARNING: The variable asthmastats in the DROP, KEEP, or RENAME list has never been referenced.
-NOTE: There were 124521 observations read from the data set CHIS.CHIS_DATA_INTRM.
-NOTE: The data set CHIS.CHIS_DATA_INTRM has 124521 observations and 472 variables.
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: The data set CHIS.CHIS_DATA_INTRM has 125264 observations and 474 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.46 seconds
-      cpu time            0.45 seconds
+      real time           0.73 seconds
+      cpu time            0.73 seconds
       
 
-298        
-299        DATA CHIS.CHIS_DATA_INTRM(	WHERE = (DSTRS30>-2));
-300        	SET CHIS.CHIS_DATA_INTRM;
-301        RUN;
+299        
+300        DATA CHIS.CHIS_DATA_INTRM(	WHERE = (DSTRS30>-2));
+301        	SET CHIS.CHIS_DATA_INTRM;
+302        RUN;
 
-NOTE: There were 124521 observations read from the data set CHIS.CHIS_DATA_INTRM.
-NOTE: The data set CHIS.CHIS_DATA_INTRM has 124521 observations and 472 variables.
+NOTE: There were 125264 observations read from the data set CHIS.CHIS_DATA_INTRM.
+NOTE: The data set CHIS.CHIS_DATA_INTRM has 124521 observations and 474 variables.
 NOTE: DATA statement used (Total process time):
-      real time           0.50 seconds
-      cpu time            0.46 seconds
+      real time           0.57 seconds
+      cpu time            0.56 seconds
       
 
-302        
-303        PROC CONTENTS DATA=CHIS.CHIS_DATA_INTRM VARNUM;
-304        	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_INTRM';
-305        RUN;
+303        
+304        PROC CONTENTS DATA=CHIS.CHIS_DATA_INTRM VARNUM;
+305        	TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_INTRM';
+306        RUN;
 
 NOTE: PROCEDURE CONTENTS used (Total process time):
-      real time           0.29 seconds
+      real time           0.55 seconds
 7                                                          The SAS System                             08:20 Saturday, April 13, 2019
 
-      cpu time            0.29 seconds
+      cpu time            0.51 seconds
       
 
-306        
-307        ODS GRAPHICS OFF;
-308        QUIT;
-309        
-310        GOPTIONS NOACCESSIBLE;
-311        %LET _CLIENTTASKLABEL=;
-312        %LET _CLIENTPROCESSFLOWNAME=;
-313        %LET _CLIENTPROJECTPATH=;
-314        %LET _CLIENTPROJECTPATHHOST=;
-315        %LET _CLIENTPROJECTNAME=;
-316        %LET _SASPROGRAMFILE=;
-317        %LET _SASPROGRAMFILEHOST=;
-318        
-319        ;*';*";*/;quit;run;
-320        ODS _ALL_ CLOSE;
+307        
+308        ODS GRAPHICS OFF;
+309        QUIT;
+310        
+311        GOPTIONS NOACCESSIBLE;
+312        %LET _CLIENTTASKLABEL=;
+313        %LET _CLIENTPROCESSFLOWNAME=;
+314        %LET _CLIENTPROJECTPATH=;
+315        %LET _CLIENTPROJECTPATHHOST=;
+316        %LET _CLIENTPROJECTNAME=;
+317        %LET _SASPROGRAMFILE=;
+318        %LET _SASPROGRAMFILEHOST=;
+319        
+320        ;*';*";*/;quit;run;
+321        ODS _ALL_ CLOSE;
 NOTE: ODS PDF(EGPDF) printed 15 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-24352-d7227d43\contents\SAS 
-      Temporary Files\_TD6556_R90T7H56_\#LN00435.
-321        
+      Temporary Files\_TD6556_R90T7H56_\#LN00694.
 322        
-323        QUIT; RUN;
-324        
+323        
+324        QUIT; RUN;
+325        

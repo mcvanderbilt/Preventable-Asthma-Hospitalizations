@@ -263,8 +263,9 @@ DATA CHIS.CHIS_DATA_INTRM(	KEEP =	SRTENR
 									maritstat
 									agegroup
 									healthplan
-									asthmastats
+									asthmastatus
 									prilanguage
+									famtype
 								);
 	SET CHIS.CHIS_DATA_INTRM;
 RUN;
