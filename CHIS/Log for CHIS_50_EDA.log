@@ -2,8 +2,8 @@
 
 1          ;*';*";*/;quit;run;
 2          OPTIONS PAGENO=MIN;
-3          %LET _CLIENTTASKLABEL='CHIS_50_Univariate';
-4          %LET _CLIENTPROCESSFLOWNAME='Process Flow';
+3          %LET _CLIENTTASKLABEL='CHIS_50_EDA';
+4          %LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
 5          %LET
 5        ! _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
 6          %LET _CLIENTPROJECTPATHHOST='R90T7H56';
@@ -42,216 +42,267 @@ NOTE: Writing TAGSETS.SASREPORT13(EGSR) Body file: EGSR
 36         GOPTIONS ACCESSIBLE;
 37         /************************************************************************************************************************
 37       ! *****
-38         **	Project Name	: Secondary Research of Asthma  Hospitalizations														**
-39         **					  Masters of Science in Business Analytics Cappstone Project											**
-40         **					  February 2019																							**
-41         **	Author			: Matthew C. Vanderbilt																					**
-42         **					  Candidate & NU Scholar, National University															**
-43         **					  Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine					**
-44         **	======================================================================================================================
-44       ! = **
-45         **	Date Created	: 04 April 2019 13:37																					**
-46         **	Input Files		: CHIS.CHIS_DATA (see CHIS_10_LoadData)																	**
-47         **	----------------------------------------------------------------------------------------------------------------------
-47       ! - **
-48         **	Program Name	: CHIS_50_																					**
-49         **	Purpose			: 																**
-50         **	Reference Note	: Some code may be adapted/used from other sources; see README for "Reference Materials"				**
-51         **																															**
+38         **  Project Name    : Secondary Research of Asthma  Hospitalizations
+38       !    **
+39         **                    Masters of Science in Business Analytics Capstone Project
+39       !    **
+40         **                    March / April 2019
+40       !    **
+41         **  Author          : Matthew C. Vanderbilt
+41       !    **
+42         **                    Candidate & NU Scholar, National University
+42       !    **
+43         **                    Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine
+43       !    **
+44         **
+44       ! =======================================================================================================================
+44       ! **
+45         **  Date Created    : 04 April 2019 13:37
 2                                                          The SAS System                             08:20 Saturday, April 13, 2019
 
-52         *************************************************************************************************************************
-52       ! ****/
+45       !    **
+46         **  Program Name    : CHIS_50_EDA
+46       !    **
+47         **  Purpose         : Categorical Exploratory Data Analysis
+47       !    **
+48         **  Reference Note  : Some code may be adapted/used from other sources; see README for "Reference Materials"
+48       !    **
+49         **
+49       !    **
+50         *************************************************************************************************************************
+50       ! ****/
+51         
+52         ODS GRAPHICS ON;
 53         
-54         ODS GRAPHICS ON;
-55         
-56         /* MASTER LIBRARY */
-57         %LET localProjectPath = %SYSFUNC(SUBSTR(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH)), 1,
-57       ! %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH))) - %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTNAME))) ));
-58         LIBNAME CHIS "&localProjectPath";
+54         /* MASTER LIBRARY */
+55         %LET localProjectPath = %SYSFUNC(SUBSTR(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH)), 1,
+55       ! %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH))) - %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTNAME))) ));
+56         LIBNAME CHIS "&localProjectPath";
 NOTE: Libref CHIS was successfully assigned as follows: 
       Engine:        V9 
       Physical Name: C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS
-59         
-60         /* APPLY CHIS FORMATS */
-61         OPTIONS fmtsearch=(CHIS);
-62         
-63         /* Univariate Statistics */
-64         PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
-65         	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Demographic Information';
-66         	WEIGHT	FNWGT0;
-67         	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-68         	TABLES (SRTENR
-69         			SRSEX
-70         			RACEDF_P1
-71         			AH33NEW
-72         			AH34NEW
-73         			AH35NEW
-74         			LNGHM_P1
-75         			AH37
-76         			CITIZEN2
-77         			YRUS_P1
-78         			PCTLF_P
-79         			AG22
-80         			SERVED
-81         			AG10
-82         			WRKST_P1
-83         			AHEDC_P1
-84         			FAMTYP_P
-85         			AM34
-86         			UR_CLRT
-87         			maritstat
-88         			agegroup
-89         			)*AB40 / CHISQ;
-90         RUN;
+57         
+58         /* APPLY CHIS FORMATS */
+59         OPTIONS fmtsearch=(CHIS);
+60         
+61         /* Univariate Statistics */
+62         PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+63         	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Demographic Information';
+64         	WEIGHT	FNWGT0;
+65         	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+66         	TABLES (SRSEX		/*SELF-REPORTED GENDER*/
+67         			agegroup	/*age group*/
+68         			RACEDF_P1	/*RACE - FORMER DOF RACE-ETHNICITY(PUF 1 YR RECODE)*/
+69         			AH33NEW		/*BORN IN U.S.*/
+70         			AH34NEW		/*MOTHER BORN IN U.S.*/
+71         			AH35NEW		/*FATHER BORN IN U.S.*/
+72         			CITIZEN2	/*CITIZENSHIP STATUS (3 LVLS)*/
+73         			YRUS_P1		/*YEARS LIVED IN THE U.S.(PUF 1 YR RECODE)*/
+74         			PCTLF_P		/*PERCENT LIFE IN US (PUF RECODE)*/
+75         			prilanguage	/*primary spoken language*/
+76         			AH37		/*LEVEL OF ENGLISH PROFICIENCY: GENERAL*/
+77         			maritstat	/*marital status*/
+78         			famtype		/*family type*/
+79         			SRTENR		/*SELF-REPORTED HOUSEHOLD TENURE (HH)*/
+80         			AHEDC_P1	/*ADULT EDUCATIONAL ATTAINMENT(PUF 1 YR RECODE)*/
+81         			AG22		/*EVER SERVE IN U.S. ARMED FORCES*/
+82         			SERVED		/*LENGTH OF TIME SERVED IN ACTIVE DUTY*/
+83         			AG10		/*RESPONDENT USUALLY WORKS*/
+84         			WRKST_P1	/*WORK STATUS(PUF 1 YR RECODE)*/
+85         			AM34		/*TELEPHONE CALLS RECEIVED*/
+86         			UR_CLRT		/*RURAL AND URBAN - CLARITAS (BY ZIPCODE) (4 LVLS)*/
+87         			)*asthmastatus / CHISQ;
+88         RUN;
 
-NOTE: Chi-square tests cannot be computed for the table of AH37 by AB40 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of SERVED by AB40 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AM34 by AB40 because at least one table cell has 0 frequency.
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           18:48.28
-      cpu time            18:47.14
+      real time           17:58.93
+      cpu time            17:58.20
       
-
-91         
-92         PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
-93         	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Health Condition & Behaviours';
-94         	WEIGHT	FNWGT0;
-95         	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
 3                                                          The SAS System                             08:20 Saturday, April 13, 2019
 
-96         	TABLES (AB1
-97         			AB17
-98         			AB41
-99         			ASTCUR
-100        			ASTS
-101        			ASTYR
-102        			AB18
-103        			AB19
-104        			AH13A
-105        			AB43
-106        			AB98
-107        			AB108_P1
-108        			AB22
-109        			AB24
-110        			AB25
-111        			AB30
-112        			AB34
-113        			AB52
-114        			AB117
-115        			AD37W
-116        			AD40W
-117        			AESODA_P1
-118        			AE15
-119        			AE15A
-120        			SMKCUR
-121        			SMOKING
-122        			NUMCIG
-123        			AC42_P
-124        			AC44
-125        			AD50
-126        			RBMI
-127        			AF65
-128        			AF63
-129        			DSTRS12
-130        			DSTRS30
-131        			)*AB40 / CHISQ;
-132        RUN;
 
-NOTE: Chi-square tests cannot be computed for the table of AB17 by AB40 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB41 by AB40 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of ASTCUR by AB40 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of ASTS by AB40 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of ASTYR by AB40 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB18 by AB40 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB19 by AB40 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AH13A by AB40 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB43 by AB40 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB98 by AB40 because at least one table cell has 0 frequency.
-NOTE: Chi-square tests cannot be computed for the table of AB108_P1 by AB40 because at least one table cell has 0 frequency.
+89         
+90         PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+91         	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Health';
+92         	WEIGHT	FNWGT0;
+93         	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+94         	TABLES (AB1			/*GENERAL HEALTH CONDITION*/
+95         			RBMI		/*BMI DESCRIPTIVE*/
+96         			AB17		/*DOCTOR EVER TOLD HAVE ASTHMA*/
+97         			AB43		/*HEALTH PROFESSIONAL EVER GAVE ASTHMA MANAGEMENT PLAN*/
+98         			AB98		/*HAVE WRITTEN COPY OF ASTHMA CARE PLAN*/
+99         			AB108_P1	/*CONFIDENCE TO CONTROL AND MANAGE ASTHMA (PUF 1 YR RECODE)*/
+100        			AB40		/*STILL HAS ASTHMA*/
+101        			AB41		/*ASTHMA EPISODE/ATTACK IN PAST 12 MOS*/
+102        			ASTCUR		/*CURRENT ASTHMA STATUS*/
+103        			ASTS		/*ASTHMA SYMPTOMS PAST 12 MOS FOR POPULATION DIAGNOSED W/ ASTHMA*/
+104        			ASTYR		/*ASTHMA SYMPTOMS PAST 12 MOS FOR POPULATION CURRENTLY W/ ASTHMA*/
+105        			AB18		/*TAKING DAILY MEDICATION TO CONTROL ASTHMA*/
+106        			AB19		/*FREQUENCY OF ASTHMA SYMPTOMS IN PAST 12 MOS: CURRENT ASTHMATICS*/
+107        			AH13A		/*ER/URGENT CRE VISIT FOR ASTHMA LAST 12 MOS: CURRENT ASTHMATICS*/
+108        			AB22		/*DOCTOR EVER TOLD HAVE DIABETES*/
+109        			AB24		/*CURRENTLY TAKING INSULIN*/
+110        			AB25		/*CURRENTLY TAKING DIABETIC PILLS TO LOWER BLOOD SUGAR*/
+111        			AB34		/*DOCTOR EVER TOLD HAVE ANY KIND OF HEART DISEASE*/
+112        			AB52		/*EVER TOLD HAVE HEART FAILURE/CONGESTIVE*/
+113        			AB30		/*CURRENTLY TAKING MEDICATIONS TO CONTROL HIGH BLOOD PRESSURE*/
+114        			AB117		/*ADMITTED TO HOSPITAL OVERNIGHT/LONGER FOR HEART DX PAST 12 MOS*/
+115        			DSTRS12		/*LIKELY HAS HAD PSYCHOLOGICAL DISTRESS IN THE LAST YEAR*/
+116        			DSTRS30		/*LIKELY HAS HAD PSYCHOLOGICAL DISTRESS IN THE PAST MONTH*/
+117        			AF65		/*FEEL RESTLESS WORST MONTH*/
+118        			AF63		/*FEEL NERVOUS WORST MONTH*/
+119        			AD50		/*BLIND/DEAF OR HAS SEVERE VISION/HEARING PROBLEM*/
+120        			AE15		/*SMOKED 100 OR MORE CIGARETTES IN ENTIRE LIFETIME*/
+121        			AE15A		/*SMOKES CIGARETTES EVERYDAY, SOME DAYS OR NOT AT ALL*/
+122        			SMKCUR		/*CURRENT SMOKER*/
+123        			SMOKING		/*CURRENT SMOKING HABITS*/
+124        			NUMCIG		/*# OF CIGARETTES PER DAY*/
+125        			AD37W		/*WALKED AT LEAST 10 MIN FOR TRANSPORT PAST 7 DAYS*/
+126        			AD40W		/*WALKED AT LEAST 10 MIN FOR LEISURE PAST 7 DAYS*/
+127        			AESODA_P1	/*# OF TIMES DRINKING SODA PER WEEK (PUF 1 YR RECODE)*/
+128        			AC42_P		/*HOW OFTEN FIND FRESH FRUIT/VEG IN NEIGHB (PUF RECODE)*/
+129        			AC44		/*NEIGHBORHOOD FRUIT/VEG AFFORDABLE*/
+130        			)*asthmastatus / CHISQ;
+131        RUN;
+
+NOTE: Chi-square tests cannot be computed for the table of AB17 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB43 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB98 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB108_P1 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB40 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB41 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of ASTCUR by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of ASTS by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of ASTYR by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB18 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB19 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AH13A by asthmastatus because at least one table cell has 0 frequency.
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           46:37.73
-      cpu time            46:36.56
-      
-
-133        
-134        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
-135        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Health Insurance, Access, & Utilization';
-136        	WEIGHT	FNWGT0;
 4                                                          The SAS System                             08:20 Saturday, April 13, 2019
 
-137        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-138        	TABLES (HMO
-139        			AI22A_P
-140        			AI25
-141        			AH71_P1
-142        			AH72_P1
-143        			AH14
-144        			INS
-145        			AH1
-146        			USUAL5TP
-147        			AJ9
-148        			AH16
-149        			AJ19
-150        			AH22
-151        			AJ20
-152        			AJ102
-153        			AJ105
-154        			AJ108
-155        			AJ112
-156        			AJ113
-157        			AH12
-158        			ER
-159        			)*AB40 / CHISQ;
-160        RUN;
-
-NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           22:45.61
-      cpu time            22:43.76
+      real time           47:08.89
+      cpu time            47:07.67
       
 
-161        
-162        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
-163        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Socioeconomic Status';
-164        	WEIGHT	FNWGT0;
-165        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-166        	TABLES (AK4
-167        			FSLEV
-168        			POVLL
-169        			AL6
-170        			AL22
-171        			AL18A
-172        			AK23
-173        			AK25
-174        			AM19
-175        			AM21
-176        			AK28
-177        			AM36
-178        			)*AB40 / CHISQ;
-179        RUN;
+132        
+133        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+134        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Health Care Access & Insurance';
+135        	WEIGHT	FNWGT0;
+136        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+137        	TABLES (INS			/*CURRENTLY INSURED*/
+138        			healthplan	/*name of health plan*/
+139        			HMO			/*HMO STATUS*/
+140        			AH71_P1		/*HEALTH PLAN DEDUCTIBLE MORE THAN $1,000 (PUF 1 YR RECODE)*/
+141        			AH72_P1		/*HEALTH PLAN DEDUCTIBLE MORE THAN $2,000 (PUF 1 YR RECODE)*/
+142        			AI25		/*COVERED FOR PRESCRIPTION DRUGS*/
+143        			AH1			/*HAVE USUAL SOURCE OF HEALTH CARE*/
+144        			USUAL5TP	/*USUAL SOURCE OF CARE (5 LVLS)*/
+145        			AH16		/*DELAY/NOT GET PRESCRIPTION IN PAST 12 MO*/
+146        			AJ19		/*COST/NO INSUR DELAYED GETTING PRESCRIPTION*/
+147        			AH22		/*DELAY/NOT GET OTHER MEDICAL CARE IN PAST 12 MOS*/
+148        			AJ20		/*COST/NO INSR DELAYED GETTING NEEDED CARE*/
+149        			AJ102		/*SOUGHT APPNT W/DOC IN 2 DAYS PAST YR*/
+150        			AJ112		/*HOW OFTEN DOC LISTENS CAREFULLY*/
+151        			AJ113		/*HOW OFTEN DOC CLEARLY EXPLAINS WHAT TO DO*/
+152        			AJ105		/*KNOW RIGHTS TO INTERPRETOR DURING MED VISIT*/
+153        			AJ9			/*MD SPOKE DIFFERENT LANGUAGE REASON WHY DIFFICULT TO UNDERSTAND*/
+154        			AH14		/*PATIENT IN HOSP OVERNIGHT DURING PAST 12 MOS*/
+155        			AH12		/*VISITED EMERGENCY ROOM FOR OWN HEALTH IN PAST 12 MOS*/
+156        			ER			/*ER VISIT WITHIN THE PAST YEAR*/
+157        			AJ108		/*EVER USED INTERNET*/
+158        			)*asthmastatus / CHISQ;
+159        RUN;
 
 NOTE: PROCEDURE SURVEYFREQ used (Total process time):
-      real time           7:11.53
-      cpu time            7:11.14
+      real time           17:52.72
+      cpu time            17:51.64
       
 
-180        
-181        GOPTIONS NOACCESSIBLE;
-182        %LET _CLIENTTASKLABEL=;
+160        
+161        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+162        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Socioeconomic Status';
+163        	WEIGHT	FNWGT0;
+164        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+165        	TABLES (POVLL	/*POVERTY LEVEL*/
+166        			FSLEV	/*FOOD SECURITY STATUS LEVEL*/
+167        			AL6		/*RECEIVING SSI (SUPPLEMENTAL SECURITY INCOME)*/
+168        			AL22	/*RECEIVING SOCIAL SECURITY DISABILITY INS*/
+169        			AL18A	/*RECVD SOCIAL SECURITY OR PENSION LAST MONTH*/
+170        			AK4		/*TYPE OF EMPLOYER AT MAIN JOB*/
+171        			AM36	/*DID VOLUNTEER WORK OR COMMUNITY SERVICES PAST YR*/
+172        			AK23	/*LIVE IN HOUSE, DUPLEX, BUILDING WITH 3+ UNITS, OR MOBILE HOME*/
+173        			AK25	/*OWN OR RENT HOME*/
+174        			AM19	/*PEOPLE IN NEIGHBORHOOD WILLING TO HELP EACH OTHER*/
+175        			AM21	/*PEOPLE IN NEIGHBORHOOD CAN BE TRUSTED*/
+176        			AK28	/*HOW OFTEN FEEL SAFE IN NEIGHBORHOOD*/
+177        			)*asthmastatus / CHISQ;
+178        RUN;
+
 5                                                          The SAS System                             08:20 Saturday, April 13, 2019
 
-183        %LET _CLIENTPROCESSFLOWNAME=;
-184        %LET _CLIENTPROJECTPATH=;
-185        %LET _CLIENTPROJECTPATHHOST=;
-186        %LET _CLIENTPROJECTNAME=;
-187        %LET _SASPROGRAMFILE=;
-188        %LET _SASPROGRAMFILEHOST=;
-189        
-190        ;*';*";*/;quit;run;
-191        ODS _ALL_ CLOSE;
-NOTE: ODS PDF(EGPDF) printed 115 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-24352-d7227d43\contents\SAS 
-      Temporary Files\_TD6556_R90T7H56_\#LN00087.
-192        
-193        
-194        QUIT; RUN;
-195        
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           6:53.05
+      cpu time            6:52.29
+      
+
+179        
+180        PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
+181        	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Asthma Variables';
+182        	WEIGHT	FNWGT0;
+183        	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
+184        	TABLES (AB17		/*DOCTOR EVER TOLD HAVE ASTHMA*/
+185        			AB43		/*HEALTH PROFESSIONAL EVER GAVE ASTHMA MANAGEMENT PLAN*/
+186        			AB98		/*HAVE WRITTEN COPY OF ASTHMA CARE PLAN*/
+187        			AB108_P1	/*CONFIDENCE TO CONTROL AND MANAGE ASTHMA (PUF 1 YR RECODE)*/
+188        			AB40		/*STILL HAS ASTHMA*/
+189        			AB41		/*ASTHMA EPISODE/ATTACK IN PAST 12 MOS*/
+190        			ASTCUR		/*CURRENT ASTHMA STATUS*/
+191        			ASTS		/*ASTHMA SYMPTOMS PAST 12 MOS FOR POPULATION DIAGNOSED W/ ASTHMA*/
+192        			ASTYR		/*ASTHMA SYMPTOMS PAST 12 MOS FOR POPULATION CURRENTLY W/ ASTHMA*/
+193        			AB18		/*TAKING DAILY MEDICATION TO CONTROL ASTHMA*/
+194        			AB19		/*FREQUENCY OF ASTHMA SYMPTOMS IN PAST 12 MOS: CURRENT ASTHMATICS*/
+195        			AH13A		/*ER/URGENT CRE VISIT FOR ASTHMA LAST 12 MOS: CURRENT ASTHMATICS*/
+196        			)*asthmastatus / CHISQ;
+197        			;
+198        RUN;
+
+NOTE: Chi-square tests cannot be computed for the table of AB17 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB43 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB98 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB108_P1 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB40 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB41 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of ASTCUR by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of ASTS by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of ASTYR by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB18 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AB19 by asthmastatus because at least one table cell has 0 frequency.
+NOTE: Chi-square tests cannot be computed for the table of AH13A by asthmastatus because at least one table cell has 0 frequency.
+NOTE: PROCEDURE SURVEYFREQ used (Total process time):
+      real time           6:35.26
+      cpu time            6:34.64
+      
+
+199        
+200        ODS GRAPHICS OFF;
+201        QUIT;
+202        
+203        GOPTIONS NOACCESSIBLE;
+204        %LET _CLIENTTASKLABEL=;
+205        %LET _CLIENTPROCESSFLOWNAME=;
+206        %LET _CLIENTPROJECTPATH=;
+207        %LET _CLIENTPROJECTPATHHOST=;
+208        %LET _CLIENTPROJECTNAME=;
+209        %LET _SASPROGRAMFILE=;
+210        %LET _SASPROGRAMFILEHOST=;
+211        
+212        ;*';*";*/;quit;run;
+213        ODS _ALL_ CLOSE;
+6                                                          The SAS System                             08:20 Saturday, April 13, 2019
+
+NOTE: ODS PDF(EGPDF) printed 125 pages to C:\Users\rdy2d\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-24352-d7227d43\contents\SAS 
+      Temporary Files\_TD6556_R90T7H56_\#LN00782.
+214        
+215        
+216        QUIT; RUN;
+217        

@@ -1,5 +1,5 @@
 %LET _CLIENTTASKLABEL='CHIS_50_EDA';
-%LET _CLIENTPROCESSFLOWNAME='Process Flow';
+%LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
 %LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\CHIS\CHIS_Analysis.egp';
 %LET _CLIENTPROJECTPATHHOST='R90T7H56';
 %LET _CLIENTPROJECTNAME='CHIS_Analysis.egp';
@@ -8,20 +8,18 @@
 
 GOPTIONS ACCESSIBLE;
 /*****************************************************************************************************************************
-**	Project Name	: Secondary Research of Asthma  Hospitalizations														**
-**					  Masters of Science in Business Analytics Cappstone Project											**
-**					  February 2019																							**
-**	Author			: Matthew C. Vanderbilt																					**
-**					  Candidate & NU Scholar, National University															**
-**					  Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine					**
-**	======================================================================================================================= **
-**	Date Created	: 04 April 2019 13:37																					**
-**	Input Files		: CHIS.CHIS_DATA (see CHIS_10_LoadData)																	**
-**	----------------------------------------------------------------------------------------------------------------------- **
-**	Program Name	: CHIS_50_																					**
-**	Purpose			: 																**
-**	Reference Note	: Some code may be adapted/used from other sources; see README for "Reference Materials"				**
-**																															**
+**  Project Name    : Secondary Research of Asthma  Hospitalizations                                                        **
+**                    Masters of Science in Business Analytics Capstone Project                                             **
+**                    March / April 2019                                                                                    **
+**  Author          : Matthew C. Vanderbilt                                                                                 **
+**                    Candidate & NU Scholar, National University                                                           **
+**                    Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine                   **
+**  ======================================================================================================================= **
+**  Date Created    : 04 April 2019 13:37                                                                                   **
+**  Program Name    : CHIS_50_EDA                                                                                           **
+**  Purpose         : Categorical Exploratory Data Analysis                                                                 **
+**  Reference Note  : Some code may be adapted/used from other sources; see README for "Reference Materials"                **
+**                                                                                                                          **
 *****************************************************************************************************************************/
 
 ODS GRAPHICS ON;
@@ -38,166 +36,137 @@ PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
 	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Demographic Information';
 	WEIGHT	FNWGT0;
 	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-	TABLES (SRTENR
-			SRSEX
-			RACEDF_P1
-			AH33NEW
-			AH34NEW
-			AH35NEW
-			LNGHM_P1
-			AH37
-			CITIZEN2
-			YRUS_P1
-			PCTLF_P
-			AG22
-			SERVED
-			AG10
-			WRKST_P1
-			AHEDC_P1
-			FAMTYP_P
-			AM34
-			UR_CLRT
-			maritstat
-			agegroup
-			)*AB40 / CHISQ;
+	TABLES (SRSEX		/*SELF-REPORTED GENDER*/
+			agegroup	/*age group*/
+			RACEDF_P1	/*RACE - FORMER DOF RACE-ETHNICITY(PUF 1 YR RECODE)*/
+			AH33NEW		/*BORN IN U.S.*/
+			AH34NEW		/*MOTHER BORN IN U.S.*/
+			AH35NEW		/*FATHER BORN IN U.S.*/
+			CITIZEN2	/*CITIZENSHIP STATUS (3 LVLS)*/
+			YRUS_P1		/*YEARS LIVED IN THE U.S.(PUF 1 YR RECODE)*/
+			PCTLF_P		/*PERCENT LIFE IN US (PUF RECODE)*/
+			prilanguage	/*primary spoken language*/
+			AH37		/*LEVEL OF ENGLISH PROFICIENCY: GENERAL*/
+			maritstat	/*marital status*/
+			famtype		/*family type*/
+			SRTENR		/*SELF-REPORTED HOUSEHOLD TENURE (HH)*/
+			AHEDC_P1	/*ADULT EDUCATIONAL ATTAINMENT(PUF 1 YR RECODE)*/
+			AG22		/*EVER SERVE IN U.S. ARMED FORCES*/
+			SERVED		/*LENGTH OF TIME SERVED IN ACTIVE DUTY*/
+			AG10		/*RESPONDENT USUALLY WORKS*/
+			WRKST_P1	/*WORK STATUS(PUF 1 YR RECODE)*/
+			AM34		/*TELEPHONE CALLS RECEIVED*/
+			UR_CLRT		/*RURAL AND URBAN - CLARITAS (BY ZIPCODE) (4 LVLS)*/
+			)*asthmastatus / CHISQ;
 RUN;
 
 PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
-	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Health Condition & Behaviours';
+	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Health';
 	WEIGHT	FNWGT0;
 	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-	TABLES (AB1
-			AB17
-			AB41
-			ASTCUR
-			ASTS
-			ASTYR
-			AB18
-			AB19
-			AH13A
-			AB43
-			AB98
-			AB108_P1
-			AB22
-			AB24
-			AB25
-			AB30
-			AB34
-			AB52
-			AB117
-			AD37W
-			AD40W
-			AESODA_P1
-			AE15
-			AE15A
-			SMKCUR
-			SMOKING
-			NUMCIG
-			AC42_P
-			AC44
-			AD50
-			RBMI
-			AF65
-			AF63
-			DSTRS12
-			DSTRS30
-			)*AB40 / CHISQ;
+	TABLES (AB1			/*GENERAL HEALTH CONDITION*/
+			RBMI		/*BMI DESCRIPTIVE*/
+			AB17		/*DOCTOR EVER TOLD HAVE ASTHMA*/
+			AB43		/*HEALTH PROFESSIONAL EVER GAVE ASTHMA MANAGEMENT PLAN*/
+			AB98		/*HAVE WRITTEN COPY OF ASTHMA CARE PLAN*/
+			AB108_P1	/*CONFIDENCE TO CONTROL AND MANAGE ASTHMA (PUF 1 YR RECODE)*/
+			AB40		/*STILL HAS ASTHMA*/
+			AB41		/*ASTHMA EPISODE/ATTACK IN PAST 12 MOS*/
+			ASTCUR		/*CURRENT ASTHMA STATUS*/
+			ASTS		/*ASTHMA SYMPTOMS PAST 12 MOS FOR POPULATION DIAGNOSED W/ ASTHMA*/
+			ASTYR		/*ASTHMA SYMPTOMS PAST 12 MOS FOR POPULATION CURRENTLY W/ ASTHMA*/
+			AB18		/*TAKING DAILY MEDICATION TO CONTROL ASTHMA*/
+			AB19		/*FREQUENCY OF ASTHMA SYMPTOMS IN PAST 12 MOS: CURRENT ASTHMATICS*/
+			AH13A		/*ER/URGENT CRE VISIT FOR ASTHMA LAST 12 MOS: CURRENT ASTHMATICS*/
+			AB22		/*DOCTOR EVER TOLD HAVE DIABETES*/
+			AB24		/*CURRENTLY TAKING INSULIN*/
+			AB25		/*CURRENTLY TAKING DIABETIC PILLS TO LOWER BLOOD SUGAR*/
+			AB34		/*DOCTOR EVER TOLD HAVE ANY KIND OF HEART DISEASE*/
+			AB52		/*EVER TOLD HAVE HEART FAILURE/CONGESTIVE*/
+			AB30		/*CURRENTLY TAKING MEDICATIONS TO CONTROL HIGH BLOOD PRESSURE*/
+			AB117		/*ADMITTED TO HOSPITAL OVERNIGHT/LONGER FOR HEART DX PAST 12 MOS*/
+			DSTRS12		/*LIKELY HAS HAD PSYCHOLOGICAL DISTRESS IN THE LAST YEAR*/
+			DSTRS30		/*LIKELY HAS HAD PSYCHOLOGICAL DISTRESS IN THE PAST MONTH*/
+			AF65		/*FEEL RESTLESS WORST MONTH*/
+			AF63		/*FEEL NERVOUS WORST MONTH*/
+			AD50		/*BLIND/DEAF OR HAS SEVERE VISION/HEARING PROBLEM*/
+			AE15		/*SMOKED 100 OR MORE CIGARETTES IN ENTIRE LIFETIME*/
+			AE15A		/*SMOKES CIGARETTES EVERYDAY, SOME DAYS OR NOT AT ALL*/
+			SMKCUR		/*CURRENT SMOKER*/
+			SMOKING		/*CURRENT SMOKING HABITS*/
+			NUMCIG		/*# OF CIGARETTES PER DAY*/
+			AD37W		/*WALKED AT LEAST 10 MIN FOR TRANSPORT PAST 7 DAYS*/
+			AD40W		/*WALKED AT LEAST 10 MIN FOR LEISURE PAST 7 DAYS*/
+			AESODA_P1	/*# OF TIMES DRINKING SODA PER WEEK (PUF 1 YR RECODE)*/
+			AC42_P		/*HOW OFTEN FIND FRESH FRUIT/VEG IN NEIGHB (PUF RECODE)*/
+			AC44		/*NEIGHBORHOOD FRUIT/VEG AFFORDABLE*/
+			)*asthmastatus / CHISQ;
 RUN;
 
 PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
-	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Health Insurance, Access, & Utilization';
+	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Health Care Access & Insurance';
 	WEIGHT	FNWGT0;
 	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-	TABLES (HMO
-			AI22A_P
-			AI25
-			AH71_P1
-			AH72_P1
-			AH14
-			INS
-			AH1
-			USUAL5TP
-			AJ9
-			AH16
-			AJ19
-			AH22
-			AJ20
-			AJ102
-			AJ105
-			AJ108
-			AJ112
-			AJ113
-			AH12
-			ER
-			)*AB40 / CHISQ;
+	TABLES (INS			/*CURRENTLY INSURED*/
+			healthplan	/*name of health plan*/
+			HMO			/*HMO STATUS*/
+			AH71_P1		/*HEALTH PLAN DEDUCTIBLE MORE THAN $1,000 (PUF 1 YR RECODE)*/
+			AH72_P1		/*HEALTH PLAN DEDUCTIBLE MORE THAN $2,000 (PUF 1 YR RECODE)*/
+			AI25		/*COVERED FOR PRESCRIPTION DRUGS*/
+			AH1			/*HAVE USUAL SOURCE OF HEALTH CARE*/
+			USUAL5TP	/*USUAL SOURCE OF CARE (5 LVLS)*/
+			AH16		/*DELAY/NOT GET PRESCRIPTION IN PAST 12 MO*/
+			AJ19		/*COST/NO INSUR DELAYED GETTING PRESCRIPTION*/
+			AH22		/*DELAY/NOT GET OTHER MEDICAL CARE IN PAST 12 MOS*/
+			AJ20		/*COST/NO INSR DELAYED GETTING NEEDED CARE*/
+			AJ102		/*SOUGHT APPNT W/DOC IN 2 DAYS PAST YR*/
+			AJ112		/*HOW OFTEN DOC LISTENS CAREFULLY*/
+			AJ113		/*HOW OFTEN DOC CLEARLY EXPLAINS WHAT TO DO*/
+			AJ105		/*KNOW RIGHTS TO INTERPRETOR DURING MED VISIT*/
+			AJ9			/*MD SPOKE DIFFERENT LANGUAGE REASON WHY DIFFICULT TO UNDERSTAND*/
+			AH14		/*PATIENT IN HOSP OVERNIGHT DURING PAST 12 MOS*/
+			AH12		/*VISITED EMERGENCY ROOM FOR OWN HEALTH IN PAST 12 MOS*/
+			ER			/*ER VISIT WITHIN THE PAST YEAR*/
+			AJ108		/*EVER USED INTERNET*/
+			)*asthmastatus / CHISQ;
 RUN;
 
 PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
 	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Socioeconomic Status';
 	WEIGHT	FNWGT0;
 	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-	TABLES (AK4
-			FSLEV
-			POVLL
-			AL6
-			AL22
-			AL18A
-			AK23
-			AK25
-			AM19
-			AM21
-			AK28
-			AM36
-			)*AB40 / CHISQ;
-RUN;
-
-/* Refined Univariate Statistics */
-PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
-	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Asthma Variables';
-	WEIGHT	FNWGT0;
-	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-	TABLES (srsex
-			racedf_p1
-			AB34
-			smoking
-			maritstat
-			agegroup
-			dstrs12
-			ah33new
-			citizen2
-			ag22
-			ai22a_p
-			fslev
-			povll
-			ins
-			usual5tp
-			rbmi
-			)*AB40 / CHISQ;
-			;
+	TABLES (POVLL	/*POVERTY LEVEL*/
+			FSLEV	/*FOOD SECURITY STATUS LEVEL*/
+			AL6		/*RECEIVING SSI (SUPPLEMENTAL SECURITY INCOME)*/
+			AL22	/*RECEIVING SOCIAL SECURITY DISABILITY INS*/
+			AL18A	/*RECVD SOCIAL SECURITY OR PENSION LAST MONTH*/
+			AK4		/*TYPE OF EMPLOYER AT MAIN JOB*/
+			AM36	/*DID VOLUNTEER WORK OR COMMUNITY SERVICES PAST YR*/
+			AK23	/*LIVE IN HOUSE, DUPLEX, BUILDING WITH 3+ UNITS, OR MOBILE HOME*/
+			AK25	/*OWN OR RENT HOME*/
+			AM19	/*PEOPLE IN NEIGHBORHOOD WILLING TO HELP EACH OTHER*/
+			AM21	/*PEOPLE IN NEIGHBORHOOD CAN BE TRUSTED*/
+			AK28	/*HOW OFTEN FEEL SAFE IN NEIGHBORHOOD*/
+			)*asthmastatus / CHISQ;
 RUN;
 
 PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_FINAL VARMETHOD=JACKKNIFE;
 	TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL -  Asthma Variables';
 	WEIGHT	FNWGT0;
 	REPWEIGHT	FNWGT1-FNWGT160 / jkcoefs = 1;
-	TABLES (ab40
-			srsex
-			racedf_p1
-			AB34
-			smoking
-			maritstat
-			agegroup
-			dstrs12
-			ah33new
-			citizen2
-			ag22
-			ai22a_p
-			fslev
-			povll
-			ins
-			usual5tp
-			rbmi
-			)*AH13A / CHISQ;
+	TABLES (AB17		/*DOCTOR EVER TOLD HAVE ASTHMA*/
+			AB43		/*HEALTH PROFESSIONAL EVER GAVE ASTHMA MANAGEMENT PLAN*/
+			AB98		/*HAVE WRITTEN COPY OF ASTHMA CARE PLAN*/
+			AB108_P1	/*CONFIDENCE TO CONTROL AND MANAGE ASTHMA (PUF 1 YR RECODE)*/
+			AB40		/*STILL HAS ASTHMA*/
+			AB41		/*ASTHMA EPISODE/ATTACK IN PAST 12 MOS*/
+			ASTCUR		/*CURRENT ASTHMA STATUS*/
+			ASTS		/*ASTHMA SYMPTOMS PAST 12 MOS FOR POPULATION DIAGNOSED W/ ASTHMA*/
+			ASTYR		/*ASTHMA SYMPTOMS PAST 12 MOS FOR POPULATION CURRENTLY W/ ASTHMA*/
+			AB18		/*TAKING DAILY MEDICATION TO CONTROL ASTHMA*/
+			AB19		/*FREQUENCY OF ASTHMA SYMPTOMS IN PAST 12 MOS: CURRENT ASTHMATICS*/
+			AH13A		/*ER/URGENT CRE VISIT FOR ASTHMA LAST 12 MOS: CURRENT ASTHMATICS*/
+			)*asthmastatus / CHISQ;
 			;
 RUN;
 
