@@ -3,6 +3,10 @@
 *.sas7bcat
 *.egp
 
+# Ignore Security Files
+RawDataPath.txt
+PDFPassword.txt
+
 # Ignore Enterprise Miner Directory
 CHIS/CHIS Asthma/
 Parking/
