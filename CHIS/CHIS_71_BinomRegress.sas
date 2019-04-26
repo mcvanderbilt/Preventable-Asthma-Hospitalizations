@@ -5,7 +5,7 @@ GOPTIONS ACCESSIBLE;
 **                    Masters of Science in Business Analytics Capstone Project     **
 **                    March / April 2019                                            **
 **  Author          : Matthew C. Vanderbilt                                         **
-**                    Candidate & NU Scholar, National University                   **
+**                    MSBA Candidate & NU Scholar, National University              **
 **                    Director of Fiscal Affairs, Department of Medicine,           **
 **                    UC San Diego School of Medicine                               **
 **  =============================================================================== **
