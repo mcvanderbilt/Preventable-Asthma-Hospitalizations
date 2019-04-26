@@ -1,3 +1,10 @@
+%LET _CLIENTTASKLABEL='CHIS_72_BinomRegress';
+%LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
+%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\AsthmaAnalysis.egp';
+%LET _CLIENTPROJECTPATHHOST='R90T7H56';
+%LET _CLIENTPROJECTNAME='AsthmaAnalysis.egp';
+%LET _SASPROGRAMFILE='';
+%LET _SASPROGRAMFILEHOST='';
 
 GOPTIONS ACCESSIBLE;
 /*************************************************************************************
@@ -11,7 +18,7 @@ GOPTIONS ACCESSIBLE;
 **  =============================================================================== **
 **  Date Created    : 24 April 2019 14:54                                           **
 **  Program Name    : CHIS_72_BinomRegressionB                                      **
-**  Purpose         : Performs Binomial Regression Model B                          **
+**  Purpose         : Performs Binomial Regression Model B - Census                 **
 **  Note            : Capitalized values represent SAS commands and unadjusted      **
 **                    variables; lower-case variables represent study-created       **
 **                    variables.                                                    **
@@ -50,9 +57,10 @@ OPTIONS fmtsearch=(CHIS);
 PROC FORMAT LIBRARY=CHIS;
     VALUE frace         1    = 'Latino'
                         3    = 'American Indian / Alaska Native'
+                        4    = 'Asian'
                         5    = 'African American'
+                        6    = 'White'
                         9    = 'Multiracial / Other'
-                        10    = 'White / African American / Asian'
                         ;
 
     VALUE fchildhh      1    = 'Children in HH'
@@ -85,7 +93,6 @@ DATA CHIS.CHIS_DATA_BINOMIAL;
     * Collapse Race/Ethnicity Categories;
     race = RACEDF_P1;
     IF RACEDF_P1 IN(2,8) THEN race = 9;     *Collapse Other with Multiracial;
-    IF RACEDF_P1 IN(4,5,6) THEN race = 10;  *Collapse Asian with White*;
     LABEL    race    = 'race';
     FORMAT    race    frace.;
 
@@ -162,7 +169,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         STYLE=StatDoc;
         ODS GRAPHICS ON;
     PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_BINOMIAL VARMETHOD=JACKKNIFE;
-        TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Univarites for Model B';
+        TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Univarites for Model B - Census';
         WEIGHT    FNWGT0;
         REPWEIGHT FNWGT1-FNWGT160 / jkcoefs = 1;
         TABLES    (SRSEX
@@ -185,17 +192,17 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
     PROC SURVEYLOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL VARMETHOD=JACKKNIFE;
-        TITLE 'PROC SURVEYLOGISTIC - CHIS.CHIS_DATA_BINOMIAL - Model B';
+        TITLE 'PROC SURVEYLOGISTIC - CHIS.CHIS_DATA_BINOMIAL - Model B - Census';
         WEIGHT     FNWGT0;
         REPWEIGHTS FNWGT1-FNWGT160 / jkcoefs = 1;
         CLASS      nonasthmatic(REF='1 Non-Asthmatic')
                    SRSEX(REF='Male')
                    lateradult(REF='Later Adult')
                    CITIZEN2(REF='Naturalized Citizen')
-                   race(REF='White / African American / Asian')
-                   childhh(REF='No Children in HH')
+                   race(REF='White')
+                   childhh(REF='Children in HH')
                    pfpl(REF='100% FPL and Above')
-                   INS(REF='Yes')
+                   INS(REF='No')
                    ;
         MODEL    nonasthmatic = SRSEX
                                 lateradult
