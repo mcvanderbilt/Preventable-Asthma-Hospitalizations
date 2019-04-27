@@ -22,10 +22,9 @@ The objective of this study was to statistically evaluate the association of pot
 * [Tableau](https://www.tableau.com/) - Data visualization
 
 ## Data Sources
+* [California Health Interview Survey (CHIS) Public Use Data](https://healthpolicy.ucla.edu/chis/)
 * University of California San Diego EPIC SlicerDicer (approved use under IRB for HIPAA compliance)
-* California Health Interview Survey (CHIS) Public Use Data [(https://http://healthpolicy.ucla.edu/chis/)](https://healthpolicy.ucla.edu/chis/)
-* Behaviroal Risk Factor Surveillance System (BRFSS) Public Use Data [(https://www.cdc.gov/brfss/)](https://www.cdc.gov/brfss/)
-* BRFSS Asthma Call-back Survey (ACBS) Public Use Data [(https://www.cdc.gov/brfss/acbs/)](https://www.cdc.gov/brfss/acbs/)
+* [U.S. Census Bureau 2017 ACS 5-Year Estimates with All Public Use Microdata Areas within California](https://factfinder.census.gov/)
 
 ## Author(s)
 * **Matthew C. Vanderbilt** - *Initial work* - [mcvanderbilt](https://github.com/mcvanderbilt)
