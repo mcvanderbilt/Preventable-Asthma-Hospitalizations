@@ -1,3 +1,8 @@
+%LET _CLIENTTASKLABEL='CHIS_15_Recoding';
+%LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
+%LET _CLIENTPROJECTNAME='AsthmaAnalysis.egp';
+%LET _SASPROGRAMFILE='';
+%LET _SASPROGRAMFILEHOST='';
 
 GOPTIONS ACCESSIBLE;
 /*************************************************************************************
