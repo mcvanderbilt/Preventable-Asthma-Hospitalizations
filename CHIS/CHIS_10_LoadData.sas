@@ -1,3 +1,5 @@
+
+GOPTIONS ACCESSIBLE;
 /*************************************************************************************
 **  Project Name    : Secondary Research of Asthma  Hospitalizations                **
 **                    Masters of Science in Business Analytics Capstone Project     **
