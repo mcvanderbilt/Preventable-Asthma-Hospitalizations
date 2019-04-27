@@ -16,14 +16,10 @@ The objective of this study was to statistically evaluate the association of pot
 (in progress)
 
 ## Built With
-* [SAS Enterprise Guide](https://www.sas.com/en_us/software/enterprise-guide.html) - Statistical analysis
-* [Microsoft Access](https://products.office.com/en-us/access) - Data cleanup and preparation
-  * [Microsoft Visual Studio for Applications(VBA)](https://docs.microsoft.com/en-us/office/vba/api/overview/) - Custom data-manipulation function
-  * [Structured Query Language(SQL)](https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/microsoft-access-sql-reference) - Custom data-manipulation queries
+* [SAS Enterprise Guide](https://www.sas.com/en_us/software/enterprise-guide.html) - ETL, EDA, & statistical analysis
 * [Microsoft Excel](https://products.office.com/en-us/excel) - Data presentation for reporting
 * [Microsoft Word](https://products.office.com/en-us/word) - Authoring of final report
 * [Tableau](https://www.tableau.com/) - Data visualization
-* [R](https://www.r-project.org/) - Data mining / machine learning
 
 ## Data Sources
 * University of California San Diego EPIC SlicerDicer (approved use under IRB for HIPAA compliance)
