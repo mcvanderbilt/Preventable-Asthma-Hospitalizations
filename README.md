@@ -45,7 +45,7 @@ Professor & Chair, Community Health Department
 National University School of Health & Human Services  
 [NU.edu](https://www.nu.edu/ourprograms/schoolofhealthandhumanservices/communityhealth/faculty/tyler-smith/) | [LinkedIn](https://www.linkedin.com/in/tyler-smith-ms-phd-6b610119/)
 
-**Ebrahim K. Tarshizi, PhD** (*Project Instructor*)  
+**Ebrahim K. Tarshizi, MBA, PhD** (*Project Instructor*)  
 Adjunct Faculty  
 National University School of Engineering & Computing  
 [GitHub](https://github.com/behrang61) | [LinkedIn](https://www.linkedin.com/in/ebrahim-k-tarshizi-phd-mba-271a9a29/)
