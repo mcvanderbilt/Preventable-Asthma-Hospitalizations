@@ -41,7 +41,6 @@ RUN;
 
 /* MASTER LIBRARIES */
 LIBNAME CHIS "&localProjectPath.CHIS";
-LIBNAME CENSUS "&localProjectPath.Census";
 
 /* Determine PDF Password */
 * Pull PDF Password from Text;
