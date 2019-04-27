@@ -9,10 +9,9 @@ GOPTIONS ACCESSIBLE;
 **                    Director of Fiscal Affairs, Department of Medicine,           **
 **                    UC San Diego School of Medicine                               **
 **  =============================================================================== **
-**  Date Created    : 18 February 2019 21:23                                        **
+**  Date Created    : <not recorded>                                                **
 **  Program Name    : CHIS_10_LoadData                                              **
-**  Purpose         : Loads CHIS data files and creates combined file with adjusted **
-**                    weightings                                                    **
+**  Purpose         : Evaluate Pyyschological Distress Continuous Scale             **
 **  Note            : Capitalized values represent SAS commands and unadjusted      **
 **                    variables; lower-case variables represent study-created       **
 **                    variables.                                                    **
