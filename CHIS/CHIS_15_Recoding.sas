@@ -237,14 +237,14 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-F
         ODS GRAPHICS ON / WIDTH=1280px HEIGHT=960;
 PROC FREQ DATA=CHIS.CHIS_DATA_INTRM;
     TITLE 'PROC FREQ - CHIS.CHIS_DATA_INTRM - RECODING VALIDATION';
-    TABLES  MARIT2*maritstat
-            SRAGE_P1*agegroup
+    TABLES  maritstat*MARIT2
+            agegroup*SRAGE_P1
             AH37
             SERVED
             AHEDC_P1
             AM34
-            FAMTYP_P*famtype
-            LNGHM_P1*prilanguage
+            famtype*FAMTYP_P
+            prilanguage*LNGHM_P1
             (INSMC
              INSMD
              AI22A_P
