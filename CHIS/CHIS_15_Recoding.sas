@@ -90,7 +90,7 @@ PROC FORMAT LIBRARY=CHIS;
                         ;
 
     VALUE fasthmastatus  1    = '1 Current Asthmatic'
-                         2    = '2 Lifetime Asthmatic'
+                         2    = '2 Previous Asthmatic'
                          3    = '3 Non-Asthmatic'
                         ;
 
@@ -216,8 +216,6 @@ DATA CHIS.CHIS_DATA_INTRM;
 RUN;
 
 /* VIEW TABLE CONTENTS & STRUCTURE */
-LIBNAME CHIS2015 "&localRawDataPath.\CHIS\CHIS15_adult_sas\Data\";
-%INCLUDE "&localRawDataPath.\CHIS\CHIS15_adult_sas\Data\ADULT_PROC_FORMAT.SAS";
 ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-CONTENTS.pdf"
         AUTHOR="Matthew C. Vanderbilt"
         TITLE="Targeting Reduced Asthma Hospitalizations"
