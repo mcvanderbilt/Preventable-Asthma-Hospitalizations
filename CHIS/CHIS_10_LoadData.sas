@@ -1,12 +1,3 @@
-%LET _CLIENTTASKLABEL='CHIS_10_LoadData';
-%LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
-%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\AsthmaAnalysis.egp';
-%LET _CLIENTPROJECTPATHHOST='R90T7H56';
-%LET _CLIENTPROJECTNAME='AsthmaAnalysis.egp';
-%LET _SASPROGRAMFILE='';
-%LET _SASPROGRAMFILEHOST='';
-
-GOPTIONS ACCESSIBLE;
 /*************************************************************************************
 **  Project Name    : Secondary Research of Asthma  Hospitalizations                **
 **                    Masters of Science in Business Analytics Capstone Project     **
