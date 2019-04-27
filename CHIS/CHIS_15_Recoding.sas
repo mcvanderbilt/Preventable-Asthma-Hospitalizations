@@ -1,5 +1,7 @@
 %LET _CLIENTTASKLABEL='CHIS_15_Recoding';
 %LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
+%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\AsthmaAnalysis.egp';
+%LET _CLIENTPROJECTPATHHOST='R90T7H56';
 %LET _CLIENTPROJECTNAME='AsthmaAnalysis.egp';
 %LET _SASPROGRAMFILE='';
 %LET _SASPROGRAMFILEHOST='';
@@ -15,7 +17,7 @@ GOPTIONS ACCESSIBLE;
 **                    UC San Diego School of Medicine                               **
 **  =============================================================================== **
 **  Date Created    : 14 April 2019 08:22                                           **
-**  Program Name    : CHIS_10_LoadData                                              **
+**  Program Name    : CHIS_15_Recoding                                              **
 **  Purpose         : Recodes variables identified with inconsistencies or too many **
 **                    categories acros survey years                                 **
 **  Note            : Capitalized values represent SAS commands and unadjusted      **
