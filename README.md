@@ -12,6 +12,9 @@ Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medic
 ## License
 This code is licensed under GNU General Public License Version 3 - see the [LICENSE.md](LICENSE.md) file for details.
 
+## Project Output
+Tableau Dashboard *coming soon*
+
 ## SAS Code Execution
 1. [Load Data](CHIS/CHIS_10_LoadData.sas)
 2. [Review Psychological Distress Scale](CHIS/CHIS_11_DSTRSYR.sas)
