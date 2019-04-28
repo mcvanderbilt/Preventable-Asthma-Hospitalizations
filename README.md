@@ -24,8 +24,8 @@ The objective of this study was to statistically evaluate the association of pot
 
 ## Data Sources
 * [California Health Interview Survey (CHIS) Public Use Data](https://healthpolicy.ucla.edu/chis/)
-* University of California San Diego EPIC SlicerDicer (approved use under IRB for HIPAA compliance)
 * [U.S. Census Bureau 2017 ACS 5-Year Estimates with All Public Use Microdata Areas within California](https://factfinder.census.gov/)
+* University of California San Diego EPIC SlicerDicer Summary Views (approved use under IRB for HIPAA compliance)
 
 ## Author(s)
 * **Matthew C. Vanderbilt** - *Initial work* - [mcvanderbilt](https://github.com/mcvanderbilt)
