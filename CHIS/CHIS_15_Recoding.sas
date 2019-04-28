@@ -33,19 +33,6 @@ ODS GRAPHICS OFF;
 * Determine File Path for SAS EGP;
 %LET localProjectPath = %SYSFUNC(SUBSTR(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH)), 1, %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTPATH))) - %LENGTH(%SYSFUNC(DEQUOTE(&_CLIENTPROJECTNAME))) ));
 
-* Pull Secure File Path from Text
-* Determine C:\MyDocuments Path to Raw Data;
-FILENAME scrPath "&localProjectPath.RawDataPath.txt";
-DATA _NULL_;
-    LENGTH text $265;
-    RETAIN text '';
-    INFILE scrPath FLOWOVER DLMSTR='//' END=last;
-    INPUT;
-    text = CATS(text,_INFILE_);
-    IF last THEN CALL SYMPUT('rawpath',text);
-RUN;
-%LET localRawDataPath = %SYSFUNC(CAT(C:\Users\,%SYSFUNC(DEQUOTE(&_CLIENTUSERID)),%SYSFUNC(TRIM(%SYSFUNC(DEQUOTE(&rawpath)))) ));
-
 /* MASTER LIBRARIES */
 LIBNAME CHIS "&localProjectPath.CHIS";
 
