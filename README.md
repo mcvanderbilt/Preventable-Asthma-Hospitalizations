@@ -12,6 +12,9 @@ Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medic
 ## License
 This code is licensed under GNU General Public License Version 3 - see the [LICENSE.md](LICENSE.md) file for details.
 
+## SAS Code
+1. [Load Data](CHIS/CHIS_10_LoadData.sas)
+
 <br/>
 <br/>
 <a href="http://www.cdc.gov/asthma/?s_cid=asthma-002-bb" title="One in 13 Americans has Asthma">
