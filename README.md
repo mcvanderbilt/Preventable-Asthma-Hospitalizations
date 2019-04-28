@@ -57,7 +57,7 @@ UC San Diego Health
 [LinkedIn](https://www.linkedin.com/in/svanderbilt/)
 
 ## References
-*See [Project Wiki](https://github.com/mcvanderbilt/Preventable-Asthma-Hospitalizations/wiki/References)*
+*See [Project Wiki References](wiki/References)*
 
 <br/>
 <br/>
