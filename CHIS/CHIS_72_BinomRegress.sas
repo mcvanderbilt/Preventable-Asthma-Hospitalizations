@@ -1,7 +1,5 @@
 %LET _CLIENTTASKLABEL='CHIS_72_BinomRegress';
 %LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
-%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\AsthmaAnalysis.egp';
-%LET _CLIENTPROJECTPATHHOST='R90T7H56';
 %LET _CLIENTPROJECTNAME='AsthmaAnalysis.egp';
 %LET _SASPROGRAMFILE='';
 %LET _SASPROGRAMFILEHOST='';
@@ -17,7 +15,7 @@ GOPTIONS ACCESSIBLE;
 **                    UC San Diego School of Medicine                               **
 **  =============================================================================== **
 **  Date Created    : 24 April 2019 14:54                                           **
-**  Program Name    : CHIS_72_BinomRegressionB                                      **
+**  Program Name    : CHIS_72_BinomRegress                                          **
 **  Purpose         : Performs Binomial Regression Model B - Census                 **
 **  Note            : Capitalized values represent SAS commands and unadjusted      **
 **                    variables; lower-case variables represent study-created       **
@@ -87,7 +85,7 @@ PROC FORMAT LIBRARY=CHIS;
 RUN;
 
 /* CREATE BINOMIAL ANALYSIS DATASET WITH RECODED VARIABLES */
-DATA CHIS.CHIS_DATA_BINOMIAL;
+DATA CHIS.CHIS_DATA_BINOMIAL_BC;
     SET CHIS.CHIS_DATA_FINAL (WHERE=(asthmastatus IN(1,3)));
 
     * Collapse Race/Ethnicity Categories;
@@ -145,7 +143,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-R
         TITLE="Targeting Reduced Asthma Hospitalizations"
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
-    PROC REG DATA=CHIS.CHIS_DATA_BINOMIAL;
+    PROC REG DATA=CHIS.CHIS_DATA_BINOMIAL_BC;
         TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC REG - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
@@ -168,7 +166,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
         ODS GRAPHICS ON;
-    PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_BINOMIAL VARMETHOD=JACKKNIFE;
+    PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_BINOMIAL_BC VARMETHOD=JACKKNIFE;
         TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Univarites for Model B - Census';
         WEIGHT    FNWGT0;
         REPWEIGHT FNWGT1-FNWGT160 / jkcoefs = 1;
@@ -191,8 +189,8 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         TITLE="Targeting Reduced Asthma Hospitalizations"
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
-    PROC SURVEYLOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL VARMETHOD=JACKKNIFE;
-        TITLE 'PROC SURVEYLOGISTIC - CHIS.CHIS_DATA_BINOMIAL - Model B - Census';
+    PROC SURVEYLOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL_BC VARMETHOD=JACKKNIFE;
+        TITLE 'PROC SURVEYLOGISTIC - CHIS.CHIS_DATA_BINOMIAL_BC - Model B - Census';
         WEIGHT     FNWGT0;
         REPWEIGHTS FNWGT1-FNWGT160 / jkcoefs = 1;
         CLASS      nonasthmatic(REF='1 Non-Asthmatic')

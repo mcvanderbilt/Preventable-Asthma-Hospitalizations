@@ -1,3 +1,8 @@
+%LET _CLIENTTASKLABEL='CHIS_71_BinomRegress';
+%LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
+%LET _CLIENTPROJECTNAME='AsthmaAnalysis.egp';
+%LET _SASPROGRAMFILE='';
+%LET _SASPROGRAMFILEHOST='';
 
 GOPTIONS ACCESSIBLE;
 /*************************************************************************************
@@ -10,7 +15,7 @@ GOPTIONS ACCESSIBLE;
 **                    UC San Diego School of Medicine                               **
 **  =============================================================================== **
 **  Date Created    : 23 April 2019                                                 **
-**  Program Name    : CHIS_71_BinomRegressionB                                      **
+**  Program Name    : CHIS_71_BinomRegress                                          **
 **  Purpose         : Performs Binomial Regression Model B                          **
 **  Note            : Capitalized values represent SAS commands and unadjusted      **
 **                    variables; lower-case variables represent study-created       **
@@ -25,19 +30,36 @@ GOPTIONS ACCESSIBLE;
 /* MASTER LIBRARY */
 LIBNAME CHIS "&localProjectPath.CHIS";
 
-/* ENABLE SAS GRAPHICS */
-ODS GRAPHICS ON;
+/* Determine PDF Password */
+* Pull PDF Password from Text;
+FILENAME scrPath "&localProjectPath.PDFPassword.txt";
+DATA _NULL_;
+    LENGTH text $265;
+    RETAIN text '';
+    INFILE scrPath FLOWOVER DLMSTR='//' END=last;
+    INPUT;
+    text = CATS(text,_INFILE_);
+    IF last THEN CALL SYMPUT('rawpath',text);
+RUN;
+%LET pdfPassword = %SYSFUNC(TRIM(%SYSFUNC(DEQUOTE(&rawpath))));
+
+/* DEFINE GLOBAL OPTIONS */
+ODS GRAPHICS OFF;
+OPTIONS PDFSECURITY=HIGH;
+OPTIONS PDFPASSWORD=(owner="&pdfPassword");
 
 /* APPLY CHIS FORMATS */
 OPTIONS fmtsearch=(CHIS);
 
 /* DEFINE FORMATS FOR NEWLY RECODED VARIABLES */
 PROC FORMAT LIBRARY=CHIS;
+
     VALUE frace         1    = 'Latino'
                         3    = 'American Indian / Alaska Native'
+                        4    = 'Asian'
                         5    = 'African American'
+                        6    = 'White'
                         9    = 'Multiracial / Other'
-                        10    = 'White / African American / Asian'
                         ;
 
     VALUE fchildhh      1    = 'Children in HH'
@@ -64,13 +86,12 @@ PROC FORMAT LIBRARY=CHIS;
 RUN;
 
 /* CREATE BINOMIAL ANALYSIS DATASET WITH RECODED VARIABLES */
-DATA CHIS.CHIS_DATA_BINOMIAL;
+DATA CHIS.CHIS_DATA_BINOMIAL_B;
     SET CHIS.CHIS_DATA_FINAL (WHERE=(asthmastatus IN(1,3)));
 
     * Collapse Race/Ethnicity Categories;
     race = RACEDF_P1;
     IF RACEDF_P1 IN(2,8) THEN race = 9;     *Collapse Other with Multiracial;
-    IF RACEDF_P1 IN(4,5,6) THEN race = 10;  *Collapse Asian with White*;
     LABEL    race    = 'race';
     FORMAT    race    frace.;
 
@@ -107,84 +128,103 @@ DATA CHIS.CHIS_DATA_BINOMIAL;
 RUN;
 
 /* VALIDATE RECODED DATASET CONTENTS */
-PROC CONTENTS DATA=CHIS.CHIS_DATA_INTRM VARNUM;
-    TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_INTRM';
-RUN;
+ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-CONTENTS.pdf"
+        AUTHOR="Matthew C. Vanderbilt"
+        TITLE="Targeting Reduced Asthma Hospitalizations"
+        SUBJECT="MS Business Analytics Thesis"
+        STYLE=StatDoc;
+    PROC CONTENTS DATA=CHIS.CHIS_DATA_INTRM VARNUM;
+        TITLE 'PROC CONTENTS - CHIS.CHIS_DATA_INTRM';
+    RUN;
+ODS PDF CLOSE;
 
 /* TEST MODEL VARIABLES FOR MULTICOLLINEARITY */
-PROC REG DATA=CHIS.CHIS_DATA_BINOMIAL ;
-    TITLE 'PROC REG - CHIS.CHIS_DATA_BINOMIAL - Model B Multicollinearity Test';
-    MODEL    nonasthmatic = SRSEX
-                            lateradult
-                            CITIZEN2
-                            race
-                            childhh
-                            rcbmi
-                            DSTRS12
-                            pfpl
-                            INS
-                            / TOL VIF COLLIN;
-                            ;
-RUN;
+ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-REG.pdf"
+        AUTHOR="Matthew C. Vanderbilt"
+        TITLE="Targeting Reduced Asthma Hospitalizations"
+        SUBJECT="MS Business Analytics Thesis"
+        STYLE=StatDoc;
+    PROC REG DATA=CHIS.CHIS_DATA_BINOMIAL_B ;
+        TITLE 'PROC REG - CHIS.CHIS_DATA_BINOMIAL_B - Model B Multicollinearity Test';
+        MODEL    nonasthmatic = SRSEX
+                                lateradult
+                                CITIZEN2
+                                race
+                                childhh
+                                rcbmi
+                                DSTRS12
+                                pfpl
+                                INS
+                                / TOL VIF COLLIN;
+                                ;
+    RUN;
+ODS PDF CLOSE;
 
 /* PERFORM WEIGHTED UNIVARIATE ANALYSIS FOR RECODED BINOMIAL DATASET */
-PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_BINOMIAL VARMETHOD=JACKKNIFE;
-    TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Univarites for Model B';
-    WEIGHT    FNWGT0;
-    REPWEIGHT FNWGT1-FNWGT160 / jkcoefs = 1;
-    TABLES    (SRSEX
-               lateradult
-               CITIZEN2
-               race
-               childhh
-               rcbmi
-               DSTRS12
-               pfpl
-               INS
-              )*nonasthmatic 
-              / CHISQ PLOTS=ALL;
-RUN;
+ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-SURVEYFREQ.pdf"
+        AUTHOR="Matthew C. Vanderbilt"
+        TITLE="Targeting Reduced Asthma Hospitalizations"
+        SUBJECT="MS Business Analytics Thesis"
+        STYLE=StatDoc;
+        ODS GRAPHICS ON;
+    PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_BINOMIAL_B VARMETHOD=JACKKNIFE;
+        TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Univarites for Model B';
+        WEIGHT    FNWGT0;
+        REPWEIGHT FNWGT1-FNWGT160 / jkcoefs = 1;
+        TABLES    (SRSEX
+                   lateradult
+                   CITIZEN2
+                   race
+                   childhh
+                   rcbmi
+                   DSTRS12
+                   pfpl
+                   INS
+                  )*nonasthmatic 
+                  / CHISQ PLOTS=ALL;
+    RUN;
+ODS PDF CLOSE;
 
 /* PERFORM BINOMIAL LOGISTIC REGRESSION */
-PROC SURVEYLOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL VARMETHOD=JACKKNIFE;
-    TITLE 'PROC SURVEYLOGISTIC - CHIS.CHIS_DATA_BINOMIAL - Model B';
-    WEIGHT     FNWGT0;
-    REPWEIGHTS FNWGT1-FNWGT160 / jkcoefs = 1;
-    CLASS      nonasthmatic(REF='1 Non-Asthmatic')          /*Dichotomous Non-Asthmatic*/
-               SRSEX(REF='Male')                            /*Dichotomous Sex*/
-               lateradult(REF='Later Adult')                /*Dichotomous Later Adult*/
-               CITIZEN2(REF='Naturalized Citizen')          /*Nominal Citizenship Status*/
-               race(REF='White / African American / Asian') /*Nominal Race / Ethnicity*/
-               childhh(REF='No Children in HH')             /*Dichotomous Children in Household*/
-               rcbmi(REF='Not Overweight 0-24.99')          /*Ordinal Descriptive BMI*/
-               DSTRS12(REF='No')                            /*Dichotomous Psychological Distress Likelihood*/
-               pfpl(REF='100% FPL and Above')               /*Dichotomous Poverty Level*/
-               INS(REF='Yes')                               /*Dichotomous Insured for Health Care*/
-               ;
-    MODEL    nonasthmatic = SRSEX
-                            lateradult
-                            CITIZEN2
-                            race
-                            childhh
-                            rcbmi
-                            DSTRS12
-                            pfpl
-                            INS
-                            / LINK=GLOGIT CTABLE PPROB = (1-0.148) /*California Population is 14.8% Asthmatic*/
-                              CORRB COVB RSQUARE STB
-                            ;
-RUN;
+ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-SURVEYLOGISTIC.pdf"
+        AUTHOR="Matthew C. Vanderbilt"
+        TITLE="Targeting Reduced Asthma Hospitalizations"
+        SUBJECT="MS Business Analytics Thesis"
+        STYLE=StatDoc;
+    PROC SURVEYLOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL_B VARMETHOD=JACKKNIFE;
+        TITLE 'PROC SURVEYLOGISTIC - CHIS.CHIS_DATA_BINOMIAL_B - Model B';
+        WEIGHT     FNWGT0;
+        REPWEIGHTS FNWGT1-FNWGT160 / jkcoefs = 1;
+        CLASS      nonasthmatic(REF='1 Non-Asthmatic')
+                   SRSEX(REF='Male')
+                   lateradult(REF='Later Adult')
+                   CITIZEN2(REF='Naturalized Citizen')
+                   race(REF='White')
+                   childhh(REF='Children in HH')
+                   rcbmi(REF='Not Overweight 0-24.99')
+                   DSTRS12(REF='No')
+                   pfpl(REF='100% FPL and Above')
+                   INS(REF='No')
+                   ;
+        MODEL    nonasthmatic = SRSEX
+                                lateradult
+                                CITIZEN2
+                                race
+                                childhh
+                                rcbmi
+                                DSTRS12
+                                pfpl
+                                INS
+                                / LINK=GLOGIT CTABLE PPROB = (0.852) /*1 - CA Asthma Rate*/
+                                  CORRB COVB RSQUARE STB
+                                ;
+    RUN;
+ODS PDF CLOSE;
 
 /* DISABLE SAS GRAPHICS */
 ODS GRAPHICS OFF;
 
 QUIT;
-
-/* REFERENCES 
-Hemedinger, C. (2016). "How to read the contents of a file into a SAS macro 
-    variable." The SAS Dummy https://blogs.sas.com/content/sasdummy/2016/07/12/how-to
-    -read-the-contents-of-a-file-into-a-sas-macro-variable/ 2019.
-*/
 
 GOPTIONS NOACCESSIBLE;
 %LET _CLIENTTASKLABEL=;
