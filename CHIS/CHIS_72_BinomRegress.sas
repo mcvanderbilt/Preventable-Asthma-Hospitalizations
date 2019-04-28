@@ -1,5 +1,7 @@
 %LET _CLIENTTASKLABEL='CHIS_72_BinomRegress';
 %LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
+%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\AsthmaAnalysis.egp';
+%LET _CLIENTPROJECTPATHHOST='R90T7H56';
 %LET _CLIENTPROJECTNAME='AsthmaAnalysis.egp';
 %LET _SASPROGRAMFILE='';
 %LET _SASPROGRAMFILEHOST='';
@@ -165,7 +167,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         TITLE="Targeting Reduced Asthma Hospitalizations"
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
-        ODS GRAPHICS ON;
+        ODS GRAPHICS ON / WIDTH=1280px HEIGHT=960;
     PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_BINOMIAL_BC VARMETHOD=JACKKNIFE;
         TITLE 'PROC SURVEYFREQ - CHIS.CHIS_DATA_FINAL - Univarites for Model B - Census';
         WEIGHT    FNWGT0;
