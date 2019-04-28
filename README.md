@@ -1,12 +1,13 @@
 # Targeting Reduced Asthma Hospitalizations through Geospatial Statistics
 ## Secondary Research of Preventable Asthma Hospitalizations
 #### A Thesis Submitted to the Graduate Faculty of the National University, Schools of Businesss & Management and Engineering & Computing in partial fulfillment of the requirements for the degree of Masters of Science in Business Analytics
-*See [Project Wiki](wiki) for complete details.*
 
 Prepared by **Matthew C. Vanderbilt**  
 MSBA Candidate & NU Scholar, National University  
 Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine  
 [MatthewVanderbilt.com](https://matthewvanderbilt.com) | [GitHub](https://github.com/mcvanderbilt) | [LinkedIn](https://linkedin.com/in/vanderbilt)
+
+*See [Project Wiki](wiki) for complete details.*
 
 ## License
 This code is licensed under GNU General Public License Version 3 - see the [LICENSE.md](LICENSE.md) file for details.
