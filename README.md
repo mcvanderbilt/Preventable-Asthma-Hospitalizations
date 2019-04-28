@@ -2,6 +2,7 @@
 ## Secondary Research of Preventable Asthma Hospitalizations
 #### A Thesis Submitted to the Graduate Faculty of the National University, Schools of Businesss & Management and Engineering & Computing in partial fulfillment of the requirements for the degree of Masters of Science in Business Analytics
 *See [Project Wiki](wiki) for complete details.*
+
 Prepared by **Matthew C. Vanderbilt**  
 MSBA Candidate & NU Scholar, National University  
 Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medicine  
