@@ -56,6 +56,9 @@ Director, Hospital Contracting & Analytics
 UC San Diego Health  
 [LinkedIn](https://www.linkedin.com/in/svanderbilt/)
 
+## References
+*See [Project Wiki](https://github.com/mcvanderbilt/Preventable-Asthma-Hospitalizations/wiki/References)*
+
 <br/>
 <br/>
 <a href="http://www.cdc.gov/asthma/?s_cid=asthma-002-bb" title="One in 13 Americans has Asthma">
