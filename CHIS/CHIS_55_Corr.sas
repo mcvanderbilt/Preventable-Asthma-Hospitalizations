@@ -16,7 +16,7 @@ GOPTIONS ACCESSIBLE;
 **  =============================================================================== **
 **  Date Created    : 04 April 2019 13:37                                           **
 **  Program Name    : CHIS_55_Corr                                                  **
-**  Purpose         : Additional Categorical Exploratory Data Analysis              **
+**  Purpose         : Correlation Exploratory Data Analysis                         **
 **  Note            : Capitalized values represent SAS commands and unadjusted      **
 **                    variables; lower-case variables represent study-created       **
 **                    variables.                                                    **
