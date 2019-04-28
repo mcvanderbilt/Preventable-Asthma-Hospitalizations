@@ -12,8 +12,22 @@ Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medic
 ## License
 This code is licensed under GNU General Public License Version 3 - see the [LICENSE.md](LICENSE.md) file for details.
 
-## SAS Code
+## SAS Code Execution
 1. [Load Data](CHIS/CHIS_10_LoadData.sas)
+2. [Review Psychological Distress Scale](CHIS/CHIS_11_DSTRSYR.sas)
+3. [Recode & Normalize Variables](CHIS/CHIS_15_Recoding.sas)
+4. [Restrict Data to Common Survey Variables](CHIS/CHIS_20_ComVars)
+5. [Create Final Table for Analysis](CHIS/CHIS_30_FinalData)
+6. [Create Subset Table for Decision Tree Analysis](CHIS/CHIS_35_MinerDS)
+7. [Investigate Subject Characteristics](CHIS/CHIS_40_SubjectChar)
+8. [Investigate Subject Asthma Characteristics](CHIS/CHIS_45_AsthmaChar)
+9. [Investigate Weighted Survey Population Frequencies](CHIS/CHIS_50_EDA)
+10. [Perform Total Variable Correlation](CHIS/CHIS_55_Corr)
+11. [Perform Multinomial Logistic Regression](CHIS/CHIS_60_Regression)
+12. [Investigate Links between Healthy Food Accesss with Poverty and Descriptive BMI](CHIS/CHIS_61_PovFood)
+13. [Perform Binomial Logistic Regression](CHIS/CHIS_70_BinomRegress)
+14. [Perform Adjusted Binomial Logistic Regression](CHIS/CHIS_71_BinomRegress)
+15. [Perform Inverted Binomial Logistic Regression](CHIS/CHIS_72_BinomRegress)
 
 <br/>
 <br/>
