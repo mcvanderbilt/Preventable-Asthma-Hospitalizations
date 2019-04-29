@@ -218,7 +218,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         WEIGHT     FNWGT0;
         DOMAIN     analyzeData;
         REPWEIGHTS FNWGT1-FNWGT160 / jkcoefs = 1;
-        CLASS      asthmaesc(REF='1 Asthmatic Escalation')
+        CLASS      asthmaesc(REF='2 No Asthma Escalation')
                    SRSEX(REF='Male')
                    lateradult(REF='Later Adult')
                    CITIZEN2(REF='Naturalized Citizen')
@@ -252,7 +252,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-L
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC SURVEYLOGISTIC - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
         WEIGHT     FNWGT0;
-        CLASS      asthmaesc(REF='1 Asthmatic Escalation')
+        CLASS      asthmaesc(REF='2 No Asthma Escalation')
                    SRSEX(REF='Male')
                    lateradult(REF='Later Adult')
                    CITIZEN2(REF='Naturalized Citizen')
