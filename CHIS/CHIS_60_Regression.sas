@@ -1,5 +1,7 @@
 %LET _CLIENTTASKLABEL='CHIS_60_Regression';
 %LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
+%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\AsthmaAnalysis.egp';
+%LET _CLIENTPROJECTPATHHOST='R90T7H56';
 %LET _CLIENTPROJECTNAME='AsthmaAnalysis.egp';
 %LET _SASPROGRAMFILE='';
 %LET _SASPROGRAMFILEHOST='';
@@ -164,7 +166,9 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
                              agegroup
                              prilanguage
                              famtype
-                             / LINK=GLOGIT;
+                             / LINK=GLOGIT CTABLE PPROB = (0.148) 
+                                  CORRB COVB RSQUARE STB
+                                ;/*CA Asthma Rate*/
     RUN;
 ODS PDF CLOSE;
 
@@ -189,7 +193,9 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
                              rbmi
                              citizen2
                              povll 
-                             / LINK=GLOGIT;
+                             / LINK=GLOGIT CTABLE PPROB = (0.148) 
+                                  CORRB COVB RSQUARE STB
+                                ;/*CA Asthma Rate*/
     RUN;
 ODS PDF CLOSE;
 
@@ -229,47 +235,9 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
                              FSLEV
                              AK4
                              healthplan
-                             / LINK=GLOGIT;
-    RUN;
-ODS PDF CLOSE;
-
-/* PERFORM BINOMIAL LOGISTIC REGRESSION */
-ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-SURVEYLOGISTIC-PRUNEDASTHMA.pdf"
-        AUTHOR="Matthew C. Vanderbilt"
-        TITLE="Targeting Reduced Asthma Hospitalizations"
-        SUBJECT="MS Business Analytics Thesis"
-        STYLE=StatDoc;
-    PROC SURVEYLOGISTIC DATA=CHIS.CHIS_DATA_FINAL (WHERE=(asthmastatus=1)) VARMETHOD=JACKKNIFE;
-        TITLE 'PROC SURVEYLOGISTIC - CHIS.CHIS_DATA_FINAL - Pruned Association for Current Asthmatics';
-        WEIGHT     FNWGT0;
-        REPWEIGHTS FNWGT1-FNWGT160 / jkcoefs = 1;
-        CLASS      AH13A(REF='Yes')
-                   SRSEX(REF='Male')
-                   agegroup(REF='Young Adult (18-39)')
-                   CITIZEN2(REF='US-Born Citizen')
-                   famtype(REF='Married w/ Children')
-                   UR_CLRT(REF='Town & Rural')
-                   RBMI(REF='Normal 18.5-24.99')
-                   SMOKING(REF='Never Smoked Regularly')
-                   DSTRS12(REF='No')
-                   POVLL(REF='300% FPL and Above')
-                   FSLEV(REF='Inapplicable / >=200% FPL')
-                   AK4(REF='Government')
-                   healthplan(REF='Inapplicable')
-                   ;
-        MODEL    AH13A = SRSEX
-                         agegroup
-                         CITIZEN2
-                         famtype
-                         UR_CLRT
-                         RBMI
-                         SMOKING
-                         DSTRS12
-                         POVLL
-                         FSLEV
-                         AK4
-                         healthplan
-                         / LINK=GLOGIT;
+                             / LINK=GLOGIT CTABLE PPROB = (0.148) 
+                                  CORRB COVB RSQUARE STB
+                                ;/*CA Asthma Rate*/
     RUN;
 ODS PDF CLOSE;
 
