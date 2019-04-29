@@ -31,6 +31,10 @@ Tableau Dashboard *coming soon*
 13. [Perform Binomial Logistic Regression](CHIS/CHIS_70_BinomRegress.sas)
 14. [Perform Adjusted Binomial Logistic Regression](CHIS/CHIS_71_BinomRegress.sas)
 15. [Perform Inverted Binomial Logistic Regression](CHIS/CHIS_72_BinomRegress.sas)
+16. [Perform Adjusted Binomial Logistic Regression](CHIS/CHIS_73_BinomRegress.sas)
+17. [Perform Final Binomial Logistic Regression](CHIS/CHIS_74_BinomRegress.sas)
+18. [Perform Binomial Logistic Regression of Asthma Exacerbation](CHIS/CHIS_80_Exacerbations)
+19. [Perform Final Binomial Logistic Regression of Asthma Exacerbation](CHIS/CHIS_81_Exacerbations)
 
 <br/>
 <br/>
