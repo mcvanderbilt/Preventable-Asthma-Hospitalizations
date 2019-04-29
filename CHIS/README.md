@@ -29,9 +29,16 @@ This code is licensed under GNU General Public License Version 3 - see the [LICE
 * [PROC CONTENTS](CHIS_15_Recoding_PROC-CONTENTS.pdf)
 * [PROC FREQ](CHIS_15_Recoding_PROC-FREQ.pdf)
 
-4. [Restrict Data to Common Survey Variables](CHIS/CHIS_20_ComVars.sas)
-5. [Create Final Table for Analysis](CHIS/CHIS_30_FinalData.sas)
-6. [Create Subset Table for Decision Tree Analysis](CHIS/CHIS_35_MinerDS.sas)
+### 4. [Restrict Data to Common Survey Variables](CHIS/CHIS_20_ComVars.sas)
+* [PROC CONTENTS](CHIS_20_ComVars_PROC-CONTENTS.pdff)
+
+### 5. [Create Final Table for Analysis](CHIS/CHIS_30_FinalData.sas)
+* [PROC CONTENTS](CHIS_30_FinalData_PROC-CONTENTS.pdf)
+
+### 6. [Create Subset Table for Decision Tree Analysis](CHIS/CHIS_35_MinerDS.sas)
+* [PROC CONTENTS - All Asthma Classifications](CHIS_35_MinerDS_PROC-CONTENTS-EM-All.pdf)
+* [PROC CONTENTS - Current Asthmatics](CHIS_35_MinerDS_PROC-CONTENTS-EM-CurrAsth.pdf)
+
 7. [Investigate Subject Characteristics](CHIS/CHIS_40_SubjectChar.sas)
 8. [Investigate Subject Asthma Characteristics](CHIS/CHIS_45_AsthmaChar.sas)
 9. [Investigate Weighted Survey Population Frequencies](CHIS/CHIS_50_EDA.sas)
