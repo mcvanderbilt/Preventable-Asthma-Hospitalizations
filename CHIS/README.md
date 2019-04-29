@@ -30,7 +30,7 @@ This code is licensed under GNU General Public License Version 3 - see the [LICE
 * [PROC FREQ](CHIS_15_Recoding_PROC-FREQ.pdf)
 
 ### 4. [Restrict Data to Common Survey Variables](CHIS/CHIS_20_ComVars.sas)
-* [PROC CONTENTS](CHIS_20_ComVars_PROC-CONTENTS.pdff)
+* [PROC CONTENTS](CHIS_20_ComVars_PROC-CONTENTS.pdf)
 
 ### 5. [Create Final Table for Analysis](CHIS/CHIS_30_FinalData.sas)
 * [PROC CONTENTS](CHIS_30_FinalData_PROC-CONTENTS.pdf)
