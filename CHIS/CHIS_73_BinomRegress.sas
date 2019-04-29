@@ -1,4 +1,4 @@
-%LET _CLIENTTASKLABEL='CHIS_72_BinomRegress';
+%LET _CLIENTTASKLABEL='CHIS_73_BinomRegress';
 %LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
 %LET _CLIENTPROJECTNAME='AsthmaAnalysis.egp';
 %LET _SASPROGRAMFILE='';
@@ -14,9 +14,9 @@ GOPTIONS ACCESSIBLE;
 **                    Director of Fiscal Affairs, Department of Medicine,           **
 **                    UC San Diego School of Medicine                               **
 **  =============================================================================== **
-**  Date Created    : 24 April 2019 14:54                                           **
-**  Program Name    : CHIS_72_BinomRegress                                          **
-**  Purpose         : Performs Binomial Regression Model B - Census                 **
+**  Date Created    : 24 April 2019 20:30                                           **
+**  Program Name    : CHIS_73_BinomRegress                                          **
+**  Purpose         : Performs Binomial Regression Model B - Census/3-Level Age     **
 **  Note            : Capitalized values represent SAS commands and unadjusted      **
 **                    variables; lower-case variables represent study-created       **
 **                    variables.                                                    **
@@ -62,15 +62,11 @@ PROC FORMAT LIBRARY=CHIS;
                         ;
 
     VALUE fchildhh      1    = 'Children in HH'
-                        2    = 'No Children in HH'
+                        2l    = 'No Children in HH'
                         ;
 
     VALUE fnonasthmatic 1    = '1 Non-Asthmatic'
                         2    = '2 Current Asthmatic'
-                        ;
-
-    VALUE flateradult   1    = 'Later Adult'
-                        2    = 'Young / Middle Aged'
                         ;
 
     VALUE frcbmi        0    = 'Not Overweight 0-24.99'
@@ -85,7 +81,7 @@ PROC FORMAT LIBRARY=CHIS;
 RUN;
 
 /* CREATE BINOMIAL ANALYSIS DATASET WITH RECODED VARIABLES */
-DATA CHIS.CHIS_DATA_BINOMIAL_BC;
+DATA CHIS.CHIS_DATA_BINOMIAL_BC2;
     SET CHIS.CHIS_DATA_FINAL;
 
     analyzeData = 0;
@@ -109,12 +105,6 @@ DATA CHIS.CHIS_DATA_BINOMIAL_BC;
     LABEL    nonasthmatic = 'Non-Asthmatic';
     FORMAT    nonasthmatic fnonasthmatic.;
 
-    * Collapse Tri-Category Age to Dichotomous;
-    lateradult = 2;
-    IF agegroup = 3 THEN lateradult = 1;
-    LABEL    lateradult    = 'Later Adult';
-    FORMAT    lateradult    flateradult.;
-
     * Collapse Underweight/Normal to Single Category;
     rcbmi = RBMI;
     IF RBMI IN(1,2) THEN rcbmi = 0;
@@ -135,7 +125,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-C
         TITLE="Targeting Reduced Asthma Hospitalizations"
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
-    PROC CONTENTS DATA=CHIS.CHIS_DATA_BINOMIAL_BC (WHERE=(analyzeData=1)) VARNUM;
+    PROC CONTENTS DATA=CHIS.CHIS_DATA_BINOMIAL_BC2 (WHERE=(analyzeData=1)) VARNUM;
         TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC CONTENTS - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
@@ -148,12 +138,12 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-R
         TITLE="Targeting Reduced Asthma Hospitalizations"
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
-    PROC REG DATA=CHIS.CHIS_DATA_BINOMIAL_BC (WHERE=(analyzeData=1));
+    PROC REG DATA=CHIS.CHIS_DATA_BINOMIAL_BC2 (WHERE=(analyzeData=1));
         TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC REG - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
         MODEL    nonasthmatic = SRSEX
-                                lateradult
+                                agegroup
                                 CITIZEN2
                                 race
                                 childhh
@@ -171,7 +161,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
         ODS GRAPHICS ON / WIDTH=1280px HEIGHT=960;
-    PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_BINOMIAL_BC VARMETHOD=JACKKNIFE;
+    PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_BINOMIAL_BC2 VARMETHOD=JACKKNIFE;
         TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC SURVEYFREQ - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
@@ -179,7 +169,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         CLUSTER    analyzeData;
         REPWEIGHT FNWGT1-FNWGT160 / jkcoefs = 1;
         TABLES    (SRSEX
-                   lateradult
+                   agegroup
                    CITIZEN2
                    race
                    childhh
@@ -197,7 +187,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         TITLE="Targeting Reduced Asthma Hospitalizations"
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
-    PROC SURVEYLOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL_BC VARMETHOD=JACKKNIFE;
+    PROC SURVEYLOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL_BC2 VARMETHOD=JACKKNIFE;
         TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC SURVEYLOGISTIC - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
@@ -206,7 +196,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         REPWEIGHTS FNWGT1-FNWGT160 / jkcoefs = 1;
         CLASS      nonasthmatic(REF='1 Non-Asthmatic')
                    SRSEX(REF='Male')
-                   lateradult(REF='Later Adult')
+                   agegroup(REF='Later Adult (65+)')
                    CITIZEN2(REF='Naturalized Citizen')
                    race(REF='White')
                    childhh(REF='Children in HH')
@@ -214,7 +204,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
                    INS(REF='No')
                    ;
         MODEL    nonasthmatic = SRSEX
-                                lateradult
+                                agegroup
                                 CITIZEN2
                                 race
                                 childhh
@@ -233,14 +223,14 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-L
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
         ODS GRAPHICS ON / WIDTH=1280px HEIGHT=960;
-    PROC LOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL_BC (WHERE=(analyzeData=1)) PLOTS=ALL;
+    PROC LOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL_BC2 (WHERE=(analyzeData=1)) PLOTS=ALL;
         TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC SURVEYLOGISTIC - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
         WEIGHT     FNWGT0;
         CLASS      nonasthmatic(REF='1 Non-Asthmatic')
                    SRSEX(REF='Male')
-                   lateradult(REF='Later Adult')
+                   agegroup(REF='Later Adult (65+)')
                    CITIZEN2(REF='Naturalized Citizen')
                    race(REF='White')
                    childhh(REF='Children in HH')
@@ -248,7 +238,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-L
                    INS(REF='No')
                    ;
         MODEL    nonasthmatic = SRSEX
-                                lateradult
+                                agegroup
                                 CITIZEN2
                                 race
                                 childhh
