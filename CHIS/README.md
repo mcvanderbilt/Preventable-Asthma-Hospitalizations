@@ -20,7 +20,7 @@ This code is licensed under GNU General Public License Version 3 - see the [LICE
 * [PROC CONTENTS - 2014](CHIS_10_LoadData_PROC_CONTENTS-2014.pdf)
 * [PROC CONTENTS - 2015](CHIS_10_LoadData_PROC_CONTENTS-2015.pdf)
 * [PROC CONTENTS - 2016](CHIS_10_LoadData_PROC_CONTENTS-2016.pdf)
-* [PROC CONTENTS - 2011 - 2016](CHIS_10_LoadData_PROC_CONTENTS.pdf)
+* [PROC CONTENTS - 2011 - 2016](CHIS_10_LoadData_PROC-CONTENTS.pdf)
 
 ### 2. [Review Psychological Distress Scale](CHIS_11_DSTRSYR.sas)
 * [PROC FREQ](CHIS_11_DSTRSYR_PROC-FREQ.pdf)
