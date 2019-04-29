@@ -88,7 +88,10 @@ RUN;
 
 /* CREATE BINOMIAL ANALYSIS DATASET WITH RECODED VARIABLES */
 DATA CHIS.CHIS_DATA_BINOMIAL_BC;
-    SET CHIS.CHIS_DATA_FINAL (WHERE=(asthmastatus IN(1,3)));
+    SET CHIS.CHIS_DATA_FINAL;
+
+    analyzeData = 0;
+    IF asthmastatus IN(1,3) THEN analyzeData = 1;
 
     * Collapse Race/Ethnicity Categories;
     race = RACEDF_P1;
@@ -134,7 +137,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-C
         TITLE="Targeting Reduced Asthma Hospitalizations"
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
-    PROC CONTENTS DATA=CHIS.CHIS_DATA_INTRM VARNUM;
+    PROC CONTENTS DATA=CHIS.CHIS_DATA_BINOMIAL_BC (WHERE=(analyzeData=1)) VARNUM;
         TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC CONTENTS - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
@@ -147,7 +150,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-R
         TITLE="Targeting Reduced Asthma Hospitalizations"
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
-    PROC REG DATA=CHIS.CHIS_DATA_BINOMIAL_BC;
+    PROC REG DATA=CHIS.CHIS_DATA_BINOMIAL_BC (WHERE=(analyzeData=1));
         TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC REG - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
@@ -175,6 +178,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC SURVEYFREQ - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
         WEIGHT    FNWGT0;
+        CLUSTER    analyzeData;
         REPWEIGHT FNWGT1-FNWGT160 / jkcoefs = 1;
         TABLES    (SRSEX
                    lateradult
@@ -200,6 +204,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC SURVEYLOGISTIC - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
         WEIGHT     FNWGT0;
+        DOMAIN     analyzeData;
         REPWEIGHTS FNWGT1-FNWGT160 / jkcoefs = 1;
         CLASS      nonasthmatic(REF='1 Non-Asthmatic')
                    SRSEX(REF='Male')
@@ -222,6 +227,41 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
                                 ;/*1 - CA Asthma Rate*/
     RUN;
 ODS PDF CLOSE;
+
+/* PERFORM UNWEIGHTED BINOMIAL LOGISTIC REGRESSION */
+ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-LOGISTIC.pdf"
+        AUTHOR="Matthew C. Vanderbilt"
+        TITLE="Targeting Reduced Asthma Hospitalizations"
+        SUBJECT="MS Business Analytics Thesis"
+        STYLE=StatDoc;
+        ODS GRAPHICS ON / WIDTH=1280px HEIGHT=960;
+    PROC LOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL_BC (WHERE=(analyzeData=1)) PLOTS=ALL;
+        TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
+        TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
+        TITLE3 "PROC SURVEYLOGISTIC - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
+        WEIGHT     FNWGT0;
+        CLASS      nonasthmatic(REF='1 Non-Asthmatic')
+                   SRSEX(REF='Male')
+                   lateradult(REF='Later Adult')
+                   CITIZEN2(REF='Naturalized Citizen')
+                   race(REF='White')
+                   childhh(REF='Children in HH')
+                   pfpl(REF='100% FPL and Above')
+                   INS(REF='No')
+                   ;
+        MODEL    nonasthmatic = SRSEX
+                                lateradult
+                                CITIZEN2
+                                race
+                                childhh
+                                pfpl
+                                INS
+                                / LINK=GLOGIT CTABLE PPROB = (0.852) 
+                                  CORRB COVB RSQUARE STB
+                                ;/*1 - CA Asthma Rate*/
+    RUN;
+ODS PDF CLOSE;
+
 
 /* DISABLE SAS GRAPHICS */
 ODS GRAPHICS OFF;
