@@ -12,7 +12,7 @@ Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medic
 ## License
 This code is licensed under GNU General Public License Version 3 - see the [LICENSE.md](LICENSE.md) file for details.
 
-## 1. [Load Data](CHIS_10_LoadData.sas)
+### 1. [Load Data](CHIS_10_LoadData.sas)
 * [PROC CONTENTS - 2011](CHIS_10_LoadData_PROC_CONTENTS-2011.pdf)
 * [PROC CONTENTS - 2012](CHIS_10_LoadData_PROC_CONTENTS-2012.pdf)
 * [PROC CONTENTS - 2013](CHIS_10_LoadData_PROC_CONTENTS-2013.pdf)
@@ -21,10 +21,10 @@ This code is licensed under GNU General Public License Version 3 - see the [LICE
 * [PROC CONTENTS - 2016](CHIS_10_LoadData_PROC_CONTENTS-2016.pdf)
 * [PROC CONTENTS - 2011 - 2016](CHIS_10_LoadData_PROC_CONTENTS.pdf)
 
-## 2. [Review Psychological Distress Scale](CHIS_11_DSTRSYR.sas)
+### 2. [Review Psychological Distress Scale](CHIS_11_DSTRSYR.sas)
 * [PROC FREQ](CHIS_11_DSTRSYR_PROC-FREQ.pdf)
 
-## 3. [Recode & Normalize Variables](CHIS/CHIS_15_Recoding.sas)
+### 3. [Recode & Normalize Variables](CHIS/CHIS_15_Recoding.sas)
 * [PROC CONTENTS](CHIS_15_Recoding_PROC-CONTENTS.pdf)
 * [PROC FREQ](CHIS_15_Recoding_PROC-FREQ.pdf)
 
