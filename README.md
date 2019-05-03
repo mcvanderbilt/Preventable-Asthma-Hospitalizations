@@ -13,7 +13,7 @@ Director of Fiscal Affairs, Department of Medicine, UC San Diego School of Medic
 This code is licensed under GNU General Public License Version 3 - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Project Output
-Tableau Dashboard *coming soon*
+[Asthma Probability Model Dashboard on Tableau Public](https://public.tableau.com/views/TargetingReducedAsthmaHospitalizations/AsthmaProbabilityModelDashboard?:embed=y&:display_count=yes&publish=yes)
 
 ## SAS Code Execution
 1. [Load Data](CHIS/CHIS_10_LoadData.sas)
