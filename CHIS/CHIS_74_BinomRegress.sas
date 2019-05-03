@@ -1,5 +1,7 @@
 %LET _CLIENTTASKLABEL='CHIS_74_BinomRegress';
 %LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
+%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\AsthmaAnalysis.egp';
+%LET _CLIENTPROJECTPATHHOST='R90T7H56';
 %LET _CLIENTPROJECTNAME='AsthmaAnalysis.egp';
 %LET _SASPROGRAMFILE='';
 %LET _SASPROGRAMFILEHOST='';
@@ -45,8 +47,8 @@ RUN;
 
 /* DEFINE GLOBAL OPTIONS */
 ODS GRAPHICS OFF;
-OPTIONS PDFSECURITY=HIGH;
 OPTIONS PDFPASSWORD=(owner="&pdfPassword");
+OPTIONS PDFSECURITY=HIGH;
 
 /* APPLY CHIS FORMATS */
 OPTIONS fmtsearch=(CHIS);
@@ -62,7 +64,7 @@ PROC FORMAT LIBRARY=CHIS;
                         ;
 
     VALUE fchildhh      1    = 'Children in HH'
-                        2l    = 'No Children in HH'
+                        2    = 'No Children in HH'
                         ;
 
     VALUE fnonasthmatic 1    = '1 Non-Asthmatic'
@@ -209,6 +211,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
                                 / LINK=GLOGIT CTABLE PPROB = (0.852) 
                                   CORRB COVB RSQUARE STB
                                 ;/*1 - CA Asthma Rate*/
+        ODS OUTPUT ParameterEstimates=CHIS.MLE_CurrentAsthma;
     RUN;
 ODS PDF CLOSE;
 
@@ -248,6 +251,7 @@ ODS PDF CLOSE;
 ODS GRAPHICS OFF;
 
 QUIT;
+
 
 GOPTIONS NOACCESSIBLE;
 %LET _CLIENTTASKLABEL=;

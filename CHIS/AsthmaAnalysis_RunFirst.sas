@@ -1,3 +1,10 @@
+%LET _CLIENTTASKLABEL='AsthmaAnalysis_RunFirst';
+%LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
+%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\AsthmaAnalysis.egp';
+%LET _CLIENTPROJECTPATHHOST='R90T7H56';
+%LET _CLIENTPROJECTNAME='AsthmaAnalysis.egp';
+%LET _SASPROGRAMFILE='';
+%LET _SASPROGRAMFILEHOST='';
 
 GOPTIONS ACCESSIBLE;
 /*************************************************************************************
@@ -59,12 +66,14 @@ RUN;
 
 /* DEFINE GLOBAL OPTIONS */
 ODS GRAPHICS OFF;
-OPTIONS PDFSECURITY=HIGH;
 OPTIONS PDFPASSWORD=(owner="&pdfPassword");
+OPTIONS PDFSECURITY=HIGH;
 
 /* APPLY CHIS FORMATS */
 OPTIONS fmtsearch=(CHIS);
+OPTIONS fmtsearch=(CENSUS);
 
+QUIT;
 
 GOPTIONS NOACCESSIBLE;
 %LET _CLIENTTASKLABEL=;
