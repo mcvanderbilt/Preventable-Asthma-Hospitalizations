@@ -94,6 +94,31 @@ RUN;
 PROC PRINT DATA=CHIS.MLE_CURRENTASTHMA_FLAT;
 RUN;
 
+/* PERFORM UNWEIGHTED BINOMIAL LOGISTIC REGRESSION */
+ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-LOGISTIC-Asthma.pdf"
+        AUTHOR="Matthew C. Vanderbilt"
+        TITLE="Targeting Reduced Asthma Hospitalizations"
+        SUBJECT="MS Business Analytics Thesis"
+        STYLE=StatDoc;
+        ODS GRAPHICS ON / WIDTH=1280px HEIGHT=960;
+    PROC LOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL_D (WHERE=(analyzeData=1)) PLOTS=ALL;
+        TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
+        TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
+        TITLE3 "PROC SURVEYLOGISTIC - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
+        WEIGHT     FNWGT0;
+        CLASS      nonasthmatic(REF='1 Non-Asthmatic')
+                   ;
+        MODEL    nonasthmatic = SRSEX
+                                CITIZEN2
+                                race
+                                pfpl
+                                INS
+                                / LINK=GLOGIT CTABLE PPROB = (0.852) 
+                                  CORRB COVB RSQUARE STB
+                                ;/*1 - CA Asthma Rate*/
+    RUN;
+ODS PDF CLOSE;
+
 /* PERFORM BINOMIAL LOGISTIC REGRESSION */
 ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-SURVEYLOGISTIC-AsthmaEsc.pdf"
         AUTHOR="Matthew C. Vanderbilt"
@@ -110,10 +135,8 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
             CLASS      asthmaesc(REF='2 No Asthma Escalation')
                        ;
             MODEL    asthmaesc = SRSEX
-                                 CITIZEN2
                                  race
                                  pfpl
-                                 INS
                                  / LINK=GLOGIT CTABLE 
                                    CORRB COVB RSQUARE STB;
             ODS OUTPUT ParameterEstimates=CHIS.MLE_ASTHMAESCALATION;
@@ -128,10 +151,8 @@ DATA CHIS.MLE_ASTHMAESCALATION_FLAT (WHERE=(MLEValue='Estimate'));
 
     RENAME col1 = intercept;
     RENAME col2 = SRSEX;
-    RENAME col3 = CITIZEN2;
-    RENAME col4 = race;
-    RENAME col5 = pfpl;
-    RENAME col6  = ins;
+    RENAME col3 = race;
+    RENAME col4 = pfpl;
 
 RUN;
 
@@ -140,6 +161,29 @@ RUN;
 
 PROC PRINT DATA=CHIS.MLE_ASTHMAESCALATION_FLAT;
 RUN;
+
+/* PERFORM UNWEIGHTED BINOMIAL LOGISTIC REGRESSION */
+ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-LOGISTIC-AsthmaEsc.pdf"
+        AUTHOR="Matthew C. Vanderbilt"
+        TITLE="Targeting Reduced Asthma Hospitalizations"
+        SUBJECT="MS Business Analytics Thesis"
+        STYLE=StatDoc;
+        ODS GRAPHICS ON / WIDTH=1280px HEIGHT=960;
+    PROC LOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL_ED2 (WHERE=(analyzeData=1)) PLOTS=ALL;
+        TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
+        TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
+        TITLE3 "PROC SURVEYLOGISTIC - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
+        WEIGHT     FNWGT0;
+        CLASS      asthmaesc(REF='2 No Asthma Escalation')
+                   ;
+        MODEL    asthmaesc = SRSEX
+                             race
+                             pfpl
+                             / LINK=GLOGIT CTABLE PPROB = (0.852) 
+                               CORRB COVB RSQUARE STB
+                             ;/*1 - CA Asthma Rate*/
+    RUN;
+ODS PDF CLOSE;
 
 /* DISABLE SAS GRAPHICS */
 ODS GRAPHICS OFF;

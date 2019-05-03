@@ -1,3 +1,8 @@
+%LET _CLIENTTASKLABEL='CENSUS_10_Processing';
+%LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
+%LET _CLIENTPROJECTNAME='AsthmaAnalysis.egp';
+%LET _SASPROGRAMFILE='';
+%LET _SASPROGRAMFILEHOST='';
 
 GOPTIONS ACCESSIBLE;
 /*************************************************************************************
@@ -57,8 +62,8 @@ RUN;
 
 /* DEFINE GLOBAL OPTIONS */
 ODS GRAPHICS OFF;
-OPTIONS PDFSECURITY=HIGH;
 OPTIONS PDFPASSWORD=(owner="&pdfPassword");
+OPTIONS PDFSECURITY=HIGH;
 
 /* APPLY CENSUS FORMATS */
 OPTIONS fmtsearch=(CENSUS);
@@ -108,6 +113,18 @@ PROC FORMAT LIBRARY=CENSUS;
                         -1    = 'Inapplicable'
                          1    = 'Yes'
                          2    = 'No'
+                        ;
+
+    VALUE fHUPAC        .     = 'N/A'
+                         1    = 'With Children Under 6 Years Only'
+                         2    = 'With Children 6 to 17 Years Only'
+                         3    = 'With Children Under 6 Years and 6 to 17 Years'
+                         4    = 'No Children'
+                        ;
+
+    
+    VALUE fchildhh       1    = 'Mixed Age HH'
+                         2    = 'Adult Only HH'
                         ;
 
 RUN;
@@ -162,8 +179,10 @@ DATA CENSUS.ACS5;
     *Recode Income as Percent of FPL;
     pfpl = 5;
     IF POVPIP=. THEN pfpl = 1;
-    IF INPUT(POVPIP, 8.) < 100 THEN pfpl = 1;
-    IF INPUT(POVPIP, 8.) >= 100 THEN pfpl = 5;
+    IF POVPIP < 100 THEN pfpl = 1;
+    IF POVPIP >= 100 THEN pfpl = 5;
+    *IF INPUT(POVPIP, 8.) < 100 THEN pfpl = 1;
+    *IF INPUT(POVPIP, 8.) >= 100 THEN pfpl = 5;
     LABEL  pfpl    = 'percentage of FPL';
     FORMAT pfpl    fpfpl.;
 
@@ -248,6 +267,31 @@ ODS PDF FILE="&localProjectPath.Census\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC
         TABLES  POVPIP*pfpl / PLOTS = ALL;
         TABLES  HICOV*ins / PLOTS = ALL;
 RUN;
+ODS PDF CLOSE;
+
+/* PERFORM WEIGHTED UNIVARIATE ANALYSIS FOR RECODED BINOMIAL DATASET */
+ODS PDF FILE="&localProjectPath.Census\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-SURVEYFREQ-ModelVariables.pdf"
+        AUTHOR="Matthew C. Vanderbilt"
+        TITLE="Targeting Reduced Asthma Hospitalizations"
+        SUBJECT="MS Business Analytics Thesis"
+        STYLE=StatDoc;
+        *ODS GRAPHICS OFF;
+        ODS GRAPHICS ON / WIDTH=1280px HEIGHT=960;
+    PROC SURVEYFREQ DATA=CENSUS.ACS5 VARMETHOD=BRR(FAY);
+        TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
+        TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
+        TITLE3 "PROC SURVEYFREQ - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
+        TABLES     adult
+                   srsex
+                   citizen2
+                   race
+                   pfpl
+                   ins
+                   / PLOTS=ALL;
+        WEIGHT     PWGTP;
+        REPWEIGHT  PWGTP1-PWGTP80;
+    RUN;
+    ODS GRAPHICS OFF;
 ODS PDF CLOSE;
 
 /* PERFORM WEIGHTED UNIVARIATE ANALYSIS FOR RECODED BINOMIAL DATASET */

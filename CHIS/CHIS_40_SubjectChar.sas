@@ -1,7 +1,5 @@
 %LET _CLIENTTASKLABEL='CHIS_40_SubjectChar';
 %LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
-%LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\AsthmaAnalysis.egp';
-%LET _CLIENTPROJECTPATHHOST='R90T7H56';
 %LET _CLIENTPROJECTNAME='AsthmaAnalysis.egp';
 %LET _SASPROGRAMFILE='';
 %LET _SASPROGRAMFILEHOST='';
