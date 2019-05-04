@@ -1,4 +1,4 @@
-%LET _CLIENTTASKLABEL='CHIS_75_BinomRegress';
+%LET _CLIENTTASKLABEL='CHIS_82_Exacerbations';
 %LET _CLIENTPROCESSFLOWNAME='CHIS_Execution';
 %LET _CLIENTPROJECTPATH='C:\Users\rdy2d\OneDrive\Documents\GitHub\Preventable-Asthma-Hospitalizations\AsthmaAnalysis.egp';
 %LET _CLIENTPROJECTPATHHOST='R90T7H56';
@@ -7,7 +7,7 @@
 %LET _SASPROGRAMFILEHOST='';
 
 GOPTIONS ACCESSIBLE;
- /*************************************************************************************
+C:/*************************************************************************************
 **  Project Name    : Secondary Research of Asthma  Hospitalizations                **
 **                    Masters of Science in Business Analytics Capstone Project     **
 **                    March / April 2019                                            **
@@ -16,9 +16,9 @@ GOPTIONS ACCESSIBLE;
 **                    Director of Fiscal Affairs, Department of Medicine,           **
 **                    UC San Diego School of Medicine                               **
 **  =============================================================================== **
-**  Date Created    : 2 May 2019 13:52                                              **
-**  Program Name    : CHIS_75_BinomRegress                                          **
-**  Purpose         : Performs Binomial Regression Model D - Census/3-Level Age     **
+**  Date Created    : 3 May 2019 22:29                                              **
+**  Program Name    : CHIS_82_Exacerbations                                         **
+**  Purpose         : Performs Binomial Regression Model - ED/UC for Asthma #3      **
 **  Note            : Capitalized values represent SAS commands and unadjusted      **
 **                    variables; lower-case variables represent study-created       **
 **                    variables.                                                    **
@@ -63,8 +63,16 @@ PROC FORMAT LIBRARY=CHIS;
                         9    = 'Multiracial / Other'
                         ;
 
+    VALUE fchildhh      1    = 'Children in HH'
+                        2    = 'No Children in HH'
+                        ;
+
     VALUE fnonasthmatic 1    = '1 Non-Asthmatic'
                         2    = '2 Current Asthmatic'
+                        ;
+
+    VALUE flateradult   1    = 'Later Adult'
+                        2    = 'Young / Middle Aged'
                         ;
 
     VALUE frcbmi        0    = 'Not Overweight 0-24.99'
@@ -75,38 +83,64 @@ PROC FORMAT LIBRARY=CHIS;
     VALUE fpfpl         1    = '0-99% FPL'
                         5    = '100% FPL and Above'
                         ;
+
+    VALUE fasthmaesc    1    = '1 Asthmatic Escalation'
+                        2    = '2 No Asthma Escalation'
+                        ;
     
 RUN;
 
 /* CREATE BINOMIAL ANALYSIS DATASET WITH RECODED VARIABLES */
-DATA CHIS.CHIS_DATA_BINOMIAL_D;
+DATA CHIS.CHIS_DATA_BINOMIAL_ED2;
     SET CHIS.CHIS_DATA_FINAL;
 
     analyzeData = 0;
-    IF asthmastatus IN(1,3) THEN analyzeData = 1;
+    IF asthmastatus = 1 THEN analyzeData = 1;
+
+    * Recode ED/Urgent Care Asthmatic Variable;
+    asthmaesc = 2;
+    IF asthmastatus = 1 THEN 
+        DO;
+            IF AH13A = 1 THEN asthmaesc = 1; *1 = ED/UC;
+            IF AH13A = 2 THEN asthmaesc = 2; *2 = No ED/UC;
+        END;
+    LABEL     asthmaesc = 'ED/UC Asthma Visit';
+    FORMAT    asthmaesc fasthmaesc.;
 
     * Collapse Race/Ethnicity Categories;
     race = RACEDF_P1;
     IF RACEDF_P1 IN(2,8) THEN race = 9;     *Collapse Other with Multiracial;
-    LABEL    race    = 'race';
+    LABEL     race    = 'race';
     FORMAT    race    frace.;
+
+    * Collapse Family Type to Children-in-Household;
+    IF famtype IN(1,3) THEN childhh = 2;
+    IF famtype IN(2,4) THEN childhh = 1;
+    LABEL     childhh    = 'Child Household';
+    FORMAT    childhh    fchildhh.;
 
     * Invert Asthma Status to Boolean Non-Asthmatic;
     nonasthmatic = 1;
     IF asthmastatus = 1 THEN nonasthmatic = 2;
-    LABEL    nonasthmatic = 'Non-Asthmatic';
+    LABEL     nonasthmatic = 'Non-Asthmatic';
     FORMAT    nonasthmatic fnonasthmatic.;
+
+    * Collapse Tri-Category Age to Dichotomous;
+    lateradult = 2;
+    IF agegroup = 3 THEN lateradult = 1;
+    LABEL     lateradult    = 'Later Adult';
+    FORMAT    lateradult    flateradult.;
 
     * Collapse Underweight/Normal to Single Category;
     rcbmi = RBMI;
     IF RBMI IN(1,2) THEN rcbmi = 0;
-    LABEL    rcbmi    = 'descriptive BMI';
+    LABEL     rcbmi    = 'descriptive BMI';
     FORMAT    rcbmi    frcbmi.;
 
     * Collapse FPL to Under vs At Least;
     pfpl = POVLL;
     IF POVLL IN(2,3,4) THEN pfpl = 5;
-    LABEL    pfpl    = 'percentage of FPL';
+    LABEL     pfpl    = 'percentage of FPL';
     FORMAT    pfpl    fpfpl.;
 
 RUN;
@@ -117,7 +151,7 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-C
         TITLE="Targeting Reduced Asthma Hospitalizations"
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
-    PROC CONTENTS DATA=CHIS.CHIS_DATA_BINOMIAL_D (WHERE=(analyzeData=1)) VARNUM;
+    PROC CONTENTS DATA=CHIS.CHIS_DATA_BINOMIAL_ED2 (WHERE=(analyzeData=1)) VARNUM;
         TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC CONTENTS - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
@@ -130,17 +164,15 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-R
         TITLE="Targeting Reduced Asthma Hospitalizations"
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
-    PROC REG DATA=CHIS.CHIS_DATA_BINOMIAL_D (WHERE=(analyzeData=1));
+    PROC REG DATA=CHIS.CHIS_DATA_BINOMIAL_ED2 (WHERE=(analyzeData=1));
         TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC REG - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
-        MODEL    nonasthmatic = SRSEX
-                                CITIZEN2
-                                race
-                                pfpl
-                                INS
-                                / TOL VIF COLLIN;
-                                ;
+        MODEL    asthmaesc = SRSEX
+                             race
+                             pfpl
+                             / TOL VIF COLLIN;
+                             ;
     RUN;
 ODS PDF CLOSE;
 
@@ -151,19 +183,17 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
         ODS GRAPHICS ON / WIDTH=1280px HEIGHT=960;
-    PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_BINOMIAL_D VARMETHOD=JACKKNIFE;
+    PROC SURVEYFREQ DATA=CHIS.CHIS_DATA_BINOMIAL_ED2 VARMETHOD=JACKKNIFE;
         TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC SURVEYFREQ - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
         WEIGHT    FNWGT0;
-        CLUSTER    analyzeData;
+        CLUSTER   analyzeData;
         REPWEIGHT FNWGT1-FNWGT160 / jkcoefs = 1;
         TABLES    (SRSEX
-                   CITIZEN2
                    race
                    pfpl
-                   INS
-                  )*nonasthmatic 
+                  )*asthmaesc 
                   / CHISQ PLOTS=ALL;
     RUN;
     ODS GRAPHICS OFF;
@@ -175,29 +205,24 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-S
         TITLE="Targeting Reduced Asthma Hospitalizations"
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
-    PROC SURVEYLOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL_D VARMETHOD=JACKKNIFE;
+    PROC SURVEYLOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL_ED2 VARMETHOD=JACKKNIFE;
         TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC SURVEYLOGISTIC - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
         WEIGHT     FNWGT0;
         DOMAIN     analyzeData;
         REPWEIGHTS FNWGT1-FNWGT160 / jkcoefs = 1;
-        CLASS      nonasthmatic(REF='1 Non-Asthmatic')
+        CLASS      asthmaesc(REF='2 No Asthma Escalation')
                    SRSEX(REF='Male')
-                   CITIZEN2(REF='Naturalized Citizen')
                    race(REF='White')
                    pfpl(REF='100% FPL and Above')
-                   INS(REF='No')
                    ;
-        MODEL    nonasthmatic = SRSEX
-                                CITIZEN2
-                                race
-                                pfpl
-                                INS
-                                / LINK=GLOGIT CTABLE PPROB = (0.852) 
-                                  CORRB COVB RSQUARE STB
-                                ;/*1 - CA Asthma Rate*/
-        ODS OUTPUT ParameterEstimates=CHIS.MLE_CurrentAsthma;
+        MODEL    asthmaesc = SRSEX
+                             race
+                             pfpl
+                             / LINK=GLOGIT CTABLE PPROB = (0.852) 
+                               CORRB COVB RSQUARE STB
+                             ;/*1 - CA Asthma Rate*/
     RUN;
 ODS PDF CLOSE;
 
@@ -208,26 +233,22 @@ ODS PDF FILE="&localProjectPath.CHIS\%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))_PROC-L
         SUBJECT="MS Business Analytics Thesis"
         STYLE=StatDoc;
         ODS GRAPHICS ON / WIDTH=1280px HEIGHT=960;
-    PROC LOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL_D (WHERE=(analyzeData=1)) PLOTS=ALL;
+    PROC LOGISTIC DATA=CHIS.CHIS_DATA_BINOMIAL_ED2 (WHERE=(analyzeData=1)) PLOTS=ALL;
         TITLE1 "%SYSFUNC(DEQUOTE(&_CLIENTTASKLABEL))";
         TITLE2 "%SYSFUNC(TRIM(&SYSDSN))";
         TITLE3 "PROC SURVEYLOGISTIC - %LEFT(%QSYSFUNC(DATE(), WORDDATE18.))";
         WEIGHT     FNWGT0;
-        CLASS      nonasthmatic(REF='1 Non-Asthmatic')
+        CLASS      asthmaesc(REF='2 No Asthma Escalation')
                    SRSEX(REF='Male')
-                   CITIZEN2(REF='Naturalized Citizen')
                    race(REF='White')
                    pfpl(REF='100% FPL and Above')
-                   INS(REF='No')
                    ;
-        MODEL    nonasthmatic = SRSEX
-                                CITIZEN2
-                                race
-                                pfpl
-                                INS
-                                / LINK=GLOGIT CTABLE PPROB = (0.852) 
-                                  CORRB COVB RSQUARE STB
-                                ;/*1 - CA Asthma Rate*/
+        MODEL    asthmaesc = SRSEX
+                             race
+                             pfpl
+                             / LINK=GLOGIT CTABLE PPROB = (0.852) 
+                               CORRB COVB RSQUARE STB
+                             ;/*1 - CA Asthma Rate*/
     RUN;
 ODS PDF CLOSE;
 
@@ -235,7 +256,6 @@ ODS PDF CLOSE;
 ODS GRAPHICS OFF;
 
 QUIT;
-
 
 GOPTIONS NOACCESSIBLE;
 %LET _CLIENTTASKLABEL=;
